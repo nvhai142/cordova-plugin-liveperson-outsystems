@@ -318,7 +318,7 @@ public class LPMessagingSDK extends CordovaPlugin {
                     mCallbackContext.sendPluginResult(result);
 
                 } catch (Exception e2) {
-                    PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
+                    PluginResult result = new PluginResult(PluginResult.Status.ERROR, "error start conversation");
                     result.setKeepCallback(true);
                     mCallbackContext.sendPluginResult(result);
 
