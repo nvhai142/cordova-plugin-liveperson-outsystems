@@ -141,14 +141,15 @@ public class LPMessagingSDK extends CordovaPlugin {
             case START_CONVERSATION:
                 mCallbackContext = callbackContext;
                 
-                if(!args.isNull(1)) {
-                    Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
-                    String jwt = args.getString(1);
-                    startAuthenticatedConversation(jwt);
-                } else {
-                    Log.d(TAG, "Messaging SDK: Start conversation");
-                    startConversation();
-                }
+                startConversation();
+//                if(!args.isNull(1)) {
+//                    Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
+//                    String jwt = args.getString(1);
+//                    startAuthenticatedConversation(jwt);
+//                } else {
+//                    Log.d(TAG, "Messaging SDK: Start conversation");
+//                    startConversation();
+//                }
 
                 break;
             case RECONNECT_WITH_NEW_TOKEN:
