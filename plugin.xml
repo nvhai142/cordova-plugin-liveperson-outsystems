@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin 
+	xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.liveperson.messagingSDK"
+	version="0.0.1">
+
+	<name>cordova-plugin-live-person-message</name>
+
+	<asset src="www/LPMessagingSDK.js" target="js/LPMessagingSDK.js"/>
+
+	<js-module src="www/LPMessagingSDK.js" name="lpMessagingSDK">
+		<clobbers target="lpMessagingSDK" />
+	</js-module>
+
+	<!-- Android -->
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="LPMessagingSDK" >
+				<param name="android-package" value="com.liveperson.plugin.LPMessagingSDK"/>
+			</feature>
+		</config-file>
+
+		<!--  AndroidManifest Changes - Permissions-->
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET"/>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+		</config-file>
+
+        <!-- LivePerson Android SDK -->
+        <framework src="com.liveperson.android:lp_messaging_sdk:4.3.+" />
+
+        <!--  Plugin Code -->
+        <source-file src="src/android/LPMessagingSDK.java" target-dir="src/com/liveperson/plugin/" />
+
+        <resource-file src="src/android/res/values/branding.xml" target="res/values/branding.xml"/>
+        <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml"/>
+        <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml"/>
+
+	</platform>
+
+	<!-- iOS -->
+	<platform name="ios">
+		<!--<hook type="before_build" src="hooks/embed/installXcode.js" />-->
+		<config-file target="config.xml" parent="/*">
+			<feature name="LPMessagingSDKPlugin" >
+				<param name="ios-package" value="LPMessagingSDKPlugin"/>
+			</feature>
+		</config-file>
+
+		<framework src="src/ios/frameworks/LPInfra.framework" custom="true" />
+		<framework src="src/ios/frameworks/LPMessagingSDK.framework" custom="true" />
+		<framework src="src/ios/frameworks/LPAMS.framework" custom="true" />
+		<resource-file src="src/ios/frameworks/LPMessagingSDKModels.bundle" custom="true"/>
+		<source-file src="src/ios/LPMessagingSDKPlugin.swift" />
+		<source-file src="src/ios/LPSDKCordovaSample-Bridging-Header.h" />
+		
+		<!-- Add in the swift-support plugin by default -->
+		<dependency url="https://github.com/agoncalvesos/cordova-plugin-add-swift-support" commit="513e43f94ae94ad609d49f24e7dca23a4c358095" id="cordova-plugin-add-swift-support"/>
+	</platform>
+
+</plugin>
