@@ -279,7 +279,9 @@ public class LPMessagingSDK extends CordovaPlugin {
                         json.put("eventName","LPMessagingSDKStartConversation");
                         json.put("type","unauthenticated");
                     } catch (JSONException e1) {
-                        e1.printStackTrace();
+                        PluginResult result = new PluginResult(PluginResult.Status.ERROR, "error start conversation1");
+                        result.setKeepCallback(true);
+                        mCallbackContext.sendPluginResult(result);
                     }
                     try {
                         LivePerson.showConversation(cordova.getActivity());
@@ -288,7 +290,7 @@ public class LPMessagingSDK extends CordovaPlugin {
                         mCallbackContext.sendPluginResult(result);
                         setCallBack();
                     } catch (Exception e2) {
-                        PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
+                        PluginResult result = new PluginResult(PluginResult.Status.ERROR, "error start conversation2");
                         result.setKeepCallback(true);
                         mCallbackContext.sendPluginResult(result);
                         setCallBack();
@@ -308,7 +310,9 @@ public class LPMessagingSDK extends CordovaPlugin {
                     json.put("type","authenticated");
 
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    PluginResult result = new PluginResult(PluginResult.Status.ERROR, "error start conversation1");
+                    result.setKeepCallback(true);
+                    mCallbackContext.sendPluginResult(result);
                 }
 
                 try {
@@ -318,7 +322,7 @@ public class LPMessagingSDK extends CordovaPlugin {
                     mCallbackContext.sendPluginResult(result);
 
                 } catch (Exception e2) {
-                    PluginResult result = new PluginResult(PluginResult.Status.ERROR, "error start conversation");
+                    PluginResult result = new PluginResult(PluginResult.Status.ERROR, "error start conversation2");
                     result.setKeepCallback(true);
                     mCallbackContext.sendPluginResult(result);
 
