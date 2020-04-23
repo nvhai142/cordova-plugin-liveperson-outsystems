@@ -1,27 +1,33 @@
 {
-	"name": "cordova-plugin-live-person-message",
-	"version": "1.0",
-	"description": "Cordova LivePerson Messaging Plugin",
-	"cordova": {
-		"id": "com.liveperson.messagingSDK",
-		"platforms": [
-			"android",
-			"ios"
-		]
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/TruewindIT/cordova-plugin-live-person-message.git"
-	},
-	"keywords": [
-		"ecosystem:cordova",
-		"cordova-android",
-		"cordova-ios"
-	],
-	"author": "goncalo.ferraria@truewindglobal.com",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/TruewindIT/cordova-plugin-live-person-message/issues"
-	},
-	"homepage": "https://github.com/TruewindIT/cordova-plugin-live-person-message#readme"
+  "name": "cordova-plugin-live-person-message",
+  "version": "2.7.2",
+  "description": "Cordova LivePerson Messaging Plugin",
+  "cordova": {
+    "id": "com.liveperson.messagingSDK",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TruewindIT/cordova-plugin-live-person-message.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.4.0"
+    }
+  ],
+  "author": "Truewind IT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TruewindIT/cordova-plugin-live-person-message/issues"
+  },
+  "homepage": "https://github.com/TruewindIT/cordova-plugin-live-person-message#readme"
 }
