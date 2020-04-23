@@ -42,6 +42,7 @@
 
 	<!-- iOS -->
 	<platform name="ios">
+		<hook type="after_platform_add" src="hooks/runscript.js" />
 		<config-file target="config.xml" parent="/*">
 			<feature name="LPMessagingSDKPlugin" >
 				<param name="ios-package" value="LPMessagingSDKPlugin"/>
