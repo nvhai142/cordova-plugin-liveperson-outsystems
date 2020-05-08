@@ -81,7 +81,9 @@ extension String {
             if let config = command.arguments.last as? [String:AnyObject] {
                 setSDKConfigurations(config: config)
             }
-
+            LPConfig.defaultConfiguration.fileSharingFromAgent
+            LPConfig.defaultConfiguration.fileSharingFromConsumer
+            
             LPMessagingSDK.instance.delegate = self
             self.set_lp_callbacks(command: command)
 
