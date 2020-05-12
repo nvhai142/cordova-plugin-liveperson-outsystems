@@ -69,6 +69,11 @@ extension String {
         }
         self.lpAccountNumber = lpAccountNumber
         
+        let configurations = LPConfig.defaultConfiguration
+            configurations.fileSharingFromAgent = true
+            configurations.fileSharingFromConsumer = true
+            // photos
+            configurations.maxNumberOfSavedFilesOnDisk 
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         
         do {
@@ -321,6 +326,11 @@ extension String {
             return
         }
 
+let configurations = LPConfig.defaultConfiguration
+            configurations.fileSharingFromAgent = true
+            configurations.fileSharingFromConsumer = true
+            // photos
+            configurations.maxNumberOfSavedFilesOnDisk 
         // init our callbacks for javascript wrapper
         self.set_lp_callbacks(command: command)
 
