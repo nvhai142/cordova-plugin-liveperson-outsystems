@@ -70,10 +70,10 @@ extension String {
         self.lpAccountNumber = lpAccountNumber
         
         let configurations = LPConfig.defaultConfiguration
-            configurations.fileSharingFromAgent = true
-            configurations.fileSharingFromConsumer = true
-            // photos
-            configurations.maxNumberOfSavedFilesOnDisk 
+        configurations.fileSharingFromAgent = true
+        configurations.fileSharingFromConsumer = true
+        configurations.userBubbleTextColor = UIColor.red
+
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         
         do {
@@ -89,11 +89,6 @@ extension String {
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
-            // photos
-            configurations.maxNumberOfSavedFilesOnDisk    
-
-            // document files
-            configurations.maxNumberOfSavedDocumentsOnDisk 
             
             LPMessagingSDK.instance.delegate = self
             self.set_lp_callbacks(command: command)
@@ -326,11 +321,10 @@ extension String {
             return
         }
 
-let configurations = LPConfig.defaultConfiguration
-            configurations.fileSharingFromAgent = true
-            configurations.fileSharingFromConsumer = true
-            // photos
-            configurations.maxNumberOfSavedFilesOnDisk 
+        let configurations = LPConfig.defaultConfiguration
+        configurations.fileSharingFromAgent = true
+        configurations.fileSharingFromConsumer = true
+
         // init our callbacks for javascript wrapper
         self.set_lp_callbacks(command: command)
 
