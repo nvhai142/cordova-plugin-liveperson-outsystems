@@ -71,6 +71,7 @@ extension String {
         
         let configurations = LPConfig.defaultConfiguration
         configurations.fileSharingFromAgent = true
+        configurations.enablePhotoSharing = true
         configurations.fileSharingFromConsumer = true
         configurations.userBubbleTextColor = UIColor.red
         configurations.remoteUserBubbleBackgroundColor = UIColor.white
@@ -91,7 +92,7 @@ extension String {
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
             configurations.remoteUserBubbleBackgroundColor = UIColor.white
-            
+
             LPMessagingSDK.instance.delegate = self
             self.set_lp_callbacks(command: command)
 
