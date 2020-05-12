@@ -81,13 +81,14 @@ extension String {
             if let config = command.arguments.last as? [String:AnyObject] {
                 setSDKConfigurations(config: config)
             }
-            LPConfig.defaultConfiguration.fileSharingFromAgent = true
-            LPConfig.defaultConfiguration.fileSharingFromConsumer = true
+            let configurations = LPConfig.defaultConfiguration
+            configurations.fileSharingFromAgent = true
+            configurations.fileSharingFromConsumer = true
             // photos
-            LPConfig.defaultConfiguration.maxNumberOfSavedFilesOnDisk    
+            configurations.maxNumberOfSavedFilesOnDisk    
 
             // document files
-            LPConfig.defaultConfiguration.maxNumberOfSavedDocumentsOnDisk 
+            configurations.maxNumberOfSavedDocumentsOnDisk 
             
             LPMessagingSDK.instance.delegate = self
             self.set_lp_callbacks(command: command)
