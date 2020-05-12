@@ -83,6 +83,11 @@ extension String {
             }
             LPConfig.defaultConfiguration.fileSharingFromAgent
             LPConfig.defaultConfiguration.fileSharingFromConsumer
+            // photos
+            LPConfig.defaultConfiguration.maxNumberOfSavedFilesOnDisk    
+
+            // document files
+            LPConfig.defaultConfiguration.maxNumberOfSavedDocumentsOnDisk 
             
             LPMessagingSDK.instance.delegate = self
             self.set_lp_callbacks(command: command)
