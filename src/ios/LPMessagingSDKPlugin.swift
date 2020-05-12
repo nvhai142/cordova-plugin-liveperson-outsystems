@@ -81,8 +81,8 @@ extension String {
             if let config = command.arguments.last as? [String:AnyObject] {
                 setSDKConfigurations(config: config)
             }
-            LPConfig.defaultConfiguration.fileSharingFromAgent
-            LPConfig.defaultConfiguration.fileSharingFromConsumer
+            LPConfig.defaultConfiguration.fileSharingFromAgent = true
+            LPConfig.defaultConfiguration.fileSharingFromConsumer = true
             // photos
             LPConfig.defaultConfiguration.maxNumberOfSavedFilesOnDisk    
 
