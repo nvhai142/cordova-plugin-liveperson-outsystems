@@ -71,7 +71,6 @@ extension String {
         
         let configurations = LPConfig.defaultConfiguration
         configurations.fileSharingFromAgent = true
-        configurations.enablePhotoSharing = true
         configurations.fileSharingFromConsumer = true
         configurations.userBubbleTextColor = UIColor.red
         configurations.remoteUserBubbleBackgroundColor = UIColor.white
