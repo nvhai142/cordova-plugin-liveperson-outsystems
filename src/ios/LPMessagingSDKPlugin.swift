@@ -69,11 +69,6 @@ extension String {
         }
         self.lpAccountNumber = lpAccountNumber
         
-        let configurations = LPConfig.defaultConfiguration
-        configurations.fileSharingFromAgent = true
-        configurations.fileSharingFromConsumer = true
-        configurations.userBubbleTextColor = UIColor.red
-        configurations.remoteUserBubbleBackgroundColor = UIColor.white
 
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         
@@ -90,7 +85,6 @@ extension String {
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
-            configurations.remoteUserBubbleBackgroundColor = UIColor.white
 
             LPMessagingSDK.instance.delegate = self
             self.set_lp_callbacks(command: command)
@@ -322,10 +316,6 @@ extension String {
             print("Can't start without brandID")
             return
         }
-
-        let configurations = LPConfig.defaultConfiguration
-        configurations.fileSharingFromAgent = true
-        configurations.fileSharingFromConsumer = true
 
         // init our callbacks for javascript wrapper
         self.set_lp_callbacks(command: command)
