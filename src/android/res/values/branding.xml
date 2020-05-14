@@ -8,13 +8,6 @@
 
     <!-- all bubbles -->
     <color name="bubble_selected_background_color">#5597a7e3</color>
-    
-    <bool name="enable_photo_sharing">true</bool>
-    <bool name="upload_photo_using_service">true</bool>
-    <integer name="max_number_stored_images">20</integer>
-    <integer name="full_image_compression_rate">50</integer>
-    <integer name="thumbnail_longer_dimension_resize">100</integer>
-    <integer name="full_image_longer_dimension_resize">800</integer>
-    <integer name="max_image_size_kb">5000</integer>
+
 
 </resources>
