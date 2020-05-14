@@ -26,6 +26,8 @@
 		<config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+      		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		</config-file>
 
         <!-- LivePerson Android SDK -->
@@ -51,6 +53,12 @@
 				<param name="ios-package" value="LPMessagingSDKPlugin"/>
 			</feature>
 		</config-file>
+		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+      		<string>Camera Privacy Setting for LiveEngage Mobile App Messaging SDK for iOS</string>
+    	</config-file>
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+      		<string>A message that tells the user why the app is requesting access to the user's photo library.</string>
+    	</config-file>
 		
 		<framework src="LPMessagingSDK" type="podspec" spec="~> 4.1.0.0.710-Swift-5.1"/>
 		
