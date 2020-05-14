@@ -83,7 +83,8 @@ extension String {
             }
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
-            
+            configurations.fileSharingFromConsumer = true
+
             self.set_lp_callbacks(command: command)
 
             var response:[String:String];
