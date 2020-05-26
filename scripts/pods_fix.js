@@ -29,7 +29,7 @@ module.exports = function(context) {
           } 
 
           if (!data.includes("LPMessagingSDK")){
-              data = data.replace(/end/g, 'pod \'LPMessagingSDK\', \'~> 4.1.0.0.710-Swift-5.1\'\nend');
+              data = data.replace(/end/g, 'pod \'LPMessagingSDK\', \'~> 5.0.1.1013-Swift-5.1\'\nend');
             } 
 
             var result = data;
