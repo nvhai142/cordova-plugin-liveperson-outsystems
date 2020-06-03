@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="conversation_background">@color/blue_sapphire</color>
+    <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
     <color name="bubble_selected_background_color">@color/royal_blue</color>
@@ -9,11 +9,11 @@
     <!-- brand bubble-->
     <dimen name="brand_bubble_stroke_width">0dp</dimen>
     <color name="brand_bubble_stroke_color">@color/light_gray</color>
-    <color name="brand_bubble_message_text_color">@color/black</color>
-    <color name="brand_bubble_message_link_text_color">@color/blue_sapphire</color>
+    <color name="brand_bubble_message_text_color">@color/white</color>
+    <color name="brand_bubble_message_link_text_color">@color/white</color>
     <color name="brand_bubble_timestamp_text_color">@color/dim_gray</color>
-    <color name="brand_bubble_background_color">@color/white</color>
-    <color name="brand_logo_background_color">@color/black</color>
+    <color name="brand_bubble_background_color">@color/blue_sapphire</color>
+    <color name="brand_logo_background_color">@color/royal_blue</color>
 
 
     <!-- agent bubble-->
@@ -89,6 +89,7 @@
     <bool name="show_feedback">true</bool>
     <bool name="show_yes_no_question">false</bool>
     <bool name="show_agent_details_csat">true</bool>
+    <!-- if both show_yes_no_question & show_agent_details_csat are true, show_yes_no_question will be ignored-->
     <bool name="show_csat_thank_you">true</bool>
     <integer name="csatSurveyExpirationInMinutes">1440</integer>
 
@@ -154,6 +155,7 @@
 
     <!--Conversation Activity Style-->
     <color name="lp_colorPrimary">@color/blue_sapphire</color>
+   <!--  <color name="lp_colorPrimaryDark">@color/navy_blue</color> -->
     <color name="lp_textColorSecondary">@color/dim_gray</color>
 
 
@@ -217,6 +219,8 @@
     <string name="pci_form_font_name"></string>
 
     <!-- Fonts -->
+    <string name="custom_font_name_conversation_feed">@string/ProCera</string>
+    <string name="custom_font_name_non_conversation_feed">@string/ProCera</string>
 
     <!--Structured Content-->
     <bool name="enable_structured_content">false</bool>
