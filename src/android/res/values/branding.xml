@@ -89,7 +89,6 @@
     <bool name="show_feedback">true</bool>
     <bool name="show_yes_no_question">false</bool>
     <bool name="show_agent_details_csat">true</bool>
-    <!-- if both show_yes_no_question & show_agent_details_csat are true, show_yes_no_question will be ignored-->
     <bool name="show_csat_thank_you">true</bool>
     <integer name="csatSurveyExpirationInMinutes">1440</integer>
 
@@ -218,8 +217,6 @@
     <string name="pci_form_font_name"></string>
 
     <!-- Fonts -->
-    <string name="custom_font_name_conversation_feed">@string/ProCera</string>
-    <string name="custom_font_name_non_conversation_feed">@string/ProCera</string>
 
     <!--Structured Content-->
     <bool name="enable_structured_content">false</bool>
