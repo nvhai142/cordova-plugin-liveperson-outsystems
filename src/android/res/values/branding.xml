@@ -38,7 +38,7 @@
 
 
     <!-- system bubble-->
-    <color name="system_bubble_text_color">@color/nero</color>
+    <color name="system_bubble_text_color">@color/color_separator</color>
 
     <!-- consumer bubble link_preview -->
     <color name="consumer_bubble_link_preview_background_color">@android:color/white</color>
@@ -162,7 +162,7 @@
     <!--Conversation Separator-->
     <bool name="enable_conversation_resolved_message">true</bool>
     <bool name="enable_conversation_resolved_separator">true</bool>
-    <color name="conversation_separator_text_color">@color/nero</color>
+    <color name="conversation_separator_text_color">@color/color_separator</color>
 
     <!-- Link Preview-->
     <bool name="link_preview_enable_real_time_preview">true</bool>
@@ -226,7 +226,7 @@
     <bool name="enable_structured_content">false</bool>
 
     <!--Controller messages-->
-    <color name="conversation_controller_message_text_color">@color/nero</color>
+    <color name="conversation_controller_message_text_color">@color/color_separator</color>
 
     <!-- Message bubble timestamp -->
     <bool name="message_status_numeric_timestamp_only">false</bool>
