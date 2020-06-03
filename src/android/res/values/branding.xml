@@ -216,8 +216,6 @@
 
     <!--PCI-->
     <bool name="pci_form_hide_logo">false</bool>
-    <string name="pci_form_font_name"></string>
-
 
     <!--Structured Content-->
     <bool name="enable_structured_content">false</bool>
