@@ -8,13 +8,13 @@
     <color name="colorPrimary_text">#000000</color>
 
     <!--App colors-->
-    <color name="color_divider">#585B5A</color>---------------------------
+    <color name="color_divider">#585B5A</color>
     <color name="color_separator">#1C1C1C</color>
     <color name="edit_text_hint_color">#D7D8D6</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <!-- <color name="shadow_black">@color/black</color> -->
-    <color name="transparent">#00000000</color> -----------------------------
+    <color name="transparent">#00000000</color>
     <color name="color_text_gray_1">#93928F</color>
     <color name="color_text_white">#ffffff</color>
     <color name="color_text_black">#000000</color>
@@ -60,7 +60,7 @@
     <color name="Blue Sapphire">@color/colorPrimary</color>
     <color name="blue_sapphire">#152B55</color>
     <!--  <color name="brand_blue">#686662</color>
-    <color name="star_blue">#686662</color> -->--------------------------------
+    <color name="star_blue">#686662</color> -->
     <color name="royal_blue">#4169E1</color>
     <color name="brand_blue_for_chat">@color/dim_gray</color>
     <color name="pearl_gray">#F5F5F5</color>
@@ -73,7 +73,7 @@
     <color name="pci_description">@color/color_separator</color>
     <color name="disable_btn">#636363</color>
     <color name="enable_btn">@color/emerald_green</color>
-   <!--  <color name="pressed_btn">#CEB68C</color> -->----------------------------
+   <!--  <color name="pressed_btn">#CEB68C</color> -->
     <color name="preference_line">#263748</color>
 
     <color name="btn_all_category_default">#2B2B2B</color>

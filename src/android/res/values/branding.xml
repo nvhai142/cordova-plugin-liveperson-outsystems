@@ -65,7 +65,7 @@
     <!-- icons visibility -->
     <integer name="message_receive_icons">0</integer>
 
-    <!--Feedback Fragment-->--------------------------------------------------------------------
+    <!--Feedback Fragment-->
     <color name="feedback_fragment_background_color">@color/white</color>
     <color name="feedback_fragment_title_question">@color/white</color>
     <color name="feedback_fragment_star">@color/white</color>
