@@ -4,7 +4,7 @@
     <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
-    <color name="bubble_selected_background_color">@color/royal_blue</color>
+    <color name="bubble_selected_background_color">@color/light_blue</color>
 
     <!-- brand bubble-->
     <dimen name="brand_bubble_stroke_width">0dp</dimen>
