@@ -9,10 +9,10 @@
     <!-- brand bubble-->
     <dimen name="brand_bubble_stroke_width">0dp</dimen>
     <color name="brand_bubble_stroke_color">@color/light_gray</color>
-    <color name="brand_bubble_message_text_color">@color/white</color>
-    <color name="brand_bubble_message_link_text_color">@color/white</color>
+    <color name="brand_bubble_message_text_color">@color/black</color>
+    <color name="brand_bubble_message_link_text_color">@color/blue_sapphire</color>
     <color name="brand_bubble_timestamp_text_color">@color/dim_gray</color>
-    <color name="brand_bubble_background_color">@color/blue_sapphire</color>
+    <color name="brand_bubble_background_color">@color/rose_gold</color>
     <color name="brand_logo_background_color">@color/royal_blue</color>
 
 
@@ -218,6 +218,9 @@
     <bool name="pci_form_hide_logo">false</bool>
     <string name="pci_form_font_name"></string>
 
+    <!-- Fonts -->
+    <string name="custom_font_name_conversation_feed">@string/ProCera</string>
+    <string name="custom_font_name_non_conversation_feed">@string/ProCera</string>
 
     <!--Structured Content-->
     <bool name="enable_structured_content">false</bool>
