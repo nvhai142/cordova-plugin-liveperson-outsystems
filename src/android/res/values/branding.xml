@@ -9,11 +9,11 @@
     <!-- brand bubble-->
     <dimen name="brand_bubble_stroke_width">0dp</dimen>
     <color name="brand_bubble_stroke_color">@color/light_gray</color>
-    <color name="brand_bubble_message_text_color">@color/black</color>
+    <color name="brand_bubble_message_text_color">@color/pearl_gray</color>
     <color name="brand_bubble_message_link_text_color">@color/blue_sapphire</color>
     <color name="brand_bubble_timestamp_text_color">@color/dim_gray</color>
     <color name="brand_bubble_background_color">@color/rose_gold</color>
-    <color name="brand_logo_background_color">@color/royal_blue</color>
+    <color name="brand_logo_background_color">@color/pearl_gray</color>
 
 
     <!-- agent bubble-->
