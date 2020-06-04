@@ -154,9 +154,9 @@
     <string name="lp_bubble_email_links_regex" />
 
     <!--Conversation Activity Style-->
-    <color name="lp_colorPrimary">@color/blue_sapphire</color>
+    <color name="lp_colorPrimary">@color/white</color>
    <!--  <color name="lp_colorPrimaryDark">@color/navy_blue</color> -->
-    <color name="lp_textColorSecondary">@color/dim_gray</color>
+    <color name="lp_textColorSecondary">@color/blue_sapphire</color>
 
 
     <!--Conversation Separator-->
