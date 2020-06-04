@@ -31,7 +31,7 @@
     <dimen name="consumer_bubble_stroke_width">0dp</dimen>
     <color name="consumer_bubble_stroke_color">@color/pearl_gray</color>-->
     <color name="consumer_bubble_message_text_color">@color/white</color>
-    <color name="consumer_bubble_message_link_text_color">@color/blue_sapphire</color>
+    <color name="consumer_bubble_message_link_text_color">@color/white</color>
     <color name="consumer_bubble_timestamp_text_color">@color/dim_gray</color>
     <color name="consumer_bubble_background_color">@color/blue_sapphire</color>
     <color name="consumer_bubble_state_text_color">@color/black</color>
@@ -217,6 +217,8 @@
     <!--PCI-->
     <bool name="pci_form_hide_logo">false</bool>
     <string name="pci_form_font_name"></string>
+
+
 
     <!--Structured Content-->
     <bool name="enable_structured_content">false</bool>
