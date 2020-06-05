@@ -39,6 +39,7 @@
         <resource-file src="src/android/res/values/branding.xml" target="res/values/branding.xml"/>
         <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml"/>
         <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml"/>
+		<resource-file src="src/android/res/values/string.xml" target="res/values/string.xml"/>
 
 	</platform>
 
