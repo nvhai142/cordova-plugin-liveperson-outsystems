@@ -200,7 +200,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
      */
     private void initSDK(final String accountId,org.apache.cordova.CallbackContext cb) {
             final org.apache.cordova.CallbackContext callbackContext = cb;
-
+            cordova.getActivity().setTitle("CHAT");
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, LP_APP_PACKAGE_NAME, new InitLivePersonCallBack() {
