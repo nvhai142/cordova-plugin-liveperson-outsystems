@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="brand_name">CHAT</string>
     <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
@@ -44,12 +43,12 @@
     <!-- consumer bubble link_preview -->
     <color name="consumer_bubble_link_preview_background_color">@android:color/white</color>
     <color name="consumer_bubble_link_preview_title_text_color">@color/black</color>
-    <color name="consumer_bubble_link_preview_description_text_color">@color/pearl_gray</color>
+    <color name="consumer_bubble_link_preview_description_text_color">@color/dim_gray</color>
 
     <!-- agent bubble link_preview -->
     <color name="agent_bubble_link_preview_background_color">@android:color/white</color>
     <color name="agent_bubble_link_preview_title_text_color">@color/black</color>
-    <color name="agent_bubble_link_preview_description_text_color">@color/pearl_gray</color>
+    <color name="agent_bubble_link_preview_description_text_color">@color/dim_gray</color>
 
 
     <!-- unread messages bubble-->
