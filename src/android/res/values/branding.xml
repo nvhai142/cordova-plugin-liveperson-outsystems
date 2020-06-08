@@ -38,7 +38,7 @@
 
 
     <!-- system bubble-->
-    <color name="system_bubble_text_color">@color/color_separator</color>
+    <color name="system_bubble_text_color">@color/emerald_green</color>
 
     <!-- consumer bubble link_preview -->
     <color name="consumer_bubble_link_preview_background_color">@android:color/white</color>
@@ -128,7 +128,7 @@
     <color name="lp_send_button_text_enable">@color/emerald_green</color>
     <color name="lp_send_button_text_disable">@color/aqua_haze</color>
 
-    <bool name="use_send_image_button">false</bool>
+    <bool name="use_send_image_button">true</bool>
 
     <!--Clear History-->
     <bool name="clear_history_show_confirm_dialog">true</bool>
