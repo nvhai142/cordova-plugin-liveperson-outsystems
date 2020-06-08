@@ -38,7 +38,7 @@
 
 
     <!-- system bubble-->
-    <color name="system_bubble_text_color">@color/emerald_green</color>
+    <color name="system_bubble_text_color">@color/color_separator</color>
 
     <!-- consumer bubble link_preview -->
     <color name="consumer_bubble_link_preview_background_color">@android:color/white</color>
@@ -63,7 +63,7 @@
 
 
     <!-- icons visibility -->
-    <integer name="message_receive_icons">0</integer>
+    <integer name="message_receive_icons">3</integer>
 
     <!--Feedback Fragment-->
     <color name="feedback_fragment_background_color">@color/white</color>
