@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="brand_name">Chat</string>
     <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
@@ -63,7 +62,7 @@
 
 
     <!-- icons visibility -->
-    <integer name="message_receive_icons">0</integer>
+    
 
     <!--Feedback Fragment-->
     <color name="feedback_fragment_background_color">@color/white</color>
