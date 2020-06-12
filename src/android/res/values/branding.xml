@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="brand_name">CHAT</string>
     <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
@@ -43,12 +44,12 @@
     <!-- consumer bubble link_preview -->
     <color name="consumer_bubble_link_preview_background_color">@android:color/white</color>
     <color name="consumer_bubble_link_preview_title_text_color">@color/black</color>
-    <color name="consumer_bubble_link_preview_description_text_color">@color/dim_gray</color>
+    <color name="consumer_bubble_link_preview_description_text_color">@color/pearl_gray</color>
 
     <!-- agent bubble link_preview -->
     <color name="agent_bubble_link_preview_background_color">@android:color/white</color>
     <color name="agent_bubble_link_preview_title_text_color">@color/black</color>
-    <color name="agent_bubble_link_preview_description_text_color">@color/dim_gray</color>
+    <color name="agent_bubble_link_preview_description_text_color">@color/pearl_gray</color>
 
 
     <!-- unread messages bubble-->
@@ -63,7 +64,7 @@
 
 
     <!-- icons visibility -->
-    <integer name="message_receive_icons">3</integer>
+    <integer name="message_receive_icons">0</integer>
 
     <!--Feedback Fragment-->
     <color name="feedback_fragment_background_color">@color/white</color>
@@ -128,7 +129,7 @@
     <color name="lp_send_button_text_enable">@color/emerald_green</color>
     <color name="lp_send_button_text_disable">@color/aqua_haze</color>
 
-    <bool name="use_send_image_button">true</bool>
+    <bool name="use_send_image_button">false</bool>
 
     <!--Clear History-->
     <bool name="clear_history_show_confirm_dialog">true</bool>
