@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="brand_name">Chat</string>
     <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
