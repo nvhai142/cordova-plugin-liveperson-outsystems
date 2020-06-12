@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="brand_name">CHAT</string>
     <color name="conversation_background">@color/white</color>
 
     <!-- all bubbles -->
@@ -44,12 +43,12 @@
     <!-- consumer bubble link_preview -->
     <color name="consumer_bubble_link_preview_background_color">@android:color/white</color>
     <color name="consumer_bubble_link_preview_title_text_color">@color/black</color>
-    <color name="consumer_bubble_link_preview_description_text_color">@color/pearl_gray</color>
+    <color name="consumer_bubble_link_preview_description_text_color">@color/dim_gray</color>
 
     <!-- agent bubble link_preview -->
     <color name="agent_bubble_link_preview_background_color">@android:color/white</color>
     <color name="agent_bubble_link_preview_title_text_color">@color/black</color>
-    <color name="agent_bubble_link_preview_description_text_color">@color/pearl_gray</color>
+    <color name="agent_bubble_link_preview_description_text_color">@color/dim_gray</color>
 
 
     <!-- unread messages bubble-->
@@ -87,12 +86,12 @@
     <dimen name="feedback_fragment_submit_btn_stroke_width_disabled">0dp</dimen>
 
     <!--Feedback Fragment-->
-    <bool name="show_feedback">true</bool>
+    <bool name="show_feedback">false</bool>
     <bool name="show_yes_no_question">false</bool>
-    <bool name="show_agent_details_csat">true</bool>
+    <bool name="show_agent_details_csat">false</bool>
     <!-- if both show_yes_no_question & show_agent_details_csat are true, show_yes_no_question will be ignored-->
-    <bool name="show_csat_thank_you">true</bool>
-    <integer name="csatSurveyExpirationInMinutes">1440</integer>
+    <bool name="show_csat_thank_you">false</bool>
+    <integer name="csatSurveyExpirationInMinutes">0</integer>
 
 
     <!--TTR-->
@@ -129,7 +128,7 @@
     <color name="lp_send_button_text_enable">@color/emerald_green</color>
     <color name="lp_send_button_text_disable">@color/aqua_haze</color>
 
-    <bool name="use_send_image_button">false</bool>
+    <bool name="use_send_image_button">true</bool>
 
     <!--Clear History-->
     <bool name="clear_history_show_confirm_dialog">true</bool>
@@ -189,8 +188,8 @@
 
     <!--Accessibility-->
     <integer name="snachbar_duration_for_accessibility">60000</integer>
-    <bool name="announce_agent_typing">true</bool>
-    <bool name="show_agent_typing_in_message_bubble">true</bool>
+    <bool name="announce_agent_typing">false</bool>
+    <bool name="show_agent_typing_in_message_bubble">false</bool>
 
     <!-- Connection status bar -->
     <color name="connection_status_connecting_bg_color">@color/emerald_green</color>
