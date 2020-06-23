@@ -78,11 +78,9 @@ extension String {
             // deprecated - should be done through direct editing of this function  for the relevant options
             // in which case move the setSDKConfigurations call outside of this wrapping loop and call on init every time
             
-            // if let config = command.arguments.last as? [String:AnyObject] {
-            //     setSDKConfigurations(config: config)
-            // }
-            setSDKConfigurations(config: config)
-
+            if let config = command.arguments.last as? [String:AnyObject] {
+                setSDKConfigurations(config: config)
+            }
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
@@ -463,20 +461,22 @@ extension String {
     func setSDKConfigurations(config:[String:AnyObject]) {
         let configurations = LPConfig.defaultConfiguration
         
-        // let path = Bundle.main.path(forResource: "LivePerson", ofType: "plist")
-        // let dict = NSDictionary(contentsOfFile: path ?? "") as Dictionary?
-
-        // configurations?.remoteUserBubbleBackgroundColor = dict?.color(forKey: "remoteUserBubbleBackgroundColor")
-        // configurations?.remoteUserBubbleBorderColor = dict?.color(forKey: "remoteUserBubbleBorderColor")
-        // configurations?.remoteUserBubbleLinkColor = dict?.color(forKey: "remoteUserBubbleLinkColor")
-        // configurations?.remoteUserBubbleTextColor = dict?.color(forKey: "remoteUserBubbleTextColor")
-
-        // configurations?.remoteUserBubbleBorderWidth = dict?.double(forKey: "remoteUserBubbleBorderWidth")
-        // configurations?.remoteUserBubbleTimestampColor = dict?.color(forKey: "remoteUserBubbleTimestampColor")
-        // configurations?.remoteUserTypingTintColor = UIColor.gray
+        configurations.brandAvatarImage = UIImage(named: "agent")
         
-        // configurations.brandName ="CHAT"
-
+        configurations.remoteUserBubbleBackgroundColor = UIColor.purple
+        configurations.remoteUserBubbleBorderColor = UIColor.purple
+        configurations.remoteUserBubbleTextColor = UIColor.white
+        configurations.remoteUserAvatarIconColor = UIColor.white
+        configurations.remoteUserAvatarBackgroundColor = UIColor.purple
+        
+        configurations.brandName = config["branding"]?["brandName"] as? String ?? "LPMessagingSampleBrand"
+        
+        print("@@@ ios ****** BRAND NAME WAS SETUP FROM CONFIG !!! \(configurations.brandName)")
+        
+        configurations.userBubbleBackgroundColor = UIColor.lightGray
+        configurations.userBubbleTextColor = UIColor.white
+        
+        configurations.sendButtonEnabledColor = UIColor.purple
     }
     
     fileprivate func sendEventToJavaScript(_ dicValue:[String:String]) {
