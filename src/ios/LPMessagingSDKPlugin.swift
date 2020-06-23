@@ -81,10 +81,15 @@ extension String {
             // if let config = command.arguments.last as? [String:AnyObject] {
             //     setSDKConfigurations(config: config)
             // }
-            setSDKConfigurations(config: config)
+            
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
+
+            //setting colors
+
+           // configurations.remoteUserAvatarBackgroundColor = UIColor.white
+
 
             self.set_lp_callbacks(command: command)
 
