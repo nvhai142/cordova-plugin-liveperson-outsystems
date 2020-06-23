@@ -78,9 +78,10 @@ extension String {
             // deprecated - should be done through direct editing of this function  for the relevant options
             // in which case move the setSDKConfigurations call outside of this wrapping loop and call on init every time
             
-            if let config = command.arguments.last as? [String:AnyObject] {
-                setSDKConfigurations(config: config)
-            }
+            // if let config = command.arguments.last as? [String:AnyObject] {
+            //     setSDKConfigurations(config: config)
+            // }
+            setSDKConfigurations(config: config)
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
