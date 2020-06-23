@@ -463,20 +463,20 @@ extension String {
     func setSDKConfigurations(config:[String:AnyObject]) {
         let configurations = LPConfig.defaultConfiguration
         
-        let path = Bundle.main.path(forResource: "LivePerson", ofType: "plist")
-        let dict = NSDictionary(contentsOfFile: path ?? "") as Dictionary?
+        // let path = Bundle.main.path(forResource: "LivePerson", ofType: "plist")
+        // let dict = NSDictionary(contentsOfFile: path ?? "") as Dictionary?
 
-        configurations?.remoteUserBubbleBackgroundColor = dict?.color(forKey: "remoteUserBubbleBackgroundColor")
-        configurations?.remoteUserBubbleBorderColor = dict?.color(forKey: "remoteUserBubbleBorderColor")
-        configurations?.remoteUserBubbleLinkColor = dict?.color(forKey: "remoteUserBubbleLinkColor")
-        configurations?.remoteUserBubbleTextColor = dict?.color(forKey: "remoteUserBubbleTextColor")
+        // configurations?.remoteUserBubbleBackgroundColor = dict?.color(forKey: "remoteUserBubbleBackgroundColor")
+        // configurations?.remoteUserBubbleBorderColor = dict?.color(forKey: "remoteUserBubbleBorderColor")
+        // configurations?.remoteUserBubbleLinkColor = dict?.color(forKey: "remoteUserBubbleLinkColor")
+        // configurations?.remoteUserBubbleTextColor = dict?.color(forKey: "remoteUserBubbleTextColor")
 
-        configurations?.remoteUserBubbleBorderWidth = dict?.double(forKey: "remoteUserBubbleBorderWidth")
-        configurations?.remoteUserBubbleTimestampColor = dict?.color(forKey: "remoteUserBubbleTimestampColor")
-        configurations?.remoteUserTypingTintColor = UIColor.gray
+        // configurations?.remoteUserBubbleBorderWidth = dict?.double(forKey: "remoteUserBubbleBorderWidth")
+        // configurations?.remoteUserBubbleTimestampColor = dict?.color(forKey: "remoteUserBubbleTimestampColor")
+        // configurations?.remoteUserTypingTintColor = UIColor.gray
         
-        configurations.brandName ="CHAT"
-        
+        // configurations.brandName ="CHAT"
+
     }
     
     fileprivate func sendEventToJavaScript(_ dicValue:[String:String]) {
