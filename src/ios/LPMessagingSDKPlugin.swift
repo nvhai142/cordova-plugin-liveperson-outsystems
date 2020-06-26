@@ -90,6 +90,7 @@ extension String {
             //setting colors
 
             configurations.remoteUserAvatarBackgroundColor = UIColor.white
+            configurations.brandName = "CHAT"
 
 
             self.set_lp_callbacks(command: command)
