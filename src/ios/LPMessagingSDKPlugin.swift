@@ -451,7 +451,7 @@ extension String {
         if authenticationCode == nil {
             print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
 
-//            LPMessagingSDK.instance.showConversation(self.conversationQuery!)
+            LPMessagingSDK.instance.showConversation(self.conversationQuery!)
             
         } else {
             print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
