@@ -85,10 +85,11 @@ extension String {
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
             configurations.fileSharingFromConsumer = true
+            
 
             //setting colors
 
-           // configurations.remoteUserAvatarBackgroundColor = UIColor.white
+            configurations.remoteUserAvatarBackgroundColor = UIColor.white
 
 
             self.set_lp_callbacks(command: command)
