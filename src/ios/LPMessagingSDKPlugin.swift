@@ -92,6 +92,11 @@ extension String {
             configurations.remoteUserAvatarBackgroundColor = UIColor.white
             configurations.brandName = "CHAT"
 
+            configurations.remoteUserBubbleBackgroundColor = UIColor.purple
+            configurations.remoteUserBubbleBorderColor = UIColor.purple
+            configurations.remoteUserBubbleTextColor = UIColor.white
+            configurations.remoteUserAvatarIconColor = UIColor.white
+            configurations.remoteUserAvatarBackgroundColor = UIColor.purple
 
             self.set_lp_callbacks(command: command)
 
