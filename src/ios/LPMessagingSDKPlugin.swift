@@ -455,7 +455,7 @@ extension String {
 
 
 //            LPMessagingSDK.instance.showConversation(self.conversationQuery!,authenticationCode: authenticationCode)
-            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: controller, isViewOnly: false)
+            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: nil, isViewOnly: false)
             let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
             LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
        }
