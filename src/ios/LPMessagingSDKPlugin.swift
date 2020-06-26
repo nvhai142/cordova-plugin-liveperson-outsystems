@@ -265,6 +265,7 @@ extension String {
         
         self.set_lp_callbacks(command: command)
         do {
+             
             let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: nil, isViewOnly: false)
             let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authCode, redirectURI: nil)
             LPMessagingSDK.instance.reconnect(self.conversationQuery!, authenticationParams: authenticationParams);
@@ -337,14 +338,10 @@ extension String {
         // if found we pass it to the showConversation method, otherwise fallback to default unauthenticated mode
         var conversationType = "authenticated";
 
-//        var token:String = command.arguments[1] as AnyObject! as! String
         let token = command.arguments[1] as? String ?? ""
-//        if(token.count > 0){
-            self.showConversation(brandID: brandID,authenticationCode: token)
-//        }else{
-//            conversationType = "unauthenticated";
-//            self.showConversation(brandID: brandID)
-//        }
+
+        self.showConversation(brandID: brandID,authenticationCode: token)
+
         
         var response:[String:String];
         print("@@@ LPMessagingSDKStartConversation conversationType : \(conversationType)")
@@ -456,8 +453,10 @@ extension String {
         } else {
             print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
 
+            let controller = ViewController()
+            controller.navigationController.title = "CHATO"  
 //            LPMessagingSDK.instance.showConversation(self.conversationQuery!,authenticationCode: authenticationCode)
-            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: nil, isViewOnly: false)
+            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: controller, isViewOnly: false)
             let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
             LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
        }
@@ -471,7 +470,7 @@ extension String {
 
      TODO: Add support for other config options as per SDK documentation
      */
-    func setSDKConfigurations(config:[String:AnyObject]) {
+    func setSDKConfigurations() {
         let configurations = LPConfig.defaultConfiguration
         
         configurations.brandAvatarImage = UIImage(named: "agent")
@@ -482,9 +481,7 @@ extension String {
         configurations.remoteUserAvatarIconColor = UIColor.white
         configurations.remoteUserAvatarBackgroundColor = UIColor.purple
         
-        configurations.brandName = config["branding"]?["brandName"] as? String ?? "LPMessagingSampleBrand"
-        
-        print("@@@ ios ****** BRAND NAME WAS SETUP FROM CONFIG !!! \(configurations.brandName)")
+        configurations.brandName = "CHAT"
         
         configurations.userBubbleBackgroundColor = UIColor.lightGray
         configurations.userBubbleTextColor = UIColor.white
