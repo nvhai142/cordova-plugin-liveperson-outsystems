@@ -444,8 +444,8 @@ extension String {
      */
     func showConversation(brandID: String, authenticationCode:String? = nil) {
         
-        let storyboard = UIStoryboard(name: "MyStoryboard", bundle: nil)
-        let yourViewController = storyboard.instantiateViewController(withIdentifier: "MyStoryID")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let yourViewController = storyboard.instantiateViewController(withIdentifier: "ConversationViewController")
         self.viewController.present(yourViewController, animated: true)
 
     //     self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
