@@ -446,8 +446,8 @@ extension String {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let yourViewController = storyboard.instantiateViewController(withIdentifier: "ConversationViewController")
-        //self.viewController.present(yourViewController, animated: true)
-
+        self.viewController.present(yourViewController, animated: true)
+        
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
         if authenticationCode == nil {
             print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
