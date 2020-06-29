@@ -61,6 +61,7 @@
       		<string>A message that tells the user why the app is requesting access to the user's photo library.</string>
     	</config-file>
 		
+		 <resource-file src="src/ios/Main.storyboard"/>
 		
 		<framework src="LPMessagingSDK" type="podspec" spec="~> 5.0.1.1013-Swift-5.1"/>
 		
