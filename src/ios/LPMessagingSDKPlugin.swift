@@ -444,19 +444,23 @@ extension String {
      */
     func showConversation(brandID: String, authenticationCode:String? = nil) {
         
-        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
-        if authenticationCode == nil {
-            print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
+        let storyboard = UIStoryboard(name: "MyStoryboard", bundle: nil)
+        let yourViewController = storyboard.instantiateViewController(withIdentifier: "MyStoryID")
+        viewController?.present(yourViewController, animated: true)
 
-            LPMessagingSDK.instance.showConversation(self.conversationQuery!)
+    //     self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
+    //     if authenticationCode == nil {
+    //         print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
+
+    //         LPMessagingSDK.instance.showConversation(self.conversationQuery!)
             
-        } else {
-            print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
+    //     } else {
+    //         print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
 
-            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: nil, isViewOnly: false)
-            let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
-            LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
-       }
+    //         let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: nil, isViewOnly: false)
+    //         let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
+    //         LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
+    //    }
     }
     
     
