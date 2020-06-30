@@ -446,7 +446,7 @@ extension String {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let yourViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        let navigation = UINavigationController(rootViewController:yourViewController)
+        let navigation = yourViewController.navigationController
         navigation.modalPresentationStyle  = .fullScreen
         self.viewController.present(navigation, animated: true)
         
