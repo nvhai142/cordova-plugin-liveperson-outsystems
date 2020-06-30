@@ -445,11 +445,12 @@ extension String {
     func showConversation(brandID: String, authenticationCode:String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let yourViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        let navigation = UINavigationController(rootViewController:yourViewController)
-        navigation.modalPresentationStyle  = .fullScreen
+        let yourViewController = storyboard.instantiateInitialViewController()
+
+       // let navigation = UINavigationController(rootViewController:yourViewController)
+      //  navigation.modalPresentationStyle  = .fullScreen
         
-        self.viewController.present(navigation, animated: true)
+        self.viewController.present(yourViewController, animated: true)
         
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
         if authenticationCode == nil {
