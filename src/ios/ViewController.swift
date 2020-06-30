@@ -32,11 +32,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func optionPressed(sender:Any) {
-       // if let query = self.conversationQuery {
-            
-
-            
-            
+ 
             let alertVC = UIAlertController(title: "Menu", message: "Chooose an option", preferredStyle: .actionSheet)
             
             
@@ -53,8 +49,7 @@ class ViewController: UIViewController {
             alertVC.addAction(clearHistoryAction)
             alertVC.addAction(cancelAction)
             
-            resolveAction.isEnabled = isChatActive;
             self.present(alertVC, animated: true, completion: nil)
-      //  }
+
     }
 }
