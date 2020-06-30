@@ -11,7 +11,7 @@ import LPMessagingSDK
 import LPInfra
 import LPAMS
 
-class ViewController: UIViewController {
+class ViewController: UINavigationController {
 
     var conversationQuery:ConversationParamProtocol?;
     
