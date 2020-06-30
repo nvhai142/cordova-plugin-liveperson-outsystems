@@ -459,7 +459,7 @@ extension String {
              } else {
                  print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
 
-                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: navigation, isViewOnly: false)
+                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: yourViewController, isViewOnly: false)
                  let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                  LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
             }
