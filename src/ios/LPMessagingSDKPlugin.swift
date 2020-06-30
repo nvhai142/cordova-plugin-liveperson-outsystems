@@ -446,23 +446,25 @@ extension String {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let yourViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        let navigation = yourViewController.navigationController
-        navigation.modalPresentationStyle  = .fullScreen
-        self.viewController.present(navigation, animated: true)
+        if let navigation = yourViewController.navigationController {
+            navigation.modalPresentationStyle  = .fullScreen
+             self.viewController.present(navigation, animated: true)
+             
+             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
+             if authenticationCode == nil {
+                 print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
+
+                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
+                 
+             } else {
+                 print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
+
+                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: navigation, isViewOnly: false)
+                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
+                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
+            }
+        }
         
-        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
-        if authenticationCode == nil {
-            print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
-
-            LPMessagingSDK.instance.showConversation(self.conversationQuery!)
-            
-        } else {
-            print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
-
-            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: navigation, isViewOnly: false)
-            let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
-            LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
-       }
     }
     
     
