@@ -445,12 +445,10 @@ extension String {
     func showConversation(brandID: String, authenticationCode:String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let yourViewController = storyboard.instantiateInitialViewController()
-
-       // let navigation = UINavigationController(rootViewController:yourViewController)
-      //  navigation.modalPresentationStyle  = .fullScreen
-        
-        self.viewController.present(yourViewController, animated: true)
+        let yourViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        let navigation = UINavigationController(rootViewController:yourViewController)
+        navigation.modalPresentationStyle  = .fullScreen
+        self.viewController.present(navigation, animated: true)
         
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
         if authenticationCode == nil {
@@ -461,7 +459,7 @@ extension String {
         } else {
             print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
 
-            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: yourViewController, isViewOnly: false)
+            let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: navigation, isViewOnly: false)
             let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
             LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
        }
