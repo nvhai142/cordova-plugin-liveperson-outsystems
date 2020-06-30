@@ -445,7 +445,7 @@ extension String {
     func showConversation(brandID: String, authenticationCode:String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let yourViewController = storyboard.instantiateViewController(withIdentifier: "ConversationViewController")
+        let yourViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
         let navigation = UINavigationController(rootViewController:yourViewController)
         navigation.modalPresentationStyle  = .fullScreen
         
