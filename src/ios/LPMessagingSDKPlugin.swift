@@ -445,11 +445,10 @@ extension String {
     func showConversation(brandID: String, authenticationCode:String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let yourViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        yourViewController.modalPresentationStyle  = .fullScreen
-             self.viewController.present(yourViewController, animated: true)
-             
-             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
+        if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
+            chatVC.modalPresentationStyle = .fullScreen
+            self.viewController.present(chatVC, animated: true, completion: nil)
+            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
              if authenticationCode == nil {
                  print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
 
@@ -458,10 +457,11 @@ extension String {
              } else {
                  print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
 
-                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: yourViewController, isViewOnly: false)
+                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
                  let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                  LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
             }
+        }
         
     }
     
