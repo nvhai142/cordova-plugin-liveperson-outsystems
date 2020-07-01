@@ -32,7 +32,7 @@ class ConversationVC: UIViewController {
     
     @IBAction func cancelPressed(sender:Any) {
         print("cancel")
-        self.dismiss(animated: true, completion: nil)
+        self.navigationBar.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func optionPressed(sender:Any) {
