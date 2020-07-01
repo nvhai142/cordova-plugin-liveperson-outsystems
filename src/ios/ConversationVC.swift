@@ -1,18 +1,17 @@
 //
-//  ViewController.swift
+//  ConversationVC.swift
 //  LinhTinhSwift
 //
-//  Created by Hoan Nguyen on 3/23/20.
+//  Created by Hoan Nguyen on 7/1/20.
 //  Copyright © 2020 Hoan Nguyen. All rights reserved.
 //
 
 import UIKit
 import LPMessagingSDK
 import LPInfra
-import LPAMS
 
-class ViewController: UIViewController {
-
+class ConversationVC: UIViewController {
+    
     var conversationQuery:ConversationParamProtocol?;
     
     override func viewDidLoad() {
@@ -61,7 +60,8 @@ class ViewController: UIViewController {
                 self.present(clearAlert, animated: true, completion: nil)
             }
             
-            
+            let st = UIStoryboard()
+            st.instantiateInitialViewController()
             
             let alertVC = UIAlertController(title: "Menu", message: "Chooose an option", preferredStyle: .actionSheet)
             
@@ -84,4 +84,5 @@ class ViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+
 }
