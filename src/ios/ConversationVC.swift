@@ -23,8 +23,8 @@ class ConversationVC: UIViewController {
     
     
     func configUI() {
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.isTranslucent = false
         self.title = "CHAT"
         
@@ -32,6 +32,7 @@ class ConversationVC: UIViewController {
     
     @IBAction func cancelPressed(sender:Any) {
         print("cancel")
+        
     }
     
     @IBAction func optionPressed(sender:Any) {
