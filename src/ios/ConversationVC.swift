@@ -51,6 +51,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         self.navigationController?.navigationBar.isTranslucent = false
         self.title = "CHAT"
         
+        let configUI = LPConfig.defaultConfiguration
+        configUI.userBubbleBackgroundColor = UIColor.headerbarColor
     }
     
     @IBAction func cancelPressed(sender:Any) {
