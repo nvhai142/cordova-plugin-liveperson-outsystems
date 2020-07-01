@@ -10,12 +10,35 @@ import UIKit
 import LPMessagingSDK
 import LPInfra
 
-class ConversationVC: UIViewController {
+class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
+    func LPMessagingSDKObseleteVersion(_ error: NSError) {
+        
+    }
+    
+    func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
+        
+    }
+    
+    func LPMessagingSDKTokenExpired(_ brandID: String) {
+        
+    }
+    
+    func LPMessagingSDKError(_ error: NSError) {
+        
+    }
+    
+    func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
+        if let user = agent{
+            self.title = (user.firstName ?? "") + (user.lastName ?? "")
+        }
+    }
+
     var conversationQuery:ConversationParamProtocol?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LPMessagingSDK.instance.delegate = self
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("2022139")
         self.configUI()
     }
