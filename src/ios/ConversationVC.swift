@@ -32,8 +32,15 @@ class ConversationVC: UIViewController {
     
     @IBAction func cancelPressed(sender:Any) {
         print("cancel")
+        self.dismiss(animated: true, completion: nil)
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let query = self.conversationQuery {
+            LPMessagingSDK.instance.removeConversation(query)
+        }
+    }
+
     @IBAction func optionPressed(sender:Any) {
         if let query = self.conversationQuery {
             let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
