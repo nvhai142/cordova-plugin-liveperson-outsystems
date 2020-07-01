@@ -30,7 +30,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
         if let user = agent{
-            self.title = (user.firstName ?? "") + (user.lastName ?? "")
+            self.title = (user.nickName ?? "CHAT")
         }
     }
 
