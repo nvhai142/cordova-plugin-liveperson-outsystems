@@ -19,12 +19,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VzF-I4-ahQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tNh-t5-efu">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="tNh-t5-efu">
                             <connections>
                                 <action selector="cancelPressedWithSender:" destination="BYZ-38-t0r" id="gTw-Bn-kzS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="tET-af-EJM">
+                        <barButtonItem key="rightBarButtonItem" title="..." id="tET-af-EJM">
                             <connections>
                                 <action selector="optionPressedWithSender:" destination="BYZ-38-t0r" id="PZf-ha-alT"/>
                             </connections>
