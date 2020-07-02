@@ -53,6 +53,22 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         
         let configUI = LPConfig.defaultConfiguration
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
+        configUI.userBubbleBorderColor = UIColor.userBubbleBorderColor
+        configUI.userBubbleLinkColor = UIColor.userBubbleLinkColor
+        configUI.userBubbleTextColor = UIColor.userBubbleTextColor
+        configUI.userBubbleTimestampColor =  UIColor.userBubbleTimestampColor
+        configUI.userBubbleSendStatusTextColor = UIColor.userBubbleSendStatusTextColor
+        configUI.userBubbleErrorTextColor = UIColor.userBubbleErrorTextColor
+        configUI.userBubbleErrorBorderColor = UIColor.userBubbleErrorBorderColor
+        configUI.userBubbleLongPressOverlayColor = UIColor.userBubbleLongPressOverlayColor
+
+
+        configUI.remoteUserBubbleBorderColor = UIColor.remoteUserBubbleBorderColor
+        configUI.remoteUserBubbleLinkColor = UIColor.remoteUserBubbleLinkColor
+        configUI.remoteUserBubbleTextColor = UIColor.remoteUserBubbleTextColor
+        configUI.remoteUserBubbleTimestampColor = UIColor.remoteUserBubbleTimestampColor
+        configUI.remoteUserTypingTintColor = UIColor.remoteUserTypingTintColor
+        configUI.remoteUserBubbleLongPressOverlayColor = UIColor.remoteUserBubbleLongPressOverlayColor
 
     }
     
