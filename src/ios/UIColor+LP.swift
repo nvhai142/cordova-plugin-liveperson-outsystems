@@ -32,43 +32,7 @@ extension UIColor{
     static let userBubbleErrorBorderColor = UIColor(hex: "#DB0011")
     static let userBubbleLongPressOverlayColor = UIColor(hex: "#F5F5F5")
 
-    static let linkPreviewBackgroundColor = UIColor(hex: "#FFFFFF")
-    static let linkPreviewTitleTextColor = UIColor(hex: "#000000")
-    static let linkPreviewDescriptionTextColor = UIColor(hex: "#767676")
-    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
-
-    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
-    static let urlRealTimePreviewBackgroundColor = UIColor(hex: "#FFFFFF")
-    static let urlRealTimePreviewBorderColor = UIColor(hex: "#C1C1C1")
-
-    static let urlRealTimePreviewTitleTextColor = UIColor(hex: "#767676")
-    static let urlRealTimePreviewDescriptionTextColor = UIColor(hex: "#767676")
-
-    static let photosharingMenuBackgroundColor = UIColor(hex: "#C1C1C1")
-    static let photosharingMenuButtonsBackgroundColor = UIColor(hex: "#D7D8D6")
-    static let photosharingMenuButtonsTintColor = UIColor(hex: "#D7D8D6")
-    static let photosharingMenuButtonsTextColor = UIColor(hex: "#636363")
-    static let cameraButtonEnabledColor = UIColor(hex: "#152B55")
-    static let cameraButtonDisabledColor = UIColor(hex: "#AF000E")
-    static let fileCellLoaderFillColor = UIColor(hex: "#00CA3D")
-    static let fileCellLoaderRingProgressColor = UIColor(hex: "#00CA3D")
-    static let fileCellLoaderRingBackgroundColor = UIColor(hex: "#FFFFFF")
-
-
-    static let sendButtonDisabledColor = UIColor(hex: "#636363")
-    static let sendButtonEnabledColor = UIColor(hex: "#00CA3D")
-    static let systemBubbleTextColor = UIColor(hex: "#1C1C1C")
-
-    static let checkmarkReadColor = UIColor(hex: "#152B55")
-    static let checkmarkDistributedColor = UIColor(hex: "#767676")
-    static let checkmarkSentColor = UIColor(hex: "#152B55")
-
-    static let csatSubmitButtonBackgroundColor = UIColor(hex: "#FFFFFF")
-    static let csatSubmitButtonTextColor = UIColor(hex: "#000000")
-    static let csatRatingButtonSelectedColor = UIColor(hex: "#FFFFFF")
-    static let csatAllTitlesTextColor = UIColor(hex: "#000000")
-
-   
+    
 }
 
 
