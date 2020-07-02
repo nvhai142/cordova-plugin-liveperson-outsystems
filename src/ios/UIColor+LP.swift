@@ -67,7 +67,46 @@ extension UIColor{
     static let csatRatingButtonSelectedColor = UIColor(hex: "#FFFFFF")
     static let csatAllTitlesTextColor = UIColor(hex: "#000000")
 
-    
+    static let csatNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let csatNavigationTitleColor = UIColor(hex: "#000000")
+    static let csatSkipButtonColor = UIColor(hex: "#000000")
+    static let conversationSeparatorTextColor = UIColor(hex: "#1C1C1C")
+    static let conversationBackgroundColor = UIColor(hex: "#FFFFFF")
+
+    static let dateSeparatorTitleBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let dateSeparatorTextColor = UIColor(hex: "#636363")
+    static let dateSeparatorLineBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let dateSeparatorBackgroundColor = UIColor(hex: "#FFFFFF")
+
+    static let inputTextViewContainerBackgroundColor = UIColor(hex: "#FFFFFF")
+
+    static let ttrBannerBackgroundColor = UIColor(hex: "#767676")
+
+    static let remoteUserAvatarBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let remoteUserAvatarIconColor = UIColor(hex: "#000000")
+    static let csatAgentAvatarBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let csatAgentAvatarIconColor = UIColor(hex: "#000000")
+
+    static let conversationNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let conversationNavigationTitleColor = UIColor(hex: "#000000")
+    //static let conversationStatusBarStyle = UIColor.LightContent
+    static let secureFormBackButtonColor = UIColor(hex: "#000000")
+
+    static let secureFormNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let secureFormNavigationTitleColor = UIColor(hex: "#000000")
+    static let secureFormBubbleBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let secureFormBubbleBorderColor = UIColor(hex: "#D7D8D6")
+    static let secureFormBubbleTitleColor = UIColor(hex: "#D7D8D6")
+    static let secureFormBubbleDescriptionColor = UIColor(hex: "#767676")
+    static let secureFormBubbleFillFormButtonTextColor = UIColor(hex: "#767676")
+    static let secureFormBubbleFillFormButtonBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let secureFormBubbleFormImageTintColor = UIColor(hex: "#152B55")
+
+    static let connectionStatusConnectingBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let connectionStatusConnectingTextColor = UIColor(hex: "#636363")
+    static let connectionStatusFailedToConnectBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let connectionStatusFailedToConnectTextColor = UIColor(hex: "#152B55")
+    static let controllerBubbleTextColor = UIColor(hex: "#000000")
 }
 
 
