@@ -12,7 +12,7 @@ import UIKit
 extension UIColor{
     
     static let backgroundColor = UIColor(hex: "#FFFFFF")
-    static let userBubbleBackgroundColor = UIColor(hex: "#0000FF")
+    static let userBubbleBackgroundColor = UIColor(hex: "#00FFFF")
 }
 
 
