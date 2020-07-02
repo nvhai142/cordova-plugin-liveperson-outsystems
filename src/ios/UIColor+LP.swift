@@ -36,7 +36,6 @@ extension UIColor{
     static let linkPreviewDescriptionTextColor = UIColor(hex: "#767676")
     static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
 
-    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
     static let urlRealTimePreviewBackgroundColor = UIColor(hex: "#FFFFFF")
     static let urlRealTimePreviewBorderColor = UIColor(hex: "#C1C1C1")
 
