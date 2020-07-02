@@ -32,7 +32,16 @@ extension UIColor{
     static let userBubbleErrorBorderColor = UIColor(hex: "#DB0011")
     static let userBubbleLongPressOverlayColor = UIColor(hex: "#F5F5F5")
 
-    
+    static let linkPreviewBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let linkPreviewTitleTextColor = UIColor(hex: "#000000")
+    static let linkPreviewDescriptionTextColor = UIColor(hex: "#767676")
+    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
+
+    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
+    static let urlRealTimePreviewBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let urlRealTimePreviewBorderColor = UIColor(hex: "#C1C1C1")
+
+   
 }
 
 
