@@ -13,6 +13,101 @@ extension UIColor{
     
     static let backgroundColor = UIColor(hex: "#FFFFFF")
     static let userBubbleBackgroundColor = UIColor(hex: "#00FFFF")
+
+    static let remoteUserBubbleBackgroundColor = UIColor(hex: "#F0E2D4")
+    static let remoteUserBubbleBorderColor = UIColor(hex: "#F0E2D4")
+    static let remoteUserBubbleLinkColor = UIColor(hex: "#F0E2D4")
+    static let remoteUserBubbleTextColor = UIColor(hex: "#636363")
+    static let remoteUserBubbleTimestampColor = UIColor(hex: "#636363")
+    static let remoteUserTypingTintColor = UIColor(hex: "#FFFFFF")
+    static let remoteUserBubbleLongPressOverlayColor = UIColor(hex: "#C1C1C1")
+
+    static let userBubbleBackgroundColor = UIColor(hex: "#152B55")
+    static let userBubbleBorderColor = UIColor(hex: "#152B55")
+    static let userBubbleLinkColor = UIColor(hex: "#152B55")
+    static let userBubbleTextColor = UIColor(hex: "#FFFFFF")
+    static let userBubbleTimestampColor = UIColor(hex: "#000000")
+    static let userBubbleSendStatusTextColor = UIColor(hex: "#000000")
+    static let userBubbleErrorTextColor = UIColor(hex: "#DB0011")
+    static let userBubbleErrorBorderColor = UIColor(hex: "#DB0011")
+    static let userBubbleLongPressOverlayColor = UIColor(hex: "#F5F5F5")
+
+    static let linkPreviewBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let linkPreviewTitleTextColor = UIColor(hex: "#000000")
+    static let linkPreviewDescriptionTextColor = UIColor(hex: "#767676")
+    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
+
+    static let linkPreviewSiteNameTextColor = UIColor(hex: "#F5F5F5")
+    static let urlRealTimePreviewBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let urlRealTimePreviewBorderColor = UIColor(hex: "#C1C1C1")
+
+    static let urlRealTimePreviewTitleTextColor = UIColor(hex: "#767676")
+    static let urlRealTimePreviewDescriptionTextColor = UIColor(hex: "#767676")
+
+    static let photosharingMenuBackgroundColor = UIColor(hex: "#C1C1C1")
+    static let photosharingMenuButtonsBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let photosharingMenuButtonsTintColor = UIColor(hex: "#D7D8D6")
+    static let photosharingMenuButtonsTextColor = UIColor(hex: "#636363")
+    static let cameraButtonEnabledColor = UIColor(hex: "#152B55")
+    static let cameraButtonDisabledColor = UIColor(hex: "#AF000E")
+    static let fileCellLoaderFillColor = UIColor(hex: "#00CA3D")
+    static let fileCellLoaderRingProgressColor = UIColor(hex: "#00CA3D")
+    static let fileCellLoaderRingBackgroundColor = UIColor(hex: "#FFFFFF")
+
+
+    static let sendButtonDisabledColor = UIColor(hex: "#636363")
+    static let sendButtonEnabledColor = UIColor(hex: "#00CA3D")
+    static let systemBubbleTextColor = UIColor(hex: "#1C1C1C")
+
+    static let checkmarkReadColor = UIColor(hex: "#152B55")
+    static let checkmarkDistributedColor = UIColor(hex: "#767676")
+    static let checkmarkSentColor = UIColor(hex: "#152B55")
+
+    static let csatSubmitButtonBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let csatSubmitButtonTextColor = UIColor(hex: "#000000")
+    static let csatRatingButtonSelectedColor = UIColor(hex: "#FFFFFF")
+    static let csatAllTitlesTextColor = UIColor(hex: "#000000")
+
+    static let csatNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let csatNavigationTitleColor = UIColor(hex: "#000000")
+    static let csatSkipButtonColor = UIColor.black
+    static let conversationSeparatorTextColor = UIColor(hex: "#1C1C1C")
+    static let conversationBackgroundColor = UIColor(hex: "#FFFFFF")
+
+    static let dateSeparatorTitleBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let dateSeparatorTextColor = UIColor(hex: "#636363")
+    static let dateSeparatorLineBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let dateSeparatorBackgroundColor = UIColor(hex: "#FFFFFF")
+
+    static let inputTextViewContainerBackgroundColor = UIColor(hex: "#FFFFFF")
+
+    static let ttrBannerBackgroundColor = UIColor(hex: "#767676")
+
+    static let remoteUserAvatarBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let remoteUserAvatarIconColor = UIColor(hex: "#000000")
+    static let csatAgentAvatarBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let csatAgentAvatarIconColor = UIColor(hex: "#000000")
+
+    static let conversationNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let conversationNavigationTitleColor = UIColor(hex: "#000000")
+    static let conversationStatusBarStyle = UIColor.LightContent
+    static let secureFormBackButtonColor = UIColor(hex: "#000000")
+
+    static let secureFormNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let secureFormNavigationTitleColor = UIColor(hex: "#000000")
+    static let secureFormBubbleBackgroundColor = UIColor.white
+    static let secureFormBubbleBorderColor = UIColor(hex: "#D7D8D6")
+    static let secureFormBubbleTitleColor = UIColor(hex: "#D7D8D6")
+    static let secureFormBubbleDescriptionColor = UIColor(hex: "#767676")
+    static let secureFormBubbleFillFormButtonTextColor = UIColor(hex: "#767676")
+    static let secureFormBubbleFillFormButtonBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let secureFormBubbleFormImageTintColor = UIColor(hex: "#152B55")
+
+    static let connectionStatusConnectingBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let connectionStatusConnectingTextColor = UIColor(hex: "#636363")
+    static let connectionStatusFailedToConnectBackgroundColor = UIColor(hex: "#D7D8D6")
+    static let connectionStatusFailedToConnectTextColor = UIColor(hex: "#152B55")
+    static let controllerBubbleTextColor = UIColor(hex: "#000000")
 }
 
 

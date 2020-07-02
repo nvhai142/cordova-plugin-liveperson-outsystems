@@ -39,7 +39,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
-        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("63168344")
+        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("2022139")
         self.configUI()
     }
 
@@ -53,6 +53,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         
         let configUI = LPConfig.defaultConfiguration
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
+
     }
     
     @IBAction func cancelPressed(sender:Any) {
