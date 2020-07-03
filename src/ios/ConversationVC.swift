@@ -89,6 +89,16 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.urlRealTimePreviewTitleTextColor = UIColor.urlRealTimePreviewTitleTextColor
         configUI.urlRealTimePreviewDescriptionTextColor = UIColor.urlRealTimePreviewDescriptionTextColor
 
+        configUI.photosharingMenuBackgroundColor = UIColor.photosharingMenuBackgroundColor
+        configUI.photosharingMenuButtonsBackgroundColor = UIColor.photosharingMenuButtonsBackgroundColor
+        configUI.photosharingMenuButtonsTintColor = UIColor.photosharingMenuButtonsTintColor
+        configUI.photosharingMenuButtonsTextColor = UIColor.photosharingMenuButtonsTextColor
+        configUI.cameraButtonEnabledColor = UIColor.cameraButtonEnabledColor
+        configUI.cameraButtonDisabledColor = UIColor.cameraButtonDisabledColor
+        configUI.fileCellLoaderFillColor = UIColor.fileCellLoaderFillColor
+        configUI.fileCellLoaderRingProgressColor = UIColor.fileCellLoaderRingProgressColor
+        configUI.fileCellLoaderRingBackgroundColor = UIColor.fileCellLoaderRingBackgroundColor
+
     }
     
     @IBAction func cancelPressed(sender:Any) {
