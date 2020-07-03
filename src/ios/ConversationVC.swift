@@ -86,7 +86,6 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.linkPreviewSiteNameTextColor = UIColor.linkPreviewSiteNameTextColor
         configUI.urlRealTimePreviewBackgroundColor = UIColor.urlRealTimePreviewBackgroundColor
         configUI.urlRealTimePreviewBorderColor = UIColor.urlRealTimePreviewBorderColor
-        configUI.urlRealTimePreviewBorderWidth = UIColor.urlRealTimePreviewBorderWidth
         configUI.urlRealTimePreviewTitleTextColor = UIColor.urlRealTimePreviewTitleTextColor
         configUI.urlRealTimePreviewDescriptionTextColor = UIColor.urlRealTimePreviewDescriptionTextColor
 
