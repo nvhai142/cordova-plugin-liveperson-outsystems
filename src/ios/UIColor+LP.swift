@@ -88,7 +88,6 @@ extension UIColor{
 
     static let conversationNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
     static let conversationNavigationTitleColor = UIColor(hex: "#000000")
-    //static let conversationStatusBarStyle = UIColor.LightContent
     static let secureFormBackButtonColor = UIColor(hex: "#000000")
 
     static let secureFormNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
