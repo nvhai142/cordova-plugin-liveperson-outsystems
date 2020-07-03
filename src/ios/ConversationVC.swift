@@ -80,6 +80,16 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.userBubbleErrorBorderColor =  UIColor.userBubbleErrorBorderColor
         configUI.userBubbleLongPressOverlayColor =  UIColor.userBubbleLongPressOverlayColor
 
+        configUI.linkPreviewBackgroundColor = UIColor.linkPreviewBackgroundColor
+        configUI.linkPreviewTitleTextColor = UIColor.linkPreviewTitleTextColor
+        configUI.linkPreviewDescriptionTextColor = UIColor.linkPreviewDescriptionTextColor
+        configUI.linkPreviewSiteNameTextColor = UIColor.linkPreviewSiteNameTextColor
+        configUI.urlRealTimePreviewBackgroundColor = UIColor.urlRealTimePreviewBackgroundColor
+        configUI.urlRealTimePreviewBorderColor = UIColor.urlRealTimePreviewBorderColor
+        configUI.urlRealTimePreviewBorderWidth = UIColor.urlRealTimePreviewBorderWidth
+        configUI.urlRealTimePreviewTitleTextColor = UIColor.urlRealTimePreviewTitleTextColor
+        configUI.urlRealTimePreviewDescriptionTextColor = UIColor.urlRealTimePreviewDescriptionTextColor
+
     }
     
     @IBAction func cancelPressed(sender:Any) {
