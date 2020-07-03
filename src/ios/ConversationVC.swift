@@ -70,6 +70,16 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.remoteUserTypingTintColor = UIColor.remoteUserTypingTintColor
         configUI.remoteUserBubbleLongPressOverlayColor = UIColor.remoteUserBubbleLongPressOverlayColor
 
+        configUI.userBubbleBackgroundColor =  UIColor.userBubbleBackgroundColor
+        configUI.userBubbleBorderColor =  UIColor.userBubbleBorderColor
+        configUI.userBubbleLinkColor =  UIColor.userBubbleLinkColor
+        configUI.userBubbleTextColor =  UIColor.userBubbleTextColor
+        configUI.userBubbleTimestampColor =   UIColor.userBubbleTimestampColor
+        configUI.userBubbleSendStatusTextColor =  UIColor.userBubbleSendStatusTextColor
+        configUI.userBubbleErrorTextColor =  UIColor.userBubbleErrorTextColor
+        configUI.userBubbleErrorBorderColor =  UIColor.userBubbleErrorBorderColor
+        configUI.userBubbleLongPressOverlayColor =  UIColor.userBubbleLongPressOverlayColor
+
     }
     
     @IBAction func cancelPressed(sender:Any) {
