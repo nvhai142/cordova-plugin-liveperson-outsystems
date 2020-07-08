@@ -98,6 +98,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.fileCellLoaderFillColor = UIColor.fileCellLoaderFillColor
         configUI.fileCellLoaderRingProgressColor = UIColor.fileCellLoaderRingProgressColor
         configUI.fileCellLoaderRingBackgroundColor = UIColor.fileCellLoaderRingBackgroundColor
+        configUI.isReadReceiptTextMode = NO
 
     }
     
