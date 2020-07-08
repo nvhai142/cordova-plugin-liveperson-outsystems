@@ -99,7 +99,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.fileCellLoaderRingProgressColor = UIColor.fileCellLoaderRingProgressColor
         configUI.fileCellLoaderRingBackgroundColor = UIColor.fileCellLoaderRingBackgroundColor
         configUI.isReadReceiptTextMode = false
-        configUI.checkmarkVisibility = CheckmarksStateSentOnly
+        configUI.checkmarkVisibility = .sentOnly
     }
     
     @IBAction func cancelPressed(sender:Any) {
