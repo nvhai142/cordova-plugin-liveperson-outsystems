@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         String package_name = getApplication().getPackageName();
-        getMenuInflater().inflate(getApplication().getResources().getIdentifier("menu_chat", "layout", package_name), menu);
+        getMenuInflater().inflate(getApplication().getResources().getIdentifier("menu_chat", "menu", package_name), menu);
         mMenu = menu;
         return true;
     }
