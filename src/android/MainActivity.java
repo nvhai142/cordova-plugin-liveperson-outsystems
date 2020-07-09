@@ -12,12 +12,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        String package_name = getApplication().getPackageName();
+        setContentView(getApplication().getResources().getIdentifier("activity_main", "layout", package_name));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_chat, menu);
+        String package_name = getApplication().getPackageName();
+        getMenuInflater().inflate(getApplication().getResources().getIdentifier("menu_chat", "layout", package_name), menu);
         mMenu = menu;
         return true;
     }
