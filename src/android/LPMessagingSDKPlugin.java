@@ -286,7 +286,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     try {
                         Context context = cordova.getActivity().getApplicationContext();
                         Intent intent = new Intent(context, MainActivity.class);
-                        this.cordova.getActivity().startActivity(intent);
+                        cordova.getActivity().startActivity(intent);
 
                         LivePerson.showConversation(cordova.getActivity());
                         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
@@ -321,7 +321,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 try {
                     Context context = cordova.getActivity().getApplicationContext();    
                     Intent intent = new Intent(context, MainActivity.class);
-                    this.cordova.getActivity().startActivity(intent);
+                    cordova.getActivity().startActivity(intent);
 
                     LivePerson.showConversation(cordova.getActivity(),token);
                     PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
