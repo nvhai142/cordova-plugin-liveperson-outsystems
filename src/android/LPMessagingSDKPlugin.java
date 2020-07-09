@@ -284,7 +284,8 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         e1.printStackTrace();
                     }
                     try {
-                        Intent intent = new Intent(mCallbackContext, MainActivity.class);
+                        Context context = cordova.getActivity().getApplicationContext();
+                        Intent intent = new Intent(context, MainActivity.class);
                         this.cordova.getActivity().startActivity(intent);
 
                         LivePerson.showConversation(cordova.getActivity());
@@ -318,7 +319,8 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 }
 
                 try {
-                    Intent intent = new Intent(mCallbackContext, MainActivity.class);
+                    Context context = cordova.getActivity().getApplicationContext();    
+                    Intent intent = new Intent(context, MainActivity.class);
                     this.cordova.getActivity().startActivity(intent);
 
                     LivePerson.showConversation(cordova.getActivity(),token);
