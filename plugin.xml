@@ -30,16 +30,23 @@
       		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		</config-file>
 
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:label="MainActivity" android:name="com.liveperson.plugin.MainActivity"></activity>
+        </config-file>
+
         <!-- LivePerson Android SDK -->
         <framework src="com.liveperson.android:lp_messaging_sdk:4.3.+" />
 
         <!--  Plugin Code -->
         <source-file src="src/android/LPMessagingSDKPlugin.java" target-dir="src/com/liveperson/plugin/" />
+		<source-file src="src/android/MainActivity.java" target-dir="src/com/liveperson/plugin/" />
 
         <resource-file src="src/android/res/values/branding.xml" target="res/values/branding.xml"/>
         <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml"/>
         <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml"/>
 		<resource-file src="src/android/res/values/string.xml" target="res/values/string.xml"/>
+		<resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml"/>
+		<resource-file src="src/android/res/menu/menu_chat.xml" target="res/menu/menu_chat.xml"/>
 
 	</platform>
 

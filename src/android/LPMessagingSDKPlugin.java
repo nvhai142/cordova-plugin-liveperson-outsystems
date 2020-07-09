@@ -283,11 +283,15 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         e1.printStackTrace();
                     }
                     try {
+                        Intent intent = new Intent(mCallbackContext, MainActivity.class);
+                        this.cordova.getActivity().startActivity(intent);
+
                         LivePerson.showConversation(cordova.getActivity());
                         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                         result.setKeepCallback(true);
                         mCallbackContext.sendPluginResult(result);
                         setCallBack();
+                        
                     } catch (Exception e2) {
                         PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
                         result.setKeepCallback(true);
@@ -313,6 +317,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 }
 
                 try {
+                    Intent intent = new Intent(mCallbackContext, MainActivity.class);
+                    this.cordova.getActivity().startActivity(intent);
+
                     LivePerson.showConversation(cordova.getActivity(),token);
                     PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                     result.setKeepCallback(true);
