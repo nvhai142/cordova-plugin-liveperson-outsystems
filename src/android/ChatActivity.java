@@ -1,4 +1,4 @@
-package com.liveperson.plugin;
+package com.exchange.demoliveperson;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 
 import com.liveperson.infra.ConversationViewParams;
-import com.liveperson.infra.LPAuthenticationParams;
+import com.liveperson.infra.auth.LPAuthenticationParams;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
