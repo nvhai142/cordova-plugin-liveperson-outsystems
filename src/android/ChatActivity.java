@@ -39,12 +39,13 @@ public class ChatActivity extends AppCompatActivity {
     private ConversationFragment mConversationFragment;
 
     private Menu mMenu;
-
+    String package_name ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom);
+        package_name = getApplicationContext().getPackageName();
+        setContentView(getApplication().getResources().getIdentifier("activity_custom", "layout", package_name));
         setTitle("Chat");
 
     }
@@ -158,15 +159,15 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        onBackPressed();
-//        return true;
-//    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_chat, menu);
+        getMenuInflater().inflate(getApplication().getResources().getIdentifier("menu_chat", "menu", package_name), menu);
         mMenu = menu;
         return true;
     }
