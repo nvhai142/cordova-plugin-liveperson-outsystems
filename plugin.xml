@@ -31,7 +31,7 @@
 		</config-file>
 
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:label="MainActivity" android:name="com.liveperson.plugin.MainActivity"></activity>
+            <activity android:label="ChatActivity" android:name="com.liveperson.plugin.ChatActivity"></activity>
         </config-file>
 
         <!-- LivePerson Android SDK -->
