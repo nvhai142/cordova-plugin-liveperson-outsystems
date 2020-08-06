@@ -1,16 +1,11 @@
-package com.liveperson.plugin;
+package com.exchange.demoliveperson;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.INotificationSideChannel;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -18,18 +13,13 @@ import android.view.MenuItem;
 
 
 import com.liveperson.infra.ConversationViewParams;
-import com.liveperson.infra.ICallback;
-import com.liveperson.infra.InitLivePersonProperties;
 import com.liveperson.infra.LPAuthenticationParams;
-import com.liveperson.infra.callbacks.InitLivePersonCallBack;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
-import com.exchange.demoliveperson.R;
 import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
 
-
 /**
- * Created by nishant.singh on 20-03-2018.
+ * Created by han.nguyen on 20-03-2018.
  * Used as a LivePerson Fragment container.
  */
 
@@ -99,26 +89,28 @@ public class ChatActivity extends AppCompatActivity {
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
                 LivePerson.setImageServicePendingIntent(pendingIntent);
 
-                // // Notification builder for image upload foreground service
-                // Notification.Builder uploadBuilder = new Notification.Builder(this.getApplicationContext());
-                // Notification.Builder downloadBuilder = new Notification.Builder(this.getApplicationContext());
-                // uploadBuilder.setContentTitle("Uploading image")
-                //         .setSmallIcon(getApplication().getResources().getIdentifier("arrow_up_float", "drawable", package_name))
-                //         .setContentIntent(pendingIntent)
-                //         .setProgress(0, 0, true);
+                // Notification builder for image upload foreground service
+                Notification.Builder uploadBuilder = new Notification.Builder(this.getApplicationContext());
+                Notification.Builder downloadBuilder = new Notification.Builder(this.getApplicationContext());
+                uploadBuilder.setContentTitle("Uploading image")
+                        .setSmallIcon(getApplication().getResources().getIdentifier("arrow_up_float", "drawable", package_name))
+                        .setContentIntent(pendingIntent)
+                        .setProgress(0, 0, true);
 
-                // downloadBuilder.setContentTitle("Downloading image")
+                downloadBuilder.setContentTitle("Downloading image")
 
-                //         .setSmallIcon(getApplication().getResources().getIdentifier("arrow_down_float", "drawable", package_name))
-                //         .setContentIntent(pendingIntent)
-                //         .setProgress(0, 0, true);
+                        .setSmallIcon(getApplication().getResources().getIdentifier("arrow_down_float", "drawable", package_name))
+                        .setContentIntent(pendingIntent)
+                        .setProgress(0, 0, true);
 
-                // LivePerson.setImageServiceUploadNotificationBuilder(uploadBuilder);
-                // LivePerson.setImageServiceDownloadNotificationBuilder(downloadBuilder);
+                LivePerson.setImageServiceUploadNotificationBuilder(uploadBuilder);
+                LivePerson.setImageServiceDownloadNotificationBuilder(downloadBuilder);
 
 
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.add(R.id.custom_fragment_container, mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
+
+                //ft.add(R.id.custom_fragment_container, mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
+                ft.add(getResources().getIdentifier("custom_fragment_container","id", package_name), mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
             }
         } else {
             attachFragment();
