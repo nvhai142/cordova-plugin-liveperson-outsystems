@@ -23,7 +23,7 @@ import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
  * Used as a LivePerson Fragment container.
  */
 
-public class ChatActivity extends Activity {
+public class ChatActivity extends AppCompatActivity {
     private static final String TAG = ChatActivity.class.getSimpleName();
     private static final String LIVEPERSON_FRAGMENT = "liveperson_fragment";
     private ConversationFragment mConversationFragment;
