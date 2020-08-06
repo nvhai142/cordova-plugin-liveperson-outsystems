@@ -1,4 +1,4 @@
-package com.exchange.demoliveperson;
+package com.liveperson.plugin;
 
 import android.app.Notification;
 import android.app.PendingIntent;
