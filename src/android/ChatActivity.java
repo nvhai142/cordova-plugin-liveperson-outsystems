@@ -83,28 +83,28 @@ public class ChatActivity extends AppCompatActivity {
 
             if (isValidState()) {
 
-                // // Pending intent for image foreground service
-                // Intent notificationIntent = new Intent(this, ChatActivity.class);
-                // notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                // PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-                // LivePerson.setImageServicePendingIntent(pendingIntent);
-
-                // // Notification builder for image upload foreground service
-                // Notification.Builder uploadBuilder = new Notification.Builder(this.getApplicationContext());
-                // Notification.Builder downloadBuilder = new Notification.Builder(this.getApplicationContext());
-                // uploadBuilder.setContentTitle("Uploading image")
-                //         .setSmallIcon(getApplication().getResources().getIdentifier("arrow_up_float", "drawable", package_name))
-                //         .setContentIntent(pendingIntent)
-                //         .setProgress(0, 0, true);
-
-                // downloadBuilder.setContentTitle("Downloading image")
-
-                //         .setSmallIcon(getApplication().getResources().getIdentifier("arrow_down_float", "drawable", package_name))
-                //         .setContentIntent(pendingIntent)
-                //         .setProgress(0, 0, true);
-
-                // LivePerson.setImageServiceUploadNotificationBuilder(uploadBuilder);
-                // LivePerson.setImageServiceDownloadNotificationBuilder(downloadBuilder);
+//                // Pending intent for image foreground service
+//                Intent notificationIntent = new Intent(this, ChatActivity.class);
+//                notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+//                LivePerson.setImageServicePendingIntent(pendingIntent);
+//
+//                // Notification builder for image upload foreground service
+//                Notification.Builder uploadBuilder = new Notification.Builder(this.getApplicationContext());
+//                Notification.Builder downloadBuilder = new Notification.Builder(this.getApplicationContext());
+//                uploadBuilder.setContentTitle("Uploading image")
+//                        .setSmallIcon(getApplication().getResources().getIdentifier("arrow_up_float", "drawable", package_name))
+//                        .setContentIntent(pendingIntent)
+//                        .setProgress(0, 0, true);
+//
+//                downloadBuilder.setContentTitle("Downloading image")
+//
+//                        .setSmallIcon(getApplication().getResources().getIdentifier("arrow_down_float", "drawable", package_name))
+//                        .setContentIntent(pendingIntent)
+//                        .setProgress(0, 0, true);
+//
+//                LivePerson.setImageServiceUploadNotificationBuilder(uploadBuilder);
+//                LivePerson.setImageServiceDownloadNotificationBuilder(downloadBuilder);
 
 
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
