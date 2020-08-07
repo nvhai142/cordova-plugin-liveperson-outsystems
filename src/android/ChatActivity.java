@@ -13,7 +13,9 @@ import android.view.MenuItem;
 
 
 import com.liveperson.infra.ConversationViewParams;
+import com.liveperson.infra.InitLivePersonProperties;
 import com.liveperson.infra.auth.LPAuthenticationParams;
+import com.liveperson.infra.callbacks.InitLivePersonCallBack;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
@@ -27,6 +29,8 @@ public class ChatActivity extends AppCompatActivity {
     private static final String TAG = ChatActivity.class.getSimpleName();
     private static final String LIVEPERSON_FRAGMENT = "liveperson_fragment";
     private ConversationFragment mConversationFragment;
+    String BrandID = "2022139";
+    String AppID = "com.exchange.demoliveperson";
 
     private Menu mMenu;
     String package_name ;
@@ -43,7 +47,7 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        initFragment();
+        initLivePerson();
         setUserProfile();
     }
 
@@ -110,7 +114,7 @@ public class ChatActivity extends AppCompatActivity {
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
                 //ft.add(R.id.custom_fragment_container, mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
-                if (mConversationFragment!=null) {
+                if (mConversationFragment != null) {
                     ft.add(getResources().getIdentifier("custom_fragment_container", "id", getPackageName()), mConversationFragment,
                             LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
                 } else {
@@ -181,5 +185,21 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         return true;
+    }
+    public void initLivePerson() {
+        Log.d("HAN_NGUYEN", "initLivePerson: ");
+        LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(BrandID, AppID, new InitLivePersonCallBack() {
+
+            @Override
+            public void onInitSucceed() {
+                Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
+                initFragment();
+            }
+
+            @Override
+            public void onInitFailed(Exception e) {
+                Log.e("HAN_NGUYEN", "Liverperson SDK Initialization Failed : " + e.getMessage());
+            }
+        }));
     }
 }
