@@ -110,7 +110,9 @@ public class ChatActivity extends AppCompatActivity {
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
                 //ft.add(R.id.custom_fragment_container, mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
-                ft.add(getResources().getIdentifier("custom_fragment_container","id", package_name), mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
+                int id = getResources().getIdentifier("custom_fragment_container", "id", getPackageName());
+                ft.add(getResources().getIdentifier("custom_fragment_container", "id", getPackageName()), mConversationFragment,
+                        LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
             }
         } else {
             attachFragment();
