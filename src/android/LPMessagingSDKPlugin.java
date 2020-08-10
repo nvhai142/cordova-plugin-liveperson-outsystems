@@ -29,6 +29,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
 
     private static final String TAG = LPMessagingSDKPlugin.class.getSimpleName();
     public String LP_APP_PACKAGE_NAME;
+    String AppID = "com.exchange.demoliveperson";
 
     private static final String INIT = "lp_sdk_init";
     private static final String START_CONVERSATION = "start_lp_conversation";
@@ -204,7 +205,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             cordova.getActivity().setTitle("CHAT");
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, LP_APP_PACKAGE_NAME, new InitLivePersonCallBack() {
+                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, AppID, new InitLivePersonCallBack() {
                         @Override
                         public void onInitSucceed() {
                             Log.i(TAG, "@@@ android ... SDK initialize completed successfully");
