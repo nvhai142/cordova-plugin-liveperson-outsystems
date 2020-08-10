@@ -322,6 +322,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 try {
                     Context context = cordova.getActivity().getApplicationContext();    
                     Intent intent = new Intent(context, ChatActivity.class);
+                    intent.putExtra("EXTRA_AUTHENTICATE", token);
                     cordova.getActivity().startActivity(intent);
 
                    // LivePerson.showConversation(cordova.getActivity(),token);
