@@ -47,8 +47,8 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-       // initLivePerson();
-        initFragment();
+        initLivePerson();
+       // initFragment();
         //setUserProfile();
     }
 
@@ -74,8 +74,6 @@ public class ChatActivity extends AppCompatActivity {
         mConversationFragment = (ConversationFragment) getSupportFragmentManager().findFragmentByTag(LIVEPERSON_FRAGMENT);
         Log.d(TAG, "initFragment. mConversationFragment = " + mConversationFragment);
         if (mConversationFragment == null) {
-//            String authCode = SampleAppStorage.getInstance(ChatActivity.this).getAuthCode();
-//            String publicKey = SampleAppStorage.getInstance(ChatActivity.this).getPublicKey();
             String authCode = "";
             String publicKey = "";
 
@@ -89,7 +87,6 @@ public class ChatActivity extends AppCompatActivity {
             if (isValidState()) {
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-                //ft.add(R.id.custom_fragment_container, mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
                 if (mConversationFragment != null) {
                     ft.add(getResources().getIdentifier("custom_fragment_container", "id", getPackageName()), mConversationFragment,
                             LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
