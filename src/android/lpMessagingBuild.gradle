@@ -23,5 +23,4 @@ android {
 
 dependencies {
     compile project(':lp_messaging_sdk')
-    implementation 'com.jakewharton:butterknife:8.5.1'
 }

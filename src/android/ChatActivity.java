@@ -30,7 +30,6 @@ import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by han.nguyen on 20-03-2018.
@@ -273,7 +272,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     }
 
     void setup() {
-        ButterKnife.bind(this);
         if (toolbar == null) {
             toolbar = findViewById (getApplication().getResources().getIdentifier("toolbar", "id", package_name));
         }
