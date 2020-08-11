@@ -306,41 +306,39 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case getApplication().getResources().getIdentifier("clear_history", "id", getPackageName()):
-                // check if the history is resolved,if not skip the clear command and notify the user.
-                mDialogHelper.action("Clear history",
-                        "All of your existing conversation history will be lost. Are you sure?",
-                        "Clear", "Cancel",
-                        (dialog, which) -> {
-                            LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
-                                @Override
-                                public void onSuccess(Boolean aBoolean) {
-                                    if (!aBoolean) {
-                                        //clear history only from device
-                                        LivePerson.clearHistory();
-                                    } else {
-                                        mDialogHelper.alert("Clear history", "Please resolve the conversation first");
-                                    }
-
+        if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
+            // check if the history is resolved,if not skip the clear command and notify the user.
+            mDialogHelper.action("Clear history",
+                    "All of your existing conversation history will be lost. Are you sure?",
+                    "Clear", "Cancel",
+                    (dialog, which) -> {
+                        LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+                            @Override
+                            public void onSuccess(Boolean aBoolean) {
+                                if (!aBoolean) {
+                                    //clear history only from device
+                                    LivePerson.clearHistory();
+                                } else {
+                                    mDialogHelper.alert("Clear history", "Please resolve the conversation first");
                                 }
 
-                                @Override
-                                public void onError(Exception e) {
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
 //                                    Log.e(TAG, e.getMessage());
-                                }
-                            });
+                            }
+                        });
 
-                        });
-                break;
-            case getApplication().getResources().getIdentifier("mark_as_resolved", "id", getPackageName()):
-                mDialogHelper.action("Resolve the conversation",
-                        "Are you sure this topic is resolved?",
-                        "Yes", "Cancel",
-                        (dialog, which) -> {
-                            LivePerson.resolveConversation();
-                        });
-                break;
+                    });
+        } else if(id == getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name)){
+            mDialogHelper.action("Resolve the conversation",
+                    "Are you sure this topic is resolved?",
+                    "Yes", "Cancel",
+                    (dialog, which) -> {
+                        LivePerson.resolveConversation();
+                    });
+        } else {
 
         }
         return super.onOptionsItemSelected(item);
