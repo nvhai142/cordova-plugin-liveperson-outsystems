@@ -143,14 +143,14 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 break;
             case START_CONVERSATION:
                 mCallbackContext = callbackContext;
-                
+                String appIDs = args.getString(0);
                 if(!args.isNull(1)) {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
-                    startAuthenticatedConversation(jwt);
+                    startAuthenticatedConversation(appIDs,jwt);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
-                    startConversation();
+                    startConversation(appIDs);
                 }
 
                 break;
@@ -273,7 +273,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation() {
+    private void startConversation(final String appID) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -287,6 +287,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     try {
                         Context context = cordova.getActivity().getApplicationContext();
                         Intent intent = new Intent(context, ChatActivity.class);
+                        intent.putExtra("EXTRA_APPID", appID);
                         cordova.getActivity().startActivity(intent);
 
                        // LivePerson.showConversation(cordova.getActivity());
@@ -306,7 +307,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String token) {
+    private void startAuthenticatedConversation(final String appID, final String token) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -323,6 +324,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Context context = cordova.getActivity().getApplicationContext();    
                     Intent intent = new Intent(context, ChatActivity.class);
                     intent.putExtra("EXTRA_AUTHENTICATE", token);
+                    intent.putExtra("EXTRA_APPID", appID);
                     cordova.getActivity().startActivity(intent);
 
                    // LivePerson.showConversation(cordova.getActivity(),token);

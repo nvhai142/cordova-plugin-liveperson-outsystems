@@ -78,7 +78,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     protected void onStart(){
         super.onStart();
         initLivePerson();
-        setUserProfile();
+       // setUserProfile();
     }
 
 
@@ -199,19 +199,25 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     }
     public void initLivePerson() {
         Log.d("HAN_NGUYEN", "initLivePerson: ");
-        LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(BrandID, AppID, new InitLivePersonCallBack() {
+        Bundle extras = getIntent().getExtras();
+        String newAPP;
+        if(extras != null) {
+            newAPP= extras.getString("EXTRA_APPID");
+            LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, AppID, new InitLivePersonCallBack() {
 
-            @Override
-            public void onInitSucceed() {
-                Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
-                initFragment();
-            }
-
-            @Override
-            public void onInitFailed(Exception e) {
-                Log.e("HAN_NGUYEN", "Liverperson SDK Initialization Failed : " + e.getMessage());
-            }
-        }));
+                @Override
+                public void onInitSucceed() {
+                    Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
+                    initFragment();
+                }
+    
+                @Override
+                public void onInitFailed(Exception e) {
+                    Log.e("HAN_NGUYEN", "Liverperson SDK Initialization Failed : " + e.getMessage());
+                }
+            }));
+        }
+        
     }
 
     @Override
