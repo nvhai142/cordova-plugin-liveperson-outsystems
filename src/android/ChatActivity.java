@@ -186,14 +186,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (mIntentsHandler.getIsConversationActive()) {
-            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), true));
+            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), true);
         } else {
-            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), false));
+            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), false);
         }
 
 
         if (mIntentsHandler.getIsCsatLaunched()) {
-            menu.setGroupEnabled(getResources().getIdentifier("grp_clear", "id", getPackageName(), false));
+            menu.setGroupEnabled(getResources().getIdentifier("grp_clear", "id", getPackageName()), false);
         }
         return true;
     }
@@ -307,7 +307,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case getApplication().getResources().getIdentifier("clear_history", "id", package_name):
+            case getApplication().getResources().getIdentifier("clear_history", "id", getPackageName()):
                 // check if the history is resolved,if not skip the clear command and notify the user.
                 mDialogHelper.action("Clear history",
                         "All of your existing conversation history will be lost. Are you sure?",
@@ -333,7 +333,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
                         });
                 break;
-            case getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name):
+            case getApplication().getResources().getIdentifier("mark_as_resolved", "id", getPackageName()):
                 mDialogHelper.action("Resolve the conversation",
                         "Are you sure this topic is resolved?",
                         "Yes", "Cancel",
