@@ -103,11 +103,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         mConversationFragment = (ConversationFragment)getSupportFragmentManager().findFragmentByTag(LIVEPERSON_FRAGMENT);
         Log.d(TAG, "initFragment. mConversationFragment = " + mConversationFragment);
         if (mConversationFragment == null) {
-//            String authCode = SampleAppStorage.getInstance(ChatActivity.this).getAuthCode();
-//            String publicKey = SampleAppStorage.getInstance(ChatActivity.this).getPublicKey();
+
             String authCode = "";
             String publicKey = "";
 
+            Bundle extras = getIntent().getExtras();
+            if(extras != null) {
+                authCode= extras.getString("EXTRA_AUTHENTICATE");
+            }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
@@ -116,8 +119,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, new ConversationViewParams(false));
 
             if (isValidState()) {
-
-
 
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
