@@ -186,14 +186,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (mIntentsHandler.getIsConversationActive()) {
-            menu.setGroupEnabled(R.id.grp_urgent, true);
+            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), true);
         } else {
-            menu.setGroupEnabled(R.id.grp_urgent, false);
+            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), false);
         }
 
 
         if (mIntentsHandler.getIsCsatLaunched()) {
-            menu.setGroupEnabled(R.id.grp_clear, false);
+            menu.setGroupEnabled(getResources().getIdentifier("grp_clear", "id", getPackageName(), false);
         }
         return true;
     }
@@ -307,7 +307,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.clear_history:
+            case getApplication().getResources().getIdentifier("clear_history", "id", package_name):
                 // check if the history is resolved,if not skip the clear command and notify the user.
                 mDialogHelper.action("Clear history",
                         "All of your existing conversation history will be lost. Are you sure?",
@@ -333,7 +333,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
                         });
                 break;
-            case R.id.mark_as_resolved:
+            case getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name):
                 mDialogHelper.action("Resolve the conversation",
                         "Are you sure this topic is resolved?",
                         "Yes", "Cancel",
@@ -341,14 +341,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                             LivePerson.resolveConversation();
                         });
                 break;
-//            case R.id.mark_as_urgent:
-//                if (item.getTitle().toString().equalsIgnoreCase(getString(R.string.mark_as_urgent))) {
-//                    showMarkAsUrgentDialogue();
-//                } else {
-//                    showMarkAsNormalDialogue();
-//                }
-//
-//                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
