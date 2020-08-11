@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.liveperson.infra.ConversationViewParams;
+import com.liveperson.infra.ICallback;
 import com.liveperson.infra.InitLivePersonProperties;
 import com.liveperson.infra.auth.LPAuthenticationParams;
 import com.liveperson.infra.callbacks.InitLivePersonCallBack;
@@ -36,7 +37,7 @@ import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
  * Used as a LivePerson Fragment container.
  */
 
-public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.SwipeBackListener {
+public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.SwipeBackListener, LivepersonIntentHandler.ChatActivityCallback {
     private static final String TAG = ChatActivity.class.getSimpleName();
     private static final String LIVEPERSON_FRAGMENT = "liveperson_fragment";
     private ConversationFragment mConversationFragment;
@@ -45,6 +46,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     private Menu mMenu;
     String package_name ;
+    private DialogHelper mDialogHelper;
 
     private final SwipeBackLayout.DragEdge DEFAULT_DRAG_EDGE = SwipeBackLayout.DragEdge.LEFT;
 
@@ -54,16 +56,20 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     //Using this field to create swipe right to close child activity
     private SwipeBackLayout swipeBackLayout;
     protected boolean isSwipeBack = true;
+    // Intent Handler
+    private LivepersonIntentHandler mIntentsHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDialogHelper = new DialogHelper(this);
         package_name = getApplicationContext().getPackageName();
         appBar = findViewById (getApplication().getResources().getIdentifier("appBar", "id", package_name));
         toolbar = findViewById (getApplication().getResources().getIdentifier("toolbar", "id", package_name));
         title = findViewById (getApplication().getResources().getIdentifier("title", "id", package_name));
         int layoutResID = getApplication().getResources().getIdentifier("activity_custom", "layout", package_name);
         setContentView(layoutResID);
+        mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
         setTitle("Chat");
     }
 
@@ -111,33 +117,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
             if (isValidState()) {
 
-//                // Pending intent for image foreground service
-//                Intent notificationIntent = new Intent(this, ChatActivity.class);
-//                notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-//                LivePerson.setImageServicePendingIntent(pendingIntent);
-//
-//                // Notification builder for image upload foreground service
-//                Notification.Builder uploadBuilder = new Notification.Builder(this.getApplicationContext());
-//                Notification.Builder downloadBuilder = new Notification.Builder(this.getApplicationContext());
-//                uploadBuilder.setContentTitle("Uploading image")
-//                        .setSmallIcon(getApplication().getResources().getIdentifier("arrow_up_float", "drawable", package_name))
-//                        .setContentIntent(pendingIntent)
-//                        .setProgress(0, 0, true);
-//
-//                downloadBuilder.setContentTitle("Downloading image")
-//
-//                        .setSmallIcon(getApplication().getResources().getIdentifier("arrow_down_float", "drawable", package_name))
-//                        .setContentIntent(pendingIntent)
-//                        .setProgress(0, 0, true);
-//
-//                LivePerson.setImageServiceUploadNotificationBuilder(uploadBuilder);
-//                LivePerson.setImageServiceDownloadNotificationBuilder(downloadBuilder);
 
 
                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-                //ft.add(R.id.custom_fragment_container, mConversationFragment, LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
                 if (mConversationFragment != null) {
                     ft.add(getResources().getIdentifier("custom_fragment_container", "id", getPackageName()), mConversationFragment,
                             LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
@@ -202,6 +185,16 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        if (mIntentsHandler.getIsConversationActive()) {
+            menu.setGroupEnabled(R.id.grp_urgent, true);
+        } else {
+            menu.setGroupEnabled(R.id.grp_urgent, false);
+        }
+
+
+        if (mIntentsHandler.getIsCsatLaunched()) {
+            menu.setGroupEnabled(R.id.grp_clear, false);
+        }
         return true;
     }
     public void initLivePerson() {
@@ -312,7 +305,71 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.clear_history:
+                // check if the history is resolved,if not skip the clear command and notify the user.
+                mDialogHelper.action("Clear history",
+                        "All of your existing conversation history will be lost. Are you sure?",
+                        "Clear", "Cancel",
+                        (dialog, which) -> {
+                            LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+                                @Override
+                                public void onSuccess(Boolean aBoolean) {
+                                    if (!aBoolean) {
+                                        //clear history only from device
+                                        LivePerson.clearHistory();
+                                    } else {
+                                        mDialogHelper.alert("Clear history", "Please resolve the conversation first");
+                                    }
+
+                                }
+
+                                @Override
+                                public void onError(Exception e) {
+//                                    Log.e(TAG, e.getMessage());
+                                }
+                            });
+
+                        });
+                break;
+            case R.id.mark_as_resolved:
+                mDialogHelper.action("Resolve the conversation",
+                        "Are you sure this topic is resolved?",
+                        "Yes", "Cancel",
+                        (dialog, which) -> {
+                            LivePerson.resolveConversation();
+                        });
+                break;
+//            case R.id.mark_as_urgent:
+//                if (item.getTitle().toString().equalsIgnoreCase(getString(R.string.mark_as_urgent))) {
+//                    showMarkAsUrgentDialogue();
+//                } else {
+//                    showMarkAsNormalDialogue();
+//                }
+//
+//                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void finishChatScreen() {
+        finish();
+    }
+
+    @Override
+    public void reconectChat() {
+    }
+
+    @Override
+    public void setAgentName(String agentName) {
+        setTitle(agentName);
+    }
+
+    @Override
+    public void closeOptionMenu() {
+        if (mMenu != null)
+            mMenu.close();
+    }
 }
