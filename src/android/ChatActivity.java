@@ -186,14 +186,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (mIntentsHandler.getIsConversationActive()) {
-            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), true);
+            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), true));
         } else {
-            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), false);
+            menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName(), false));
         }
 
 
         if (mIntentsHandler.getIsCsatLaunched()) {
-            menu.setGroupEnabled(getResources().getIdentifier("grp_clear", "id", getPackageName(), false);
+            menu.setGroupEnabled(getResources().getIdentifier("grp_clear", "id", getPackageName(), false));
         }
         return true;
     }
