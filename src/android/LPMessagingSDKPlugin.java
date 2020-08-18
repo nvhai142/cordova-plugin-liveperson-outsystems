@@ -285,12 +285,12 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         e1.printStackTrace();
                     }
                     try {
-                        // Context context = cordova.getActivity().getApplicationContext();
-                        // Intent intent = new Intent(context, ChatActivity.class);
-                        // intent.putExtra("EXTRA_APPID", appID);
-                        // cordova.getActivity().startActivity(intent);
+                        Context context = cordova.getActivity().getApplicationContext();
+                        Intent intent = new Intent(context, ChatActivity.class);
+                        intent.putExtra("EXTRA_APPID", appID);
+                        cordova.getActivity().startActivity(intent);
 
-                        LivePerson.showConversation(cordova.getActivity());
+                       // LivePerson.showConversation(cordova.getActivity());
                         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                         result.setKeepCallback(true);
                         mCallbackContext.sendPluginResult(result);
@@ -321,13 +321,13 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 }
 
                 try {
-                    // Context context = cordova.getActivity().getApplicationContext();    
-                    // Intent intent = new Intent(context, ChatActivity.class);
-                    // intent.putExtra("EXTRA_AUTHENTICATE", token);
-                    // intent.putExtra("EXTRA_APPID", appID);
-                    // cordova.getActivity().startActivity(intent);
+                    Context context = cordova.getActivity().getApplicationContext();    
+                    Intent intent = new Intent(context, ChatActivity.class);
+                    intent.putExtra("EXTRA_AUTHENTICATE", token);
+                    intent.putExtra("EXTRA_APPID", appID);
+                    cordova.getActivity().startActivity(intent);
 
-                    LivePerson.showConversation(cordova.getActivity(),token);
+                   // LivePerson.showConversation(cordova.getActivity(),token);
                     PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                     result.setKeepCallback(true);
                     mCallbackContext.sendPluginResult(result);
