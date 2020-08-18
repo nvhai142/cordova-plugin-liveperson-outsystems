@@ -437,7 +437,11 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
-            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
+
+            let campaignInfo = LPCampaignInfo(campaignId: 1231231, engagementId: 12312312, contextId: nil)
+            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo);
+
+            //self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
              if authenticationCode == nil {
                  print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
 
