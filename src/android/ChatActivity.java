@@ -206,9 +206,9 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             newAPP= extras.getString("EXTRA_APPID");
             JSONArray entryPoints = null;
             try {
-            entryPoints = new JSONArray("[tel://972737004000, http://www.liveperson.com, sec://visa-dev, lang://Eng]");
+                entryPoints = new JSONArray("[tel://972737004000, http://www.liveperson.com, sec://visa-dev, lang://Eng]");
             } catch (JSONException e) {
-            Log.e(TAG, "Error Creating Entry Points :: " + e);
+                Log.e(TAG, "Error Creating Entry Points :: " + e);
             }
             MonitoringParams params = new MonitoringParams(null, entryPoints, null);
 
