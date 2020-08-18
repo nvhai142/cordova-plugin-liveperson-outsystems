@@ -39,7 +39,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
-        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("2022139")
+        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293")
         self.configUI()
     }
 
