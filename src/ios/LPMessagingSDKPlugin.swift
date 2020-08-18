@@ -438,7 +438,7 @@ extension String {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
 
-            let campaignInfo = LPCampaignInfo(campaignId: 1231231, engagementId: 12312312, contextId: nil)
+            let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo);
 
             //self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
