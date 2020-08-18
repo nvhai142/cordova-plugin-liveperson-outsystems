@@ -29,7 +29,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
 
     private static final String TAG = LPMessagingSDKPlugin.class.getSimpleName();
     public String LP_APP_PACKAGE_NAME;
-    String AppID = "com.exchange.demoliveperson";
+    String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
 
     private static final String INIT = "lp_sdk_init";
     private static final String START_CONVERSATION = "start_lp_conversation";
