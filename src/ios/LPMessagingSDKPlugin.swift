@@ -71,8 +71,10 @@ extension String {
         
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         
+        let monitoringInitParams = LPMonitoringInitParams(appInstallID: "appInstallID")
+
         do {
-            try LPMessagingSDK.instance.initialize(lpAccountNumber)
+            try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
             
             // only set config if we have a valid argument
             // deprecated - should be done through direct editing of this function  for the relevant options
@@ -437,7 +439,32 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
+             
+            let entryPoints = ["sec://visa-dev",
+                   "lang://Eng"]
+            let engagementAttributes = [
+                ["type": "Tire",
+                "ctype": "Platinum"],
+            ]
 
+            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
+            let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
+
+            // SendSDE
+            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
+                print("received send sde response: \(String(describing: sendSdeResponse))")
+                })
+                { [weak self] (error) in
+                print("send sde error: \(error.userInfo.description)")
+                }
+
+            // GetEngagement
+            LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
+                print("received get engagement response: \(String(describing: getEngagementResponse))")
+            }) { [weak self] (error) in
+                print("get engagement error: \(error.userInfo.description)")
+            }    
+                
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo);
 
