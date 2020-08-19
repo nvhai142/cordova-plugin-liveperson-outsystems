@@ -70,11 +70,17 @@ extension String {
         self.lpAccountNumber = lpAccountNumber
         
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
-
-       // let monitoringInitParams = LPMonitoringInitParams(appInstallID: "appInstallID")
-
+        
         do {
             try LPMessagingSDK.instance.initialize(lpAccountNumber)
+            
+            // only set config if we have a valid argument
+            // deprecated - should be done through direct editing of this function  for the relevant options
+            // in which case move the setSDKConfigurations call outside of this wrapping loop and call on init every time
+            
+            // if let config = command.arguments.last as? [String:AnyObject] {
+            //     setSDKConfigurations(config: config)
+            // }
             
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
@@ -431,13 +437,7 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
-             
-                
-                
-            let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagemntId: 1246064870, contextId: nil)
-            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo);
-
-            //self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
+            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
              if authenticationCode == nil {
                  print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
 
@@ -448,7 +448,7 @@ extension String {
 
                  let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
                  let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
-                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
+                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: nil)
             }
         }
         
