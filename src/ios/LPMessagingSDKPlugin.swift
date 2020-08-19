@@ -73,7 +73,7 @@ extension String {
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         let monitoringInitParams = LPMonitoringInitParams(appInstallID: lpAccountNumber)
         do {
-            try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
+            try LPMessagingSDK.instance.initialize(lpAccountNumber)
             
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
