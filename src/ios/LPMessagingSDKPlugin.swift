@@ -71,17 +71,9 @@ extension String {
         self.lpAccountNumber = lpAccountNumber
         
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
-        let monitoringInitParams = LPMonitoringInitParams(appInstallID: "appInstallID")
+       // let monitoringInitParams = LPMonitoringInitParams(appInstallID: "appInstallID")
         do {
-            try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
-            
-            // only set config if we have a valid argument
-            // deprecated - should be done through direct editing of this function  for the relevant options
-            // in which case move the setSDKConfigurations call outside of this wrapping loop and call on init every time
-            
-            // if let config = command.arguments.last as? [String:AnyObject] {
-            //     setSDKConfigurations(config: config)
-            // }
+            try LPMessagingSDK.instance.initialize(lpAccountNumber)
             
             let configurations = LPConfig.defaultConfiguration
             configurations.fileSharingFromAgent = true
