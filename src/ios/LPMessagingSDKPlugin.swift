@@ -442,24 +442,14 @@ extension String {
              
             let entryPoints = ["sec://visa-dev",
                    "lang://Eng"]
-            let engagementAttributes = [[
-    "type": "ctmrinfo",
-    "info": {
-      "ctype": "Platinum",
-      "accountName": "VISA",
-      "customerId": "123"
-    }
-    ],
-  [
-    "type": "personal",
-    "personal": {
-      "language": "en-US",
-      "address": {
-        "country": "Singapore",
-        "region": "Singapore"
-      }
-    }
-    ]
+            let engagementAttributes = [
+    ["type": "purchase",
+     "total": 11.7,
+     "orderId": "DRV1534XC"],
+    ["type": "lead",
+     "lead": ["topic": "luxury car test drive 2015",
+              "value": 22.22,
+              "leadId": "xyz123"]]
 ]
 
             let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
