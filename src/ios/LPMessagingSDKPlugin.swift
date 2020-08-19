@@ -452,10 +452,10 @@ extension String {
 
             // SendSDE
             LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
-                print("received send sde response: \(String(describing: sendSdeResponse))")
+                    print("received send sde response: \(String(describing: sendSdeResponse))")
                 })
                 { [weak self] (error) in
-                print("send sde error: \(error.userInfo.description)")
+                    print("send sde error: \(error.userInfo.description)")
                 }
 
             // GetEngagement

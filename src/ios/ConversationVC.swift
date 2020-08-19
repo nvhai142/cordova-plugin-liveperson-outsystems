@@ -108,9 +108,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if let query = self.conversationQuery {
-            LPMessagingSDK.instance.removeConversation(query)
-        }
+       
     }
 
     @IBAction func optionPressed(sender:Any) {
