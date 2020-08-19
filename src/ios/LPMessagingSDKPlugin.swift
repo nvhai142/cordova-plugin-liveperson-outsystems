@@ -443,14 +443,9 @@ extension String {
             let entryPoints = ["sec://visa-dev",
                    "lang://Eng"]
             let engagementAttributes = [
-    ["type": "purchase",
-     "total": 11.7,
-     "orderId": "DRV1534XC"],
-    ["type": "lead",
-     "lead": ["topic": "luxury car test drive 2015",
-              "value": 22.22,
-              "leadId": "xyz123"]]
-]
+                ["type": "Tire",
+                "ctype": "Platinum"],
+            ]
 
             let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
             let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
