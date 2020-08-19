@@ -70,9 +70,9 @@ extension String {
         self.lpAccountNumber = lpAccountNumber
         
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
-        
+        let monitoringInitParams = LPMonitoringInitParams(appInstallID: "appInstallID")
         do {
-            try LPMessagingSDK.instance.initialize(lpAccountNumber)
+            try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
             
             // only set config if we have a valid argument
             // deprecated - should be done through direct editing of this function  for the relevant options
@@ -440,7 +440,7 @@ extension String {
              
                 
                 
-            let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
+            let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagemntId: 1246064870, contextId: nil)
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo);
 
             //self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID)
