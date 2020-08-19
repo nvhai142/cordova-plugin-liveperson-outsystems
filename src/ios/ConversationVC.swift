@@ -9,7 +9,6 @@
 import UIKit
 import LPMessagingSDK
 import LPInfra
-import LPMonitoring
 
 class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
