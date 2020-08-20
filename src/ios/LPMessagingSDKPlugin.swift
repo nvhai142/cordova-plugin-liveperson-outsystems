@@ -457,6 +457,13 @@ extension String {
             let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
             let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
             
+            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
+                print("received send sde response: \(String(describing: sendSdeResponse))")
+            })
+            { [weak self] (error) in
+                print("send sde error: \(error.userInfo.description)")
+            }
+
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
