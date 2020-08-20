@@ -73,9 +73,9 @@ extension String {
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         
         let monitoringInitParams = LPMonitoringInitParams(appInstallID: "appInstallID")
-        
+
         do {
-            try LPMessagingSDK.instance.initialize(lpAccountNumber)
+            try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
             
             // only set config if we have a valid argument
             // deprecated - should be done through direct editing of this function  for the relevant options
