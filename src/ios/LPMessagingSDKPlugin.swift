@@ -444,6 +444,16 @@ extension String {
             let entryPoints = ["http://www.liveperson-test.com",
                    "sec://visa-dev",
                    "lang://Eng"]
+            let engagementAttributes = [
+                ["type": "purchase",
+                "total": 11.7,
+                "orderId": "DRV1534XC"],
+                ["type": "lead",
+                "lead": ["topic": "luxury car test drive 2015",
+              "value": 22.22,
+              "leadId": "xyz123"]]
+            ]
+
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
