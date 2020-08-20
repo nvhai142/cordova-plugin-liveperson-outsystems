@@ -441,6 +441,9 @@ extension String {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
 
+            let entryPoints = ["http://www.liveperson-test.com",
+                   "sec://visa-dev",
+                   "lang://Eng"]
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
