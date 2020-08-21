@@ -464,6 +464,12 @@ extension String {
                 print("send sde error: \(error.userInfo.description)")
             }
 
+            LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
+               print("received get engagement response: \(String(describing: getEngagementResponse))")
+            }) { [weak self] (error) in
+                print("get engagement111 error: \(error.userInfo.description)")
+            }
+
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
