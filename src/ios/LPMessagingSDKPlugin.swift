@@ -474,12 +474,10 @@ extension String {
 
             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
              if authenticationCode == nil {
-                 print("@@@ ios -- showConversation ... unauthenticated no JWT token found")
 
                  LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                  
              } else {
-                 print("@@@ ios -- showConversation ...authenticated session jwt token found! \(authenticationCode!)")
 
                  let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
                  let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
