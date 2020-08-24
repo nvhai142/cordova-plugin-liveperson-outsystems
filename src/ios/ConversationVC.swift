@@ -39,7 +39,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
-        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293")
+        let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
+        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293", campaignInfo: campaignInfo)
         self.configUI()
     }
 

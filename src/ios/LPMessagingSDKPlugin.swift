@@ -441,34 +441,34 @@ extension String {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
 
-            // let entryPoints = ["http://www.liveperson-test.com",
-            //        "sec://visa-dev",
-            //        "lang://Eng"]
-            // let engagementAttributes = [
-            //     ["type": "ctmrinfo",
-            //     "info": ["ctype": "Platinum",
-            //         "accountName": "VISA",
-            //         "customerId": "123"]],
-            //     ["type": "personal",
-            //     "personal": ["language": "en-US",
-            //         "address": ["country": "Singapore",
-            //         "region": "Singapore"]]]
-            // ]
-            // let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
-            // let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
+            let entryPoints = ["http://www.liveperson-test.com",
+                   "sec://visa-dev",
+                   "lang://Eng"]
+            let engagementAttributes = [
+                ["type": "ctmrinfo",
+                "info": ["ctype": "Platinum",
+                    "accountName": "VISA",
+                    "customerId": "123"]],
+                ["type": "personal",
+                "personal": ["language": "en-US",
+                    "address": ["country": "Singapore",
+                    "region": "Singapore"]]]
+            ]
+            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
+            let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
             
-            // LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
-            //     print("received send sde response: \(String(describing: sendSdeResponse))")
-            // })
-            // { [weak self] (error) in
-            //     print("send sde error: \(error.userInfo.description)")
-            // }
+            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
+                print("received send sde response: \(String(describing: sendSdeResponse))")
+            })
+            { [weak self] (error) in
+                print("send sde error: \(error.userInfo.description)")
+            }
 
-            // LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
-            //    print("received get engagement response: \(String(describing: getEngagementResponse))")
-            // }) { [weak self] (error) in
-            //     print("get engagement111 error: \(error.userInfo.description)")
-            // }
+            LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
+               print("received get engagement response: \(String(describing: getEngagementResponse))")
+            }) { [weak self] (error) in
+                print("get engagement111 error: \(error.userInfo.description)")
+            }
 
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
