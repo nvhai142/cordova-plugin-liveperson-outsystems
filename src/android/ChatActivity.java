@@ -107,6 +107,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             String authCode = "";
             String publicKey = "";
 
+            Bundle extras = getIntent().getExtras();
+            if(extras != null) {
+                authCode= extras.getString("EXTRA_AUTHENTICATE");
+            }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
@@ -210,13 +214,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         String newAPP;
         if(extras != null) {
             newAPP= extras.getString("EXTRA_APPID");
-            // JSONArray entryPoints = null;
-            // try {
-            //     entryPoints = new JSONArray("[tel://972737004000, http://www.liveperson.com, sec://visa-dev, lang://Eng]");
-            // } catch (JSONException e) {
-            //     Log.e(TAG, "Error Creating Entry Points :: " + e);
-            // }
-            // MonitoringParams params = new MonitoringParams(null, entryPoints, null);
+            
 
             LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, AppID, new InitLivePersonCallBack() {
 
