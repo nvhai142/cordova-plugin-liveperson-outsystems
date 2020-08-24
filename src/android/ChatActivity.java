@@ -108,9 +108,9 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             String publicKey = "";
 
             Bundle extras = getIntent().getExtras();
-            // if(extras != null) {
-            //     authCode= extras.getString("EXTRA_AUTHENTICATE");
-            // }
+            if(extras != null) {
+                authCode= extras.getString("EXTRA_AUTHENTICATE");
+            }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
