@@ -454,7 +454,7 @@ extension String {
                     "address": ["country": "Singapore",
                     "region": "Singapore"]]]
             ]
-            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: "pageId")
+            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
             let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
             
             LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
