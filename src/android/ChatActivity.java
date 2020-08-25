@@ -117,11 +117,11 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
-            try {
-                conversationViewParams.setCampaignInfo(new CampaignInfo(1244787870L,1246064870L,"","",""));
-            } catch (BadArgumentException e) {
-                e.printStackTrace();
-            }
+            // try {
+            //     conversationViewParams.setCampaignInfo(new CampaignInfo(1244787870L,1246064870L,"","",""));
+            // } catch (BadArgumentException e) {
+            //     e.printStackTrace();
+            // }
             //
 
             authParams.setAuthKey(authCode);
