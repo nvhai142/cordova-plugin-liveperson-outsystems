@@ -214,8 +214,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         String newAPP;
         if(extras != null) {
             newAPP= extras.getString("EXTRA_APPID");
-            
-
+    
             LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, AppID, new InitLivePersonCallBack() {
 
                 @Override
