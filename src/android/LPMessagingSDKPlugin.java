@@ -47,7 +47,6 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     CallbackContext mCallbackContext;
     CallbackContext mGlobalCallbackContext;
     CallbackContext mRegisterLpPusherCallbackContext;
-    ConsumerProfile consumerProfile;
 
     private CordovaWebView mainWebView;
 
@@ -361,7 +360,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
         final String uid   = !args.isNull(6) ? args.getString(6) : "";
         final String employeeId   = !args.isNull(7) ? args.getString(7) : "";
 
-        consumerProfile = new ConsumerProfile.Builder()
+        ConsumerProfile consumerProfile = new ConsumerProfile.Builder()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setPhoneNumber(phone)
