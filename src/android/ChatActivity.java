@@ -86,30 +86,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     private void setUserProfile() {
         Bundle extras = getIntent().getExtras();
+        ConsumerProfile consumerProfile;
         if(extras != null) {
-            String jsonArray = extras.getString("EXTRA_PROFILE");
-            try {
-                JSONArray array = new JSONArray(jsonArray);
-                final String firstName  = !args.isNull(1) ? args.getString(1) : "";
-                final String lastName   = !args.isNull(2) ? args.getString(2) : "";
-                final String nickname   = !args.isNull(3) ? args.getString(3) : "";
-                final String profileImageUrl   = !args.isNull(4) ? args.getString(4) : "";
-                final String phone      = !args.isNull(5) ? args.getString(5) : "";
-                final String uid   = !args.isNull(6) ? args.getString(6) : "";
-                final String employeeId   = !args.isNull(7) ? args.getString(7) : "";
-
-                ConsumerProfile consumerProfile = new ConsumerProfile.Builder()
-                    .setFirstName(firstName)
-                    .setLastName(lastName)
-                    .setPhoneNumber(phone)
-                    .setNickname(nickname)
-                    .build();
-
-                LivePerson.setUserProfile(consumerProfile);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            
+            consumerProfile= (ConsumerProfile)extras.getParcelableExtra("EXTRA_PROFILE");
+            LivePerson.setUserProfile(consumerProfile);
         }
         
     }
