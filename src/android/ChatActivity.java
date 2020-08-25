@@ -90,7 +90,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         if(extras != null) {
             String jsonArray= extras.getString("EXTRA_PROFILE");
             try {
-                JSONArray array = new JSONArray(jsonArray);
+                JSONArray args = new JSONArray(jsonArray);
                 final String firstName  = !args.isNull(1) ? args.getString(1) : "";
                 final String lastName   = !args.isNull(2) ? args.getString(2) : "";
                 final String nickname   = !args.isNull(3) ? args.getString(3) : "";
