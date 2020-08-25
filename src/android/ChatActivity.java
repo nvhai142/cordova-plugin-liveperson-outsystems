@@ -22,6 +22,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.liveperson.infra.BadArgumentException;
+import com.liveperson.infra.CampaignInfo;
 import com.liveperson.infra.ConversationViewParams;
 import com.liveperson.infra.ICallback;
 import com.liveperson.infra.InitLivePersonProperties;
@@ -114,10 +116,19 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
-            
+            // add new
+            ConversationViewParams conversationViewParams = new ConversationViewParams(false);
+
+            try {
+                conversationViewParams.setCampaignInfo(new CampaignInfo(1244787870L,1246064870L,"","",""));
+            } catch (BadArgumentException e) {
+                e.printStackTrace();
+            }
+            //
+
             authParams.setAuthKey(authCode);
             authParams.addCertificatePinningKey(publicKey);
-            mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, new ConversationViewParams(false));
+            mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
 
             if (isValidState()) {
 
