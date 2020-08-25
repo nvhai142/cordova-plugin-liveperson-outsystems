@@ -108,25 +108,15 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             String publicKey = "";
 
             Bundle extras = getIntent().getExtras();
-            // if(extras != null) {
-            //     authCode= extras.getString("EXTRA_AUTHENTICATE");
-            // }
+            if(extras != null) {
+                authCode= extras.getString("EXTRA_AUTHENTICATE");
+            }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
-            // add new
-            ConversationViewParams conversationViewParams = new ConversationViewParams(false);
-
-            try {
-                conversationViewParams.setCampaignInfo(new CampaignInfo(1244787870L,1246064870L,"","",""));
-            } catch (BadArgumentException e) {
-                e.printStackTrace();
-            }
-            
-
             authParams.setAuthKey(authCode);
             authParams.addCertificatePinningKey(publicKey);
-            mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
+            mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, new ConversationViewParams(false));
 
             if (isValidState()) {
 
