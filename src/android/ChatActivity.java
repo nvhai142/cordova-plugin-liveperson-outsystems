@@ -152,8 +152,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             }
             //
 
-            authParams.setAuthKey(authCode);
-            authParams.addCertificatePinningKey(publicKey);
+            authParams.setHostAppJWT(authCode);
+            //authParams.addCertificatePinningKey(publicKey);
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
 
             if (isValidState()) {
