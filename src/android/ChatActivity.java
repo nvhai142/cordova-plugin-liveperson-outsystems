@@ -33,6 +33,10 @@ import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
  * Created by han.nguyen on 20-03-2018.
