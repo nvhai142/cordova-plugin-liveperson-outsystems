@@ -47,6 +47,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     CallbackContext mCallbackContext;
     CallbackContext mGlobalCallbackContext;
     CallbackContext mRegisterLpPusherCallbackContext;
+    ConsumerProfile consumerProfile;
 
     private CordovaWebView mainWebView;
 
@@ -288,6 +289,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         Context context = cordova.getActivity().getApplicationContext();
                         Intent intent = new Intent(context, ChatActivity.class);
                         intent.putExtra("EXTRA_APPID", appID);
+                        intent.putExtra("EXTRA_PROFILE", consumerProfile);
                         cordova.getActivity().startActivity(intent);
 
                        // LivePerson.showConversation(cordova.getActivity());
@@ -325,6 +327,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Intent intent = new Intent(context, ChatActivity.class);
                     intent.putExtra("EXTRA_AUTHENTICATE", token);
                     intent.putExtra("EXTRA_APPID", appID);
+                    intent.putExtra("EXTRA_PROFILE", consumerProfile);
                     cordova.getActivity().startActivity(intent);
 
                    // LivePerson.showConversation(cordova.getActivity(),token);
@@ -358,7 +361,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
         final String uid   = !args.isNull(6) ? args.getString(6) : "";
         final String employeeId   = !args.isNull(7) ? args.getString(7) : "";
 
-        ConsumerProfile consumerProfile = new ConsumerProfile.Builder()
+        consumerProfile = new ConsumerProfile.Builder()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setPhoneNumber(phone)

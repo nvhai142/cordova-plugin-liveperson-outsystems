@@ -85,12 +85,13 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
 
     private void setUserProfile() {
-            ConsumerProfile consumerProfile = new ConsumerProfile.Builder()
-                    .setFirstName("han")
-                    .setLastName("nguyen")
-                    .setPhoneNumber("123456789" + "|" + "hanit0693@gmail.com")
-                    .build();
+        Bundle extras = getIntent().getExtras();
+        ConsumerProfile consumerProfile;
+        if(extras != null) {
+            consumerProfile= extras.getString("EXTRA_PROFILE");
             LivePerson.setUserProfile(consumerProfile);
+        }
+        
     }
 
 
