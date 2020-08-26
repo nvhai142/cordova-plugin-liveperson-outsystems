@@ -204,6 +204,31 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public void onBackPressed() {
         if (mConversationFragment == null || !mConversationFragment.onBackPressed()) {
+            Bundle extras = getIntent().getExtras();
+            String newAPP;
+            if(extras != null) {
+                newAPP= extras.getString("EXTRA_APPID");
+                LivePerson.logOut(this, newAPP, getApplicationContext().getPackageName(), new LogoutLivePersonCallback() {
+                    @Override
+                    public void onLogoutSucceed() {
+                        try {
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    
+                    @Override
+                    public void onLogoutFailed() {
+                        try {
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+            }
+            
             super.onBackPressed();
         }
     }
