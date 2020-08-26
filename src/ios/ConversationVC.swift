@@ -105,12 +105,12 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     @IBAction func cancelPressed(sender:Any) {
-        print("cancel")
-        LPMessagingSDK.instance.logout(completion: {
-            print("@@@ logout success!");
-        }) { (error) in
-            print("@@@ logout error!");
-        }
+        // print("cancel")
+        // LPMessagingSDK.instance.logout(completion: {
+        //     print("@@@ logout success!");
+        // }) { (error) in
+        //     print("@@@ logout error!");
+        // }
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidDisappear(_ animated: Bool) {
