@@ -212,20 +212,12 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 LivePerson.logOut(this, newAPP, getApplicationContext().getPackageName(), new LogoutLivePersonCallback() {
                     @Override
                     public void onLogoutSucceed() {
-                        try {
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
 
                     }
 
                     @Override
                     public void onLogoutFailed() {
-                        try {
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
+                        
                     }
                 });
             }
