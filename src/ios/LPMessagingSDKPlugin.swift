@@ -460,7 +460,7 @@ extension String {
             self.viewController.present(chatVC, animated: true, completion: nil)
             
             let entryPoints = ["http://www.liveperson-test.com",
-                           "sec://visa=dev",
+                           "sec://visa-dev",
                            "lang://En"]
 
              if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
@@ -474,41 +474,6 @@ extension String {
                         print("send sde error: \(error.userInfo.description)")
                     }
              }
-        //     let engagementAttributes = [
-        //     [
-        //         "type": "personal",
-        //         "personal": [
-        //             "contacts": [
-        //                 [
-        //                     "address": [
-        //                         "country": "South Korea", //Country
-        //                         "region": "South Korea" //Region
-        //                     ]
-        //                 ]
-        //             ],
-        //             "language": "en-UK" //Language
-        //         ]
-        //     ],
-        //     [
-        //         "type": "ctmrinfo",
-        //         "info": [
-        //             "ctype": "Platinum", //Customer Tire
-        //             "customerId": "123", //Customer BIN Number
-        //             "accountName": "VISA", //Line of Business
-        //             "storeNumber": "en-US", //Language
-        //             "storeZipCode": "South Korea" //Country
-        //         ]
-        //     ]
-        // ]
-        //     let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
-        //     let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
-        //     LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
-        //         print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
-        //         // Save PageId for future reference
-        //     }) { [weak self] (error) in
-               
-        //         print("send sde error: \(error.userInfo.description)")
-        //     }
 
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
