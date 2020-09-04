@@ -464,17 +464,18 @@ extension String {
                            "lang://En"]
 
             if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
-                let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
-                let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
-                LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
-                    print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
-                    // Save PageId for future reference
-                }) { [weak self] (error) in
-                    
-                    print("send sde error: \(error.userInfo.description)")
-                }   
+                   
             }
-
+            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
+            let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
+            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
+                print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
+                // Save PageId for future reference
+                self?.pageId = sendSdeResponse.pageId
+            }) { [weak self] (error) in
+                self?.pageId = nil
+                print("send sde error: \(error.userInfo.description)")
+            }
 
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
