@@ -233,6 +233,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                         // Create Campaign Object
                         campaign = new CampaignInfo(Long.valueOf(currentCampaignId), Long.valueOf(currentEngagementId),
                                 currentEngagementContextId, currentSessionId, currentVisitorId);
+                        initFragment();
                         // Log
                         Log.d(TAG, "Campaign :: " + campaign);
                     } catch (BadArgumentException e){
@@ -331,7 +332,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                     Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
                     setUserProfile();
                     initEngagementAttributes();
-                    initFragment();
+                    //initFragment();
                 }
     
                 @Override
