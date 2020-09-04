@@ -159,7 +159,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
-            
            
             try {
                 // Create Campaign Object
@@ -169,7 +168,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 // Log Error
             }
             conversationViewParams.setCampaignInfo(campaign);
-            
+
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
