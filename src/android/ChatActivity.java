@@ -202,7 +202,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         // Create Engagement Attributes
         JSONArray engagementAttributes = null;
         try {
-            String acb
             engagementAttributes = new JSONArray("[\n" +
                     "  {\n" +
                     "    \"type\": \"ctmrinfo\",\n" +
