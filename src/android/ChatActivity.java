@@ -162,7 +162,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
            
             try {
                 // Create Campaign Object
-                campaign = new CampaignInfo(1244787870, 1246064870,"", "", "");
+                campaign = new CampaignInfo(Long.valueOf(1244787870), Long.valueOf(1246064870),"", "", "");
                 // Log
             } catch (BadArgumentException e){
                 // Log Error
