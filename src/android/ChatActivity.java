@@ -34,10 +34,20 @@ import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
 
+import com.liveperson.monitoring.model.EngagementDetails;
+import com.liveperson.monitoring.model.LPMonitoringIdentity;
+import com.liveperson.monitoring.sdk.MonitoringParams;
+import com.liveperson.monitoring.sdk.api.LivepersonMonitoring;
+import com.liveperson.monitoring.sdk.callbacks.EngagementCallback;
+import com.liveperson.monitoring.sdk.callbacks.MonitoringErrorType;
+import com.liveperson.monitoring.sdk.responses.LPEngagementResponse;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by han.nguyen on 20-03-2018.
