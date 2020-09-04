@@ -497,9 +497,8 @@ extension String {
             LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
                 print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
                 // Save PageId for future reference
-                self?.pageId = sendSdeResponse.pageId
             }) { [weak self] (error) in
-                self?.pageId = nil
+               
                 print("send sde error: \(error.userInfo.description)")
             }
 
