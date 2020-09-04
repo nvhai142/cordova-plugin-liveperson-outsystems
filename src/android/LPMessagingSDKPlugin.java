@@ -153,7 +153,8 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     startAuthenticatedConversation(appIDs,jwt,partyID);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
-                    startConversation(appIDs);
+                    String partyID = args.getString(2);
+                    startConversation(appIDs,partyID);
                 }
 
                 break;
@@ -276,7 +277,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation(final String appID) {
+    private void startConversation(final String appID, final String partyID) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
