@@ -463,9 +463,35 @@ extension String {
                            "sec://visa=dev",
                            "lang://En"]
 
-            if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
+            // if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
                    
-            }
+            // }
+            let engagementAttributes = [
+            [
+                "type": "personal",
+                "personal": [
+                    "contacts": [
+                        [
+                            "address": [
+                                "country": "South Korea", //Country
+                                "region": "South Korea" //Region
+                            ]
+                        ]
+                    ],
+                    "language": "en-UK" //Language
+                ]
+            ],
+            [
+                "type": "ctmrinfo",
+                "info": [
+                    "ctype": "Platinum", //Customer Tire
+                    "customerId": "123", //Customer BIN Number
+                    "accountName": "VISA", //Line of Business
+                    "storeNumber": "en-US", //Language
+                    "storeZipCode": "South Korea" //Country
+                ]
+            ]
+        ]
             let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
             let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
             LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
