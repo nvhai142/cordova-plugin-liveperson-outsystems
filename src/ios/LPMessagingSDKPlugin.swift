@@ -331,8 +331,9 @@ extension String {
         var conversationType = "authenticated";
 
         let token = command.arguments[1] as? String ?? ""
+        let partyID = command.arguments[2] as? String ?? ""
 
-        self.showConversation(brandID: brandID,authenticationCode: token)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID)
 
         
         var response:[String:String];
@@ -434,7 +435,7 @@ extension String {
     /**
      Show conversation screen and use this ViewController as a container
      */
-    func showConversation(brandID: String, authenticationCode:String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
@@ -472,7 +473,7 @@ extension String {
                 ]
             ]
             let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
-            let identity = LPMonitoringIdentity(consumerID: "IND_95f20719-742e-4108-a765-23f5712059e9", issuer: nil)
+            let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
             LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
                 print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
                 // Save PageId for future reference
