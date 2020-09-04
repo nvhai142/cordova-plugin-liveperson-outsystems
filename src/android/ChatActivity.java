@@ -66,6 +66,9 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     // Intent Handler
     private LivepersonIntentHandler mIntentsHandler;
 
+    CampaignInfo campaign ;
+    String partyID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +81,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         setContentView(layoutResID);
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
         setTitle("Chat");
+        partyID = savedInstanceState.getString("EXTRA_PARTYID");
     }
 
 
@@ -147,7 +151,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
             try {
-                conversationViewParams.setCampaignInfo(new CampaignInfo(1244787870L,1246064870L,"","",""));
+                conversationViewParams.setCampaignInfo(campaign);
             } catch (BadArgumentException e) {
                 e.printStackTrace();
             }
@@ -173,7 +177,89 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             attachFragment();
         }
     }
+    public void initEngagementAttributes(){
 
+        // Create Entry Points JSON
+        JSONArray entryPoints = null;
+        try {
+            entryPoints = new JSONArray("[\"http://www.liveperson-test.com\",\n" +
+                    "                   \"sec://visa-dev\",\n" +
+                    "                   \"lang://Eng\"]");
+        } catch (JSONException e) {
+            Log.e(TAG, "Error Creating Entry Points :: " + e);
+        }
+
+        // Create Engagement Attributes
+        JSONArray engagementAttributes = null;
+        try {
+            engagementAttributes = new JSONArray("[\n" +
+                    "  {\n" +
+                    "    \"type\": \"ctmrinfo\",\n" +
+                    "    \"info\": {\n" +
+                    "      \"ctype\": \"Platinum\",\n" +
+                    "      \"accountName\": \"VISA\",\n" +
+                    "      \"customerId\": \"123\"\n" +
+                    "    }\n" +
+                    "  },\n" +
+                    "  {\n" +
+                    "    \"type\": \"personal\",\n" +
+                    "    \"personal\": {\n" +
+                    "      \"language\": \"en-US\",\n" +
+                    "      \"address\": {\n" +
+                    "        \"country\": \"Singapore\",\n" +
+                    "        \"region\": \"Singapore\"\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "]");
+        } catch (JSONException e) {
+            Log.e(TAG, "Error Creating Engagement Attr :: " + e);
+        }
+        MonitoringParams params = new MonitoringParams("PageId", entryPoints, engagementAttributes);
+        LPMonitoringIdentity identity = new  LPMonitoringIdentity(partyID,"");
+
+        // Get Engagement
+        LivepersonMonitoring.getEngagement(getApplicationContext(), Arrays.asList(identity), params, new EngagementCallback() {
+            @Override
+            public void onSuccess(LPEngagementResponse lpEngagementResponse) {
+                List<EngagementDetails> engagementList = lpEngagementResponse.getEngagementDetailsList();
+                // Check if User qualifies for an Engagement
+                if (engagementList != null && !engagementList.isEmpty()) {
+                    // Set Campaign ID
+                    String currentCampaignId = engagementList.get(0).getCampaignId();
+                    // Set Engagement ID
+                    String currentEngagementId = engagementList.get(0).getEngagementId();
+                    // Set Engagement Context Id
+                    String currentEngagementContextId = engagementList.get(0).getContextId();
+                    // Set Session ID
+                    String currentSessionId = lpEngagementResponse.getSessionId();
+                    // Set Visitor ID
+                    String currentVisitorId = lpEngagementResponse.getVisitorId();
+                    // Try-Catch Block
+                    try {
+                        // Create Campaign Object
+                        campaign = new CampaignInfo(Long.valueOf(currentCampaignId), Long.valueOf(currentEngagementId),
+                                currentEngagementContextId, currentSessionId, currentVisitorId);
+                        // Log
+                        Log.d(TAG, "Campaign :: " + campaign);
+                    } catch (BadArgumentException e){
+                        // Log Error
+                        Log.d(TAG, "Error Creating Campaign :: " + e.getLocalizedMessage());
+                    }
+                } else {
+                    // Log Error
+                    Log.d(TAG, "No Engagement found");
+                }
+            }
+
+            @Override
+            public void onError(MonitoringErrorType monitoringErrorType, Exception e) {
+                // Log Error
+                Log.d(TAG, "Error Getting Engagement :: " + e);
+                Log.d(TAG, "Error Getting Engagement :: " + monitoringErrorType);
+            }
+        });
+    }
 
     private boolean isValidState() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -205,23 +291,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public void onBackPressed() {
         if (mConversationFragment == null || !mConversationFragment.onBackPressed()) {
-            // Bundle extras = getIntent().getExtras();
-            // String newAPP;
-            // if(extras != null) {
-            //     newAPP= extras.getString("EXTRA_APPID");
-            //     LivePerson.logOut(this, newAPP, getApplicationContext().getPackageName(), new LogoutLivePersonCallback() {
-            //         @Override
-            //         public void onLogoutSucceed() {
 
-            //         }
-
-            //         @Override
-            //         public void onLogoutFailed() {
-                        
-            //         }
-            //     });
-            // }
-            
             super.onBackPressed();
         }
     }
@@ -267,6 +337,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 public void onInitSucceed() {
                     Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
                     setUserProfile();
+                    initEngagementAttributes();
                     initFragment();
                 }
     
@@ -292,7 +363,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         if (isSwipeBack) {
             super.setContentView(getContainer());
             View view = LayoutInflater.from(this).inflate(layoutResID, null);

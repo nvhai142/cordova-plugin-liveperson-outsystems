@@ -149,7 +149,8 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 if(!args.isNull(1)) {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
-                    startAuthenticatedConversation(appIDs,jwt);
+                    String partyID = args.getString(2);
+                    startAuthenticatedConversation(appIDs,jwt,partyID);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     startConversation(appIDs);
@@ -290,6 +291,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         Context context = cordova.getActivity().getApplicationContext();
                         Intent intent = new Intent(context, ChatActivity.class);
                         intent.putExtra("EXTRA_APPID", appID);
+                        intent.putExtra("EXTRA_PARTYID", partyID);
                         intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                         cordova.getActivity().startActivity(intent);
 
@@ -310,7 +312,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -318,7 +320,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 try {
                     json.put("eventName","LPMessagingSDKStartConversation");
                     json.put("type","authenticated");
-
+                        
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 }
@@ -328,6 +330,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Intent intent = new Intent(context, ChatActivity.class);
                     intent.putExtra("EXTRA_AUTHENTICATE", token);
                     intent.putExtra("EXTRA_APPID", appID);
+                    intent.putExtra("EXTRA_PARTYID", partyID);
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
 
