@@ -459,6 +459,10 @@ extension String {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
             
+            let entryPoints = ["http://www.liveperson-test.com",
+                           "sec://visa=dev",
+                           "lang://En"]
+
             if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
                 let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
                 let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
