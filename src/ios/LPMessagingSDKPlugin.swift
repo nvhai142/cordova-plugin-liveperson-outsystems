@@ -332,8 +332,9 @@ extension String {
 
         let token = command.arguments[1] as? String ?? ""
         let partyID = command.arguments[2] as? String ?? ""
+        let engagement = command.arguments[3] as? String ?? ""
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,engagementSTR: engagement)
 
         
         var response:[String:String];
@@ -435,53 +436,41 @@ extension String {
     /**
      Show conversation screen and use this ViewController as a container
      */
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil) {
+     func convertJsonToDic(json:String?)-> [[String: Any]]?{
+        if let jsonStr = json{
+            let data = Data(jsonStr.utf8)
+            do {
+                if let engagementAttributes = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                    return engagementAttributes
+                }else {
+                    return nil
+                }
+            } catch _ as NSError {
+                return nil
+            }
+        }else{
+            return nil
+        }
+    }
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, engagementSTR:String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
             
-            let entryPoints = ["http://www.liveperson-test.com",
-                           "sec://visa-dev",
-                           "lang://En"]
-
-            let engagementAttributes = [
-                [
-                    "type": "personal",
-                    "personal": [
-                        "contacts": [
-                            [
-                                "address": [
-                                    "country": "South Korea", //Country
-                                    "region": "South Korea" //Region
-                                ]
-                            ]
-                        ],
-                        "language": "en-UK" //Language
-                    ]
-                ],
-                [
-                    "type": "ctmrinfo",
-                    "info": [
-                        "ctype": "Platinum", //Customer Tire
-                        "customerId": "123", //Customer BIN Number
-                        "accountName": "VISA", //Line of Business
-                        "storeNumber": "en-US", //Language
-                        "storeZipCode": "South Korea" //Country
-                    ]
-                ]
-            ]
-            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
-            let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
-            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
-                print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
-                // Save PageId for future reference
-            }) { [weak self] (error) in
-                
-                print("send sde error: \(error.userInfo.description)")
+            if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
+                let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
+                let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
+                LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
+                    print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
+                    // Save PageId for future reference
+                }) { [weak self] (error) in
+                    
+                    print("send sde error: \(error.userInfo.description)")
+                }   
             }
-        
+
 
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
