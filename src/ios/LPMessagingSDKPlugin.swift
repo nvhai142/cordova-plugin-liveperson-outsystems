@@ -440,35 +440,47 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
-
+            
             let entryPoints = ["http://www.liveperson-test.com",
-                   "sec://visa-dev",
-                   "lang://Eng"]
+                           "sec://visa-dev",
+                           "lang://En"]
+
             let engagementAttributes = [
-                ["type": "ctmrinfo",
-                "info": ["ctype": "Platinum",
-                    "accountName": "VISA",
-                    "customerId": "123"]],
-                ["type": "personal",
-                "personal": ["language": "en-US",
-                    "address": ["country": "Singapore",
-                    "region": "Singapore"]]]
+                [
+                    "type": "personal",
+                    "personal": [
+                        "contacts": [
+                            [
+                                "address": [
+                                    "country": "South Korea", //Country
+                                    "region": "South Korea" //Region
+                                ]
+                            ]
+                        ],
+                        "language": "en-UK" //Language
+                    ]
+                ],
+                [
+                    "type": "ctmrinfo",
+                    "info": [
+                        "ctype": "Platinum", //Customer Tire
+                        "customerId": "123", //Customer BIN Number
+                        "accountName": "VISA", //Line of Business
+                        "storeNumber": "en-US", //Language
+                        "storeZipCode": "South Korea" //Country
+                    ]
+                ]
             ]
             let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
-            let identity = LPMonitoringIdentity(consumerID: "consumerID", issuer: "BrandIssuer")
-            
-            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
-                print("received send sde response: \(String(describing: sendSdeResponse))")
-            })
-            { [weak self] (error) in
+            let identity = LPMonitoringIdentity(consumerID: "IND_95f20719-742e-4108-a765-23f5712059e9", issuer: nil)
+            LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
+                print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
+                // Save PageId for future reference
+            }) { [weak self] (error) in
+                
                 print("send sde error: \(error.userInfo.description)")
             }
-
-            LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
-               print("received get engagement response: \(String(describing: getEngagementResponse))")
-            }) { [weak self] (error) in
-                print("get engagement111 error: \(error.userInfo.description)")
-            }
+        
 
             let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
 
