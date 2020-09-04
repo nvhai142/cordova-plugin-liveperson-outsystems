@@ -150,11 +150,13 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
                     String partyID = args.getString(2);
-                    startAuthenticatedConversation(appIDs,jwt,partyID);
+                    String engagement = args.getString(3);
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);
-                    startConversation(appIDs,partyID);
+                    String engagement = args.getString(3);
+                    startConversation(appIDs,partyID,engagement);
                 }
 
                 break;
@@ -277,7 +279,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation(final String appID, final String partyID) {
+    private void startConversation(final String appID, final String partyID, final String engagement) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -293,6 +295,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         Intent intent = new Intent(context, ChatActivity.class);
                         intent.putExtra("EXTRA_APPID", appID);
                         intent.putExtra("EXTRA_PARTYID", partyID);
+                        intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                         intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                         cordova.getActivity().startActivity(intent);
 
@@ -313,7 +316,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -332,6 +335,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_AUTHENTICATE", token);
                     intent.putExtra("EXTRA_APPID", appID);
                     intent.putExtra("EXTRA_PARTYID", partyID);
+                    intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
 

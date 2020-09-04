@@ -185,8 +185,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     public void initEngagementAttributes(){
 
         Bundle extras = getIntent().getExtras();
+        String engagementAtt = "";
         if(extras != null) {
             partyID= extras.getString("EXTRA_PARTYID");
+            engagementAtt= extras.getString("EXTRA_ENGAGEMENT");
         }    
 
         // Create Entry Points JSON
@@ -202,26 +204,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         // Create Engagement Attributes
         JSONArray engagementAttributes = null;
         try {
-            engagementAttributes = new JSONArray("[\n" +
-                    "  {\n" +
-                    "    \"type\": \"ctmrinfo\",\n" +
-                    "    \"info\": {\n" +
-                    "      \"ctype\": \"Platinum\",\n" +
-                    "      \"accountName\": \"VISA\",\n" +
-                    "      \"customerId\": \"123\"\n" +
-                    "    }\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"type\": \"personal\",\n" +
-                    "    \"personal\": {\n" +
-                    "      \"language\": \"en-US\",\n" +
-                    "      \"address\": {\n" +
-                    "        \"country\": \"Singapore\",\n" +
-                    "        \"region\": \"Singapore\"\n" +
-                    "      }\n" +
-                    "    }\n" +
-                    "  }\n" +
-                    "]");
+            engagementAttributes = new JSONArray(engagementAtt);
         } catch (JSONException e) {
             Log.e(TAG, "Error Creating Engagement Attr :: " + e);
         }
