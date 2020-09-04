@@ -91,7 +91,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         setContentView(layoutResID);
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
         setTitle("Chat");
-        partyID = savedInstanceState.getString("EXTRA_PARTYID");
     }
 
 
@@ -160,12 +159,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
-            try {
-                conversationViewParams.setCampaignInfo(campaign);
-            } catch (BadArgumentException e) {
-                e.printStackTrace();
-            }
-            //
+            conversationViewParams.setCampaignInfo(campaign);
+           
 
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
@@ -189,6 +184,11 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     }
     public void initEngagementAttributes(){
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            partyID= extras.getString("EXTRA_PARTYID");
+        }    
+
         // Create Entry Points JSON
         JSONArray entryPoints = null;
         try {
@@ -202,6 +202,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         // Create Engagement Attributes
         JSONArray engagementAttributes = null;
         try {
+            String acb
             engagementAttributes = new JSONArray("[\n" +
                     "  {\n" +
                     "    \"type\": \"ctmrinfo\",\n" +
