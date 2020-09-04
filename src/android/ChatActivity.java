@@ -159,9 +159,17 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
-            conversationViewParams.setCampaignInfo(campaign);
+            
            
-
+            try {
+                // Create Campaign Object
+                campaign = new CampaignInfo(1244787870, 1246064870,"", "", "");
+                // Log
+            } catch (BadArgumentException e){
+                // Log Error
+            }
+            conversationViewParams.setCampaignInfo(campaign);
+            
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
@@ -233,7 +241,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                         // Create Campaign Object
                         campaign = new CampaignInfo(Long.valueOf(currentCampaignId), Long.valueOf(currentEngagementId),
                                 currentEngagementContextId, currentSessionId, currentVisitorId);
-                        initFragment();
                         // Log
                         Log.d(TAG, "Campaign :: " + campaign);
                     } catch (BadArgumentException e){
@@ -332,7 +339,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                     Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
                     setUserProfile();
                     initEngagementAttributes();
-                    //initFragment();
+                    initFragment();
                 }
     
                 @Override
