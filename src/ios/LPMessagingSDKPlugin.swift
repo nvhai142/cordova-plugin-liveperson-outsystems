@@ -464,35 +464,54 @@ extension String {
                            "lang://En"]
 
              if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
-                    let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
-                    let identity = LPMonitoringIdentity(consumerID: partyID, issuer: nil)
-                    LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { [weak self] (sendSdeResponse) in
-                        print("received send sde response with pageID: \(String(describing: sendSdeResponse.pageId))")
-                        // Save PageId for future reference
-                    }) { [weak self] (error) in
-                    
-                        print("send sde error: \(error.userInfo.description)")
-                    }
+                    getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
+                        self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
+                            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
+                            if authenticationCode == nil {
+                                LPMessagingSDK.instance.showConversation(self.conversationQuery!)
+                            } else {
+
+                                let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
+                                let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
+                                LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
+                            }
+                        }
+                 }  
              }
-
-            let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
-
-            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
-             if authenticationCode == nil {
-
-                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
-                 
-             } else {
-
-                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
-                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
-                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
-            }
+            
         }
         
     }
     
+    private func getEngagement(entryPoints: [String], engagementAttributes: [[String:Any]], success:((LPCampaignInfo?, String?)->())?) {
+        //resetting pageId and campaignInfo
+        
+        let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes)
+        let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
+        LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
+            let campaignID = getEngagementResponse.engagementDetails?.first?.campaignId
+            let engagementID = getEngagementResponse.engagementDetails?.first?.engagementId
+            let contextID = getEngagementResponse.engagementDetails?.first?.contextId
+            let sessionID = getEngagementResponse.sessionId
+            let visitorID = getEngagementResponse.visitorId
+            let campaignInfo = LPCampaignInfo(campaignId: campaignID!, engagementId: engagementID!, contextId: contextID, sessionId: sessionID, visitorId: visitorID)
+            let pageID = getEngagementResponse.pageId
+            success?(campaignInfo, pageID)
+        }) { (error) in
+            success?(nil,nil)
+        }
+    }
     
+    
+    private func sendSDEwith(entryPoints: [String], engagementAttributes: [[String:Any]], pageID:String?, success:(()->())?) {
+        let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: pageID)
+        let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
+        LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
+            success?()
+        }) { (error) in
+            success?()
+        }
+    }
     /**
      Change default SDK configurations
 
