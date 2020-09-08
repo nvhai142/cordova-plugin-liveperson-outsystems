@@ -492,7 +492,7 @@ extension String {
            
            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes)
            let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
-           LPMessaging.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
+           LPMessagingSDK.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
                let campaignID = getEngagementResponse.engagementDetails?.first?.campaignId
                let engagementID = getEngagementResponse.engagementDetails?.first?.engagementId
                let contextID = getEngagementResponse.engagementDetails?.first?.contextId
@@ -508,7 +508,7 @@ extension String {
        private func sendSDEwith(entryPoints: [String], engagementAttributes: [[String:Any]], success:(()->())?) {
            let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
            let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
-           LPMessaging.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
+           LPMessagingSDK.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
                success?()
            }) { [weak self] (error) in
                success?()
