@@ -506,7 +506,7 @@ extension String {
        }
        
        private func sendSDEwith(entryPoints: [String], engagementAttributes: [[String:Any]], success:(()->())?) {
-           let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: self.pageId)
+           let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: nil)
            let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
            LPMessaging.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
                success?()
