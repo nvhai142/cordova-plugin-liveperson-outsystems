@@ -462,12 +462,40 @@ extension String {
             let entryPoints = ["http://www.liveperson-test.com",
                            "sec://visa-dev",
                            "lang://En"]
-
-             if let engagementAttributes = self.convertJsonToDic(json: engagementSTR){
+            
+            let str = """
+[
+        {
+        "type": "personal",
+        "personal": {
+        "language": "en-UK",
+        "contacts": [
+        {
+        "address": {
+        "country": "South Korea",
+        "region": "South Korea"
+        }
+        }
+        ]
+        }
+        },
+        {
+        "info": {
+        "storeZipCode": "South Korea",
+        "accountName": "VISA",
+        "customerId": "123",
+        "storeNumber": "en-US",
+        "ctype": "Infinite/Signature/Platinum"
+        },
+        "type": "ctmrinfo"
+        }
+        ]
+"""
+             if let engagementAttributes = self.convertJsonToDic(json: str){
                     print("convert success")
-                   // getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
-                    //    self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
-                            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: nil)
+                    getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
+                        self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
+                            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
@@ -476,8 +504,8 @@ extension String {
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
                             }
-                     //   }
-               //  }  
+                        }
+                 }  
              }
             
         }
