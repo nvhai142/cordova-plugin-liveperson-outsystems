@@ -494,7 +494,7 @@ extension String {
              if let engagementAttributes = self.convertJsonToDic(json: str){
                     print("convert success")
                     getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
-                        self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
+                       // self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
@@ -504,7 +504,7 @@ extension String {
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
                             }
-                        }
+                       // }
                  }  
              }
             
