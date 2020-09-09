@@ -37,6 +37,7 @@ import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
 import com.liveperson.monitoring.model.EngagementDetails;
 import com.liveperson.monitoring.model.LPMonitoringIdentity;
 import com.liveperson.monitoring.sdk.MonitoringParams;
+import com.liveperson.infra.MonitoringInitParams;
 import com.liveperson.monitoring.sdk.api.LivepersonMonitoring;
 import com.liveperson.monitoring.sdk.callbacks.EngagementCallback;
 import com.liveperson.monitoring.sdk.callbacks.MonitoringErrorType;
