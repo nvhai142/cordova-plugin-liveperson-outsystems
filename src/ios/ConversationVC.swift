@@ -55,7 +55,7 @@ class ConversationVC: UIViewController {
     }
 
     private func addLoadingIndicator(){
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
+        let indicator = UIActivityIndicatorView()
         indicator.color = UIColor.white
         indicator.startAnimating()
         indicator.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
