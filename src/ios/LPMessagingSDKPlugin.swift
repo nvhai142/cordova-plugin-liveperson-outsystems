@@ -332,9 +332,16 @@ extension String {
 
         let token = command.arguments[1] as? String ?? ""
         let partyID = command.arguments[2] as? String ?? ""
-        let engagement = command.arguments[3] as? String ?? ""
+        let country = command.arguments[3] as? String ?? ""
+        let region = command.arguments[4] as? String ?? ""
+        let language = command.arguments[5] as? String ?? ""
+        let zipcode = command.arguments[6] as? String ?? ""
+        let accountName = command.arguments[7] as? String ?? ""
+        let customerID = command.arguments[8] as? String ?? ""
+        let ctype = command.arguments[9] as? String ?? ""
+        let storedNumber = command.arguments[10] as? String ?? ""
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,engagementSTR: engagement)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber)
 
         
         var response:[String:String];
@@ -452,7 +459,7 @@ extension String {
             return nil
         }
     }
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, engagementSTR:String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
@@ -468,7 +475,7 @@ extension String {
         {
         "type": "personal",
         "personal": {
-        "language": "en-UK",
+        "language": "en-US",
         "contacts": [
         {
         "address": {
