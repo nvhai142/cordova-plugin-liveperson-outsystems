@@ -12,6 +12,9 @@ import LPInfra
 
 class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
+    @IBOutlet weak var loadingView: UIView!
+    
+    
     func LPMessagingSDKObseleteVersion(_ error: NSError) {
         
     }
@@ -26,6 +29,12 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKError(_ error: NSError) {
         
+    }
+    func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
+        DispatchQueue.main.async {
+            self.loadingView.isHidden = true
+            self.loadingView.removeFromSuperview()
+        }
     }
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {

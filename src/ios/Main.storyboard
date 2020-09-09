@@ -11,11 +11,33 @@
         <!--ConversationVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ConversationVC" id="BYZ-38-t0r" customClass="ConversationVC" customModule="LinhTinhSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationVC" id="BYZ-38-t0r" customClass="ConversationVC" customModule="XamXam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJ6-al-qH7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hY1-ci-kN5">
+                                        <rect key="frame" x="188.5" y="385.5" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hY1-ci-kN5" firstAttribute="centerY" secondItem="oJ6-al-qH7" secondAttribute="centerY" id="InK-t6-E8I"/>
+                                    <constraint firstItem="hY1-ci-kN5" firstAttribute="centerX" secondItem="oJ6-al-qH7" secondAttribute="centerX" id="fiv-9t-YgH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oJ6-al-qH7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ogx-iK-Ns8"/>
+                            <constraint firstItem="oJ6-al-qH7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eNf-C7-MRX"/>
+                            <constraint firstAttribute="bottom" secondItem="oJ6-al-qH7" secondAttribute="bottom" id="gUp-6X-ylc"/>
+                            <constraint firstItem="oJ6-al-qH7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hYo-XU-BR4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VzF-I4-ahQ">
@@ -30,6 +52,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loadingView" destination="oJ6-al-qH7" id="u7C-NI-J2S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
