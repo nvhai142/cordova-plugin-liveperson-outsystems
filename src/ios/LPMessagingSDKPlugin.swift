@@ -338,9 +338,9 @@ extension String {
 
         
         var response:[String:String];
-        print("@@@ LPMessagingSDKStartConversation conversationType : \(conversationType)")
+        print("@@@ LPMessagingSDKStartConversation conversationType : \(engagement)")
         
-        response = ["eventName":"LPMessagingSDKStartConversation","type" : conversationType];
+        response = ["eventName":"LPMessagingSDKStartConversation","type" : engagement];
         let jsonString = self.convertDicToJSON(dic: response)
         
                
@@ -472,7 +472,7 @@ extension String {
         "contacts": [
         {
         "address": {
-        "country": "South Korea",
+        "country": "\(engagementSTR)",
         "region": "South Korea"
         }
         }
