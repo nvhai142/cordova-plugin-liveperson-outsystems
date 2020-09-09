@@ -44,6 +44,7 @@ class ConversationVC: UIViewController {
     }
 
     var conversationQuery:ConversationParamProtocol?;
+    var indicator = UIActivityIndicatorView(style: .whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,8 @@ class ConversationVC: UIViewController {
     }
 
     private func addLoadingIndicator(){
-        let indicator = UIActivityIndicatorView()
+        
+        indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.color = UIColor.white
         indicator.startAnimating()
         indicator.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
