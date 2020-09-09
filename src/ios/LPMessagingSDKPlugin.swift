@@ -470,37 +470,33 @@ extension String {
                            "sec://visa-dev",
                            "lang://En"]
             
-            let str = """
-[
-        {
-        "type": "personal",
-        "personal": {
-        "language": "en-US",
-        "contacts": [
-        {
-        "address": {
-        "country": "South Korea",
-        "region": "South Korea"
-        }
-        }
-        ]
-        }
-        },
-        {
-        "info": {
-        "storeZipCode": "South Korea",
-        "accountName": "VISA",
-        "customerId": "123",
-        "storeNumber": "en-US",
-        "ctype": "Platinum"
-        },
-        "type": "ctmrinfo"
-        }
-        ]
-"""
-             if let engagementAttributes = self.convertJsonToDic(json: str){
-                    print("convert success")
-                    getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
+            let engagementAttributes = [
+            [
+                "type": "personal",
+                "personal": [
+                    "language": "\(language)",
+                    "contacts": [
+                        [
+                            "address": [
+                                "country": "\(country)",
+                                "region": "\(region)"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "info": [
+                    "storeZipCode": "\(zipcode)",
+                    "accountName": "\(accountName)",
+                    "customerId": "\(customerID)",
+                    "storeNumber": "\(storedNumber)",
+                    "ctype": "\(ctype)"
+                ],
+                "type": "ctmrinfo"
+            ]
+        ]    
+             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
                        // self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if authenticationCode == nil {
@@ -512,8 +508,7 @@ extension String {
                                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
                             }
                        // }
-                 }  
-             }
+                 }
             
         }
         
