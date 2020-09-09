@@ -12,7 +12,7 @@ import UIKit
 
 class ConversationVC: UIViewController {
     
-    @IBOutlet weak var loadingView: UIView!
+   // @IBOutlet weak var loadingView: UIView!
     
     
     func LPMessagingSDKObseleteVersion(_ error: NSError) {
@@ -31,10 +31,10 @@ class ConversationVC: UIViewController {
         
     }
     func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
-        DispatchQueue.main.async {
-            self.loadingView.isHidden = true
-            self.loadingView.removeFromSuperview()
-        }
+        // DispatchQueue.main.async {
+        //     self.loadingView.isHidden = true
+        //     self.loadingView.removeFromSuperview()
+        // }
     }
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
@@ -44,7 +44,7 @@ class ConversationVC: UIViewController {
     }
 
     var conversationQuery:ConversationParamProtocol?;
-    var indicator = UIActivityIndicatorView(style: .whiteLarge)
+   // var indicator = UIActivityIndicatorView(style: .whiteLarge)
 
     override func viewDidLoad() {
         super.viewDidLoad()
