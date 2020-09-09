@@ -45,24 +45,16 @@ class ConversationVC: UIViewController {
 
     var conversationQuery:ConversationParamProtocol?;
     var indicator = UIActivityIndicatorView(style: .whiteLarge)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        addLoadingIndicator()
+      //  addLoadingIndicator()
         LPMessagingSDK.instance.delegate = self
         let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293", campaignInfo: campaignInfo)
         self.configUI()
     }
 
-    private func addLoadingIndicator(){
-        
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.color = UIColor.white
-        indicator.startAnimating()
-        indicator.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
-        self.loadingView.addSubview(indicator)
-    }
 
     func configUI() {
         self.navigationController?.navigationBar.tintColor = UIColor.white
