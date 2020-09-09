@@ -146,16 +146,40 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case START_CONVERSATION:
                 mCallbackContext = callbackContext;
                 String appIDs = args.getString(0);
+                String engagement = "[\n" +
+                "        {\n" +
+                "        \"type\": \"personal\",\n" +
+                "        \"personal\": {\n" +
+                "        \"language\": \""+args.getString(5)+"\",\n" +
+                "        \"contacts\": [\n" +
+                "        {\n" +
+                "        \"address\": {\n" +
+                "        \"country\": \""+args.getString(3)+"\",\n" +
+                "        \"region\": \""+args.getString(4)+"\"\n" +
+                "        }\n" +
+                "        }\n" +
+                "        ]\n" +
+                "        }\n" +
+                "        },\n" +
+                "        {\n" +
+                "        \"info\": {\n" +
+                "        \"storeZipCode\": \""+args.getString(6)+"\",\n" +
+                "        \"accountName\": \""+args.getString(7)+"\",\n" +
+                "        \"customerId\": \""+args.getString(8)+"\",\n" +
+                "        \"storeNumber\": \""+args.getString(10)+"\",\n" +
+                "        \"ctype\": \""+args.getString(9)+"\"\n" +
+                "        },\n" +
+                "        \"type\": \"ctmrinfo\"\n" +
+                "        }\n" +
+                "        ]"
                 if(!args.isNull(1)) {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
                     String partyID = args.getString(2);
-                    String engagement = args.getString(3);
                     startAuthenticatedConversation(appIDs,jwt,partyID,engagement);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);
-                    String engagement = args.getString(3);
                     startConversation(appIDs,partyID,engagement);
                 }
 

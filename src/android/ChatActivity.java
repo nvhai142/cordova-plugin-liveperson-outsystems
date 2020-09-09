@@ -205,32 +205,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
         JSONArray engagementAttributes = null;
         try {
-            engagementAttributes = new JSONArray("[\n" +
-                    "        {\n" +
-                    "        \"type\": \"personal\",\n" +
-                    "        \"personal\": {\n" +
-                    "        \"language\": \"en-UK\",\n" +
-                    "        \"contacts\": [\n" +
-                    "        {\n" +
-                    "        \"address\": {\n" +
-                    "        \"country\": \"South Korea\",\n" +
-                    "        \"region\": \"South Korea\"\n" +
-                    "        }\n" +
-                    "        }\n" +
-                    "        ]\n" +
-                    "        }\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "        \"info\": {\n" +
-                    "        \"storeZipCode\": \"South Korea\",\n" +
-                    "        \"accountName\": \"VISA\",\n" +
-                    "        \"customerId\": \"123\",\n" +
-                    "        \"storeNumber\": \"en-US\",\n" +
-                    "        \"ctype\": \"Infinite/Signature/Platinum\"\n" +
-                    "        },\n" +
-                    "        \"type\": \"ctmrinfo\"\n" +
-                    "        }\n" +
-                    "        ]");
+            engagementAttributes = new JSONArray(engagementAtt);
         } catch (JSONException e) {
             Log.e(TAG, "Error Creating Engagement Attr :: " + e);
         }
