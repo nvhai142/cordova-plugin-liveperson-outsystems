@@ -472,7 +472,7 @@ extension String {
         "contacts": [
         {
         "address": {
-        "country": "\(engagementSTR)",
+        "country": "South Korea",
         "region": "South Korea"
         }
         }
