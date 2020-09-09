@@ -192,7 +192,16 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         String engagementAtt = "";
         if(extras != null) {
             engagementAtt= extras.getString("EXTRA_ENGAGEMENT");
-        }    
+        }   
+         
+        JSONArray entryPoints = null;
+        try {
+            entryPoints = new JSONArray("[\"http://www.liveperson-test.com\",\n" +
+                    "                   \"sec://visa-dev\",\n" +
+                    "                   \"lang://Eng\"]");
+        } catch (JSONException e) {
+            Log.e(TAG, "Error Creating Entry Points :: " + e);
+        }
 
         JSONArray engagementAttributes = null;
         try {
