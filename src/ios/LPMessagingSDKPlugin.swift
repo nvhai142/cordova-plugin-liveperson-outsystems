@@ -472,7 +472,7 @@ extension String {
         "contacts": [
         {
         "address": {
-        "country": "\(engagementSTR)",
+        "country": "South Korea",
         "region": "South Korea"
         }
         }
@@ -485,7 +485,7 @@ extension String {
         "accountName": "VISA",
         "customerId": "123",
         "storeNumber": "en-US",
-        "ctype": "Infinite/Signature/Platinum"
+        "ctype": "Platinum"
         },
         "type": "ctmrinfo"
         }
