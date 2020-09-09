@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import LPMessagingSDK
-import LPInfra
+//import LPMessagingSDK
+//import LPInfra
 
-class ConversationVC: UIViewController, LPMessagingSDKdelegate {
+class ConversationVC: UIViewController {
     
     @IBOutlet weak var loadingView: UIView!
     
@@ -47,21 +47,28 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addLoadingIndicator()
         LPMessagingSDK.instance.delegate = self
         let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293", campaignInfo: campaignInfo)
         self.configUI()
     }
 
-    
-    
+    private func addLoadingIndicator(){
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = UIColor.white
+        indicator.startAnimating()
+        indicator.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        self.loadingView.addSubview(indicator)
+    }
+
     func configUI() {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = UIColor.userBubbleBackgroundColor
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white];
         self.title = "CHAT"
-        
+
         let configUI = LPConfig.defaultConfiguration
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
         configUI.userBubbleBorderColor = UIColor.userBubbleBorderColor
@@ -111,9 +118,9 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.fileCellLoaderRingBackgroundColor = UIColor.fileCellLoaderRingBackgroundColor
         configUI.isReadReceiptTextMode = false
         configUI.checkmarkVisibility = .sentOnly
-        configUI.csatShowSurveyView = false 
+        configUI.csatShowSurveyView = false
     }
-    
+
     @IBAction func cancelPressed(sender:Any) {
         if self.conversationQuery != nil {
             LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
@@ -128,7 +135,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     @IBAction func optionPressed(sender:Any) {
         if let query = self.conversationQuery {
             let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
-            
+
             func showResolveConfirmation(title:String, message:String){
                 let confirmAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 confirmAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (alertAction) in
@@ -137,7 +144,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
                 confirmAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
                 self.present(confirmAlert, animated: true, completion: nil)
             }
-            
+
             func showClearConfirmation(){
                 let clearAlert = UIAlertController(title: "Clear history", message: "All of your existing conversation history will be lost. Are you sure?", preferredStyle: .alert)
                 clearAlert.addAction(UIAlertAction(title: "CLEAR", style: .default, handler: { (alertAction) in
@@ -150,73 +157,30 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
                 clearAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
                 self.present(clearAlert, animated: true, completion: nil)
             }
-            
+
             let st = UIStoryboard()
             st.instantiateInitialViewController()
-            
+
             let alertVC = UIAlertController(title: "Menu", message: "Chooose an option", preferredStyle: .actionSheet)
-            
-            
+
+
             let resolveAction = UIAlertAction(title: "Resolve the conversation", style: .default) { (alertAction) in
                 showResolveConfirmation(title: "Resolve the conversation", message: "Are you sure this topic is resolved?")
             }
-            
+
             let clearHistoryAction = UIAlertAction(title: "Clear history", style: .default) { (alertAction) in
                 showClearConfirmation()
             }
-            
+
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
+
             alertVC.addAction(resolveAction)
             alertVC.addAction(clearHistoryAction)
             alertVC.addAction(cancelAction)
-            
+
             resolveAction.isEnabled = isChatActive;
             self.present(alertVC, animated: true, completion: nil)
         }
     }
 
-}
-extension UIView {
-    func showLoading() {
-        let blurLoader = BlurLoader(frame: frame)
-        self.addSubview(blurLoader)
-    }
-
-    func removeLoading() {
-        if let blurLoader = subviews.first(where: { $0 is BlurLoader }) {
-            blurLoader.removeFromSuperview()
-        }
-    }
-}
-
-
-class BlurLoader: UIView {
-
-    var blurEffectView: UIVisualEffectView?
-
-    override init(frame: CGRect) {
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = frame
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.blurEffectView = blurEffectView
-        self.blurEffectView?.alpha = 0.5
-        super.init(frame: frame)
-        addSubview(blurEffectView)
-        addLoader()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func addLoader() {
-        guard let blurEffectView = blurEffectView else { return }
-        let activityIndicator  = UIActivityIndicatorView(style: .whiteLarge)
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        blurEffectView.contentView.addSubview(activityIndicator)
-        activityIndicator.center = blurEffectView.contentView.center
-        activityIndicator.startAnimating()
-    }
 }
