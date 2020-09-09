@@ -345,9 +345,9 @@ extension String {
 
         
         var response:[String:String];
-        print("@@@ LPMessagingSDKStartConversation conversationType : \(engagement)")
+        print("@@@ LPMessagingSDKStartConversation conversationType : \(customerID)")
         
-        response = ["eventName":"LPMessagingSDKStartConversation","type" : engagement];
+        response = ["eventName":"LPMessagingSDKStartConversation","type" : customerID];
         let jsonString = self.convertDicToJSON(dic: response)
         
                
