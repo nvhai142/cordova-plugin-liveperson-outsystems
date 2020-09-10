@@ -505,7 +505,7 @@ extension String {
                     "contacts": [
                         [
                             "address": [
-                                "country": "South Korea",
+                                "country": country,
                                 "region": "South Korea"
                             ]
                         ]
