@@ -469,34 +469,7 @@ extension String {
             let entryPoints = ["http://www.liveperson-test.com",
                            "sec://visa-dev",
                            "lang://En"]
-            /*
-            let engagementAttributes = [
-                [
-                    "type": "personal",
-                    "personal": [
-                        "language": "\(language)",
-                        "contacts": [
-                            [
-                                "address": [
-                                    "country": "\(country)",
-                                    "region": "\(region)"
-                                ]
-                            ]
-                        ]
-                    ]
-                ],
-                [
-                    "info": [
-                        "storeZipCode": "\(zipcode)",
-                        "accountName": "\(accountName)",
-                        "customerId": "\(customerID)",
-                        "storeNumber": "\(storedNumber)",
-                        "ctype": "\(ctype)"
-                    ],
-                    "type": "ctmrinfo"
-                ]
-            ]   
-            */ 
+
             let engagementAttributes = [
             [
                 "type": "personal",
