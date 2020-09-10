@@ -469,7 +469,7 @@ extension String {
             let entryPoints = ["http://www.liveperson-test.com",
                            "sec://visa-dev",
                            "lang://En"]
-            
+            /*
             let engagementAttributes = [
                 [
                     "type": "personal",
@@ -495,7 +495,34 @@ extension String {
                     ],
                     "type": "ctmrinfo"
                 ]
-            ]    
+            ]   
+            */ 
+            let engagementAttributes = [
+            [
+                "type": "personal",
+                "personal": [
+                    "language": "en-UK",
+                    "contacts": [
+                        [
+                            "address": [
+                                "country": "South Korea",
+                                "region": "South Korea"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "info": [
+                    "storeZipCode": "South Korea",
+                    "accountName": "VISA",
+                    "customerId": "123",
+                    "storeNumber": "en-US",
+                    "ctype": "Infinite"
+                ],
+                "type": "ctmrinfo"
+            ]
+        ]
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
                        // self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
                           // let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
