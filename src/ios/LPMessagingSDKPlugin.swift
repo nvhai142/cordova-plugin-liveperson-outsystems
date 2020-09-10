@@ -498,8 +498,8 @@ extension String {
         ]    
              getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
                        // self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
-                           let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
-                            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campaignInfo)
+                          // let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
+                            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
