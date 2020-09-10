@@ -471,31 +471,31 @@ extension String {
                            "lang://En"]
             
             let engagementAttributes = [
-            [
-                "type": "personal",
-                "personal": [
-                    "language": "\(language)",
-                    "contacts": [
-                        [
-                            "address": [
-                                "country": "\(country)",
-                                "region": "\(region)"
+                [
+                    "type": "personal",
+                    "personal": [
+                        "language": "\(language)",
+                        "contacts": [
+                            [
+                                "address": [
+                                    "country": "\(country)",
+                                    "region": "\(region)"
+                                ]
                             ]
                         ]
                     ]
-                ]
-            ],
-            [
-                "info": [
-                    "storeZipCode": "\(zipcode)",
-                    "accountName": "\(accountName)",
-                    "customerId": "\(customerID)",
-                    "storeNumber": "\(storedNumber)",
-                    "ctype": "\(ctype)"
                 ],
-                "type": "ctmrinfo"
-            ]
-        ]    
+                [
+                    "info": [
+                        "storeZipCode": "\(zipcode)",
+                        "accountName": "\(accountName)",
+                        "customerId": "\(customerID)",
+                        "storeNumber": "\(storedNumber)",
+                        "ctype": "\(ctype)"
+                    ],
+                    "type": "ctmrinfo"
+                ]
+            ]    
              getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
                        // self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
                           // let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
