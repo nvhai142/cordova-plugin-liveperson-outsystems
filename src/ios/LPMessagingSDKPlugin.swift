@@ -501,12 +501,12 @@ extension String {
             [
                 "type": "personal",
                 "personal": [
-                    "language": "en-UK",
+                    "language": language,
                     "contacts": [
                         [
                             "address": [
                                 "country": country,
-                                "region": "South Korea"
+                                "region": region
                             ]
                         ]
                     ]
@@ -514,11 +514,11 @@ extension String {
             ],
             [
                 "info": [
-                    "storeZipCode": "South Korea",
-                    "accountName": "VISA",
-                    "customerId": "123",
-                    "storeNumber": "en-US",
-                    "ctype": "Infinite"
+                    "storeZipCode": zipcode,
+                    "accountName": accountName,
+                    "customerId": customerID,
+                    "storeNumber": storedNumber,
+                    "ctype": ctype
                 ],
                 "type": "ctmrinfo"
             ]
