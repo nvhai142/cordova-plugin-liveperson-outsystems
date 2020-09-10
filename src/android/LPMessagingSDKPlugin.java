@@ -172,6 +172,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        \"type\": \"ctmrinfo\"\n" +
                 "        }\n" +
                 "        ]";
+                
                 if(!args.isNull(1)) {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
