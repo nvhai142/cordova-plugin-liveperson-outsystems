@@ -33,7 +33,7 @@
     <dimen name="consumer_bubble_stroke_width">0dp</dimen>
     <color name="consumer_bubble_stroke_color">@color/pearl_gray</color>-->
     <color name="consumer_bubble_message_text_color">@color/white</color>
-    <color name="consumer_bubble_message_link_text_color">@color/white</color>
+    <color name="consumer_bubble_message_link_text_color">@color/blue_sapphire</color>
     <color name="consumer_bubble_timestamp_text_color">@color/dim_gray</color>
     <color name="consumer_bubble_background_color">@color/blue_sapphire</color>
     <color name="consumer_bubble_state_text_color">@color/black</color>
@@ -127,7 +127,7 @@
     <color name="edit_text_underline_color">@color/blue_sapphire</color>
     <color name="lp_enter_msg_text">@color/black</color>
     <color name="lp_enter_msg_hint">@color/aqua_haze</color>
-    <color name="lp_send_button_text_enable">@color/emerald_green</color>
+    <color name="lp_send_button_text_enable">@color/blue_sapphire</color>
     <color name="lp_send_button_text_disable">@color/aqua_haze</color>
 
     <bool name="use_send_image_button">true</bool>
