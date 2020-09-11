@@ -76,7 +76,7 @@
 
     <color name="feedback_fragment_submit_message">@color/white</color>
 
-    <color name="feedback_fragment_submit_btn_enabled">@color/emerald_green</color>
+    <color name="feedback_fragment_submit_btn_enabled">@color/blue_sapphire</color>
     <color name="feedback_fragment_submit_btn_text_enabled">@android:color/white</color>
     <color name="feedback_fragment_submit_btn_disabled">@color/white</color>
     <color name="feedback_fragment_submit_btn_text_disabled">@color/dim_gray</color>
@@ -194,7 +194,7 @@
     <bool name="show_agent_typing_in_message_bubble">false</bool>
 
     <!-- Connection status bar -->
-    <color name="connection_status_connecting_bg_color">@color/emerald_green</color>
+    <color name="connection_status_connecting_bg_color">@color/blue_sapphire</color>
     <color name="connection_status_not_connected_bg_color">@color/aqua_haze</color>
     <color name="connection_status_connecting_text_color">@color/white</color>
     <color name="connection_status_not_connected_text_color">@color/black</color>

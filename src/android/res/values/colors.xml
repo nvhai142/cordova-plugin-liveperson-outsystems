@@ -63,7 +63,7 @@
 
 <color name="pci_description">@color/color_separator</color>
 
-<color name="enable_btn">@color/emerald_green</color>
+<color name="enable_btn">@color/blue_sapphire</color>
 
 <color name="preference_line">#263748</color>
 
