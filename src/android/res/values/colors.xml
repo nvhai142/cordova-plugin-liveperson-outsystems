@@ -59,7 +59,7 @@
 
 <color name="rose_gold">#F0E2D4</color>
 
-<color name="emerald_green">#00CA3D</color>
+<color name="emerald_green">#152B55</color>
 
 <color name="pci_description">@color/color_separator</color>
 
@@ -73,7 +73,7 @@
 
 <color name="switch_color_normal">#f0efeb</color>
 
-<color name="switch_color_selected">#00CA3D</color>
+<color name="switch_color_selected">#152B55</color>
 
 <color name="switch_color_label">#000000</color>
 
