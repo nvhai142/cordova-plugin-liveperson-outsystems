@@ -340,8 +340,9 @@ extension String {
         let customerID = command.arguments[8] as? String ?? ""
         let ctype = command.arguments[9] as? String ?? ""
         let storedNumber = command.arguments[10] as? String ?? ""
+        let entrypoint = command.arguments[11] as? String ?? ""
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint)
 
         
         var response:[String:String];
@@ -459,7 +460,7 @@ extension String {
             return nil
         }
     }
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
@@ -467,7 +468,7 @@ extension String {
             self.viewController.present(chatVC, animated: true, completion: nil)
             
             let entryPoints = ["http://www.liveperson-test.com",
-                           "sec://visa-dev",
+                           "sec://\(entrypoint)",
                            "lang://En"]
 
             let engagementAttributes = [
