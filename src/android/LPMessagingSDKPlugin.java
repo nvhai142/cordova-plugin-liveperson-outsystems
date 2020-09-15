@@ -146,42 +146,16 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case START_CONVERSATION:
                 mCallbackContext = callbackContext;
                 String appIDs = args.getString(0);
-                // String engagement = "[\n" +
-                // "        {\n" +
-                // "        \"type\": \"personal\",\n" +
-                // "        \"personal\": {\n" +
-                // "        \"language\": \""+args.getString(5)+"\",\n" +
-                // "        \"contacts\": [\n" +
-                // "        {\n" +
-                // "        \"address\": {\n" +
-                // "        \"country\": \""+args.getString(3)+"\",\n" +
-                // "        \"region\": \""+args.getString(4)+"\"\n" +
-                // "        }\n" +
-                // "        }\n" +
-                // "        ]\n" +
-                // "        }\n" +
-                // "        },\n" +
-                // "        {\n" +
-                // "        \"info\": {\n" +
-                // "        \"storeZipCode\": \""+args.getString(6)+"\",\n" +
-                // "        \"accountName\": \""+args.getString(7)+"\",\n" +
-                // "        \"customerId\": \""+args.getString(8)+"\",\n" +
-                // "        \"storeNumber\": \""+args.getString(10)+"\",\n" +
-                // "        \"ctype\": \""+args.getString(9)+"\"\n" +
-                // "        },\n" +
-                // "        \"type\": \"ctmrinfo\"\n" +
-                // "        }\n" +
-                // "        ]";
                 String engagement = "[\n" +
                 "        {\n" +
                 "        \"type\": \"personal\",\n" +
                 "        \"personal\": {\n" +
-                "        \"language\": \"en-UK\",\n" +
+                "        \"language\": \""+args.getString(5)+"\",\n" +
                 "        \"contacts\": [\n" +
                 "        {\n" +
                 "        \"address\": {\n" +
-                "        \"country\": \"South Korea\",\n" +
-                "        \"region\": \"South Korea\"\n" +
+                "        \"country\": \""+args.getString(3)+"\",\n" +
+                "        \"region\": \""+args.getString(4)+"\"\n" +
                 "        }\n" +
                 "        }\n" +
                 "        ]\n" +
@@ -189,15 +163,16 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        },\n" +
                 "        {\n" +
                 "        \"info\": {\n" +
-                "        \"storeZipCode\": \"South Korea\",\n" +
-                "        \"accountName\": \"VISA\",\n" +
-                "        \"customerId\": \"123\",\n" +
-                "        \"storeNumber\": \"en-US\",\n" +
-                "        \"ctype\": \"Infinite/Signature/Platinum\"\n" +
+                "        \"storeZipCode\": \""+args.getString(6)+"\",\n" +
+                "        \"accountName\": \""+args.getString(7)+"\",\n" +
+                "        \"customerId\": \""+args.getString(8)+"\",\n" +
+                "        \"storeNumber\": \""+args.getString(10)+"\",\n" +
+                "        \"ctype\": \""+args.getString(9)+"\"\n" +
                 "        },\n" +
                 "        \"type\": \"ctmrinfo\"\n" +
                 "        }\n" +
                 "        ]";
+                
                 String entrypoint = "[\"http://www.liveperson-test.com\",\n" +
                     "                   \"sec://"+args.getString(11)+"\",\n" +
                     "                   \"lang://Eng\"]";
