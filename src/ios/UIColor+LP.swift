@@ -66,7 +66,7 @@ extension UIColor{
     static let csatRatingButtonSelectedColor = UIColor(hex: "#FFFFFF")
     static let csatAllTitlesTextColor = UIColor(hex: "#000000")
 
-    static let csatNavigationBackgroundColor = UIColor(hex: "#FFFFFF")
+    static let csatNavigationBackgroundColor = UIColor(hex: "#152B55")
     static let csatNavigationTitleColor = UIColor(hex: "#000000")
     static let csatSkipButtonColor = UIColor(hex: "#000000")
     static let conversationSeparatorTextColor = UIColor(hex: "#767676")
