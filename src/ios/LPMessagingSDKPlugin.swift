@@ -475,12 +475,12 @@ extension String {
             [
                 "type": "personal",
                 "personal": [
-                    "language": language,
+                    "language": "en-US",
                     "contacts": [
                         [
                             "address": [
-                                "country": country,
-                                "region": region
+                                "country": "HKG",
+                                "region": "hong kong"
                             ]
                         ]
                     ]
@@ -488,11 +488,11 @@ extension String {
             ],
             [
                 "info": [
-                    "storeZipCode": zipcode,
-                    "accountName": accountName,
-                    "customerId": customerID,
-                    "storeNumber": storedNumber,
-                    "ctype": ctype
+                    "storeZipCode": "HKG",
+                    "accountName": "VISA",
+                    "customerId": "123456",
+                    "storeNumber": "en-UK",
+                    "ctype": "Visa Platinum"
                 ],
                 "type": "ctmrinfo"
             ]
