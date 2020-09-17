@@ -468,19 +468,19 @@ extension String {
             self.viewController.present(chatVC, animated: true, completion: nil)
             
             let entryPoints = ["http://www.liveperson-test.com",
-                           "sec://visa-dev",
+                           "sec://\(entrypoint)",
                            "lang://En"]
 
             let engagementAttributes = [
             [
                 "type": "personal",
                 "personal": [
-                    "language": "en-US",
+                    "language": language,
                     "contacts": [
                         [
                             "address": [
-                                "country": "HKG",
-                                "region": "hong kong"
+                                "country": country,
+                                "region": region
                             ]
                         ]
                     ]
@@ -488,11 +488,11 @@ extension String {
             ],
             [
                 "info": [
-                    "storeZipCode": "HKG",
-                    "accountName": "VISA",
-                    "customerId": "123456",
-                    "storeNumber": "en-UK",
-                    "ctype": "Visa Platinum"
+                    "storeZipCode": zipcode,
+                    "accountName": accountName,
+                    "customerId": customerID,
+                    "storeNumber": storedNumber,
+                    "ctype": ctype
                 ],
                 "type": "ctmrinfo"
             ]
