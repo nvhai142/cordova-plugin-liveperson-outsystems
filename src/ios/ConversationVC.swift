@@ -54,6 +54,10 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         self.title = "CHAT"
         
         let configUI = LPConfig.defaultConfiguration
+
+        configUI.fileSharingFromAgent = true
+        configUI.fileSharingFromConsumer = true
+
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
         configUI.userBubbleBorderColor = UIColor.userBubbleBorderColor
         configUI.userBubbleLinkColor = UIColor.userBubbleLinkColor
