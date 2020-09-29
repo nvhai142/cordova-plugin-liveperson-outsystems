@@ -22,7 +22,7 @@
     <dimen name="agent_bubble_stroke_width">0dp</dimen>
     <color name="agent_bubble_stroke_color">@color/rose_gold</color>
     <color name="agent_bubble_message_text_color">@color/dim_gray</color>
-    <color name="agent_bubble_message_link_text_color">@color/blue_sapphire</color>
+    <color name="agent_bubble_message_link_text_color">@color/color_text_white</color>
     <color name="agent_bubble_timestamp_text_color">@color/dim_gray</color>
     <color name="agent_bubble_background_color">@color/rose_gold</color>
     <color name="agent_avatar_background_color">@color/pearl_gray</color>
