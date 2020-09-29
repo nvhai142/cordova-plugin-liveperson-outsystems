@@ -23,7 +23,7 @@ extension UIColor{
 
     static let userBubbleBackgroundColor = UIColor(hex: "#C1C1C1")
     static let userBubbleBorderColor = UIColor(hex: "#C1C1C1")
-    static let userBubbleLinkColor = UIColor(hex: "#C1C1C1")
+    static let userBubbleLinkColor = UIColor(hex: "#FFFFFF")
     static let userBubbleTextColor = UIColor(hex: "#000000")
     static let userBubbleTimestampColor = UIColor(hex: "#D7D8D6")
     static let userBubbleSendStatusTextColor = UIColor(hex: "#D7D8D6")
