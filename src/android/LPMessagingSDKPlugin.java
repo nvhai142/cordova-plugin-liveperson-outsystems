@@ -201,7 +201,6 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 break;
             case LP_REGISTER_PUSHER:
 
-
                 mRegisterLpPusherCallbackContext = callbackContext;
                 final String account = args.getString(0);
                 final String token = args.getString(1);
