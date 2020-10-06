@@ -18,7 +18,12 @@ repositories {
 }
 
 apply plugin: com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
+apply plugin: 'com.google.gms.google-services'
+
 android {
+    defaultConfig {
+        multiDexEnabled true
+    }
     buildTypes {
         debug {
             firebaseCrashlytics {
