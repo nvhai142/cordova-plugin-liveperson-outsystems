@@ -102,9 +102,9 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     @IBAction func cancelPressed(sender:Any) {
-        if self.conversationQuery != nil {
-            LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
-        }
+        // if self.conversationQuery != nil {
+        //     LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
+        // }
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidDisappear(_ animated: Bool) {
