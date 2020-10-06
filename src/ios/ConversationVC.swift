@@ -58,7 +58,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.fileSharingFromAgent = true
         configUI.fileSharingFromConsumer = true
 
-        configUI.conversationBackgroundColor = UIColor.conversationBackgroundColor
+       // configUI.conversationBackgroundColor = UIColor.conversationBackgroundColor
 
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
         configUI.userBubbleBorderColor = UIColor.userBubbleBorderColor
@@ -69,7 +69,6 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.userBubbleErrorTextColor = UIColor.userBubbleErrorTextColor
         configUI.userBubbleErrorBorderColor = UIColor.userBubbleErrorBorderColor
         configUI.userBubbleLongPressOverlayColor = UIColor.userBubbleLongPressOverlayColor
-
 
         configUI.remoteUserBubbleBorderColor = UIColor.remoteUserBubbleBorderColor
         configUI.remoteUserBubbleLinkColor = UIColor.remoteUserBubbleLinkColor
