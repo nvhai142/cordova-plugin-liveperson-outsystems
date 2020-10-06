@@ -327,6 +327,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 public void onInitSucceed() {
                     Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
                     setUserProfile();
+                    FCMUtils.handleGCMRegistration(ChatActivity.this);
                     initEngagementAttributes();
                    // initFragment();
                 }

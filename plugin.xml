@@ -32,10 +32,35 @@
 
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:label="ChatActivity" android:name="com.liveperson.plugin.ChatActivity" android:theme="@style/ThemeSwipeBack"></activity>
+			<service android:name="com.liveperson.plugin.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+			</service>
+
+			<service android:name="com.liveperson.plugin.MyFirebaseInstanceIDService">
+				<intent-filter>
+					<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+				</intent-filter>
+			</service>
+
+			<service
+				android:name="com.liveperson.plugin.FirebaseRegistrationIntentService"
+				android:exported="false"></service>
+
+			<receiver android:name="com.liveperson.plugin.NotificationUI$BadgeBroadcastReceiver">
+				<intent-filter>
+					<action android:name="ACTION_LP_UPDATE_NUM_UNREAD_MESSAGES_ACTION" />
+				</intent-filter>
+			</receiver>
         </config-file>
 
         <!-- LivePerson Android SDK -->
         <framework src="com.liveperson.android:lp_messaging_sdk:4.3.+" />
+		<framework src="com.google.firebase:firebase-messaging:17.0.0"/>
+		<framework src="com.google.firebase:firebase-auth:16.0.1"/>
+		<framework src="com.google.firebase:firebase-core:16.0.0"/>
+		<framework src="push.gradle" custom="true" type="gradleReference"/>
 
         <!--  Plugin Code -->
         <source-file src="src/android/LPMessagingSDKPlugin.java" target-dir="src/com/liveperson/plugin/" />
@@ -44,6 +69,11 @@
 		<source-file src="src/android/DialogHelper.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/LivepersonIntentHandler.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/MyDialogBuilder.java" target-dir="src/com/liveperson/plugin/" />
+		<source-file src="src/android/FCMUtils.java" target-dir="src/com/liveperson/plugin/" />
+		<source-file src="src/android/FirebaseRegistrationIntentService.java" target-dir="src/com/liveperson/plugin/" />
+		<source-file src="src/android/MyFirebaseInstanceIDService.java" target-dir="src/com/liveperson/plugin/" />
+		<source-file src="src/android/MyFirebaseMessagingService.java" target-dir="src/com/liveperson/plugin/" />
+		<source-file src="src/android/NotificationUI.java" target-dir="src/com/liveperson/plugin/" />
 
         <resource-file src="src/android/res/values/branding.xml" target="res/values/branding.xml"/>
         <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml"/>
