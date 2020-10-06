@@ -89,7 +89,7 @@
 		<resource-file src="src/android/res/drawable/dialog_negative.xml" target="res/drawable/dialog_negative.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_positive.xml" target="res/drawable/dialog_positive.xml"/>
 
-		<resource-file src="src/android/google-services.json" target="app/google-services.json" />
+		<resource-file src="src/android/google-services.json" target="/google-services.json" />
 
 	</platform>
 
