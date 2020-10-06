@@ -21,20 +21,6 @@ android {
     defaultConfig {
         multiDexEnabled true
     }
-    buildTypes {
-        debug {
-            firebaseCrashlytics {
-                mappingFileUploadEnabled false
-            }
-        }
-        release {
-            firebaseCrashlytics {
-                nativeSymbolUploadEnabled true
-                unstrippedNativeLibsDir "obj/local"
-                strippedNativeLibsDir "build/intermediates/jniLibs/release"
-            }
-        }
-    }
 }
 
 cdvPluginPostBuildExtras.add({
