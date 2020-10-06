@@ -485,7 +485,7 @@ extension String {
                         "year": 1980, // BIRTH YEAR
                         "month": 4, // BIRTH MONTH
                         "day": 15 // BIRTH DAY
-                    ]
+                    ],
                     "contacts": [
                         "email": "myname@example.com", // EMAIL
                         "phone": "+1 212-788-8877",
