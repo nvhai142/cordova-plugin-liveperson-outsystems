@@ -487,9 +487,9 @@ extension String {
                         "day": 15 // BIRTH DAY
                     ],
                     "contacts": [
-                        "email": "myname@example.com", // EMAIL
-                        "phone": "+1 212-788-8877",
                         [
+                            "email": "myname@example.com", // EMAIL
+                            "phone": "+1 212-788-8877",
                             "address": [
                                 "country": country,
                                 "region": region
