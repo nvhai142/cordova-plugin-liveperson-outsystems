@@ -59,8 +59,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     private static final String TAG = ChatActivity.class.getSimpleName();
     private static final String LIVEPERSON_FRAGMENT = "liveperson_fragment";
     private ConversationFragment mConversationFragment;
-    String BrandID = "47817293";
-    String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
+    final static String BrandID = "47817293";
+    final static String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
 
     private Menu mMenu;
     String package_name ;
