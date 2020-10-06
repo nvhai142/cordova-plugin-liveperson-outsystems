@@ -1,7 +1,6 @@
 import java.util.regex.Pattern
 
 
-
 cdvPluginPostBuildExtras << {
     apply plugin: 'com.google.gms.google-services'
 }
@@ -14,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = doExtractStringFromManifest("package")
+        applicationId = "com.liveperson.plugin"
         multiDexEnabled true
     }
 }
