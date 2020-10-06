@@ -60,7 +60,6 @@
 		<framework src="com.google.firebase:firebase-messaging:17.0.0"/>
 		<framework src="com.google.firebase:firebase-auth:16.0.1"/>
 		<framework src="com.google.firebase:firebase-core:16.0.0"/>
-		<framework src="push.gradle" custom="true" type="gradleReference"/>
 
         <!--  Plugin Code -->
         <source-file src="src/android/LPMessagingSDKPlugin.java" target-dir="src/com/liveperson/plugin/" />
@@ -89,7 +88,7 @@
 		<resource-file src="src/android/res/drawable/dialog_negative.xml" target="res/drawable/dialog_negative.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_positive.xml" target="res/drawable/dialog_positive.xml"/>
 
-		<resource-file src="src/android/google-services.json" target="/google-services.json" />
+		<resource-file src="src/android/google-services.json" target="app/google-services.json" />
 
 	</platform>
 
