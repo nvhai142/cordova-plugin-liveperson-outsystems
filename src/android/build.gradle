@@ -1,44 +1,40 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath 'com.google.gms:google-services:3.2.0'
-    }
-}
-repositories {
-    mavenCentral()
-    maven {
-        url "https://maven.google.com"
-    }
-}
-
-
 android {
-    defaultConfig {
-        multiDexEnabled true
-    }
+  defaultConfig {
+    multiDexEnabled true
+  }
 }
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.google.firebase:firebase-core:16.0.0'
-    implementation 'com.google.firebase:firebase-auth:16.0.1'
-    implementation 'com.google.firebase:firebase-messaging:17.0.0'
-    implementation 'com.android.support:multidex:1.0.3'
+buildscript {
+  repositories {
+    google()
+    jcenter()
+    maven {
+      url 'https://maven.fabric.io/public'
+    }
+  }
+  dependencies {
+    classpath 'com.google.gms:google-services:4.3.3'
+    classpath 'io.fabric.tools:gradle:1.31.2'
+    classpath 'com.android.tools.build:gradle:3.5.2'
+  }
+}
+
+
+repositories {
+  google()
+  mavenCentral()
+  maven {
+    url "https://maven.google.com"
+  }
+}
+
+dependencies {
+  implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+  implementation 'com.google.firebase:firebase-auth:17.0.0'
+  implementation 'com.google.firebase:firebase-core:16.0.9'
 }
 
 cdvPluginPostBuildExtras.add({
-    // rootProject.subprojects {
-    //     if (name == "app") {
-    //         if (!plugins.hasPlugin('com.google.gms.google-services')) {
-    //             apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
-    //         }
-    //     }
-    // }
+  apply plugin: 'com.google.gms.google-services'
+  apply plugin: 'io.fabric'
 })
-
-
