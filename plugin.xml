@@ -67,8 +67,6 @@
 		<framework src="com.google.firebase:firebase-iid:18.0.0" />
 		
 
-		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-
         <!--  Plugin Code -->
         <source-file src="src/android/LPMessagingSDKPlugin.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/ChatActivity.java" target-dir="src/com/liveperson/plugin/" />

@@ -29,7 +29,6 @@ repositories {
 }
 
 dependencies {
-  implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
   implementation 'com.google.firebase:firebase-auth:17.0.0'
   implementation 'com.google.firebase:firebase-core:16.0.9'
 }
