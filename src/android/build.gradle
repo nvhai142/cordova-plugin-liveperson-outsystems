@@ -30,14 +30,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.0.0'
     implementation 'com.android.support:multidex:1.0.3'
 }
+apply plugin com.google.gms.google-services
+
 cdvPluginPostBuildExtras.add({
-    rootProject.subprojects {
-        if (name == "app") {
-            if (!plugins.hasPlugin('com.google.gms.google-services')) {
-                apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
-            }
-        }
-    }
+    // rootProject.subprojects {
+    //     if (name == "app") {
+    //         if (!plugins.hasPlugin('com.google.gms.google-services')) {
+    //             apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
+    //         }
+    //     }
+    // }
 })
 
 
