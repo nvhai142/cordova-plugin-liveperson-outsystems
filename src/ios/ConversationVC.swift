@@ -11,6 +11,7 @@ import LPMessagingSDK
 import LPInfra
 
 import UserNotifications
+import AppDelegate
 
 extension AppDelegate {
     
@@ -18,12 +19,12 @@ extension AppDelegate {
         
         LPMessagingSDK.instance.registerPushNotifications(token: deviceToken);
         
-                let confirmAlert = UIAlertController(title: "PushRegister", message: "Register Push Success", preferredStyle: .alert)
-                confirmAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (alertAction) in
+                // let confirmAlert = UIAlertController(title: "PushRegister", message: "Register Push Success", preferredStyle: .alert)
+                // confirmAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (alertAction) in
                     
-                }))
-                confirmAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
-                window?.rootViewController?.present(confirmAlert, animated: true, completion: nil)
+                // }))
+                // confirmAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
+                // window?.rootViewController?.present(confirmAlert, animated: true, completion: nil)
       
     }
     
