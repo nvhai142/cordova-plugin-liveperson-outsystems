@@ -15,7 +15,6 @@ repositories {
         url "https://maven.google.com"
     }
 }
-apply plugin: 'com.google.gms.google-services'
 
 android {
     defaultConfig {
@@ -24,6 +23,7 @@ android {
 }
 
 cdvPluginPostBuildExtras.add({
+    apply plugin: 'com.google.gms.google-services'
     rootProject.subprojects {
         if (name == "app") {
             if (!plugins.hasPlugin('com.google.gms.google-services')) {
