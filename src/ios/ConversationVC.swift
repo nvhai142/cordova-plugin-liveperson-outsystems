@@ -11,7 +11,6 @@ import LPMessagingSDK
 import LPInfra
 
 import UserNotifications
-import AppDelegate
 
 extension AppDelegate {
     
