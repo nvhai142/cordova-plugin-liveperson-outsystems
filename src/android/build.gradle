@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath 'com.google.gms:google-services:3.2.0'
+        classpath 'com.google.gms:google-services:+'
     }
 }
 repositories {
@@ -15,14 +15,13 @@ repositories {
         url "https://maven.google.com"
     }
 }
-
+apply plugin: 'com.google.gms.google-services'
 
 android {
     defaultConfig {
         multiDexEnabled true
     }
 }
-apply plugin: 'com.google.gms.google-services'
 
 cdvPluginPostBuildExtras.add({
     rootProject.subprojects {
