@@ -77,7 +77,6 @@
 		<source-file src="src/android/MyDialogBuilder.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/FCMUtils.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/FirebaseRegistrationIntentService.java" target-dir="src/com/liveperson/plugin/" />
-		<source-file src="src/android/MyFirebaseInstanceIDService.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/MyFirebaseMessagingService.java" target-dir="src/com/liveperson/plugin/" />
 		<source-file src="src/android/NotificationUI.java" target-dir="src/com/liveperson/plugin/" />
 
