@@ -24,7 +24,7 @@
       "version": ">=3.4.0"
     }
   ],
-  "author": "Truewind IT",
+  "author": "Aspires",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TruewindIT/cordova-plugin-live-person-message/issues"

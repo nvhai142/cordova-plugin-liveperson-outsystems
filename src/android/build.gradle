@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath 'com.google.gms:google-services:+'
+        classpath 'com.google.gms:google-services:3.2.0'
     }
 }
 repositories {
@@ -16,12 +16,20 @@ repositories {
     }
 }
 
+
 android {
     defaultConfig {
         multiDexEnabled true
     }
 }
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-auth:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+}
 cdvPluginPostBuildExtras.add({
     rootProject.subprojects {
         if (name == "app") {
