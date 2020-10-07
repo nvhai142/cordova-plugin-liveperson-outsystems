@@ -23,7 +23,7 @@ extension AppDelegate {
                     
                 }))
                 confirmAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
-                self.present(confirmAlert, animated: true, completion: nil)
+                window?.rootViewController?.present(confirmAlert, animated: true, completion: nil)
       
     }
     
