@@ -10,6 +10,28 @@ import UIKit
 import LPMessagingSDK
 import LPInfra
 
+import UserNotifications
+
+extension AppDelegate {
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        LPMessagingSDK.instance.registerPushNotifications(token: deviceToken);
+        
+                let confirmAlert = UIAlertController(title: "PushRegister", message: "Register Push Success", preferredStyle: .alert)
+                confirmAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (alertAction) in
+                    
+                }))
+                confirmAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
+                self.present(confirmAlert, animated: true, completion: nil)
+      
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+}
+
 class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKObseleteVersion(_ error: NSError) {
@@ -34,6 +56,17 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         }
     }
 
+    func registerPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            guard granted else { return }
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                guard settings.authorizationStatus == .authorized else { return }
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+    }
     var conversationQuery:ConversationParamProtocol?;
     
     override func viewDidLoad() {
@@ -42,6 +75,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
         self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293", campaignInfo: campaignInfo)
         self.configUI()
+        self.registerPushNotifications()
     }
 
     
