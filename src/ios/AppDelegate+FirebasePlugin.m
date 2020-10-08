@@ -28,7 +28,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"FirebasePlugin - deviceToken1 = %@", deviceToken);
-    [[LPMessagingSDK instance] registerPushNotificationsWithToken:deviceToken notificationDelegate:nil alternateBundleID:nil authenticationParams:nil]
+    [[LPMessagingSDK instance] registerPushNotificationsWithToken:deviceToken notificationDelegate:nil alternateBundleID:nil authenticationParams:nil];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
