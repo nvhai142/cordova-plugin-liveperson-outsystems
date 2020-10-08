@@ -235,7 +235,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                         CampaignInfo campaign = new CampaignInfo(Long.valueOf(currentCampaignId), Long.valueOf(currentEngagementId),
                                 currentEngagementContextId, currentSessionId, currentVisitorId);
                         initFragment(campaign);
-                    } catch (BadArgumentException e){
+                    } catch (Exception  e){
                         initFragment(null);
                     }
                 } else {
