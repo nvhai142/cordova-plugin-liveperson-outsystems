@@ -123,6 +123,7 @@
 		<source-file src="src/ios/UIColor+LP.swift" />
 		<source-file src="src/ios/ConversationVC.swift" />
 		<source-file src="src/ios/LPMessagingSDKPlugin.swift" />
+		<source-file src="src/ios/AppDelegate+notification.swift" />
 		<source-file src="src/ios/LPMessagingSDKPlugin-Bridging-Header.h" />
 		
 		<!-- Add in the swift-support plugin by default -->
