@@ -6,6 +6,7 @@
 //  Copyright © 2020 Hoan Nguyen. All rights reserved.
 //
 import UIKit
+import AppDelegate
 
 extension AppDelegate {
   
