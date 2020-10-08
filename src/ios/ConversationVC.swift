@@ -12,25 +12,6 @@ import LPInfra
 
 import UserNotifications
 
-extension AppDelegate {
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        LPMessagingSDK.instance.registerPushNotifications(token: deviceToken);
-        
-                // let confirmAlert = UIAlertController(title: "PushRegister", message: "Register Push Success", preferredStyle: .alert)
-                // confirmAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (alertAction) in
-                    
-                // }))
-                // confirmAlert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil))
-                // window?.rootViewController?.present(confirmAlert, animated: true, completion: nil)
-      
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-    }
-}
 
 class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
