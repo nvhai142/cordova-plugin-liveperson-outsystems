@@ -11,6 +11,7 @@ import LPMessagingSDK
 import LPInfra
 import LPAMS
 import LPMonitoring
+import ConversationVC
 
 extension String {
     
@@ -500,6 +501,9 @@ extension String {
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
 
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
+                            if let conversationVC = chatVC.viewController.first as? ConversationVC {
+                                conversationVC.conversationQuery = self.conversationQuery
+                            }
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
