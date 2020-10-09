@@ -499,7 +499,7 @@ extension String {
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
 
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
-                            if let conversationVC = chatVC.viewController.first as? ConversationVC {
+                            if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
                                 conversationVC.conversationQuery = self.conversationQuery
                             }
                             if authenticationCode == nil {
