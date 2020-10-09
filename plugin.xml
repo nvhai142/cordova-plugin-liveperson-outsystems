@@ -94,7 +94,7 @@
 		<resource-file src="src/android/res/drawable/dialog_negative.xml" target="res/drawable/dialog_negative.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_positive.xml" target="res/drawable/dialog_positive.xml"/>
 
-		<icon src="src/android/res/mipmap/ic_launcher.png" />
+		<icon src="src/android/res/mipmap/ic_launcher.png" target="res/mipmap/ic_launcher.png"/>
 
 	</platform>
 
