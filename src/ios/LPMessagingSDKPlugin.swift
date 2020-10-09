@@ -11,8 +11,6 @@ import LPMessagingSDK
 import LPInfra
 import LPAMS
 import LPMonitoring
-import ConversationVC
-
 extension String {
     
     /// Create `Data` from hexadecimal string representation
