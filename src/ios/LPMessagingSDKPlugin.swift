@@ -476,20 +476,8 @@ extension String {
                 "type": "personal",
                 "personal": [
                     "language": language,
-                    "company": "company",
-                    "gender": "MALE",
-                    "firstname": "John",
-                    "lastname": "Doe",
-                    "age": [
-                        "age": 34, // AGE AS INTEGER
-                        "year": 1980, // BIRTH YEAR
-                        "month": 4, // BIRTH MONTH
-                        "day": 15 // BIRTH DAY
-                    ],
                     "contacts": [
                         [
-                            "email": "myname@example.com", // EMAIL
-                            "phone": "+1 212-788-8877",
                             "address": [
                                 "country": country,
                                 "region": region
@@ -504,15 +492,13 @@ extension String {
                     "accountName": accountName,
                     "customerId": customerID,
                     "storeNumber": storedNumber,
-                    "ctype": ctype,
-                    "userName": ""
+                    "ctype": ctype
                 ],
                 "type": "ctmrinfo"
             ]
         ]
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
-                       // self.sendSDEwith(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageID: pageID) {
-                          // let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
+
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
