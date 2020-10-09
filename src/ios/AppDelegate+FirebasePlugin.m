@@ -29,7 +29,10 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"FirebasePlugin - deviceToken1 = %@", deviceToken);
     [[LPMessagingSDK instance] registerPushNotificationsWithToken:deviceToken notificationDelegate:nil alternateBundleID:nil authenticationParams:nil];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+        
+        DispatchQueue.main.async {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+                }
 
 }
 
