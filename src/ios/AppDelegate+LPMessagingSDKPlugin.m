@@ -1,4 +1,4 @@
-#import "AppDelegate+FirebasePlugin.h"
+#import "AppDelegate+LPMessagingSDKPlugin.h"
 #import <objc/runtime.h>
 #import <LPMessagingSDK/LPMessagingSDK.h>
 
@@ -15,7 +15,7 @@
 #define kApplicationInBackgroundKey @"applicationInBackground"
 #define kDelegateKey @"delegate"
 
-@implementation AppDelegate (FirebasePlugin)
+@implementation AppDelegate (LPMessagingSDKPlugin)
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
