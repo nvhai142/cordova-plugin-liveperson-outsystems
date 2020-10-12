@@ -164,7 +164,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             if(campaignInfo!=null){
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
-            conversationViewParams.setCampaignInfo(campaignInfo);
 
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
