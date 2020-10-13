@@ -475,8 +475,20 @@ extension String {
                 "type": "personal",
                 "personal": [
                     "language": language,
+                    "company": "company",
+                    "gender": "MALE",
+                    "firstname": "Hai", // FIRST NAME
+                    "lastname": "Nguyen", // SURNAME
+                    "age": [
+                        "age": 34, // AGE AS INTEGER
+                        "year": 1986, // BIRTH YEAR
+                        "month": 1, // BIRTH MONTH
+                        "day": 15 // BIRTH DAY
+                    ],
                     "contacts": [
                         [
+                            "email": "myname@example.com",
+                            "phone": "+1 212-788-8877",
                             "address": [
                                 "country": country,
                                 "region": region
@@ -491,7 +503,8 @@ extension String {
                     "accountName": accountName,
                     "customerId": customerID,
                     "storeNumber": storedNumber,
-                    "ctype": ctype
+                    "ctype": ctype,
+                    "userName": ""
                 ],
                 "type": "ctmrinfo"
             ]
