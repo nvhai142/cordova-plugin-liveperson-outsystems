@@ -160,7 +160,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        \"year\": \""+args.getString(15)+"\"\n" +
                 "        \"month\": \""+args.getString(16)+"\",\n" +
                 "        \"day\": \""+args.getString(17)+"\"\n" +
-                "        }\n" +
+                "        },\n" +
                 "        \"contacts\": [\n" +
                 "        {\n" +
                 "        \"email\": \""+args.getString(18)+"\",\n" +
