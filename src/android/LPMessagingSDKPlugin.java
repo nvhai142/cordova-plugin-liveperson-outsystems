@@ -150,9 +150,21 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        {\n" +
                 "        \"type\": \"personal\",\n" +
                 "        \"personal\": {\n" +
+                "        \"gender\": \""+args.getString(20)+"\",\n" +
+                "        \"company\": \""+args.getString(21)+"\",\n" +
                 "        \"language\": \""+args.getString(5)+"\",\n" +
+                "        \"firstname\": \""+args.getString(12)+"\",\n" +
+                "        \"lastname\": \""+args.getString(13)+"\",\n" +
+                "        \"age\": {\n" +
+                "        \"age\": \""+args.getString(14)+"\",\n" +
+                "        \"year\": \""+args.getString(15)+"\"\n" +
+                "        \"month\": \""+args.getString(16)+"\",\n" +
+                "        \"day\": \""+args.getString(17)+"\"\n" +
+                "        }\n" +
                 "        \"contacts\": [\n" +
                 "        {\n" +
+                "        \"email\": \""+args.getString(18)+"\",\n" +
+                "        \"phone\": \""+args.getString(19)+"\",\n" +
                 "        \"address\": {\n" +
                 "        \"country\": \""+args.getString(3)+"\",\n" +
                 "        \"region\": \""+args.getString(4)+"\"\n" +
@@ -168,6 +180,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        \"customerId\": \""+args.getString(8)+"\",\n" +
                 "        \"storeNumber\": \""+args.getString(10)+"\",\n" +
                 "        \"ctype\": \""+args.getString(9)+"\"\n" +
+                "        \"userName\": \""+args.getString(22)+"\"\n" +
                 "        },\n" +
                 "        \"type\": \"ctmrinfo\"\n" +
                 "        }\n" +
