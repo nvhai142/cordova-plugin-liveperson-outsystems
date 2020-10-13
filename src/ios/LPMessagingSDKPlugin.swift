@@ -340,8 +340,19 @@ extension String {
         let ctype = command.arguments[9] as? String ?? ""
         let storedNumber = command.arguments[10] as? String ?? ""
         let entrypoint = command.arguments[11] as? String ?? ""
+        let firstName = command.arguments(12) as? String ?? ""
+        let lastName = command.arguments(13) as? String ?? ""
+        let age = command.arguments(14) as? String ?? ""
+        let year = command.arguments(15) as? String ?? ""
+        let month = command.arguments(16) as? String ?? ""
+        let day = command.arguments(17) as? String ?? ""
+        let email = command.arguments(18) as? String ?? ""
+        let phone = command.arguments(19) as? String ?? ""
+        let gender = command.arguments(20) as? String ?? ""
+        let company = command.arguments(21) as? String ?? ""
+        let userName = command.arguments(22) as? String ?? ""
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName)
 
         
         var response:[String:String];
@@ -459,7 +470,7 @@ extension String {
             return nil
         }
     }
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
@@ -475,20 +486,20 @@ extension String {
                 "type": "personal",
                 "personal": [
                     "language": language,
-                    "company": "company",
-                    "gender": "MALE",
-                    "firstname": "Hai", // FIRST NAME
-                    "lastname": "Nguyen", // SURNAME
+                    "company": company,
+                    "gender": gender,
+                    "firstname": firstName, // FIRST NAME
+                    "lastname": lastName, // SURNAME
                     "age": [
-                        "age": 34, // AGE AS INTEGER
-                        "year": 1986, // BIRTH YEAR
-                        "month": 1, // BIRTH MONTH
-                        "day": 15 // BIRTH DAY
+                        "age": age, // AGE AS INTEGER
+                        "year": year, // BIRTH YEAR
+                        "month": month, // BIRTH MONTH
+                        "day": day // BIRTH DAY
                     ],
                     "contacts": [
                         [
-                            "email": "myname@example.com",
-                            "phone": "+1 212-788-8877",
+                            "email": email,
+                            "phone": phone,
                             "address": [
                                 "country": country,
                                 "region": region
@@ -504,7 +515,7 @@ extension String {
                     "customerId": customerID,
                     "storeNumber": storedNumber,
                     "ctype": ctype,
-                    "userName": ""
+                    "userName": userName
                 ],
                 "type": "ctmrinfo"
             ]
