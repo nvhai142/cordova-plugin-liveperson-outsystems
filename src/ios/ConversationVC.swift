@@ -56,7 +56,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
        // let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
        // self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293", campaignInfo: campaignInfo)
         self.configUI()
-        self.registerPushNotifications()
+       // self.registerPushNotifications()
     }
 
     
