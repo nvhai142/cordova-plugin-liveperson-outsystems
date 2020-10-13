@@ -157,7 +157,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        \"lastname\": \""+args.getString(13)+"\",\n" +
                 "        \"age\": {\n" +
                 "        \"age\": \""+args.getString(14)+"\",\n" +
-                "        \"year\": \""+args.getString(15)+"\"\n" +
+                "        \"year\": \""+args.getString(15)+"\",\n" +
                 "        \"month\": \""+args.getString(16)+"\",\n" +
                 "        \"day\": \""+args.getString(17)+"\"\n" +
                 "        },\n" +
@@ -179,7 +179,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        \"accountName\": \""+args.getString(7)+"\",\n" +
                 "        \"customerId\": \""+args.getString(8)+"\",\n" +
                 "        \"storeNumber\": \""+args.getString(10)+"\",\n" +
-                "        \"ctype\": \""+args.getString(9)+"\"\n" +
+                "        \"ctype\": \""+args.getString(9)+"\",\n" +
                 "        \"userName\": \""+args.getString(22)+"\"\n" +
                 "        },\n" +
                 "        \"type\": \"ctmrinfo\"\n" +
