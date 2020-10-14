@@ -86,7 +86,21 @@ public class NotificationUI {
 
     private static PendingIntent getPendingIntent(Context ctx) {
         // there was chatmessagnging here changed by nishant
-        Intent showIntent = new Intent(ctx, ChatActivity.class);
+        Class mainActivity = null;
+        Context context = ctx;
+        String  packageName = context.getPackageName();
+        Intent  launchIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
+        String  className = launchIntent.getComponent().getClassName();
+
+        try {
+            //loading the Main Activity to not import it in the plugin
+            mainActivity = Class.forName(className);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // there was chatmessagnging here changed by nishant
+        Intent showIntent = new Intent(ctx, mainActivity);
         showIntent.putExtra(PUSH_NOTIFICATION, true);
 
         return PendingIntent.getActivity(ctx, 0, showIntent, PendingIntent.FLAG_UPDATE_CURRENT);
