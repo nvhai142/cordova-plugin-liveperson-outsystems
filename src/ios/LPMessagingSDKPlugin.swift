@@ -476,7 +476,7 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
-            let enp = ""
+            var enp = ""
             if let entryp = entrypoint{
                 enp = entryp
             }
