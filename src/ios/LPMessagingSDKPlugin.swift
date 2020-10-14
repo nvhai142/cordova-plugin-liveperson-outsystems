@@ -476,10 +476,11 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
-            
-            let entryPoints = ["http://www.liveperson-test.com",
-                           entrypoint,
-                           "lang://En"]
+            let enp = ""
+            if let entryp = entrypoint{
+                enp = entryp
+            }
+            let entryPoints = ["http://www.liveperson-test.com",enp,"lang://En"]
 
             let engagementAttributes = [
             [
