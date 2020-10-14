@@ -478,7 +478,7 @@ extension String {
             self.viewController.present(chatVC, animated: true, completion: nil)
             
             let entryPoints = ["http://www.liveperson-test.com",
-                           "sec://visa-dev",
+                           entrypoint,
                            "lang://En"]
 
             let engagementAttributes = [

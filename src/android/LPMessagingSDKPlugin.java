@@ -187,7 +187,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        ]";
                 
                 String entrypoint = "[\"http://www.liveperson-test.com\",\n" +
-                    "                   \"sec://"+args.getString(11)+"\",\n" +
+                    "                   \""+args.getString(11)+"\",\n" +
                     "                   \"lang://Eng\"]";
 
                 if(!args.isNull(1)) {
