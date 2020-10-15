@@ -57,6 +57,7 @@
 		<resource-file src="src/android/google-services.json" target="."/>
 		
         <!-- LivePerson Android SDK -->
+		<preference name="FCM_VERSION" default="17.5.+"/>
         <framework src="com.liveperson.android:lp_messaging_sdk:4.3.+" />
 		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
 		<framework src="com.google.gms:google-services:4.3.3" />
