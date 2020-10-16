@@ -91,7 +91,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         int layoutResID = getApplication().getResources().getIdentifier("activity_custom", "layout", package_name);
         setContentView(layoutResID);
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
-        setTitle("Chat");
+        setTitle("Visa Concierge");
     }
 
 

@@ -33,7 +33,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
         if let user = agent{
-            self.title = (user.nickName ?? "CHAT")
+            self.title = (user.nickName ?? "Visa Concierge")
         }
     }
 
@@ -66,7 +66,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         self.navigationController?.navigationBar.barTintColor = UIColor.csatNavigationBackgroundColor
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white];
-        self.title = "CHAT"
+        self.title = "Visa Concierge"
         
         let configUI = LPConfig.defaultConfiguration
 
