@@ -403,7 +403,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             title = findViewById (getApplication().getResources().getIdentifier("title", "id", package_name));
         }
         setSupportActionBar(toolbar);
-        Drawable icBack = ContextCompat.getDrawable(this, getApplication().getResources().getIdentifier("ic_arrow_left", "drawable", package_name));
+        Drawable icBack = ContextCompat.getDrawable(this, getApplication().getResources().getIdentifier("ic_baseline_close", "drawable", package_name));
         menuTintColors(this, icBack);
         getSupportActionBar().setHomeAsUpIndicator(icBack);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
