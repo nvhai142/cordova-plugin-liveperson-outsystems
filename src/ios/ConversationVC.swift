@@ -37,26 +37,12 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         }
     }
 
-    func registerPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            guard granted else { return }
-            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-                guard settings.authorizationStatus == .authorized else { return }
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
-    }
     var conversationQuery:ConversationParamProtocol?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
-       // let campaignInfo = LPCampaignInfo(campaignId: 1244787870, engagementId: 1246064870, contextId: nil)
-       // self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery("47817293", campaignInfo: campaignInfo)
         self.configUI()
-       // self.registerPushNotifications()
     }
 
     
