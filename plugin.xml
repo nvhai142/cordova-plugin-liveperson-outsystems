@@ -91,6 +91,7 @@
 
 		<resource-file src="src/android/res/color/ic_menu_tint_color.xml" target="res/color/ic_menu_tint_color.xml"/>
 		<resource-file src="src/android/res/drawable/ic_arrow_left.xml" target="res/drawable/ic_arrow_left.xml"/>
+        <resource-file src="src/android/res/drawable/ic_baseline_close.xml" target="res/drawable/ic_baseline_close.xml"/>
 		<resource-file src="src/android/res/drawable/alert_dialog_shape.xml" target="res/drawable/alert_dialog_shape.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_negative.xml" target="res/drawable/dialog_negative.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_positive.xml" target="res/drawable/dialog_positive.xml"/>
