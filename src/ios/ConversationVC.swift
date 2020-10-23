@@ -126,10 +126,10 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             }
             
             func showClearConfirmation(){
-                let clearAlert = UIAlertController(title: "Clear history", message: "All of your existing conversation history will be lost. Are you sure?", preferredStyle: .alert)
+                let clearAlert = UIAlertController(title: "Clear Conversation", message: "All of your existing conversation history will be lost. Are you sure?", preferredStyle: .alert)
                 clearAlert.addAction(UIAlertAction(title: "CLEAR", style: .default, handler: { (alertAction) in
                     if isChatActive{
-                        showResolveConfirmation(title: "Clear history", message: "Please resolve the conversation first")
+                        showResolveConfirmation(title: "Clear Conversation", message: "Please resolve the conversation first")
                     }else {
                        try? LPMessagingSDK.instance.clearHistory(query)
                     }
@@ -148,7 +148,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
                 showResolveConfirmation(title: "Resolve the conversation", message: "Are you sure this topic is resolved?")
             }
             
-            let clearHistoryAction = UIAlertAction(title: "Clear history", style: .default) { (alertAction) in
+            let clearHistoryAction = UIAlertAction(title: "Clear Conversation", style: .default) { (alertAction) in
                 showClearConfirmation()
             }
             

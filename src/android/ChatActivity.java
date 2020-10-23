@@ -433,7 +433,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         int id = item.getItemId();
         if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
             // check if the history is resolved,if not skip the clear command and notify the user.
-            mDialogHelper.action("Clear history",
+            mDialogHelper.action("Clear Conversation",
                     "All of your existing conversation history will be lost. Are you sure?",
                     "Clear", "Cancel",
                     (dialog, which) -> {
@@ -444,7 +444,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                                     //clear history only from device
                                     LivePerson.clearHistory();
                                 } else {
-                                    mDialogHelper.alert("Clear history", "Please resolve the conversation first");
+                                    mDialogHelper.alert("Clear Conversation", "Please resolve the conversation first");
                                 }
 
                             }
