@@ -80,6 +80,13 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     CampaignInfo campaign ;
     String partyID;
 
+    public static String getBrandID(){
+        return BrandID;
+    }
+    public static String getAppID(){
+        return AppID;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
