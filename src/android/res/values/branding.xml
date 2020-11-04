@@ -126,9 +126,9 @@
     <!--Edit Text-->
     <color name="edit_text_underline_color">@color/blue_sapphire</color>
     <color name="lp_enter_msg_text">@color/black</color>
-    <color name="lp_enter_msg_hint">@color/pearl_gray</color>
+    <color name="lp_enter_msg_hint">@color/color_disable</color>
     <color name="lp_send_button_text_enable">@color/blue_sapphire</color>
-    <color name="lp_send_button_text_disable">@color/pearl_gray</color>
+    <color name="lp_send_button_text_disable">@color/color_disable</color>
 
     <bool name="use_send_image_button">true</bool>
 
