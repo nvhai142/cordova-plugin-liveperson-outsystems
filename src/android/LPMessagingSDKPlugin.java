@@ -98,7 +98,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 //mCallbackContext = callbackContext;
                 // lp_sdk_init - Call this action inorder to do Messaging SDK init
                 final String accountId = args.getString(0);
+                
                 AppIdentifier = args.getString(1);
+                
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
                 Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
                 initSDK(accountId,callbackContext);
