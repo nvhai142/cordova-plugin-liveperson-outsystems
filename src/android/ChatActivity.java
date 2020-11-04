@@ -60,7 +60,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     private static final String LIVEPERSON_FRAGMENT = "liveperson_fragment";
     private ConversationFragment mConversationFragment;
     private static String BrandID = "47817293";
-    final static String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
+    private static String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
 
     private Menu mMenu;
     String package_name ;
@@ -317,9 +317,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         Log.d("HAN_NGUYEN", "initLivePerson: ");
         Bundle extras = getIntent().getExtras();
         String newAPP;
+        String newID;
         if(extras != null) {
             newAPP= extras.getString("EXTRA_APPID");
             BrandID = newAPP;
+            newID = extras.getString("EXTRA_APPIDENTIFIER");
+            if(newID != null){
+                AppID = newID;
+            }
             MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
             LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, AppID, monitoringParams, new InitLivePersonCallBack() {
 
