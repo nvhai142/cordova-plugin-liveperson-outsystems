@@ -340,6 +340,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         intent.putExtra("EXTRA_PARTYID", partyID);
                         intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                         intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
+                        intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
                         intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                         cordova.getActivity().startActivity(intent);
 
@@ -381,6 +382,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_PARTYID", partyID);
                     intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                     intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
+                    intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
 
