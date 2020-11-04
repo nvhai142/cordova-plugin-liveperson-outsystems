@@ -25,8 +25,8 @@ public class FirebaseRegistrationIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         String token = FirebaseInstanceId.getInstance().getToken();
-        String account = ChatActivity.BrandID;
-        String appID = ChatActivity.AppID;
+        String account = ChatActivity.getBrandID();
+        String appID = ChatActivity.getAppID();
         LivePerson.registerLPPusher(account, appID, token, new LPAuthenticationParams(), new ICallback<Void, Exception>() {
             @Override
             public void onSuccess(Void aVoid) {

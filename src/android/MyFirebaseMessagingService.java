@@ -42,7 +42,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
             // Send the data into the SDK
-            String BrandID = ChatActivity.BrandID;
+            String BrandID = ChatActivity.getBrandID();
             PushMessage message = LivePerson.handlePushMessage(this, remoteMessage.getData(), BrandID, false);
 
             //Code snippet to add push UI notification
