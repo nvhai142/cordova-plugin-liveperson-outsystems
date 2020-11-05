@@ -20,15 +20,21 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
-        alert.dismiss(animated: false, completion: nil)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func LPMessagingSDKTokenExpired(_ brandID: String) {
-        
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func LPMessagingSDKError(_ error: NSError) {
-        alert.dismiss(animated: false, completion: nil)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
@@ -38,7 +44,9 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
         if(isReady){
-            alert.dismiss(animated: false, completion: nil)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     var conversationQuery:ConversationParamProtocol?;
