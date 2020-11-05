@@ -203,7 +203,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         }
     }
     public void initEngagementAttributes(){
-        showProgressDialog();
+        
 
         Bundle extras = getIntent().getExtras();
         String engagementAtt = "";
@@ -333,6 +333,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     }
     public void initLivePerson() {
         Log.d("HAN_NGUYEN", "initLivePerson: ");
+        showProgressDialog();
         Bundle extras = getIntent().getExtras();
         String newAPP;
         String newID;
