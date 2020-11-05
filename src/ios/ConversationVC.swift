@@ -21,19 +21,19 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
         DispatchQueue.main.async {
-            alert.dismiss(animated: true, completion: nil)
+            self.alert.dismiss(animated: true, completion: nil)
         }
     }
     
     func LPMessagingSDKTokenExpired(_ brandID: String) {
         DispatchQueue.main.async {
-            alert.dismiss(animated: true, completion: nil)
+            self.alert.dismiss(animated: true, completion: nil)
         }
     }
     
     func LPMessagingSDKError(_ error: NSError) {
         DispatchQueue.main.async {
-            alert.dismiss(animated: true, completion: nil)
+            self.alert.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -45,7 +45,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
        // if(isReady){
             DispatchQueue.main.async {
-                alert.dismiss(animated: true, completion: nil)
+                self.alert.dismiss(animated: true, completion: nil)
             }
         //}
     }
