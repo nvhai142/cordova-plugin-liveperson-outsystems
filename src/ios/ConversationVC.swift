@@ -38,7 +38,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
 
     var conversationQuery:ConversationParamProtocol?;
-    var alert= UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
+    var alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
 
     override func viewDidLoad() {
         super.viewDidLoad()
