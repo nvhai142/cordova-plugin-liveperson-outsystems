@@ -470,25 +470,12 @@ extension String {
             return nil
         }
     }
-    var alert= UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
     func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil) {
         
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
-        
-
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
-
-            chatVC.present(alert, animated: true, completion: nil)
             var enp = ""
             if let entryp = entrypoint{
                 enp = entryp

@@ -28,7 +28,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     func LPMessagingSDKError(_ error: NSError) {
-        
+        alert.dismiss(animated: false, completion: nil)
     }
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
@@ -38,12 +38,20 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
 
     var conversationQuery:ConversationParamProtocol?;
-    
+    var alert= UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
         self.configUI()
-        
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
 
     
