@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-
+import android.graphics.drawable.ColorDrawable;
 
 public class DialogHelper {
 
@@ -48,5 +48,30 @@ public class DialogHelper {
                 .build();
         dialog.show();
     }
+    public void showProgress() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        } else {
+            progressDialog = createProgressDialog();
+        }
+        progressDialog.setCancelable(true);
+        progressDialog.show();
+        progressDialog.setContentView(activity.getApplication().getResources().getIdentifier("layout_progress_loading", "layout", activity.getApplication().getPackageName()));
+    }
 
+    private ProgressDialog createProgressDialog() {
+        ProgressDialog progressDialog = new ProgressDialog(activity);
+        progressDialog.getWindow().setDimAmount(0.2f);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setIndeterminate(true);
+        return progressDialog;
+    }
+
+    public void dismissProgress() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+    }
 }

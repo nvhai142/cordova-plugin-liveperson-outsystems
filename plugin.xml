@@ -87,14 +87,31 @@
 		<resource-file src="src/android/res/values/string.xml" target="res/values/string.xml"/>
 		<resource-file src="src/android/res/layout/activity_custom.xml" target="res/layout/activity_custom.xml"/>
 		<resource-file src="src/android/res/layout/custom_alert_dialog.xml" target="res/layout/custom_alert_dialog.xml"/>
+		<resource-file src="src/android/res/layout/layout_progress_loading.xml" target="res/layout/layout_progress_loading.xml"/>
 		<resource-file src="src/android/res/menu/menu_chat.xml" target="res/menu/menu_chat.xml"/>
 
 		<resource-file src="src/android/res/color/ic_menu_tint_color.xml" target="res/color/ic_menu_tint_color.xml"/>
+		
 		<resource-file src="src/android/res/drawable/ic_arrow_left.xml" target="res/drawable/ic_arrow_left.xml"/>
         <resource-file src="src/android/res/drawable/ic_baseline_close.xml" target="res/drawable/ic_baseline_close.xml"/>
 		<resource-file src="src/android/res/drawable/alert_dialog_shape.xml" target="res/drawable/alert_dialog_shape.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_negative.xml" target="res/drawable/dialog_negative.xml"/>
 		<resource-file src="src/android/res/drawable/dialog_positive.xml" target="res/drawable/dialog_positive.xml"/>
+		<resource-file src="src/android/res/drawable/loading.xml" target="res/drawable/loading.xml"/>
+		<resource-file src="src/android/res/drawable-v24/loading.xml" target="res/drawable-v24/loading.xml"/>
+
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_1.png" target="res/drawable/ic_progress_dialog_1.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_2.png" target="res/drawable/ic_progress_dialog_2.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_3.png" target="res/drawable/ic_progress_dialog_3.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_4.png" target="res/drawable/ic_progress_dialog_4.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_5.png" target="res/drawable/ic_progress_dialog_5.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_6.png" target="res/drawable/ic_progress_dialog_6.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_7.png" target="res/drawable/ic_progress_dialog_7.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_8.png" target="res/drawable/ic_progress_dialog_8.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_9.png" target="res/drawable/ic_progress_dialog_9.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_10.png" target="res/drawable/ic_progress_dialog_10.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_11.png" target="res/drawable/ic_progress_dialog_11.png"/>
+		<resource-file src="src/android/res/drawable/ic_progress_dialog_12.png" target="res/drawable/ic_progress_dialog_12.png"/>
 
 		<icon src="src/android/res/mipmap/ic_launcher.png" target="res/mipmap/ic_launcher.png"/>
 

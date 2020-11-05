@@ -101,6 +101,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         setTitle("Visa Concierge");
     }
 
+    public void showProgressDialog() {
+        mDialogHelper.showProgress();
+    }
+
+    public void dismissProgressDialog() { //CreateNewConciergeCase.View::
+        mDialogHelper.dismissProgress();
+    }
+
 
     @Override
     protected void onStart(){
@@ -150,6 +158,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
 
     private void initFragment(CampaignInfo campaignInfo) {
+        dismissProgressDialog();
+        
         mConversationFragment = (ConversationFragment)getSupportFragmentManager().findFragmentByTag(LIVEPERSON_FRAGMENT);
         Log.d(TAG, "initFragment. mConversationFragment = " + mConversationFragment);
         if (mConversationFragment == null) {
@@ -193,6 +203,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         }
     }
     public void initEngagementAttributes(){
+        showProgressDialog();
 
         Bundle extras = getIntent().getExtras();
         String engagementAtt = "";
