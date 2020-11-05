@@ -481,12 +481,14 @@ extension String {
         loadingIndicator.startAnimating();
 
         alert.view.addSubview(loadingIndicator)
-        self.viewController.present(alert, animated: true, completion: nil)
+        
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             self.viewController.present(chatVC, animated: true, completion: nil)
+
+            chatVC.present(alert, animated: true, completion: nil)
             var enp = ""
             if let entryp = entrypoint{
                 enp = entryp
