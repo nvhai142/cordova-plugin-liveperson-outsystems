@@ -37,8 +37,9 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         }
     }
     func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
-        if(isReady)
+        if(isReady){
             alert.dismiss(animated: false, completion: nil)
+        }
     }
     var conversationQuery:ConversationParamProtocol?;
     var alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
