@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor{
     
-    static let backgroundColor = UIColor(hex: "#ffffff")
+    static let backgroundColor = UIColor(hex: "#000000")
 
     static let conversationBackgroundColor = UIColor(hex: "#FFFFFF")
 
