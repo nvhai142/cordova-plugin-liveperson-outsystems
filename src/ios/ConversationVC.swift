@@ -20,7 +20,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
-        
+        alert.dismiss(animated: false, completion: nil)
     }
     
     func LPMessagingSDKTokenExpired(_ brandID: String) {
@@ -37,7 +37,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         }
     }
     func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
-        alert.dismiss(animated: false, completion: nil)
+        if(isReady)
+            alert.dismiss(animated: false, completion: nil)
     }
     var conversationQuery:ConversationParamProtocol?;
     var alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
