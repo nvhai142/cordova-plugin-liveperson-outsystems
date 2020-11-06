@@ -339,10 +339,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         String newID;
         if(extras != null) {
             newAPP= extras.getString("EXTRA_APPID");
-            ChatActivity.BrandID = newAPP;
+            //ChatActivity.BrandID = newAPP;
             newID = extras.getString("EXTRA_APPIDENTIFIER");
             if(newID != null){
-                ChatActivity.AppID = newID;
+               // ChatActivity.AppID = newID;
             }
             MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
             LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, AppID, monitoringParams, new InitLivePersonCallBack() {
