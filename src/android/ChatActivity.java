@@ -345,7 +345,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                // ChatActivity.AppID = newID;
             }
             MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
-            LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, AppID, monitoringParams, new InitLivePersonCallBack() {
+            LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(newAPP, newID, monitoringParams, new InitLivePersonCallBack() {
 
                 @Override
                 public void onInitSucceed() {
