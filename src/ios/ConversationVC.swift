@@ -76,13 +76,14 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white];
         self.title = "Visa Concierge"
+        self.view.backgroundColor = UIColor.conversationBackgroundColor
         
         let configUI = LPConfig.defaultConfiguration
 
         configUI.fileSharingFromAgent = true
         configUI.fileSharingFromConsumer = true
 
-        configUI.conversationBackgroundColor = UIColor.backgroundColor
+        configUI.conversationBackgroundColor = UIColor.conversationBackgroundColor
         
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
         configUI.userBubbleBorderColor = UIColor.userBubbleBorderColor
