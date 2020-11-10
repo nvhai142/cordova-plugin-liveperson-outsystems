@@ -142,4 +142,17 @@ extension UIColor {
 
            self.init(red: r, green: g, blue: b, alpha: a)
        }
+       static var customAccent: UIColor {
+        if #available(iOS 13, *) {
+            return UIColor { (traitCollection: UITraitCollection) -> UIColor in
+                if traitCollection.userInterfaceStyle == .dark {
+                    return UIColor.white
+                } else {
+                    return UIColor.white
+                }
+            }
+        } else {
+            return UIColor.white
+        }
+    }
 }
