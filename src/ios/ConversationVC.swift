@@ -81,7 +81,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.fileSharingFromConsumer = true
 
         configUI.conversationBackgroundColor = UIColor.backgroundColor
-
+        
         configUI.userBubbleBackgroundColor = UIColor.userBubbleBackgroundColor
         configUI.userBubbleBorderColor = UIColor.userBubbleBorderColor
         configUI.userBubbleLinkColor = UIColor.userBubbleLinkColor
@@ -92,6 +92,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.userBubbleErrorBorderColor = UIColor.userBubbleErrorBorderColor
         configUI.userBubbleLongPressOverlayColor = UIColor.userBubbleLongPressOverlayColor
 
+        configUI.remoteUserBubbleBackgroundColor = UIColor.remoteUserBubbleBackgroundColor
         configUI.remoteUserBubbleBorderColor = UIColor.remoteUserBubbleBorderColor
         configUI.remoteUserBubbleLinkColor = UIColor.remoteUserBubbleLinkColor
         configUI.remoteUserBubbleTextColor = UIColor.remoteUserBubbleTextColor
@@ -107,6 +108,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.urlRealTimePreviewBorderColor = UIColor.urlRealTimePreviewBorderColor
         configUI.urlRealTimePreviewTitleTextColor = UIColor.urlRealTimePreviewTitleTextColor
         configUI.urlRealTimePreviewDescriptionTextColor = UIColor.urlRealTimePreviewDescriptionTextColor
+
+        configUI.inputTextViewContainerBackgroundColor = UIColor.inputTextViewContainerBackgroundColor
 
         configUI.photosharingMenuBackgroundColor = UIColor.photosharingMenuBackgroundColor
         configUI.photosharingMenuButtonsBackgroundColor = UIColor.photosharingMenuButtonsBackgroundColor
