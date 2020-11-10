@@ -129,6 +129,11 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
 
         configUI.ttrBannerBackgroundColor = UIColor.ttrBannerBackgroundColor
         configUI.ttrBannerTextColor = UIColor.ttrBannerTextColor
+
+        configUI.dateSeparatorBackgroundColor = UIColor.dateSeparatorBackgroundColor
+        configUI.dateSeparatorTitleBackgroundColor = UIColor.dateSeparatorTitleBackgroundColor
+        configUI.dateSeparatorTextColor = UIColor.dateSeparatorTextColor
+        configUI.dateSeparatorLineBackgroundColor = UIColor.dateSeparatorLineBackgroundColor
     }
     
     @IBAction func cancelPressed(sender:Any) {
