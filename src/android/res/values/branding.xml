@@ -148,7 +148,7 @@
 
     <color name="lp_attachment_menu_item_icon_color">@color/blue_sapphire</color>
     <color name="lp_attachment_menu_item_text_color">@color/color_separator</color>
-    <color name="lp_attachment_menu_background_color">@color/aqua_haze</color>
+    <color name="lp_attachment_menu_background_color">@color/blue_sapphire</color>
 
     <!--Links-->
     <string name="lp_bubble_phone_links_regex" />
