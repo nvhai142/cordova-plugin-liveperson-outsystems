@@ -18,7 +18,7 @@ extension UIColor{
     static let remoteUserBubbleBackgroundColor = UIColor(hex: "#F0E2D4")
     static let remoteUserBubbleBorderColor = UIColor(hex: "#F0E2D4")
     static let remoteUserBubbleLinkColor = UIColor(hex: "#152B55")
-    static let remoteUserBubbleTextColor = UIColor(hex: "#F5F5F5")
+    static let remoteUserBubbleTextColor = UIColor(hex: "#636363")
     static let remoteUserBubbleTimestampColor = UIColor(hex: "#F5F5F5")
     static let remoteUserTypingTintColor = UIColor(hex: "#FFFFFF")
     static let remoteUserBubbleLongPressOverlayColor = UIColor(hex: "#C1C1C1")
@@ -71,7 +71,7 @@ extension UIColor{
     static let csatNavigationBackgroundColor = UIColor(hex: "#152B55")
     static let csatNavigationTitleColor = UIColor(hex: "#000000")
     static let csatSkipButtonColor = UIColor(hex: "#000000")
-    static let conversationSeparatorTextColor = UIColor(hex: "#767676")
+    static let conversationSeparatorTextColor = UIColor(hex: "#636363")
 
     static let dateSeparatorTitleBackgroundColor = UIColor(hex: "#FFFFFF")
     static let dateSeparatorTextColor = UIColor(hex: "#636363")
@@ -80,7 +80,7 @@ extension UIColor{
 
     static let inputTextViewContainerBackgroundColor = UIColor(hex: "#F5F5F5")
 
-    static let ttrBannerBackgroundColor = UIColor(hex: "#767676")
+    static let ttrBannerBackgroundColor = UIColor(hex: "#636363")
     static let ttrBannerTextColor = UIColor(hex: "#FFFFFF")
 
     static let remoteUserAvatarBackgroundColor = UIColor(hex: "#D7D8D6")
