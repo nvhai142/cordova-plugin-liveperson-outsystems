@@ -176,7 +176,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             let st = UIStoryboard()
             st.instantiateInitialViewController()
             
-            let alertVC = UIAlertController(title: "Menu", message: "Chooose an option", preferredStyle: .actionSheet)
+            let alertVC = UIAlertController(title: "Menu", message: "Choose an option", preferredStyle: .actionSheet)
             
             
             let resolveAction = UIAlertAction(title: "Resolve the conversation", style: .default) { (alertAction) in
