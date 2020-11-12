@@ -152,24 +152,23 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        {\n" +
                 "        \"type\": \"personal\",\n" +
                 "        \"personal\": {\n" +
-                "        \"gender\": \""+args.getString(20)+"\",\n" +
-                "        \"company\": \""+args.getString(21)+"\",\n" +
-                "        \"language\": \""+args.getString(5)+"\",\n" +
-                "        \"firstname\": \""+args.getString(12)+"\",\n" +
-                "        \"lastname\": \""+args.getString(13)+"\",\n" +
+                "        \"gender\": \"Male\",\n" +
+                "        \"company\": \"Visa\",\n" +
+                "        \"language\": \"en-UK\",\n" +
+                "        \"firstname\": \"John\",\n" +
+                "        \"lastname\": \"Doe\",\n" +
                 "        \"age\": {\n" +
-                "        \"age\": \""+args.getString(14)+"\",\n" +
-                "        \"year\": \""+args.getString(15)+"\",\n" +
-                "        \"month\": \""+args.getString(16)+"\",\n" +
-                "        \"day\": \""+args.getString(17)+"\"\n" +
-                "        },\n" +
+                "        \"age\": 34,\n" +
+                "        \"year\": 1980,\n" +
+                "        \"month\": 4,\n" +
+                "        \"day\": 15},\n" +
                 "        \"contacts\": [\n" +
                 "        {\n" +
-                "        \"email\": \""+args.getString(18)+"\",\n" +
-                "        \"phone\": \""+args.getString(19)+"\",\n" +
+                "        \"email\": \"myname@example.com\",\n" +
+                "        \"phone\": \"+1 212-788-8877\",\n" +
                 "        \"address\": {\n" +
-                "        \"country\": \""+args.getString(3)+"\",\n" +
-                "        \"region\": \""+args.getString(4)+"\"\n" +
+                "        \"country\": \"Korea (Republic of)\",\n" +
+                "        \"region\": \"Korea (Republic of)\"\n" +
                 "        }\n" +
                 "        }\n" +
                 "        ]\n" +
@@ -177,12 +176,12 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 "        },\n" +
                 "        {\n" +
                 "        \"info\": {\n" +
-                "        \"storeZipCode\": \""+args.getString(6)+"\",\n" +
-                "        \"accountName\": \""+args.getString(7)+"\",\n" +
-                "        \"customerId\": \""+args.getString(8)+"\",\n" +
-                "        \"storeNumber\": \""+args.getString(10)+"\",\n" +
-                "        \"ctype\": \""+args.getString(9)+"\",\n" +
-                "        \"userName\": \""+args.getString(22)+"\"\n" +
+                "        \"storeZipCode\": \"Korea (Republic of)\",\n" +
+                "        \"accountName\": \"Visa\",\n" +
+                "        \"customerId\": \"123\",\n" +
+                "        \"storeNumber\": \"en-UK\",\n" +
+                "        \"ctype\": \"Visa Infinite\",\n" +
+                "        \"userName\": \"\"\n" +
                 "        },\n" +
                 "        \"type\": \"ctmrinfo\"\n" +
                 "        }\n" +
