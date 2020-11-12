@@ -49,7 +49,6 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     CallbackContext mRegisterLpPusherCallbackContext;
     
     JSONArray uProfile;
-    String AppIdentifier;
 
     private CordovaWebView mainWebView;
 
@@ -99,7 +98,6 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 // lp_sdk_init - Call this action inorder to do Messaging SDK init
                 final String accountId = args.getString(0);
                 
-                AppIdentifier = args.getString(1);
                 
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
                 Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
@@ -198,11 +196,13 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
                     String partyID = args.getString(2);
-                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint);
+                    String AppIdentifier = args.getString(23);
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);
-                    startConversation(appIDs,partyID,engagement,entrypoint);
+                    String AppIdentifier = args.getString(23);
+                    startConversation(appIDs,partyID,engagement,entrypoint,AppIdentifier);
                 }
 
                 break;
@@ -324,7 +324,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint) {
+    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -363,7 +363,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
