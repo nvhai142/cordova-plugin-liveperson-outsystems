@@ -252,7 +252,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
      * @param accountId
      */
     private void initSDK(final String accountId,org.apache.cordova.CallbackContext cb) {
-
+            final org.apache.cordova.CallbackContext callbackContext = cb;
             final JSONObject json = new JSONObject();
             try {
                 json.put("eventName","LPMessagingSDKInit");
