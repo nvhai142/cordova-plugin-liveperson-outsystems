@@ -171,8 +171,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             if(extras != null) {
                 authCode= extras.getString("EXTRA_AUTHENTICATE");
             }
-            Log.d(TAG, "initFragment. authCode = " + authCode);
-            Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
@@ -181,7 +179,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             if(campaignInfo!=null){
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
-
+            mDialogHelper.alert("SUCCESS", authCode);
+            
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
