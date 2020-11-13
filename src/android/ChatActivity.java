@@ -180,7 +180,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
             mDialogHelper.alert("SUCCESS", authCode);
-            
+
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
@@ -343,6 +343,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             if(newID != null){
                AppID = newID;
             }
+            mDialogHelper.alert("APPID:", AppID);
             MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
             LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(BrandID, AppID, monitoringParams, new InitLivePersonCallBack() {
 
