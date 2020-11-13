@@ -252,59 +252,72 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
      * @param accountId
      */
     private void initSDK(final String accountId,org.apache.cordova.CallbackContext cb) {
-            final org.apache.cordova.CallbackContext callbackContext = cb;
-            cordova.getActivity().setTitle("CHAT");
-            cordova.getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, AppID, new InitLivePersonCallBack() {
-                        @Override
-                        public void onInitSucceed() {
-                            Log.i(TAG, "@@@ android ... SDK initialize completed successfully");
-                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cordova.getActivity());
-                            sharedPreferences.edit().putString(LP_ACCOUNT_ID, accountId).apply();
 
-                            final JSONObject json = new JSONObject();
-                            try {
-                                json.put("eventName","LPMessagingSDKInit");
-                            } catch (JSONException e1) {
-                                e1.printStackTrace();
-                            }
+            final JSONObject json = new JSONObject();
+            try {
+                json.put("eventName","LPMessagingSDKInit");
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
 
-                            cordova.getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
-                                    result.setKeepCallback(true);
-                                    callbackContext.sendPluginResult(result);
-                                    setCallBack();
-                                }
-                            });
-                        }
+            PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
+            result.setKeepCallback(true);
+            callbackContext.sendPluginResult(result);
+            setCallBack();         
 
-                        @Override
-                        public void onInitFailed(Exception e) {
-                            Log.i(TAG, "@@@ Android ... SDK initialize completed with error");
+            // final org.apache.cordova.CallbackContext callbackContext = cb;
+            // cordova.getActivity().setTitle("CHAT");
+            // cordova.getActivity().runOnUiThread(new Runnable() {
+            //     public void run() {
+            //         LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, AppID, new InitLivePersonCallBack() {
+            //             @Override
+            //             public void onInitSucceed() {
+            //                 Log.i(TAG, "@@@ android ... SDK initialize completed successfully");
+            //                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cordova.getActivity());
+            //                 sharedPreferences.edit().putString(LP_ACCOUNT_ID, accountId).apply();
 
-                            final JSONObject json = new JSONObject();
-                            try {
-                                json.put("eventName","LPMessagingSDKInit");
-                            } catch (JSONException e1) {
-                                e1.printStackTrace();
-                            }
+            //                 final JSONObject json = new JSONObject();
+            //                 try {
+            //                     json.put("eventName","LPMessagingSDKInit");
+            //                 } catch (JSONException e1) {
+            //                     e1.printStackTrace();
+            //                 }
 
-                            cordova.getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
-                                    result.setKeepCallback(true);
-                                    callbackContext.sendPluginResult(result);
-                                }
-                            });
-                        }
-                    }));
+            //                 cordova.getActivity().runOnUiThread(new Runnable() {
+            //                     @Override
+            //                     public void run() {
+            //                         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
+            //                         result.setKeepCallback(true);
+            //                         callbackContext.sendPluginResult(result);
+            //                         setCallBack();
+            //                     }
+            //                 });
+            //             }
 
-                }
-            });
+            //             @Override
+            //             public void onInitFailed(Exception e) {
+            //                 Log.i(TAG, "@@@ Android ... SDK initialize completed with error");
+
+            //                 final JSONObject json = new JSONObject();
+            //                 try {
+            //                     json.put("eventName","LPMessagingSDKInit");
+            //                 } catch (JSONException e1) {
+            //                     e1.printStackTrace();
+            //                 }
+
+            //                 cordova.getActivity().runOnUiThread(new Runnable() {
+            //                     @Override
+            //                     public void run() {
+            //                         PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
+            //                         result.setKeepCallback(true);
+            //                         callbackContext.sendPluginResult(result);
+            //                     }
+            //                 });
+            //             }
+            //         }));
+
+            //     }
+            // });
     }
 
     private void reconnect(String jwt) {
