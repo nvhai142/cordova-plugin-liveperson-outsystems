@@ -173,7 +173,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
-            LPAuthenticationParams authParams = new LPAuthenticationParams();
+            LPAuthenticationParams authParams = new LPAuthenticationParams(LPAuthenticationParams.LPAuthenticationType.AUTH);
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
