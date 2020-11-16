@@ -15,16 +15,16 @@ extension UIColor{
 
     static let conversationBackgroundColor = UIColor(hex: "#FFFFFF")
 
-    static let remoteUserBubbleBackgroundColor = UIColor(hex: "#F0E2D4")
-    static let remoteUserBubbleBorderColor = UIColor(hex: "#F0E2D4")
+    static let remoteUserBubbleBackgroundColor = UIColor(hex: "#CAD1D6")
+    static let remoteUserBubbleBorderColor = UIColor(hex: "#CAD1D6")
     static let remoteUserBubbleLinkColor = UIColor(hex: "#152B55")
     static let remoteUserBubbleTextColor = UIColor(hex: "#636363")
     static let remoteUserBubbleTimestampColor = UIColor(hex: "#F5F5F5")
-    static let remoteUserTypingTintColor = UIColor(hex: "#FFFFFF")
+    static let remoteUserTypingTintColor = UIColor(hex: "#636363")
     static let remoteUserBubbleLongPressOverlayColor = UIColor(hex: "#C1C1C1")
 
-    static let userBubbleBackgroundColor = UIColor(hex: "#152B55")
-    static let userBubbleBorderColor = UIColor(hex: "#152B55")
+    static let userBubbleBackgroundColor = UIColor(hex: "#54606C")
+    static let userBubbleBorderColor = UIColor(hex: "#54606C")
     static let userBubbleLinkColor = UIColor(hex: "#FFFFFF")
     static let userBubbleTextColor = UIColor(hex: "#FFFFFF")
     static let userBubbleTimestampColor = UIColor(hex: "#D7D8D6")
