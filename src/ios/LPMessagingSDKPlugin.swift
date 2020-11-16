@@ -488,6 +488,19 @@ extension String {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
+            chatVC.ChatTitleHeader = ChatTitleHeader
+            chatVC.WelcomeMsg = WelcomeMsg
+            chatVC.ClearConversationMsg = ClearConversationMsg
+            chatVC.ClearConfirmMsg = ClearConfirmMsg
+            chatVC.ChooseMsg = ChooseMsg
+            chatVC.RevolvedTileMsg = RevolvedTileMsg
+            chatVC.ResolvedConfirmMsg = ResolvedConfirmMsg
+            chatVC.ClearTitleMsg = ClearTitleMsg
+            chatVC.YesMsg = YesMsg
+            chatVC.CancelMsg = CancelMsg
+            chatVC.ClearMsg = ClearMsg
+            chatVC.MenuMsg = MenuMsg
+
             self.viewController.present(chatVC, animated: true, completion: nil)
             var enp = ""
             if let entryp = entrypoint{
