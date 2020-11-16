@@ -365,7 +365,7 @@ extension String {
         let MenuMsg = command.arguments[34] as? String ?? ""
         let ChatTitleHeader = command.arguments[35] as? String ?? ""
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName,WelcomeMsg: WelcomeMsg,ClearConversationMsg: ClearConversationMsg,ClearConfirmMsg: ClearConfirmMsg,ChooseMsg: ChooseMsg,RevolvedTileMsg: RevolvedTileMsg,ResolvedConfirmMsg: ResolvedConfirmMsg,ClearTitleMsg: ClearTitleMsg,YesMsg: YesMsg,CancelMsg: CancelMsg,ClearMsg: ClearMsg,MenuMsg: MenuMsg,ChatTitleHeader: ChatTitleHeader)
 
         
         var response:[String:String];
@@ -483,7 +483,7 @@ extension String {
             return nil
         }
     }
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil,WelcomeMsg: String? = nil,ClearConversationMsg: String? = nil,ClearConfirmMsg: String? = nil,ChooseMsg: String? = nil,RevolvedTileMsg: String? = nil,ResolvedConfirmMsg: String? = nil,ClearTitleMsg: String? = nil,YesMsg: String? = nil,CancelMsg: String? = nil,ClearMsg: String? = nil,MenuMsg: String? = nil,ChatTitleHeader: String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
