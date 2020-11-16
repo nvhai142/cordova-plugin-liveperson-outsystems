@@ -200,9 +200,13 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
+                    // String partyID = args.getString(2);
+                    // String AppIdentifier = args.getString(23);
+                    // startConversation(appIDs,partyID,engagement,entrypoint,AppIdentifier);
+                    String jwt = args.getString(1);
                     String partyID = args.getString(2);
                     String AppIdentifier = args.getString(23);
-                    startConversation(appIDs,partyID,engagement,entrypoint,AppIdentifier);
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier);
                 }
 
                 break;
