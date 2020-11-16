@@ -352,6 +352,19 @@ extension String {
         let company = command.arguments[21] as? String ?? ""
         let userName = command.arguments[22] as? String ?? ""
 
+        let WelcomeMsg = command.arguments[24] as? String ?? ""
+        let ClearConversationMsg = command.arguments[25] as? String ?? ""
+        let ClearConfirmMsg = command.arguments[26] as? String ?? ""
+        let ChooseMsg = command.arguments[27] as? String ?? ""
+        let RevolvedTileMsg = command.arguments[28] as? String ?? ""
+        let ResolvedConfirmMsg = command.arguments[29] as? String ?? ""
+        let ClearTitleMsg = command.arguments[30] as? String ?? ""
+        let YesMsg = command.arguments[31] as? String ?? ""
+        let CancelMsg = command.arguments[32] as? String ?? ""
+        let ClearMsg = command.arguments[33] as? String ?? ""
+        let MenuMsg = command.arguments[34] as? String ?? ""
+        let ChatTitleHeader = command.arguments[35] as? String ?? ""
+
         self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName)
 
         
