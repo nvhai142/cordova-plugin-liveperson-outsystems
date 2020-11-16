@@ -147,6 +147,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.dateSeparatorTitleBackgroundColor = UIColor.dateSeparatorTitleBackgroundColor
         configUI.dateSeparatorTextColor = UIColor.dateSeparatorTextColor
         configUI.dateSeparatorLineBackgroundColor = UIColor.dateSeparatorLineBackgroundColor
+        configUI.conversationSeparatorTextColor = UIColor.conversationSeparatorTextColor
     }
     
     @IBAction func cancelPressed(sender:Any) {
