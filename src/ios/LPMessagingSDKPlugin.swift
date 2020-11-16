@@ -582,7 +582,7 @@ extension String {
                                     conversationVC.ClearMsg = clearm
                                 }
                                 if let menuM = MenuMsg {
-                                    conversationVC.MenuMsg = MenuMsg
+                                    conversationVC.MenuMsg = menuM
                                 }
                                                             }
                             if authenticationCode == nil {
