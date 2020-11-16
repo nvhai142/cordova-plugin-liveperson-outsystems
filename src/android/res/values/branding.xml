@@ -10,7 +10,7 @@
 
     <!-- brand bubble-->
     <dimen name="brand_bubble_stroke_width">0dp</dimen>
-    <color name="brand_bubble_stroke_color">@color/light_gray</color>
+    <color name="brand_bubble_stroke_color">@color/rose_gold</color>
     <color name="brand_bubble_message_text_color">@color/dim_gray</color>
     <color name="brand_bubble_message_link_text_color">@color/color_text_white</color>
     <color name="brand_bubble_timestamp_text_color">@color/dim_gray</color>
@@ -33,10 +33,10 @@
     <dimen name="consumer_bubble_stroke_width">0dp</dimen>
     <color name="consumer_bubble_stroke_color">@color/pearl_gray</color>-->
     <color name="consumer_bubble_message_text_color">@color/white</color>
-    <color name="consumer_bubble_message_link_text_color">@color/blue_sapphire</color>
+    <color name="consumer_bubble_message_link_text_color">@color/white</color>
     <color name="consumer_bubble_timestamp_text_color">@color/dim_gray</color>
-    <color name="consumer_bubble_background_color">@color/blue_sapphire</color>
-    <color name="consumer_bubble_state_text_color">@color/black</color>
+    <color name="consumer_bubble_background_color">@color/color_background_user</color>
+    <color name="consumer_bubble_state_text_color">@color/dim_gray</color>
 
 
     <!-- system bubble-->

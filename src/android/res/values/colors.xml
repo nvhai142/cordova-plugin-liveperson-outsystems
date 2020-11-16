@@ -57,7 +57,7 @@
 
 <color name="light_gray">#C1C1C1</color>
 
-<color name="rose_gold">#F0E2D4</color>
+<color name="rose_gold">#CAD1D6</color>
 
 <color name="emerald_green">#152B55</color>
 
@@ -83,5 +83,6 @@
 
 <color name="color_text">#9B9B9B</color>
 <color name="color_disable">#D3D3D3</color>
-
+<color name="color_text_user">#FFFFFF</color>
+<color name="color_background_user">#54606C</color>
 </resources>
