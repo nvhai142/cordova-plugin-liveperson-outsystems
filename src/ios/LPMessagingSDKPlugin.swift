@@ -488,18 +488,9 @@ extension String {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
-            chatVC.ChatTitleHeader = ChatTitleHeader
-            chatVC.WelcomeMsg = WelcomeMsg
-            chatVC.ClearConversationMsg = ClearConversationMsg
-            chatVC.ClearConfirmMsg = ClearConfirmMsg
-            chatVC.ChooseMsg = ChooseMsg
-            chatVC.RevolvedTileMsg = RevolvedTileMsg
-            chatVC.ResolvedConfirmMsg = ResolvedConfirmMsg
-            chatVC.ClearTitleMsg = ClearTitleMsg
-            chatVC.YesMsg = YesMsg
-            chatVC.CancelMsg = CancelMsg
-            chatVC.ClearMsg = ClearMsg
-            chatVC.MenuMsg = MenuMsg
+            if let conversationVCs = chatVC.viewControllers.first as? ConversationVC {
+                conversationVCs.ChatTitleHeader = ChatTitleHeader
+            }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
             var enp = ""
@@ -552,6 +543,18 @@ extension String {
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
                                 conversationVC.conversationQuery = self.conversationQuery
+                                conversationVC.ChatTitleHeader = ChatTitleHeader
+                                conversationVC.WelcomeMsg = WelcomeMsg
+                                conversationVC.ClearConversationMsg = ClearConversationMsg
+                                conversationVC.ClearConfirmMsg = ClearConfirmMsg
+                                conversationVC.ChooseMsg = ChooseMsg
+                                conversationVC.RevolvedTileMsg = RevolvedTileMsg
+                                conversationVC.ResolvedConfirmMsg = ResolvedConfirmMsg
+                                conversationVC.ClearTitleMsg = ClearTitleMsg
+                                conversationVC.YesMsg = YesMsg
+                                conversationVC.CancelMsg = CancelMsg
+                                conversationVC.ClearMsg = ClearMsg
+                                conversationVC.MenuMsg = MenuMsg
                             }
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
