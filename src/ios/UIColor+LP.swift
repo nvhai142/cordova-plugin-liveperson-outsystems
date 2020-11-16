@@ -19,7 +19,7 @@ extension UIColor{
     static let remoteUserBubbleBorderColor = UIColor(hex: "#CAD1D6")
     static let remoteUserBubbleLinkColor = UIColor(hex: "#152B55")
     static let remoteUserBubbleTextColor = UIColor(hex: "#636363")
-    static let remoteUserBubbleTimestampColor = UIColor(hex: "#F5F5F5")
+    static let remoteUserBubbleTimestampColor = UIColor(hex: "##767676")
     static let remoteUserTypingTintColor = UIColor(hex: "#636363")
     static let remoteUserBubbleLongPressOverlayColor = UIColor(hex: "#C1C1C1")
 
@@ -27,7 +27,7 @@ extension UIColor{
     static let userBubbleBorderColor = UIColor(hex: "#54606C")
     static let userBubbleLinkColor = UIColor(hex: "#FFFFFF")
     static let userBubbleTextColor = UIColor(hex: "#FFFFFF")
-    static let userBubbleTimestampColor = UIColor(hex: "#D7D8D6")
+    static let userBubbleTimestampColor = UIColor(hex: "##767676")
     static let userBubbleSendStatusTextColor = UIColor(hex: "#D7D8D6")
     static let userBubbleErrorTextColor = UIColor(hex: "#DB0011")
     static let userBubbleErrorBorderColor = UIColor(hex: "#DB0011")
