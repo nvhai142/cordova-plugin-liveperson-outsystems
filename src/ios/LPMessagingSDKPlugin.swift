@@ -490,7 +490,7 @@ extension String {
             chatVC.modalPresentationStyle = .fullScreen
             if let conversationVCs = chatVC.viewControllers.first as? ConversationVC {
                 if let cgate = ChatTitleHeader{
-                    conversationVC.ChatTitleHeader = cgate
+                    conversationVCs.ChatTitleHeader = cgate
                 }                    
             }
 
