@@ -556,8 +556,8 @@ extension String {
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
-
-                                let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
+                                let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg)
+                                let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false, welcomeMessage: welcomeMessageParam)
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
                             }
