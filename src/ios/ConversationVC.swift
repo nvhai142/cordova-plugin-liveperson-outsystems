@@ -193,7 +193,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             
             
             let resolveAction = UIAlertAction(title: RevolvedTileMsg, style: .default) { (alertAction) in
-                showResolveConfirmation(title: RevolvedTileMsg, message: ResolvedConfirmMsg)
+                showResolveConfirmation(title: self.RevolvedTileMsg, message: self.ResolvedConfirmMsg)
             }
             
             let clearHistoryAction = UIAlertAction(title: ClearTitleMsg, style: .default) { (alertAction) in
