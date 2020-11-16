@@ -166,7 +166,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             
             func showResolveConfirmation(title:String, message:String){
                 let confirmAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                confirmAlert.addAction(UIAlertAction(title: YES, style: .default, handler: { (alertAction) in
+                confirmAlert.addAction(UIAlertAction(title: YesMsg, style: .default, handler: { (alertAction) in
                     LPMessagingSDK.instance.resolveConversation(query)
                 }))
                 confirmAlert.addAction(UIAlertAction(title: CancelMsg, style: .cancel, handler: nil))
@@ -177,7 +177,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
                 let clearAlert = UIAlertController(title: ClearTitleMsg, message: ClearConversationMsg, preferredStyle: .alert)
                 clearAlert.addAction(UIAlertAction(title: ClearMsg, style: .default, handler: { (alertAction) in
                     if isChatActive{
-                        showResolveConfirmation(title: ClearTitleMsg, message: ClearConfirmMsg)
+                        showResolveConfirmation(title: self.ClearTitleMsg, message: self.ClearConfirmMsg)
                     }else {
                        try? LPMessagingSDK.instance.clearHistory(query)
                     }
