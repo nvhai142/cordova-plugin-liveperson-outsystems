@@ -52,17 +52,17 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var conversationQuery:ConversationParamProtocol?;
     var alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
 
-    var WelcomeMsg:String ="How can I help you today?"
-    var ClearConversationMsg:String ="All of your existing conversation history will be lost. Are you sure?"
-    var ClearConfirmMsg:String ="Please resolve the conversation first."
-    var ChooseMsg:String ="Choose an option"
-    var RevolvedTileMsg:String ="Resolve the conversation"
-    var ResolvedConfirmMsg:String ="Are you sure this topic is resolved?"
-    var ClearTitleMsg:String ="Clear Conversation"
-    var YesMsg:String ="Yes"
-    var CancelMsg:String ="Cancel"
-    var ClearMsg:String ="Clear"
-    var MenuMsg:String ="Menu"
+    var WelcomeMsg:String = "How can I help you today?"
+    var ClearConversationMsg:String = "All of your existing conversation history will be lost. Are you sure?"
+    var ClearConfirmMsg:String = "Please resolve the conversation first."
+    var ChooseMsg:String = "Choose an option"
+    var RevolvedTileMsg:String = "Resolve the conversation"
+    var ResolvedConfirmMsg:String = "Are you sure this topic is resolved?"
+    var ClearTitleMsg:String = "Clear Conversation"
+    var YesMsg:String = "Yes"
+    var CancelMsg:String = "Cancel"
+    var ClearMsg:String = "Clear"
+    var MenuMsg:String = "Menu"
     var ChatTitleHeader:String ="Visa Concierge"
 
     override func viewDidLoad() {
