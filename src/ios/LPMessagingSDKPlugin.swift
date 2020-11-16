@@ -353,17 +353,17 @@ extension String {
         let userName = command.arguments[22] as? String ?? ""
 
         let WelcomeMsg = command.arguments[24] as? String ?? "How can I help you today?"
-        let ClearConversationMsg = command.arguments[25] as? String ?? "All of your existing conversation history will be lost. Are you sure?"
-        let ClearConfirmMsg = command.arguments[26] as? String ?? "Please resolve the conversation first."
-        let ChooseMsg = command.arguments[27] as? String ?? "Choose an option"
-        let RevolvedTileMsg = command.arguments[28] as? String ?? "Resolve the conversation"
-        let ResolvedConfirmMsg = command.arguments[29] as? String ?? "Are you sure this topic is resolved?"
-        let ClearTitleMsg = command.arguments[30] as? String ?? "Clear Conversation"
-        let YesMsg = command.arguments[31] as? String ?? "Yes"
-        let CancelMsg = command.arguments[32] as? String ?? "Cancel"
-        let ClearMsg = command.arguments[33] as? String ?? "Clear"
-        let MenuMsg = command.arguments[34] as? String ?? "Menu"
-        let ChatTitleHeader = command.arguments[35] as? String ?? "Visa Concierge"
+        let ClearConversationMsg = command.arguments[26] as? String ?? "All of your existing conversation history will be lost. Are you sure?"
+        let ClearConfirmMsg = command.arguments[27] as? String ?? "Please resolve the conversation first."
+        let ChooseMsg = command.arguments[28] as? String ?? "Choose an option"
+        let RevolvedTileMsg = command.arguments[29] as? String ?? "Resolve the conversation"
+        let ResolvedConfirmMsg = command.arguments[30] as? String ?? "Are you sure this topic is resolved?"
+        let ClearTitleMsg = command.arguments[31] as? String ?? "Clear Conversation"
+        let YesMsg = command.arguments[32] as? String ?? "Yes"
+        let CancelMsg = command.arguments[33] as? String ?? "Cancel"
+        let ClearMsg = command.arguments[34] as? String ?? "Clear"
+        let MenuMsg = command.arguments[35] as? String ?? "Menu"
+        let ChatTitleHeader = command.arguments[25] as? String ?? "Visa Concierge"
 
         self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName,WelcomeMsg: WelcomeMsg,ClearConversationMsg: ClearConversationMsg,ClearConfirmMsg: ClearConfirmMsg,ChooseMsg: ChooseMsg,RevolvedTileMsg: RevolvedTileMsg,ResolvedConfirmMsg: ResolvedConfirmMsg,ClearTitleMsg: ClearTitleMsg,YesMsg: YesMsg,CancelMsg: CancelMsg,ClearMsg: ClearMsg,MenuMsg: MenuMsg,ChatTitleHeader: ChatTitleHeader)
 
