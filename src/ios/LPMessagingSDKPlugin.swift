@@ -489,7 +489,9 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             if let conversationVCs = chatVC.viewControllers.first as? ConversationVC {
-                conversationVCs.ChatTitleHeader = ChatTitleHeader
+                if let cgate = ChatTitleHeader{
+                    conversationVC.ChatTitleHeader = cgate
+                }                    
             }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
@@ -543,19 +545,46 @@ extension String {
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
                                 conversationVC.conversationQuery = self.conversationQuery
-                                conversationVC.ChatTitleHeader = ChatTitleHeader
-                                conversationVC.WelcomeMsg = WelcomeMsg
-                                conversationVC.ClearConversationMsg = ClearConversationMsg
-                                conversationVC.ClearConfirmMsg = ClearConfirmMsg
-                                conversationVC.ChooseMsg = ChooseMsg
-                                conversationVC.RevolvedTileMsg = RevolvedTileMsg
-                                conversationVC.ResolvedConfirmMsg = ResolvedConfirmMsg
-                                conversationVC.ClearTitleMsg = ClearTitleMsg
-                                conversationVC.YesMsg = YesMsg
-                                conversationVC.CancelMsg = CancelMsg
-                                conversationVC.ClearMsg = ClearMsg
-                                conversationVC.MenuMsg = MenuMsg
-                            }
+                                
+                                if let cgate = ChatTitleHeader{
+                                    conversationVC.ChatTitleHeader = cgate
+                                }
+
+                                if let welm = WelcomeMsg{
+                                    conversationVC.WelcomeMsg = welm
+                                }
+
+                                if let chdcm = ClearConversationMsg{
+                                    conversationVC.ClearConversationMsg = chdcm
+                                }
+                                if let chooscm = ClearConfirmMsg{
+                                    conversationVC.ClearConfirmMsg = chooscm
+                                }
+                                if let choosm = ChooseMsg{
+                                    conversationVC.ChooseMsg = choosm
+                                }
+                                if let restm = RevolvedTileMsg{
+                                    conversationVC.RevolvedTileMsg = restm
+                                }
+                                if let resm = ResolvedConfirmMsg{
+                                    conversationVC.ResolvedConfirmMsg = resm
+                                }
+                                if let cleartm = ClearTitleMsg{
+                                    conversationVC.ClearTitleMsg = cleartm
+                                }
+                                if let yesm = YesMsg{
+                                    conversationVC.YesMsg = yesm
+                                }
+                                if let cancelm = CancelMsg{
+                                    conversationVC.CancelMsg = cancelm
+                                }
+                                if let clearm = ClearMsg{
+                                    conversationVC.ClearMsg = clearm
+                                }
+                                if let menuM = MenuMsg {
+                                    conversationVC.MenuMsg = MenuMsg
+                                }
+                                                            }
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
