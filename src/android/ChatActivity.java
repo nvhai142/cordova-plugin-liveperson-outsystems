@@ -99,6 +99,13 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         setContentView(layoutResID);
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
         setTitle("Visa Concierge");
+        String WelcomeMsg = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
+            setTitle(WelcomeMsg);
+        }    
     }
 
     public void showProgressDialog() {
