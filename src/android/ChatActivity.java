@@ -103,7 +103,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
-            WelcomeMsg= extras.getString("EXTRA_ChatTitleHeader");
+            ChatTitleHeader= extras.getString("EXTRA_ChatTitleHeader");
             setTitle(ChatTitleHeader);
         }    
     }
