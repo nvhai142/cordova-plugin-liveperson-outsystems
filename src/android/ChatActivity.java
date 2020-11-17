@@ -485,6 +485,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             CancelMsg= extras.getString("EXTRA_CancelMsg");
             ClearMsg= extras.getString("EXTRA_ClearMsg");
         }
+        final String clearm = ClearTitleMsg;
+        final String clearc = ClearConfirmMsg;
         if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
             // check if the history is resolved,if not skip the clear command and notify the user.
             mDialogHelper.action(ClearTitleMsg,
@@ -498,7 +500,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                                     //clear history only from device
                                     LivePerson.clearHistory();
                                 } else {
-                                    mDialogHelper.alert(ClearTitleMsg, ClearConfirmMsg);
+                                    mDialogHelper.alert(clearm, clearc);
                                 }
 
                             }
