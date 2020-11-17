@@ -172,18 +172,21 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         if (mConversationFragment == null) {
 
             String authCode = "";
-            String publicKey = "";
+            String WelcomeMsg = "How can I help you today?";
 
             Bundle extras = getIntent().getExtras();
             if(extras != null) {
                 authCode= extras.getString("EXTRA_AUTHENTICATE");
+                WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
             }
             
             LPAuthenticationParams authParams = new LPAuthenticationParams();
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
-           
+            LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
+            conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
+
             if(campaignInfo!=null){
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
