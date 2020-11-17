@@ -171,7 +171,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             if(extras != null) {
                 authCode= extras.getString("EXTRA_AUTHENTICATE");
             }
-
+            
             LPAuthenticationParams authParams = new LPAuthenticationParams();
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
@@ -337,12 +337,12 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         String newAPP;
         String newID;
         if(extras != null) {
-            // newAPP= extras.getString("EXTRA_APPID");
-            // BrandID = newAPP;
-            // newID = extras.getString("EXTRA_APPIDENTIFIER");
-            // if(newID != null){
-            //    AppID = newID;
-            // }
+            newAPP= extras.getString("EXTRA_APPID");
+            BrandID = newAPP;
+            newID = extras.getString("EXTRA_APPIDENTIFIER");
+            if(newID != null){
+               AppID = newID;
+            }
             MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
             LivePerson.initialize(getApplicationContext(), new InitLivePersonProperties(BrandID, AppID, monitoringParams, new InitLivePersonCallBack() {
 
