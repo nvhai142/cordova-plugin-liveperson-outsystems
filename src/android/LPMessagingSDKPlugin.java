@@ -368,7 +368,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg) {
+    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -407,7 +407,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
