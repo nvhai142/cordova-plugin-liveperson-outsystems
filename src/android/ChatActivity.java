@@ -99,12 +99,12 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         setContentView(layoutResID);
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
         setTitle("Visa Concierge");
-        String WelcomeMsg = "";
+        String ChatTitleHeader = "";
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
-            WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
-            setTitle(WelcomeMsg);
+            WelcomeMsg= extras.getString("EXTRA_ChatTitleHeader");
+            setTitle(ChatTitleHeader);
         }    
     }
 
@@ -459,14 +459,48 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         title.setText(getString(titleId));
     }
 
+    intent.putExtra("EXTRA_ClearConversationMsg", ClearConversationMsg);
+    intent.putExtra("EXTRA_ClearConfirmMsg", ClearConfirmMsg);
+    intent.putExtra("EXTRA_ChooseMsg", ChooseMsg);
+    intent.putExtra("EXTRA_RevolvedTileMsg", RevolvedTileMsg);
+    intent.putExtra("EXTRA_ResolvedConfirmMsg", ResolvedConfirmMsg);
+    intent.putExtra("EXTRA_ClearTitleMsg", ClearTitleMsg);
+    intent.putExtra("EXTRA_YesMsg", YesMsg);
+    intent.putExtra("EXTRA_CancelMsg", CancelMsg);
+    intent.putExtra("EXTRA_ClearMsg", ClearMsg);
+    intent.putExtra("EXTRA_MenuMsg", MenuMsg);
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        String ClearConversationMsg = "";
+        String ClearConfirmMsg = "";
+        String ChooseMsg = "";
+        String RevolvedTileMsg = "";
+        String ResolvedConfirmMsg = "";
+        String ClearTitleMsg = "";
+        String YesMsg = "";
+        String CancelMsg = "";
+        String ClearMsg = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            ClearConversationMsg= extras.getString("EXTRA_ClearConversationMsg");
+            ClearConfirmMsg= extras.getString("EXTRA_ClearConfirmMsg");
+            ChooseMsg= extras.getString("EXTRA_ChooseMsg");
+            RevolvedTileMsg= extras.getString("EXTRA_RevolvedTileMsg");
+            ResolvedConfirmMsg= extras.getString("EXTRA_ResolvedConfirmMsg");
+            ClearTitleMsg= extras.getString("EXTRA_ClearTitleMsg");
+            YesMsg= extras.getString("EXTRA_YesMsg");
+            CancelMsg= extras.getString("EXTRA_CancelMsg");
+            ClearMsg= extras.getString("EXTRA_ClearMsg");
+        }
         if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
             // check if the history is resolved,if not skip the clear command and notify the user.
-            mDialogHelper.action("Clear Conversation",
-                    "All of your existing conversation history will be lost. Are you sure?",
-                    "Clear", "Cancel",
+            mDialogHelper.action(ClearTitleMsg,
+            ClearConversationMsg,
+            ClearMsg, CancelMsg,
                     (dialog, which) -> {
                         LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
                             @Override
@@ -475,7 +509,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                                     //clear history only from device
                                     LivePerson.clearHistory();
                                 } else {
-                                    mDialogHelper.alert("Clear Conversation", "Please resolve the conversation first");
+                                    mDialogHelper.alert(ClearTitleMsg, ClearConfirmMsg);
                                 }
 
                             }
@@ -488,9 +522,9 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
                     });
         } else if(id == getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name)){
-            mDialogHelper.action("Resolve the conversation",
-                    "Are you sure this topic is resolved?",
-                    "Yes", "Cancel",
+            mDialogHelper.action(RevolvedTileMsg,
+            ResolvedConfirmMsg,
+            YesMsg, CancelMsg,
                     (dialog, which) -> {
                         LivePerson.resolveConversation();
                     });
