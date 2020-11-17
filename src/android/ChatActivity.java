@@ -459,17 +459,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         title.setText(getString(titleId));
     }
 
-    intent.putExtra("EXTRA_ClearConversationMsg", ClearConversationMsg);
-    intent.putExtra("EXTRA_ClearConfirmMsg", ClearConfirmMsg);
-    intent.putExtra("EXTRA_ChooseMsg", ChooseMsg);
-    intent.putExtra("EXTRA_RevolvedTileMsg", RevolvedTileMsg);
-    intent.putExtra("EXTRA_ResolvedConfirmMsg", ResolvedConfirmMsg);
-    intent.putExtra("EXTRA_ClearTitleMsg", ClearTitleMsg);
-    intent.putExtra("EXTRA_YesMsg", YesMsg);
-    intent.putExtra("EXTRA_CancelMsg", CancelMsg);
-    intent.putExtra("EXTRA_ClearMsg", ClearMsg);
-    intent.putExtra("EXTRA_MenuMsg", MenuMsg);
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
