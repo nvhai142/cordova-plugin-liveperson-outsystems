@@ -317,7 +317,19 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        String RevolvedTileMsg = "";
+        String ClearTitleMsg = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            RevolvedTileMsg= extras.getString("EXTRA_RevolvedTileMsg");
+            ClearTitleMsg= extras.getString("EXTRA_ClearTitleMsg");
+        }
         getMenuInflater().inflate(getApplication().getResources().getIdentifier("menu_chat", "menu", package_name), menu);
+        MenuItem menuItem1 = menu.getItem(0);
+        menuItem1.setTitle(RevolvedTileMsg);
+        MenuItem menuItem2 = menu.getItem(1);
+        menuItem2.setTitle(ClearTitleMsg);
         mMenu = menu;
         return true;
     }
@@ -325,6 +337,13 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        // int id = item.getItemId();
+        // if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
+            
+        // } else if(id == getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name)){
+
+        // }
+
         if (mIntentsHandler.getIsConversationActive()) {
             menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), true);
         } else {
