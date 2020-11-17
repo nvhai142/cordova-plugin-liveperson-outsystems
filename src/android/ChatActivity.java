@@ -30,6 +30,7 @@ import com.liveperson.infra.InitLivePersonProperties;
 import com.liveperson.infra.auth.LPAuthenticationParams;
 import com.liveperson.infra.callbacks.InitLivePersonCallBack;
 import com.liveperson.infra.messaging_ui.fragment.ConversationFragment;
+import com.liveperson.infra.model.LPWelcomeMessage;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
