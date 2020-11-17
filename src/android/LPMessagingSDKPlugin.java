@@ -419,7 +419,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 }
-
+                
                 try {
                     Context context = cordova.getActivity().getApplicationContext();    
                     Intent intent = new Intent(context, ChatActivity.class);
@@ -429,6 +429,20 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                     intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
                     intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
+
+                    intent.putExtra("EXTRA_WelcomeMsg", WelcomeMsg);
+                    intent.putExtra("EXTRA_ChatTitleHeader", ChatTitleHeader);
+                    intent.putExtra("EXTRA_ClearConversationMsg", ClearConversationMsg);
+                    intent.putExtra("EXTRA_ClearConfirmMsg", ClearConfirmMsg);
+                    intent.putExtra("EXTRA_ChooseMsg", ChooseMsg);
+                    intent.putExtra("EXTRA_RevolvedTileMsg", RevolvedTileMsg);
+                    intent.putExtra("EXTRA_ResolvedConfirmMsg", ResolvedConfirmMsg);
+                    intent.putExtra("EXTRA_ClearTitleMsg", ClearTitleMsg);
+                    intent.putExtra("EXTRA_YesMsg", YesMsg);
+                    intent.putExtra("EXTRA_CancelMsg", CancelMsg);
+                    intent.putExtra("EXTRA_ClearMsg", ClearMsg);
+                    intent.putExtra("EXTRA_MenuMsg", MenuMsg);
+
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
 
