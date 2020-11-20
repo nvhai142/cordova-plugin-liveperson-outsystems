@@ -192,7 +192,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
 
-            authParams.setHostAppJWT(authCode);
+            authParams.setHostAppJWT("eyJhbGciOiJSUzI1NiIsImtpZCI6Imh0dHBzOi8vYXNwaXJlLWNvbW1vbi1kZXYudmF1bHQuYXp1cmUubmV0L2tleXMvVGVzdFByaXZhdGVLZXkvNGFiY2Y3YjlmODRkNDFhNGE1MzJkOGI1ZTlkMjZjZDEiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJTR1BfMzY5OWIwNWMtMmJhNC00OWE5LWFhYTktNjEyODQ5YTk2ODNlIiwiaWF0IjoxNjA1ODQwODk5LCJleHAiOjE2MDU4NDI2OTksInBob25lX251bWJlciI6IjY1MTMxMDQzIiwiZ2l2ZW5fbmFtZSI6IklORklOSVRFIFNpbmdhcG9yZSIsImZhbWlseV9uYW1lIjoiSU5GSU5JVEUiLCJlbWFpbCI6InVhdF9zZ19pbmZAZW1haWwuY29tIiwianRpIjoiOThjMTRjZDMwNDcwNDc3YWIxMTBhM2U3YWFmY2FmNmEifQ.EBIn3AGgXbFIMZWC7c4Q77IbbyKVdIQ8tKcNDBZr0QLXvwJbid2-yQzTfTZErxjejFBrELyh37i5zymFRInQoKvrnK6MG-TvKMMCHLowOYhZOgaOiXnmoy7_T0aDsXP37ffL-huUMlH-ZPw9fkwsHHR25uDeMHZsuc0S9QgvWqL2P0CBWz6ydWRIw5T90CPcBlv-PaSrOiguNWmQJdCNhuvt2hc6pDcjRAurHs8tYu4ScSSHUOHDAR51qdLJHnn8tauOWUW3xAHDz-0NoR1PiM88z-t1G3DIjKNFHGot33d283XW1IIklbtB5faPQQlKuv4U_N3OMJ3bDvz_VdX76Q");
             //authParams.addCertificatePinningKey(publicKey);
             mConversationFragment = (ConversationFragment) LivePerson.getConversationFragment(authParams, conversationViewParams);
 
