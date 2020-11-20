@@ -181,7 +181,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
             }
             
-            LPAuthenticationParams authParams = new LPAuthenticationParams();
+            LPAuthenticationParams authParams = new LPAuthenticationParams(LPAuthenticationType.AUTH);
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
