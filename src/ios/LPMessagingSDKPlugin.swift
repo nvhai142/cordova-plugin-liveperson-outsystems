@@ -590,8 +590,8 @@ extension String {
                             } else {
                                 let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
                                 let options: [LPWelcomeMessage.MessageOption] = [
-                                    LPWelcomeMessage.MessageOption(value: "music", displayName: "awesome tunes"),
-                                    LPWelcomeMessage.MessageOption(value: "food", displayName: "Delicious food "),
+                                    LPWelcomeMessage.MessageOption(value: " Card Billing / Loyalty", displayName: " Card Billing / Loyalty"),
+                                    LPWelcomeMessage.MessageOption(value: "Visa Concierge", displayName: "Visa Concierge"),
                                 ]
                                 do {
                                     try welcomeMessageParam.set(options: options)
