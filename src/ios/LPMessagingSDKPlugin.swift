@@ -589,6 +589,15 @@ extension String {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
                                 let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
+                                let options: [LPWelcomeMessage.MessageOption] = [
+                                    LPWelcomeMessage.MessageOption(value: "music", displayName: "awesome tunes"),
+                                    LPWelcomeMessage.MessageOption(value: "food", displayName: "Delicious food "),
+                                ]
+                                do {
+                                    try welcomeMessageParam.set(options: options)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
                                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false, welcomeMessage: welcomeMessageParam)
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
