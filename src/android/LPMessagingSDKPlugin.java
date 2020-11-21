@@ -285,6 +285,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
      */
     private void initSDK(final String accountId,final String appID,org.apache.cordova.CallbackContext cb) {
             final org.apache.cordova.CallbackContext callbackContext = cb;
+            
+            LivePerson.shutDown();
+
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");

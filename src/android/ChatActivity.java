@@ -107,6 +107,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             ChatTitleHeader= extras.getString("EXTRA_ChatTitleHeader");
             setTitle(ChatTitleHeader);
         }    
+        initLivePerson();
     }
 
     public void showProgressDialog() {
@@ -121,7 +122,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     protected void onStart(){
         super.onStart();
-        initLivePerson();
+        
        // setUserProfile();
     }
 
@@ -341,13 +342,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        // int id = item.getItemId();
-        // if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
-            
-        // } else if(id == getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name)){
-
-        // }
-
+ 
         if (mIntentsHandler.getIsConversationActive()) {
             menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), true);
         } else {
@@ -381,11 +376,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                     Log.i("HAN_NGUYEN", "Liverperson SDK Initialized" + LivePerson.getSDKVersion());
                     setUserProfile();
                     FCMUtils.handleGCMRegistration(ChatActivity.this);
-                   // initFragment();
+                   
                    runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        
                         initEngagementAttributes();
                     }
                 });
