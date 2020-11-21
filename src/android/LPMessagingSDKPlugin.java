@@ -201,7 +201,22 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
                     String partyID = args.getString(2);
-                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint);
+                    String AppIdentifier = args.getString(23);
+
+                    String WelcomeMsg = args.getString(24);
+                    String ChatTitleHeader = args.getString(25);
+                    String ClearConversationMsg = args.getString(26);
+                    String ClearConfirmMsg = args.getString(27);
+                    String ChooseMsg = args.getString(28);
+                    String RevolvedTileMsg = args.getString(29);
+                    String ResolvedConfirmMsg = args.getString(30);
+                    String ClearTitleMsg = args.getString(31);
+                    String YesMsg = args.getString(32);
+                    String CancelMsg = args.getString(33);
+                    String ClearMsg = args.getString(34);
+                    String MenuMsg = args.getString(35);
+
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);

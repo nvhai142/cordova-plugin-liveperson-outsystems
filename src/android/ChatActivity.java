@@ -103,7 +103,13 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         setContentView(layoutResID);
 
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
-        setTitle("Visa Concierge");
+        String ChatTitleHeader = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            ChatTitleHeader= extras.getString("EXTRA_ChatTitleHeader");
+            setTitle(ChatTitleHeader);
+        } 
 
         initLivePerson();
     }
@@ -173,10 +179,12 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
             String authCode = "";
             String publicKey = "";
+            String WelcomeMsg = "How can I help you today?";
 
             Bundle extras = getIntent().getExtras();
             if(extras != null) {
                 authCode= extras.getString("EXTRA_AUTHENTICATE");
+                WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
             }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             Log.d(TAG, "initFragment. publicKey = " + publicKey);
@@ -185,6 +193,10 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
             Log.d(TAG, "initFragment. publicKey = " + campaignInfo);
+
+            LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
+            conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
+
             if(campaignInfo!=null){
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
@@ -355,7 +367,19 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        String RevolvedTileMsg = "";
+        String ClearTitleMsg = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            RevolvedTileMsg= extras.getString("EXTRA_RevolvedTileMsg");
+            ClearTitleMsg= extras.getString("EXTRA_ClearTitleMsg");
+        }
         getMenuInflater().inflate(getApplication().getResources().getIdentifier("menu_chat", "menu", package_name), menu);
+        MenuItem menuItem1 = menu.getItem(0);
+        menuItem1.setTitle(RevolvedTileMsg);
+        MenuItem menuItem2 = menu.getItem(1);
+        menuItem2.setTitle(ClearTitleMsg);
         mMenu = menu;
         return true;
     }
@@ -468,11 +492,35 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        String ClearConversationMsg = "";
+        String ClearConfirmMsg = "";
+        String ChooseMsg = "";
+        String RevolvedTileMsg = "";
+        String ResolvedConfirmMsg = "";
+        String ClearTitleMsg = "";
+        String YesMsg = "";
+        String CancelMsg = "";
+        String ClearMsg = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            ClearConversationMsg= extras.getString("EXTRA_ClearConversationMsg");
+            ClearConfirmMsg= extras.getString("EXTRA_ClearConfirmMsg");
+            ChooseMsg= extras.getString("EXTRA_ChooseMsg");
+            RevolvedTileMsg= extras.getString("EXTRA_RevolvedTileMsg");
+            ResolvedConfirmMsg= extras.getString("EXTRA_ResolvedConfirmMsg");
+            ClearTitleMsg= extras.getString("EXTRA_ClearTitleMsg");
+            YesMsg= extras.getString("EXTRA_YesMsg");
+            CancelMsg= extras.getString("EXTRA_CancelMsg");
+            ClearMsg= extras.getString("EXTRA_ClearMsg");
+        }
+        final String clearm = ClearTitleMsg;
+        final String clearc = ClearConfirmMsg;
         if(id == getApplication().getResources().getIdentifier("clear_history", "id", package_name)) {
             // check if the history is resolved,if not skip the clear command and notify the user.
-            mDialogHelper.action("Clear Conversation",
-                    "All of your existing conversation history will be lost. Are you sure?",
-                    "Clear", "Cancel",
+            mDialogHelper.action(ClearTitleMsg,
+            ClearConversationMsg,
+            ClearMsg, CancelMsg,
                     (dialog, which) -> {
                         LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
                             @Override
@@ -481,7 +529,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                                     //clear history only from device
                                     LivePerson.clearHistory();
                                 } else {
-                                    mDialogHelper.alert("Clear Conversation", "Please resolve the conversation first");
+                                    mDialogHelper.alert(clearm, clearc);
                                 }
 
                             }
@@ -494,9 +542,9 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
                     });
         } else if(id == getApplication().getResources().getIdentifier("mark_as_resolved", "id", package_name)){
-            mDialogHelper.action("Resolve the conversation",
-                    "Are you sure this topic is resolved?",
-                    "Yes", "Cancel",
+            mDialogHelper.action(RevolvedTileMsg,
+            ResolvedConfirmMsg,
+            YesMsg, CancelMsg,
                     (dialog, which) -> {
                         LivePerson.resolveConversation();
                     });
