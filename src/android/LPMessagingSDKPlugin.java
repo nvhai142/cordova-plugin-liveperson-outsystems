@@ -384,7 +384,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -406,6 +406,20 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                     intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
                     intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
+
+                    intent.putExtra("EXTRA_WelcomeMsg", WelcomeMsg);
+                    intent.putExtra("EXTRA_ChatTitleHeader", ChatTitleHeader);
+                    intent.putExtra("EXTRA_ClearConversationMsg", ClearConversationMsg);
+                    intent.putExtra("EXTRA_ClearConfirmMsg", ClearConfirmMsg);
+                    intent.putExtra("EXTRA_ChooseMsg", ChooseMsg);
+                    intent.putExtra("EXTRA_RevolvedTileMsg", RevolvedTileMsg);
+                    intent.putExtra("EXTRA_ResolvedConfirmMsg", ResolvedConfirmMsg);
+                    intent.putExtra("EXTRA_ClearTitleMsg", ClearTitleMsg);
+                    intent.putExtra("EXTRA_YesMsg", YesMsg);
+                    intent.putExtra("EXTRA_CancelMsg", CancelMsg);
+                    intent.putExtra("EXTRA_ClearMsg", ClearMsg);
+                    intent.putExtra("EXTRA_MenuMsg", MenuMsg);
+                    
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
 
