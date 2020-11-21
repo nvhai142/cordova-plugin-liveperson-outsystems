@@ -206,7 +206,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             } catch (Exception e) {
                    e.printStackTrace();
             }
-            lpWelcomeMessage.setNumberOfItemsPerRow(8);
+            lpWelcomeMessage.setNumberOfItemsPerRow(2);
             lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
             
             conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
