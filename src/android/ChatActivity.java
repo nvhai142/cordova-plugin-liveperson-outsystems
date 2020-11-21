@@ -202,9 +202,11 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                     ft.add(getResources().getIdentifier("custom_fragment_container", "id", getPackageName()), mConversationFragment,
                             LIVEPERSON_FRAGMENT).commitAllowingStateLoss();
                 } else {
-
+                    mDialogHelper.alert("FAIL", "initFragment fail");
                 }
 
+            }else{
+                mDialogHelper.alert("FAIL", "initFragment fail 2");
             }
         } else {
             attachFragment();
