@@ -16,7 +16,6 @@ import com.liveperson.messaging.model.AgentData;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
-import com.liveperson.infra.MonitoringInitParams;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
@@ -50,6 +49,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     CallbackContext mRegisterLpPusherCallbackContext;
     
     JSONArray uProfile;
+    String AppIdentifier;
 
     private CordovaWebView mainWebView;
 
@@ -98,11 +98,12 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 //mCallbackContext = callbackContext;
                 // lp_sdk_init - Call this action inorder to do Messaging SDK init
                 final String accountId = args.getString(0);
-                final String appID = args.getString(1);
+                
+                AppIdentifier = args.getString(1);
                 
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
                 Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
-                initSDK(accountId,appID,callbackContext);
+                initSDK(accountId,callbackContext);
                 break;
             case CLOSE_CONVERSATION_SCREEN:
                 mCallbackContext = callbackContext;
@@ -197,44 +198,11 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     Log.d(TAG, "Messaging SDK:  startAuthenticatedConversation");
                     String jwt = args.getString(1);
                     String partyID = args.getString(2);
-                    String AppIdentifier = args.getString(23);
-                    String WelcomeMsg = args.getString(24);
-                    String ChatTitleHeader = args.getString(25);
-                    String ClearConversationMsg = args.getString(26);
-                    String ClearConfirmMsg = args.getString(27);
-                    String ChooseMsg = args.getString(28);
-                    String RevolvedTileMsg = args.getString(29);
-                    String ResolvedConfirmMsg = args.getString(30);
-                    String ClearTitleMsg = args.getString(31);
-                    String YesMsg = args.getString(32);
-                    String CancelMsg = args.getString(33);
-                    String ClearMsg = args.getString(34);
-                    String MenuMsg = args.getString(35);
-
-                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg);
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
-                    // String partyID = args.getString(2);
-                    // String AppIdentifier = args.getString(23);
-                    // startConversation(appIDs,partyID,engagement,entrypoint,AppIdentifier);
-                    String jwt = args.getString(1);
                     String partyID = args.getString(2);
-                    String AppIdentifier = args.getString(23);
-
-                    String WelcomeMsg = args.getString(24);
-                    String ChatTitleHeader = args.getString(25);
-                    String ClearConversationMsg = args.getString(26);
-                    String ClearConfirmMsg = args.getString(27);
-                    String ChooseMsg = args.getString(28);
-                    String RevolvedTileMsg = args.getString(29);
-                    String ResolvedConfirmMsg = args.getString(30);
-                    String ClearTitleMsg = args.getString(31);
-                    String YesMsg = args.getString(32);
-                    String CancelMsg = args.getString(33);
-                    String ClearMsg = args.getString(34);
-                    String MenuMsg = args.getString(35);
-
-                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg);
+                    startConversation(appIDs,partyID,engagement,entrypoint);
                 }
 
                 break;
@@ -283,12 +251,12 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
      *
      * @param accountId
      */
-    private void initSDK(final String accountId,final String appID,org.apache.cordova.CallbackContext cb) {
+    private void initSDK(final String accountId,org.apache.cordova.CallbackContext cb) {
             final org.apache.cordova.CallbackContext callbackContext = cb;
+            cordova.getActivity().setTitle("CHAT");
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
-                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, appID,monitoringParams, new InitLivePersonCallBack() {
+                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, AppID, new InitLivePersonCallBack() {
                         @Override
                         public void onInitSucceed() {
                             Log.i(TAG, "@@@ android ... SDK initialize completed successfully");
@@ -336,8 +304,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     }));
 
                 }
-            });        
-
+            });
     }
 
     private void reconnect(String jwt) {
@@ -357,7 +324,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier) {
+    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -396,7 +363,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -408,7 +375,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 }
-                
+
                 try {
                     Context context = cordova.getActivity().getApplicationContext();    
                     Intent intent = new Intent(context, ChatActivity.class);
@@ -418,20 +385,6 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                     intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
                     intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
-
-                    intent.putExtra("EXTRA_WelcomeMsg", WelcomeMsg);
-                    intent.putExtra("EXTRA_ChatTitleHeader", ChatTitleHeader);
-                    intent.putExtra("EXTRA_ClearConversationMsg", ClearConversationMsg);
-                    intent.putExtra("EXTRA_ClearConfirmMsg", ClearConfirmMsg);
-                    intent.putExtra("EXTRA_ChooseMsg", ChooseMsg);
-                    intent.putExtra("EXTRA_RevolvedTileMsg", RevolvedTileMsg);
-                    intent.putExtra("EXTRA_ResolvedConfirmMsg", ResolvedConfirmMsg);
-                    intent.putExtra("EXTRA_ClearTitleMsg", ClearTitleMsg);
-                    intent.putExtra("EXTRA_YesMsg", YesMsg);
-                    intent.putExtra("EXTRA_CancelMsg", CancelMsg);
-                    intent.putExtra("EXTRA_ClearMsg", ClearMsg);
-                    intent.putExtra("EXTRA_MenuMsg", MenuMsg);
-
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
 
