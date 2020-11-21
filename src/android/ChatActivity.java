@@ -196,12 +196,23 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             Log.d(TAG, "initFragment. publicKey = " + campaignInfo);
 
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
+            List<MessageOption> optionItems = new ArrayList<>();
+            optionItems.add(new MessageOption("Card Billing / Loyalty", "Card Billing / Loyalty"));
+            optionItems.add(new MessageOption("Visa Concierge", "Visa Concierge"));
+            try {
+                   lpWelcomeMessage.setMessageOptions(optionItems);
+            } catch (Exception e) {
+                   e.printStackTrace();
+            }
+            lpWelcomeMessage.setNumberOfItemsPerRow(8);
+            lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
+            
             conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
 
             if(campaignInfo!=null){
                 conversationViewParams.setCampaignInfo(campaignInfo);
             }
-            //authCode = "eyJhbGciOiJSUzI1NiIsImtpZCI6Imh0dHBzOi8vYXNwaXJlLWNvbW1vbi1kZXYudmF1bHQuYXp1cmUubmV0L2tleXMvVGVzdFByaXZhdGVLZXkvNGFiY2Y3YjlmODRkNDFhNGE1MzJkOGI1ZTlkMjZjZDEiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJTR1BfYWJjNjM3ODItMjAwMi00MjNiLWJmNDUtMzBkZmNmZDE1ZjViIiwiaXNzIjoiaHR0cDovL3d3dy5kYXJ3aW4tbGFicy5jb20iLCJpYXQiOjE2MDU4NjI4MjYsImV4cCI6MTYwNTg2NDYyNiwicHJlZmVycmVkX3VzZXJuYW1lIjoiSEFuIE5ndXllbiIsImdlbmRlciI6IkZlbWFsZSIsImVtYWlsIjoiaGl0QGdtYWlsLmNvbSIsImF1ZCI6ImRhcndpbi1sYWJzIiwianRpIjoiZGFmMjk4ODUwNWUzNDljN2JmMzIwYjllOGY1MDA2MTIifQ.pIr2PukLMn1mKa_0uJwYtY5UWPfDMhPpwerxcfxZ796AAK-W69cWQjWDioZX-nbZbPLWxHsKEaot9YyNFWO75rFw4vVzGRQxVzy7iwYPipBguPNsAd01EZ88ngKYKNGNo7fzpqrg7JTqbJUmIzKG6hVnk2otgj3-gnUYqZmqQXIAACHl4KILSAGx2KKyx690we5Z13VxRjcwCPNmkA4mwjl-fOyYcUpyAD6NZaF6C6HHuzBEI3lo35v9FAD0CLmscD1X6dvlt9a-SwfE1IaC3ByOnD6o_qV6YCHLnVDHfrwobOY45y0GO7lRnWc_nhH_PCmAIj-ac8jq1ACQf9Ar_g";
+            
             authParams.setHostAppJWT(authCode);
             //authParams.addCertificatePinningKey(publicKey);
             //LivePerson.showConversation(this, authParams,conversationViewParams);
