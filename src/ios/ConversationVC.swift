@@ -39,7 +39,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
         if let user = agent{
-            self.title = (user.nickName ?? "Visa Concierge")
+            self.title = (user.nickName ?? ChatTitleHeader)
         }
     }
     func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
