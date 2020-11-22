@@ -71,7 +71,7 @@ extension UIColor{
     static let csatNavigationBackgroundColor = UIColor(hex: "#152B55")
     static let csatNavigationTitleColor = UIColor(hex: "#000000")
     static let csatSkipButtonColor = UIColor(hex: "#000000")
-    static let conversationSeparatorTextColor = UIColor(hex: "#636363")
+    static let conversationSeparatorTextColor = UIColor(hex: "#C29D5C")
 
     static let dateSeparatorTitleBackgroundColor = UIColor(hex: "#FFFFFF")
     static let dateSeparatorTextColor = UIColor(hex: "#636363")
