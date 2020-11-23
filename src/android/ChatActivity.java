@@ -575,6 +575,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     @Override
     public void reconectChat() {
+        String authCode = "";
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            authCode= extras.getString("EXTRA_AUTHENTICATE");
+            LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(authCode));
+        }
+        
     }
 
     @Override
