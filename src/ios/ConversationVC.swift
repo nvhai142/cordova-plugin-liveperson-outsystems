@@ -16,7 +16,9 @@ import UserNotifications
 class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     func LPMessagingSDKObseleteVersion(_ error: NSError) {
-        
+        DispatchQueue.main.async {
+            self.alert.dismiss(animated: true, completion: nil)
+        }
     }
     
     func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
