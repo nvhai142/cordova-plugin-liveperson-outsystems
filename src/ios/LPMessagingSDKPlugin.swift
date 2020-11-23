@@ -391,7 +391,6 @@ extension String {
         
         self.callBackCommandDelegate = commandDelegate
         self.callBackCommand = command
-        LPMessagingSDK.instance.delegate = self
 
     }
     
@@ -545,7 +544,7 @@ extension String {
                             self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
                                 conversationVC.conversationQuery = self.conversationQuery
-                                conversationVC.alert.dismiss(animated: true, completion: nil)
+                                //conversationVC.alert.dismiss(animated: true, completion: nil)
                                 if let cgate = ChatTitleHeader{
                                     conversationVC.ChatTitleHeader = cgate
                                 }
