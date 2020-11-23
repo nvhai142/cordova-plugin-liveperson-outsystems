@@ -594,9 +594,26 @@ extension String {
                             } else {
                                 let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
 
+                                var Button1Msg = ""
+                                var Button1Value = ""
+                                var Button2Msg = ""
+                                var Button2Value = ""
+
+                                if let btn1Msg = ButtonOpt1Msg {
+                                    Button1Msg = btn1Msg
+                                }
+                                if let btn1Value = ButtonOpt1Value {
+                                    Button1Value = btn1Value
+                                }
+                                if let btn2Msg = ButtonOpt2Msg {
+                                    Button2Msg = btn2Msg
+                                }
+                                if let btn2Value = ButtonOpt2Value {
+                                    Button2Value = btn2Value
+                                }
                                 let welcomeMessageOptions = [
-                                    LPWelcomeMessageOption(value: ButtonOpt1Value, displayName: ButtonOpt1Msg),
-                                    LPWelcomeMessageOption(value: ButtonOpt2Value, displayName: ButtonOpt2Msg)
+                                    LPWelcomeMessageOption(value: Button1Value, displayName: Button1Msg),
+                                    LPWelcomeMessageOption(value: Button2Value, displayName: Button2Msg)
                                 ]
 
                                 do {
