@@ -183,14 +183,21 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             String authCode = "";
             String publicKey = "";
             String WelcomeMsg = "How can I help you today?";
+            String ButtonOpt1Msg = "";
+            String ButtonOpt1Value = "";
+            String ButtonOpt2Msg = "";
+            String ButtonOpt2Value = "";
 
             Bundle extras = getIntent().getExtras();
             if(extras != null) {
                 authCode= extras.getString("EXTRA_AUTHENTICATE");
                 WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
+                ButtonOpt1Msg= extras.getString("EXTRA_ButtonOpt1Msg");
+                ButtonOpt1Value= extras.getString("EXTRA_ButtonOpt1Value");
+                ButtonOpt2Msg= extras.getString("EXTRA_ButtonOpt2Msg");
+                ButtonOpt2Value= extras.getString("EXTRA_ButtonOpt2Value");
             }
             Log.d(TAG, "initFragment. authCode = " + authCode);
-            Log.d(TAG, "initFragment. publicKey = " + publicKey);
             LPAuthenticationParams authParams = new LPAuthenticationParams(LPAuthenticationType.AUTH);
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
@@ -199,8 +206,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
             List<MessageOption> optionItems = new ArrayList<>();
-            optionItems.add(new MessageOption("Card Billing / Loyalty", "Card Billing / Loyalty"));
-            optionItems.add(new MessageOption("Visa Concierge", "Visa Concierge"));
+            optionItems.add(new MessageOption(ButtonOpt1Value, ButtonOpt1Msg));
+            optionItems.add(new MessageOption(ButtonOpt2Value, ButtonOpt2Msg));
             try {
                    lpWelcomeMessage.setMessageOptions(optionItems);
             } catch (Exception e) {
