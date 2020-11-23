@@ -425,10 +425,10 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ClearMsg", ClearMsg);
                     intent.putExtra("EXTRA_MenuMsg", MenuMsg);
 
-                    intent.putExtra("EXTRA_ButtonOpt1Msg", MenuMsg);
-                    intent.putExtra("EXTRA_ButtonOpt1Value", MenuMsg);
-                    intent.putExtra("EXTRA_ButtonOpt2Msg", MenuMsg);
-                    intent.putExtra("EXTRA_ButtonOpt2Value", MenuMsg);
+                    intent.putExtra("EXTRA_ButtonOpt1Msg", ButtonOpt1Msg);
+                    intent.putExtra("EXTRA_ButtonOpt1Value", ButtonOpt1Value);
+                    intent.putExtra("EXTRA_ButtonOpt2Msg", ButtonOpt2Msg);
+                    intent.putExtra("EXTRA_ButtonOpt2Value", ButtonOpt2Value);
                     
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
