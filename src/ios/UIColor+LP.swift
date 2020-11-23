@@ -146,7 +146,7 @@ extension UIColor {
         if #available(iOS 13, *) {
             return UIColor { (traitCollection: UITraitCollection) -> UIColor in
                 if traitCollection.userInterfaceStyle == .dark {
-                    return UIColor.white
+                    return UIColor.black
                 } else {
                     return UIColor.white
                 }
