@@ -156,7 +156,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         if self.conversationQuery != nil {
             LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
         }
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
