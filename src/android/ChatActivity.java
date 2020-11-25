@@ -205,16 +205,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             Log.d(TAG, "initFragment. publicKey = " + campaignInfo);
 
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
-            List<MessageOption> optionItems = new ArrayList<>();
-            optionItems.add(new MessageOption(ButtonOpt1Value, ButtonOpt1Msg));
-            optionItems.add(new MessageOption(ButtonOpt2Value, ButtonOpt2Msg));
-            try {
-                   lpWelcomeMessage.setMessageOptions(optionItems);
-            } catch (Exception e) {
-                   e.printStackTrace();
-            }
-            lpWelcomeMessage.setNumberOfItemsPerRow(2);
-            lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
+            
             
             conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
 

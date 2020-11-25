@@ -611,18 +611,7 @@ extension String {
                                 if let btn2Value = ButtonOpt2Value {
                                     Button2Value = btn2Value
                                 }
-                                let welcomeMessageOptions = [
-                                    LPWelcomeMessageOption(value: Button1Value, displayName: Button1Msg),
-                                    LPWelcomeMessageOption(value: Button2Value, displayName: Button2Msg)
-                                ]
-
-                                do {
-                                    try welcomeMessageParam.set(options: welcomeMessageOptions)
-                                  //  try welcomeMessageParam.set(NumberOfOptionsPerRow: 2)
-                                }
-                                catch {
-                                    
-                                }
+                                
 
                                 
                                 
