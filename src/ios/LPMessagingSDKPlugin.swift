@@ -618,7 +618,7 @@ extension String {
 
                                 do {
                                     try welcomeMessageParam.set(options: welcomeMessageOptions)
-                                    try welcomeMessageParam.set(NumberOfOptionsPerRow: 2)
+                                  //  try welcomeMessageParam.set(NumberOfOptionsPerRow: 2)
                                 }
                                 catch {
                                     
