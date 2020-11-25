@@ -32,6 +32,7 @@
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:text="TITLE"
+                android:textSize="17dp"
                 android:textColor="#ffffff"/>
         </android.support.v7.widget.Toolbar>
 

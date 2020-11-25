@@ -618,12 +618,13 @@ extension String {
 
                                 do {
                                     try welcomeMessageParam.set(options: welcomeMessageOptions)
+                                  //  try welcomeMessageParam.set(NumberOfOptionsPerRow: 2)
                                 }
                                 catch {
                                     
                                 }
 
-                                welcomeMessageParam.set(NumberOfOptionsPerRow: 2)
+                                
                                 
                                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false, welcomeMessage: welcomeMessageParam)
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
