@@ -593,7 +593,7 @@ extension String {
                             if authenticationCode == nil {
                                 LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
-                                let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
+                                //let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
 
                                 var Button1Msg = ""
                                 var Button1Value = ""
@@ -616,7 +616,7 @@ extension String {
 
                                 
                                 
-                                let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false, welcomeMessage: welcomeMessageParam)
+                                let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
                                 LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
                             }
