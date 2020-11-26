@@ -225,7 +225,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);
-                    startConversation(appIDs,partyID,engagement,entrypoint,AppIdentifier);
+                    startConversation(appIDs,partyID,engagement,entrypoint);
                 }
 
                 break;
@@ -350,7 +350,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     /**
      *
      */
-    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier) {
+    private void startConversation(final String appID, final String partyID, final String engagement, final String entrypoint) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -368,7 +368,6 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         intent.putExtra("EXTRA_PARTYID", partyID);
                         intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                         intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
-                        intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
                         intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                         cordova.getActivity().startActivity(intent);
 
