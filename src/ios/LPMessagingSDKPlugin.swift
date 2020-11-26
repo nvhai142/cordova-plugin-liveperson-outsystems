@@ -36,7 +36,7 @@ extension String {
     
 }
 
-@objc(LPMessagingSDKPlugin) class LPMessagingSDKPlugin: CDVPlugin, LPMessagingSDKdelegate {
+@objc(LPMessagingSDKPlugin) class LPMessagingSDKPlugin: CDVPlugin, ConversationDelegate {
     
     var conversationQuery: ConversationParamProtocol?
 
@@ -161,7 +161,7 @@ extension String {
         print("@@@ tokenAsData \(tokenAsData)")
         
         print("@@@ string as 8 character chunks ... \(result)")
-        print("@@@ tokenAsString --> \(tokenAsString)" ) 
+        print("@@@ tokenAsString --> \(tokenAsString)" )
         
         return tokenAsData
     }
@@ -493,9 +493,10 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             if let conversationVCs = chatVC.viewControllers.first as? ConversationVC {
+                conversationVCs.delegate = self
                 if let cgate = ChatTitleHeader{
                     conversationVCs.ChatTitleHeader = cgate
-                }                    
+                }
             }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
@@ -690,7 +691,7 @@ extension String {
             let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
             
             pluginResult?.setKeepCallbackAs(true)
-            self.globalCallbackCommandDelegate?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)      
+            self.globalCallbackCommandDelegate?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)
         }
         
     }
@@ -876,3 +877,4 @@ extension String {
     }
     
 }
+

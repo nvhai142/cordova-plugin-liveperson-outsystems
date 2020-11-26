@@ -14,41 +14,8 @@ import UserNotifications
 
 
 class ConversationVC: UIViewController, LPMessagingSDKdelegate {
+    var delegate:ConversationDelegate?
     
-    func LPMessagingSDKObseleteVersion(_ error: NSError) {
-        
-    }
-    
-    func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
-        DispatchQueue.main.async {
-            self.alert.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func LPMessagingSDKTokenExpired(_ brandID: String) {
-        DispatchQueue.main.async {
-            self.alert.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func LPMessagingSDKError(_ error: NSError) {
-        DispatchQueue.main.async {
-            self.alert.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
-        if let user = agent{
-            self.title = (user.nickName ?? ChatTitleHeader)
-        }
-    }
-    func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
-        if(isReady){
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
     var conversationQuery:ConversationParamProtocol?;
     var alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
 
@@ -138,7 +105,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         configUI.fileCellLoaderRingBackgroundColor = UIColor.fileCellLoaderRingBackgroundColor
         configUI.isReadReceiptTextMode = false
         configUI.checkmarkVisibility = .sentOnly
-        configUI.csatShowSurveyView = false 
+        configUI.csatShowSurveyView = false
 
         configUI.ttrBannerBackgroundColor = UIColor.ttrBannerBackgroundColor
         configUI.ttrBannerTextColor = UIColor.ttrBannerTextColor
@@ -212,5 +179,120 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+    
+    func LPMessagingSDKObseleteVersion(_ error: NSError) {
+        self.delegate?.LPMessagingSDKObseleteVersion(error)
+    }
+    
+    func LPMessagingSDKAuthenticationFailed(_ error: NSError) {
+        DispatchQueue.main.async {
+            self.alert.dismiss(animated: true, completion: nil)
+        }
+        self.delegate?.LPMessagingSDKAuthenticationFailed(error)
+    }
+    
+    func LPMessagingSDKTokenExpired(_ brandID: String) {
+        DispatchQueue.main.async {
+            self.alert.dismiss(animated: true, completion: nil)
+        }
+        self.delegate?.LPMessagingSDKTokenExpired(brandID)
+    }
+    
+    func LPMessagingSDKError(_ error: NSError) {
+        DispatchQueue.main.async {
+            self.alert.dismiss(animated: true, completion: nil)
+        }
+        self.delegate?.LPMessagingSDKError(error)
+    }
+    
+    func LPMessagingSDKAgentDetails(_ agent: LPUser?) {
+        if let user = agent{
+            self.title = (user.nickName ?? ChatTitleHeader)
+        }
+        self.delegate?.LPMessagingSDKAgentDetails(agent)
+    }
+    
+    func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String) {
+        if(isReady){
+            DispatchQueue.main.async {
+                self.alert.dismiss(animated: true, completion: nil)
+            }
+        }
+        self.delegate?.LPMessagingSDKConnectionStateChanged(isReady, brandID: brandID)
+    }
+    func LPMessagingSDKCustomButtonTapped(){
+        self.delegate?.LPMessagingSDKCustomButtonTapped()
+    }
+    
+    func LPMessagingSDKActionsMenuToggled(_ toggled: Bool) {
+        self.delegate?.LPMessagingSDKActionsMenuToggled(toggled)
+    }
+    
+    func LPMessagingSDKHasConnectionError(_ error: String?) {
+        self.delegate?.LPMessagingSDKHasConnectionError(error)
+    }
+    
+    func LPMessagingSDKCSATScoreSubmissionDidFinish(_ brandID: String, rating: Int) {
+        self.delegate?.LPMessagingSDKCSATScoreSubmissionDidFinish(brandID, rating: rating)
+    }
+    
+    func LPMessagingSDKAgentIsTypingStateChanged(_ isTyping: Bool) {
+        self.delegate?.LPMessagingSDKAgentIsTypingStateChanged(isTyping)
+    }
+    
+    func LPMessagingSDKConversationStarted(_ conversationID: String?) {
+        self.delegate?.LPMessagingSDKConversationStarted(conversationID)
+    }
+    
+    func LPMessagingSDKConversationEnded(_ conversationID: String?, closeReason: LPConversationCloseReason) {
+        self.delegate?.LPMessagingSDKConversationEnded(conversationID, closeReason: closeReason)
+    }
+    
+    func LPMessagingSDKConversationCSATDismissedOnSubmittion(_ conversationID: String?) {
+        self.delegate?.LPMessagingSDKConversationCSATDismissedOnSubmittion(conversationID)
+    }
+    
+    func LPMessagingSDKOffHoursStateChanged(_ isOffHours: Bool, brandID: String) {
+        self.delegate?.LPMessagingSDKOffHoursStateChanged(isOffHours, brandID: brandID)
+    }
+    
+    func LPMessagingSDKConversationViewControllerDidDismiss() {
+        self.delegate?.LPMessagingSDKConversationViewControllerDidDismiss()
+    }
+}
 
+
+
+public protocol ConversationDelegate {
+    func LPMessagingSDKCustomButtonTapped()
+
+    func LPMessagingSDKAgentDetails(_ agent: LPUser?)
+    
+    func LPMessagingSDKActionsMenuToggled(_ toggled: Bool)
+    
+    func LPMessagingSDKHasConnectionError(_ error: String?)
+    
+    func LPMessagingSDKCSATScoreSubmissionDidFinish(_ brandID: String, rating: Int)
+    
+    func LPMessagingSDKObseleteVersion(_ error: NSError)
+    
+    func LPMessagingSDKAuthenticationFailed(_ error: NSError)
+    
+    func LPMessagingSDKTokenExpired(_ brandID: String)
+    
+    func LPMessagingSDKError(_ error: NSError)
+    
+    func LPMessagingSDKAgentIsTypingStateChanged(_ isTyping: Bool)
+
+    func LPMessagingSDKConversationStarted(_ conversationID: String?)
+    
+    func LPMessagingSDKConversationEnded(_ conversationID: String?, closeReason: LPConversationCloseReason)
+    
+    func LPMessagingSDKConversationCSATDismissedOnSubmittion(_ conversationID: String?)
+    
+    func LPMessagingSDKConnectionStateChanged(_ isReady: Bool, brandID: String)
+    
+    func LPMessagingSDKOffHoursStateChanged(_ isOffHours: Bool, brandID: String)
+    
+    func LPMessagingSDKConversationViewControllerDidDismiss()
 }
