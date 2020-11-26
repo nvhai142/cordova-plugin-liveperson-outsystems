@@ -436,7 +436,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                     result.setKeepCallback(true);
                     mCallbackContext.sendPluginResult(result);
-
+                    setCallBack();
                 } catch (Exception e2) {
                     PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
                     result.setKeepCallback(true);
