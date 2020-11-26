@@ -32,7 +32,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
 
     private static final String TAG = LPMessagingSDKPlugin.class.getSimpleName();
     public String LP_APP_PACKAGE_NAME;
-    String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
+    //String AppID = "com.outsystemsenterprise.aspirelifestylesdev.CosmoMobileApp";
 
     private static final String INIT = "lp_sdk_init";
     private static final String START_CONVERSATION = "start_lp_conversation";
@@ -52,7 +52,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     CallbackContext mRegisterLpPusherCallbackContext;
     
     JSONArray uProfile;
-    String AppIdentifier;
+    //String AppIdentifier;
 
     private CordovaWebView mainWebView;
 
@@ -102,11 +102,11 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 // lp_sdk_init - Call this action inorder to do Messaging SDK init
                 final String accountId = args.getString(0);
                 
-                AppIdentifier = args.getString(1);
+                final String AppId = args.getString(1);
                 
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
                 Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
-                initSDK(accountId,callbackContext);
+                initSDK(accountId,AppId,callbackContext);
                 break;
             case CLOSE_CONVERSATION_SCREEN:
                 mCallbackContext = callbackContext;
@@ -274,7 +274,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
      *
      * @param accountId
      */
-    private void initSDK(final String accountId,org.apache.cordova.CallbackContext cb) {
+    private void initSDK(final String accountId,final String AppID,org.apache.cordova.CallbackContext cb) {
             final org.apache.cordova.CallbackContext callbackContext = cb;
 
 //            cordova.getActivity().setTitle("CHAT");
