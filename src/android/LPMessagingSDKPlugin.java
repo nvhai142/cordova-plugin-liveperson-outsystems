@@ -19,6 +19,7 @@ import com.liveperson.messaging.model.AgentData;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
+import com.liveperson.infra.auth.LPAuthenticationParams;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
@@ -341,7 +342,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
-        LivePerson.reconnect(jwt);
+        LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(authCode));
         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
         result.setKeepCallback(true);
         mCallbackContext.sendPluginResult(result);
