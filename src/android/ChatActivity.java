@@ -581,7 +581,7 @@ lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CON
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             authCode= extras.getString("EXTRA_AUTHENTICATE");
-           // LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(authCode));
+            LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(authCode));
         }
         
     }
