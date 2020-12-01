@@ -38,7 +38,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         LPMessagingSDK.instance.delegate = self
         self.configUI()
 
-        self.setupLanguage(LanguageAPP)
+        self.setupLanguage(language:LanguageAPP)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true

@@ -222,7 +222,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     String ButtonOpt2Msg = args.getString(38);
                     String ButtonOpt2Value = args.getString(39);
 
-                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg,ButtonOpt1Msg,ButtonOpt1Value,ButtonOpt2Msg,ButtonOpt2Value);
+                    String languageApp = args.getString(5);
+
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg,ButtonOpt1Msg,ButtonOpt1Value,ButtonOpt2Msg,ButtonOpt2Value,languageApp);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);
@@ -389,7 +391,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg, final String ButtonOpt1Msg, final String ButtonOpt1Value, final String ButtonOpt2Msg, final String ButtonOpt2Value) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg, final String ButtonOpt1Msg, final String ButtonOpt1Value, final String ButtonOpt2Msg, final String ButtonOpt2Value, final String languageApp) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -411,6 +413,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                     intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
                     intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
+                    intent.putExtra("EXTRA_LanguageApp", languageApp);
 
                     intent.putExtra("EXTRA_WelcomeMsg", WelcomeMsg);
                     intent.putExtra("EXTRA_ChatTitleHeader", ChatTitleHeader);

@@ -107,12 +107,26 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
         mIntentsHandler = new LivepersonIntentHandler(ChatActivity.this);
         String ChatTitleHeader = "";
+        String languageApp = "en-UK";
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             ChatTitleHeader= extras.getString("EXTRA_ChatTitleHeader");
+            languageApp= extras.getString("EXTRA_LanguageApp");
             setTitle(ChatTitleHeader);
         } 
+        String[] languages= getLanguage("en-UK");
+        String lang = languages[0];
+        String country = languages[1];
+
+
+        if (TextUtils.isEmpty(lang)) {
+            Log.i(TAG, "createLocale: taking custom locale from edit text.. ");
+            createLocale(lang, country);
+        } else {
+            Log.i(TAG, "createLocale: " + lang + "-null");
+            createLocale(lang, null);
+        }
 
         initLivePerson();
     }
@@ -595,5 +609,49 @@ lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CON
     public void closeOptionMenu() {
         if (mMenu != null)
             mMenu.close();
+    }
+    private String[] getLanguage(String key){
+        Map<String, String[]> map = new HashMap<>();
+         map.put("en-UK", new String[]{"en","English"});
+         map.put("ko-KR", new String[]{"ko","Korean"});
+         map.put("zh-TW", new String[]{"zh-TW","Taiwan"});
+         map.put("ja-JP", new String[]{"ja","Japanese"});
+         map.put("zh-HK", new String[]{"zh-HK","Hong kong"});
+        String[] result = map.get(key);
+        return result;
+     }
+     protected void createLocale(String language, @Nullable String country) {
+        Resources resources = getBaseContext().getResources();
+        Configuration configuration = resources.getConfiguration();
+        Locale customLocale;
+
+        if (TextUtils.isEmpty(language)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                language = resources.getConfiguration().getLocales().get(0).getCountry();
+            } else {
+                language = resources.getConfiguration().locale.getCountry();
+            }
+        }
+
+        if (TextUtils.isEmpty(country)) {
+            customLocale = new Locale(language);
+        } else {
+            customLocale = new Locale(language, country);
+        }
+        Locale.setDefault(customLocale);
+
+        configuration.setLocale(customLocale);
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+        Locale locale = getLocale();
+        Log.d(TAG, "country = " + locale.getCountry() + ", language = " + locale.getLanguage());
+    }
+
+    private Locale getLocale() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return getBaseContext().getResources().getConfiguration().getLocales().get(0);
+        } else {
+            return getBaseContext().getResources().getConfiguration().locale;
+        }
     }
 }
