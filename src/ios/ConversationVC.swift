@@ -70,7 +70,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             configL.language = LPLanguage.en
             break
         default:
-            configL.language = LPLanguage.en
+            configL.language = LPLanguage.ko
         }
     }
     
