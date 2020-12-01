@@ -31,7 +31,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var ClearMsg:String = "Clear"
     var MenuMsg:String = "Menu"
     var ChatTitleHeader:String = "Visa Concierge"
-    var LanguageAPP:String = "ja-JP"
+    var LanguageAPP:String = "en-UK"
 
     override func viewDidLoad() {
         super.viewDidLoad()

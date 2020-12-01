@@ -497,6 +497,9 @@ extension String {
                 if let cgate = ChatTitleHeader{
                     conversationVCs.ChatTitleHeader = cgate
                 }
+                if let langs = language{
+                    conversationVCs.LanguageAPP = langs
+                }
             }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
