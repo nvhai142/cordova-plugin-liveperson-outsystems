@@ -31,14 +31,14 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var ClearMsg:String = "Clear"
     var MenuMsg:String = "Menu"
     var ChatTitleHeader:String = "Visa Concierge"
-    var LanguageAPP:String = "en-UK"
+    var LanguageAPP:String = "ja-JP"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
         self.configUI()
 
-        self.setupLanguage(language:LanguageAPP)
+        //self.setupLanguage(language:LanguageAPP)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -83,6 +83,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         self.view.backgroundColor = UIColor.conversationBackgroundColor
         
         let configUI = LPConfig.defaultConfiguration
+
+        configUI.language = LPLanguage.ja
 
         configUI.fileSharingFromAgent = true
         configUI.fileSharingFromConsumer = true
