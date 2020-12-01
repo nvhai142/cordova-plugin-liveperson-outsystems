@@ -115,7 +115,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             languageApp= extras.getString("EXTRA_LanguageApp");
             setTitle(ChatTitleHeader);
         } 
-        String[] languages= getLanguage("en-UK");
+        String[] languages= getLanguage(languageApp);
         String lang = languages[0];
         String country = languages[1];
 
