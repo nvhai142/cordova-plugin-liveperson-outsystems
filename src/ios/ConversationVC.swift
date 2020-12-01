@@ -38,7 +38,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         LPMessagingSDK.instance.delegate = self
         self.configUI()
 
-        self.setupLanguage(language:LanguageAPP)
+       // self.setupLanguage(language:LanguageAPP)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -84,6 +84,25 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         
         let configUI = LPConfig.defaultConfiguration
 
+        switch LanguageAPP {
+        case "zh-HK":
+            configUI.language = LPLanguage.zh_Hant_hk
+            break
+        case "ja-JP":
+            configUI.language = LPLanguage.ja
+            break
+        case "zh-TW":
+            configUI.language = LPLanguage.zh
+            break
+        case "ko-KR":
+            configUI.language = LPLanguage.ko
+            break
+        case "en-UK":
+            configUI.language = LPLanguage.en
+            break
+        default:
+            configUI.language = LPLanguage.ko
+        }
 
         configUI.fileSharingFromAgent = true
         configUI.fileSharingFromConsumer = true
