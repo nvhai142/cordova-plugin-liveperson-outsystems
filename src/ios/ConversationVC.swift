@@ -31,11 +31,14 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var ClearMsg:String = "Clear"
     var MenuMsg:String = "Menu"
     var ChatTitleHeader:String = "Visa Concierge"
+    var LanguageAPP:String = "en-UK"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
         self.configUI()
+
+        self.setupLanguage(LanguageAPP)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -48,7 +51,28 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         present(alert, animated: true, completion: nil)
     }
 
-    
+    func setupLanguage(language:String){
+        let configL = LPConfig.defaultConfiguration
+        switch language {
+        case "zh-HK":
+            configL.language = LPLanguage.zh_Hant_hk
+            break
+        case "ja-JP":
+            configL.language = LPLanguage.ja
+            break
+        case "zh-TW":
+            configL.language = LPLanguage.zh
+            break
+        case "ko-KR":
+            configL.language = LPLanguage.ko
+            break
+        case "en-UK":
+            configL.language = LPLanguage.en
+            break
+        default:
+            configL.language = LPLanguage.en
+        }
+    }
     
     func configUI() {
         self.navigationController?.navigationBar.tintColor = UIColor.white

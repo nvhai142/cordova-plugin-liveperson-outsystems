@@ -554,7 +554,9 @@ extension String {
                                 if let cgate = ChatTitleHeader{
                                     conversationVC.ChatTitleHeader = cgate
                                 }
-
+                                if let langs = language{
+                                    conversationVC.LanguageAPP = langs
+                                }
                                 if let welm = WelcomeMsg{
                                     conversationVC.WelcomeMsg = welm
                                 }
