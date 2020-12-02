@@ -115,7 +115,6 @@
 
 		<icon src="src/android/res/mipmap/ic_launcher.png" target="res/mipmap/ic_launcher.png"/>
 		
-		<dependency id="cordova-androidx-build" url="https://github.com/cmfsotelo/cordova-androidx-build.git#1.0-OS.1" />
 
 	</platform>
 
