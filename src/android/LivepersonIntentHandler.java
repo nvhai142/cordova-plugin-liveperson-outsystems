@@ -190,7 +190,7 @@ public class LivepersonIntentHandler {
     }
 
     private void showToast(String message) {
-        LPMobileLog.d(TAG + "_CALLBACK", message);
+       // LPMobileLog.d(TAG + "_CALLBACK", message);
     }
 
     private void onAgentAvatarTapped(AgentData agentData) {
