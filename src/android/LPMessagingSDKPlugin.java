@@ -222,7 +222,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     String ButtonOpt2Msg = args.getString(38);
                     String ButtonOpt2Value = args.getString(39);
 
-                    String languageApp = args.getString(5);
+                    String languageApp = args.getString(40);
 
                     startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg,ButtonOpt1Msg,ButtonOpt1Value,ButtonOpt2Msg,ButtonOpt2Value,languageApp);
                 } else {

@@ -370,7 +370,10 @@ extension String {
         let ButtonOpt2Msg = command.arguments[38] as? String ?? "Visa Concierge"
         let ButtonOpt2Value = command.arguments[39] as? String ?? "Visa Concierge"
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName,WelcomeMsg: WelcomeMsg,ClearConversationMsg: ClearConversationMsg,ClearConfirmMsg: ClearConfirmMsg,ChooseMsg: ChooseMsg,RevolvedTileMsg: RevolvedTileMsg,ResolvedConfirmMsg: ResolvedConfirmMsg,ClearTitleMsg: ClearTitleMsg,YesMsg: YesMsg,CancelMsg: CancelMsg,ClearMsg: ClearMsg,MenuMsg: MenuMsg,ChatTitleHeader: ChatTitleHeader,ButtonOpt1Msg: ButtonOpt1Msg,ButtonOpt1Value: ButtonOpt1Value,ButtonOpt2Msg: ButtonOpt2Msg,ButtonOpt2Value: ButtonOpt2Value)
+        let LanguageChat = command.arguments[40] as? String ?? "en-UK"
+        let LoadingMsg = command.arguments[41] as? String ?? "Loading..."
+
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName,WelcomeMsg: WelcomeMsg,ClearConversationMsg: ClearConversationMsg,ClearConfirmMsg: ClearConfirmMsg,ChooseMsg: ChooseMsg,RevolvedTileMsg: RevolvedTileMsg,ResolvedConfirmMsg: ResolvedConfirmMsg,ClearTitleMsg: ClearTitleMsg,YesMsg: YesMsg,CancelMsg: CancelMsg,ClearMsg: ClearMsg,MenuMsg: MenuMsg,ChatTitleHeader: ChatTitleHeader,ButtonOpt1Msg: ButtonOpt1Msg,ButtonOpt1Value: ButtonOpt1Value,ButtonOpt2Msg: ButtonOpt2Msg,ButtonOpt2Value: ButtonOpt2Value,LanguageChat: LanguageChat,LoadingMsg: LoadingMsg)
 
         
         var response:[String:String];
@@ -487,7 +490,7 @@ extension String {
             return nil
         }
     }
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil,WelcomeMsg: String? = nil,ClearConversationMsg: String? = nil,ClearConfirmMsg: String? = nil,ChooseMsg: String? = nil,RevolvedTileMsg: String? = nil,ResolvedConfirmMsg: String? = nil,ClearTitleMsg: String? = nil,YesMsg: String? = nil,CancelMsg: String? = nil,ClearMsg: String? = nil,MenuMsg: String? = nil,ChatTitleHeader: String? = nil,ButtonOpt1Msg: String? = nil,ButtonOpt1Value: String? = nil,ButtonOpt2Msg: String? = nil,ButtonOpt2Value: String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil,WelcomeMsg: String? = nil,ClearConversationMsg: String? = nil,ClearConfirmMsg: String? = nil,ChooseMsg: String? = nil,RevolvedTileMsg: String? = nil,ResolvedConfirmMsg: String? = nil,ClearTitleMsg: String? = nil,YesMsg: String? = nil,CancelMsg: String? = nil,ClearMsg: String? = nil,MenuMsg: String? = nil,ChatTitleHeader: String? = nil,ButtonOpt1Msg: String? = nil,ButtonOpt1Value: String? = nil,ButtonOpt2Msg: String? = nil,ButtonOpt2Value: String? = nil,LanguageChat: String? = nil,LoadingMsg: String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
@@ -497,7 +500,7 @@ extension String {
                 if let cgate = ChatTitleHeader{
                     conversationVCs.ChatTitleHeader = cgate
                 }
-                if let langs = language{
+                if let langs = LanguageChat{
                     conversationVCs.LanguageAPP = langs
                 }
             }
