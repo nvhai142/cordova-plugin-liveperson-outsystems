@@ -503,6 +503,9 @@ extension String {
                 if let langs = LanguageChat{
                     conversationVCs.LanguageAPP = langs
                 }
+                if let welm = WelcomeMsg{
+                    conversationVCs.WelcomeMsg = welm
+                }                    
             }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
@@ -557,15 +560,6 @@ extension String {
                             if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
                                 conversationVC.conversationQuery = self.conversationQuery
                                 //conversationVC.alert.dismiss(animated: true, completion: nil)
-                                if let cgate = ChatTitleHeader{
-                                    conversationVC.ChatTitleHeader = cgate
-                                }
-                                if let langs = language{
-                                    conversationVC.LanguageAPP = langs
-                                }
-                                if let welm = WelcomeMsg{
-                                    conversationVC.WelcomeMsg = welm
-                                }
 
                                 if let chdcm = ClearConversationMsg{
                                     conversationVC.ClearConversationMsg = chdcm
