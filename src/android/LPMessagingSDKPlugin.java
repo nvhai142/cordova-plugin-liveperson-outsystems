@@ -233,7 +233,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
 
                 break;
             case RECONNECT_WITH_NEW_TOKEN:
-                mGlobalCallbackContext = callbackContext;
+                mCallbackContext = callbackContext;
                 Log.d(TAG, "Messaging SDK: RECONNECT_WITH_NEW_TOKEN"+args.getString(0));
                 reconnect(args.getString(0));
                 break;
