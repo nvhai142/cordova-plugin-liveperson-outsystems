@@ -67,7 +67,7 @@
 		<framework src="com.google.firebase:firebase-perf:17.0.2" />
 		<framework src="com.google.firebase:firebase-dynamic-links:17.0.0" />
 		<framework src="com.google.firebase:firebase-iid:17.5.0" />
-		
+		<framework src="com.android.support:design:23.2.1" />
 
         <!--  Plugin Code -->
         <source-file src="src/android/LPMessagingSDKPlugin.java" target-dir="src/com/liveperson/plugin/" />
@@ -114,7 +114,8 @@
 		<resource-file src="src/android/res/drawable/ic_progress_dialog_12.png" target="res/drawable/ic_progress_dialog_12.png"/>
 
 		<icon src="src/android/res/mipmap/ic_launcher.png" target="res/mipmap/ic_launcher.png"/>
-		
+
+		<dependency id="cordova-androidx-build" url="https://github.com/cmfsotelo/cordova-androidx-build.git#1.0-OS.1" />
 
 	</platform>
 
