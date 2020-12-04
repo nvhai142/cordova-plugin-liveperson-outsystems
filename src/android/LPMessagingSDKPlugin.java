@@ -20,6 +20,7 @@ import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 import com.liveperson.infra.auth.LPAuthenticationParams;
+import com.liveperson.infra.auth.LPAuthenticationType;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
