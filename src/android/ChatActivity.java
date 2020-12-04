@@ -226,7 +226,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
             
-lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
+            lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
             conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
 
             if(campaignInfo!=null){
