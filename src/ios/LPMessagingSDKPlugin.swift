@@ -505,6 +505,9 @@ extension String {
                 }
                 if let welm = WelcomeMsg{
                     conversationVCs.WelcomeMsg = welm
+                }
+                if let loads = LoadingMsg{
+                    conversationVCs.LoadingMsg = loads
                 }                    
             }
 

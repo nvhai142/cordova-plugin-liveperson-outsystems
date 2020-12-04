@@ -32,13 +32,13 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var MenuMsg:String = "Menu"
     var ChatTitleHeader:String = "Visa Concierge"
     var LanguageAPP:String = "en-UK"
+    var LoadingMsg:String = "Loading..."
 
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
         self.configUI()
 
-       // self.setupLanguage(language:LanguageAPP)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -46,6 +46,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         //loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         //loadingIndicator.color = .gray
         loadingIndicator.startAnimating();
+        
+        alert.message = LoadingMsg
 
         alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
