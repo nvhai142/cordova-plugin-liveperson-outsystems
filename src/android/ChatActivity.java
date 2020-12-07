@@ -640,7 +640,13 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         }
 
         if (TextUtils.isEmpty(country)) {
-            customLocale = new Locale(language);
+            String[] separated = language.split("-");
+            if(separated.length>1){
+                customLocale = new Locale(separated[0],separated[1]);
+            }else{
+                customLocale = new Locale(language);
+            }
+            
         } else {
             customLocale = new Locale(language, country);
         }
