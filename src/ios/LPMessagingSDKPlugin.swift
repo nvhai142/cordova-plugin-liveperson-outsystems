@@ -67,11 +67,15 @@ extension String {
             print("Can't init without brandID")
             return
         }
+        guard let appInstallID = command.arguments[2] as? String else {
+            print("Can't init without AppInstallID")
+            return
+        }
         self.lpAccountNumber = lpAccountNumber
         
         print("lpMessagingSdkInit brandID --> \(lpAccountNumber)")
         
-        let monitoringInitParams = LPMonitoringInitParams(appInstallID: "443bc965-320f-402b-92ce-3a79cf831267")
+        let monitoringInitParams = LPMonitoringInitParams(appInstallID: appInstallID)
 
         do {
             try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)

@@ -55,6 +55,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
     
     JSONArray uProfile;
     //String AppIdentifier;
+    private String AppInstallationID; 
 
     private CordovaWebView mainWebView;
 
@@ -105,6 +106,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 final String accountId = args.getString(0);
                 
                 final String AppId = args.getString(1);
+                final String AppInstall = args.getString(2);
+
+                AppInstallationID = AppInstall;
                 
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
                 Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
@@ -285,7 +289,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 LivePerson.shutDown();
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    MonitoringInitParams monitoringParams = new MonitoringInitParams("443bc965-320f-402b-92ce-3a79cf831267");
+                    MonitoringInitParams monitoringParams = new MonitoringInitParams(AppInstallationID);
                     LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, AppID, monitoringParams, new InitLivePersonCallBack() {
                         @Override
                         public void onInitSucceed() {
@@ -415,6 +419,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
                     intent.putExtra("EXTRA_APPIDENTIFIER", AppIdentifier);
                     intent.putExtra("EXTRA_LanguageApp", languageApp);
+                    intent.putExtra("EXTRA_AppInstallationID", AppInstallationID);
 
                     intent.putExtra("EXTRA_WelcomeMsg", WelcomeMsg);
                     intent.putExtra("EXTRA_ChatTitleHeader", ChatTitleHeader);
