@@ -37,7 +37,7 @@
             </intent-filter>
 			</service>
 
-			<service android:name="com.liveperson.plugin.MyFirebaseInstanceIDService">
+			<service android:exported="false" android:name="com.liveperson.plugin.MyFirebaseInstanceIDService">
 				<intent-filter>
 					<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
 				</intent-filter>
@@ -47,7 +47,7 @@
 				android:name="com.liveperson.plugin.FirebaseRegistrationIntentService"
 				android:exported="false"></service>
 
-			<receiver android:name="com.liveperson.plugin.NotificationUI$BadgeBroadcastReceiver">
+			<receiver android:exported="false" android:name="com.liveperson.plugin.NotificationUI$BadgeBroadcastReceiver">
 				<intent-filter>
 					<action android:name="ACTION_LP_UPDATE_NUM_UNREAD_MESSAGES_ACTION" />
 				</intent-filter>
