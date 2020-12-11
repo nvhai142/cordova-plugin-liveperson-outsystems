@@ -165,11 +165,17 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     @IBAction func cancelPressed(sender:Any) {
+        self.closeChat()
+    }
+    
+    
+    public func closeChat(){
         if self.conversationQuery != nil {
             LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
         }
         self.dismiss(animated: true, completion: nil)
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 

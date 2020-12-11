@@ -38,6 +38,8 @@ extension String {
 
 @objc(LPMessagingSDKPlugin) class LPMessagingSDKPlugin: CDVPlugin, ConversationDelegate {
     
+    var conversationScreen : ConversationVC?
+    
     var conversationQuery: ConversationParamProtocol?
 
     // adding delegates and callbacks for Cordova to notify javascript wrapper when functions complete
@@ -172,20 +174,14 @@ extension String {
     
     @objc(close_conversation_screen:)
     func close_conversation_screen(command:CDVInvokedUrlCommand) {
-        self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(self.lpAccountNumber!)
-        if self.conversationQuery != nil {
-            LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
-            self.viewController.navigationController?.popViewController(animated: true)
-            print("@@@ iOS ... LPMessagingSDK  close_conversation_screen:")
-            var response:[String:String];
-            response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
-            let jsonString = self.convertDicToJSON(dic: response)
-            let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
-            pluginResult?.setKeepCallbackAs(true)
-            self.globalCallbackCommandDelegate?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)
-            
-        }
-
+        self.globalCallbackCommand = command
+        conversationScreen?.closeChat()
+        var response:[String:String];
+        response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
+        let jsonString = self.convertDicToJSON(dic: response)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
+        pluginResult?.setKeepCallbackAs(true)
+        self.globalCallbackCommand?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)
     }
     
     @objc(register_pusher:)
@@ -500,6 +496,7 @@ extension String {
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
             chatVC.modalPresentationStyle = .fullScreen
             if let conversationVCs = chatVC.viewControllers.first as? ConversationVC {
+                conversationScreen = conversationVCs
                 conversationVCs.delegate = self
                 if let cgate = ChatTitleHeader{
                     conversationVCs.ChatTitleHeader = cgate
@@ -512,7 +509,7 @@ extension String {
                 }
                 if let loads = LoadingMsg{
                     conversationVCs.LoadingMsg = loads
-                }                    
+                }
             }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
