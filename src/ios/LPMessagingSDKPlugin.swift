@@ -178,7 +178,10 @@ extension String {
 
         let isChatActive = LPMessagingSDK.instance.checkActiveConversation(self.conversationQuery)
         if(isChatActive){
-            LPMessagingSDK.instance.resolveConversation(self.conversationQuery)
+            if let query = self.conversationQuery {
+                LPMessagingSDK.instance.resolveConversation(self.query)
+            }
+            
         }
         conversationScreen?.closeChat()
 
