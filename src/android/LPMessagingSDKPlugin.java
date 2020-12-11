@@ -117,16 +117,16 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case CLOSE_CONVERSATION_SCREEN:
                 mCallbackContext = callbackContext;
 
-                // LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
-                //     @Override
-                //     public void onSuccess(Boolean aBoolean) {
-                //         LivePerson.resolveConversation();
-                //     }
+                LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+                    @Override
+                    public void onSuccess(Boolean aBoolean) {
+                        LivePerson.resolveConversation();
+                    }
         
-                //     @Override
-                //     public void onError(Exception e) {
-                //     }
-                // });
+                    @Override
+                    public void onError(Exception e) {
+                    }
+                });
 
                 ChatActivity.fa.finish();
 

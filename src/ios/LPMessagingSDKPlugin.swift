@@ -176,10 +176,10 @@ extension String {
     func close_conversation_screen(command:CDVInvokedUrlCommand) {
         self.globalCallbackCommand = command
 
-        // let isChatActive = LPMessagingSDK.instance.checkActiveConversation(self.conversationQuery)
-        // if(isChatActive){
-        //     LPMessagingSDK.instance.resolveConversation(query)
-        // }
+        let isChatActive = LPMessagingSDK.instance.checkActiveConversation(self.conversationQuery)
+        if(isChatActive){
+            LPMessagingSDK.instance.resolveConversation(query)
+        }
         conversationScreen?.closeChat()
 
         var response:[String:String];
