@@ -117,6 +117,17 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case CLOSE_CONVERSATION_SCREEN:
                 mCallbackContext = callbackContext;
 
+                // LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+                //     @Override
+                //     public void onSuccess(Boolean aBoolean) {
+                //         LivePerson.resolveConversation();
+                //     }
+        
+                //     @Override
+                //     public void onError(Exception e) {
+                //     }
+                // });
+
                 ChatActivity.fa.finish();
 
                 Log.d(TAG, CLOSE_CONVERSATION_SCREEN+ " LPMessagingSDKConversationScreenClosed " + args);

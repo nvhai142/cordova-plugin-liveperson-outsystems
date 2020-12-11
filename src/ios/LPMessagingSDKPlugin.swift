@@ -175,7 +175,27 @@ extension String {
     @objc(close_conversation_screen:)
     func close_conversation_screen(command:CDVInvokedUrlCommand) {
         self.globalCallbackCommand = command
+
+        // let isChatActive = LPMessagingSDK.instance.checkActiveConversation(self.conversationQuery)
+        // if(isChatActive){
+        //     LPMessagingSDK.instance.resolveConversation(query)
+        // }
         conversationScreen?.closeChat()
+
+        var response:[String:String];
+        
+        response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
+        let jsonString = self.convertDicToJSON(dic: response)
+        
+        self.set_lp_callbacks(command: command)
+        
+        let pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAs: jsonString
+        )
+
+        pluginResult?.setKeepCallbackAs(true)
+        self.callBackCommandDelegate?.send(pluginResult, callbackId: self.callBackCommand?.callbackId)
         // var response:[String:String];
         // response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
         // let jsonString = self.convertDicToJSON(dic: response)
@@ -498,6 +518,7 @@ extension String {
             if let conversationVCs = chatVC.viewControllers.first as? ConversationVC {
                 conversationScreen = conversationVCs
                 conversationVCs.delegate = self
+                conversationVCs.conversationQuery = self.conversationQuery
                 if let cgate = ChatTitleHeader{
                     conversationVCs.ChatTitleHeader = cgate
                 }
