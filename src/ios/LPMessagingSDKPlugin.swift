@@ -176,12 +176,12 @@ extension String {
     func close_conversation_screen(command:CDVInvokedUrlCommand) {
         self.globalCallbackCommand = command
         conversationScreen?.closeChat()
-        var response:[String:String];
-        response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
-        let jsonString = self.convertDicToJSON(dic: response)
-        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
-        pluginResult?.setKeepCallbackAs(true)
-        self.globalCallbackCommand?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)
+        // var response:[String:String];
+        // response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
+        // let jsonString = self.convertDicToJSON(dic: response)
+        // let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
+        // pluginResult?.setKeepCallbackAs(true)
+        // self.globalCallbackCommand?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)
     }
     
     @objc(register_pusher:)
