@@ -171,7 +171,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     public func closeChat(){
         if self.conversationQuery != nil {
-            LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
+         //   LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
         }
         self.dismiss(animated: true, completion: nil)
     }
