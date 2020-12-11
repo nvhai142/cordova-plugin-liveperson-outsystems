@@ -120,7 +120,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 if(cordova.getActivity() instanceof  ChatActivity) {
                     ((ChatActivity) cordova.getActivity()).finish();
                 }
-                
+
                 Log.d(TAG, CLOSE_CONVERSATION_SCREEN+ " LPMessagingSDKConversationScreenClosed " + args);
                 JSONObject jsonCloseConversation = new JSONObject();
                 try {
@@ -381,6 +381,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         intent.putExtra("EXTRA_ENGAGEMENT", engagement);
                         intent.putExtra("EXTRA_ENTRYPOINT", entrypoint);
                         intent.putExtra("EXTRA_PROFILE", uProfile.toString());
+                        intent.putExtra("EXTRA_AppInstallationID", AppInstallationID);
                         cordova.getActivity().startActivity(intent);
 
                        // LivePerson.showConversation(cordova.getActivity());
