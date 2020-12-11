@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.app.Activity;
 
 import com.liveperson.infra.BadArgumentException;
 import com.liveperson.infra.CampaignInfo;
@@ -92,6 +93,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     CampaignInfo campaign ;
     String partyID;
 
+    public static Activity fa;
+
     public static String getBrandID(){
         return BrandID;
     }
@@ -102,6 +105,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fa =  this;
 
         mDialogHelper = new DialogHelper(this);
         package_name = getApplicationContext().getPackageName();

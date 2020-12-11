@@ -117,9 +117,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case CLOSE_CONVERSATION_SCREEN:
                 mCallbackContext = callbackContext;
 
-                if(cordova.getActivity() instanceof  ChatActivity) {
-                    ((ChatActivity) cordova.getActivity()).finish();
-                }
+                ChatActivity.fa.finish();
 
                 Log.d(TAG, CLOSE_CONVERSATION_SCREEN+ " LPMessagingSDKConversationScreenClosed " + args);
                 JSONObject jsonCloseConversation = new JSONObject();
