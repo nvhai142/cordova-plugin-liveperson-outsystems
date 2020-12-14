@@ -174,7 +174,7 @@ extension String {
     
     @objc(close_conversation_screen:)
     func close_conversation_screen(command:CDVInvokedUrlCommand) {
-        self.globalCallbackCommand = command
+        // self.globalCallbackCommand = command
 //        if let query = self.conversationQuery {
 //            let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
 //            if(isChatActive){
