@@ -94,7 +94,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             configUI.language = LPLanguage.ja
             break
         case "zh-TW":
-            configUI.language = LPLanguage.zh
+            configUI.language = LPLanguage.zh_Hant_hk
             break
         case "ko-KR":
             configUI.language = LPLanguage.ko
