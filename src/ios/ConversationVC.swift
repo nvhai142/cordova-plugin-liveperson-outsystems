@@ -103,7 +103,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
             configUI.language = LPLanguage.en
             break
         default:
-            configUI.language = LPLanguage.ko
+            configUI.language = LPLanguage.en
         }
 
         configUI.fileSharingFromAgent = true
