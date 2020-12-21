@@ -363,7 +363,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
-        LivePerson.reconnect(new LPAuthenticationParams(LPAuthenticationType.AUTH).setHostAppJWT(jwt));
+        LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(jwt));
         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
         result.setKeepCallback(true);
         mCallbackContext.sendPluginResult(result);

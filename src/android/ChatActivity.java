@@ -222,7 +222,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 ButtonOpt2Value= extras.getString("EXTRA_ButtonOpt2Value");
             }
             Log.d(TAG, "initFragment. authCode = " + authCode);
-            LPAuthenticationParams authParams = new LPAuthenticationParams(LPAuthenticationType.AUTH);
+            LPAuthenticationParams authParams = new LPAuthenticationParams();
             // add new
             ConversationViewParams conversationViewParams = new ConversationViewParams(false);
 
