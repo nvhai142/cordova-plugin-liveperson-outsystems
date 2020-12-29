@@ -96,7 +96,7 @@ public class NotificationUI {
             //loading the Main Activity to not import it in the plugin
             mainActivity = Class.forName(className);
         } catch (Exception e) {
-            e.printStackTrace();
+           // e.printStackTrace();
         }
 
         // there was chatmessagnging here changed by nishant

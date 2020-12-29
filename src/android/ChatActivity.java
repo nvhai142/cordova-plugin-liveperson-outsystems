@@ -182,7 +182,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
                 LivePerson.setUserProfile(consumerProfile);
             } catch (JSONException e) {
-                e.printStackTrace();
+              
             }
             
         }

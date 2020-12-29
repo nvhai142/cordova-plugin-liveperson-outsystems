@@ -137,7 +137,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     jsonCloseConversation.putOpt("eventName","LPMessagingSDKConversationScreenClosed");
                     mCallbackContext.success(jsonCloseConversation.toString());
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                   
                 }
                 break;
             case CLEAR_HISTORY_AND_LOGOUT:
@@ -151,7 +151,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                             json.putOpt("eventName","LPMessagingSDKClearHistoryAndLogout");
                             mCallbackContext.success(json.toString());
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                           
                         }
 
                     }
@@ -163,7 +163,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                             json.putOpt("eventName","LPMessagingSDKClearHistoryAndLogout");
                             mCallbackContext.error(json.toString());
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            
                         }
 
                     }
@@ -274,7 +274,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     json.put("deviceToken",token);
 
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    
                 }
                 PluginResult resultLpPusher = new PluginResult(PluginResult.Status.OK, json.toString());
                 resultLpPusher.setKeepCallback(true);
@@ -315,7 +315,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                             try {
                                 json.put("eventName","LPMessagingSDKInit");
                             } catch (JSONException e1) {
-                                e1.printStackTrace();
+                               
                             }
 
                             cordova.getActivity().runOnUiThread(new Runnable() {
@@ -337,7 +337,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                             try {
                                 json.put("eventName","LPMessagingSDKInit");
                             } catch (JSONException e1) {
-                                e1.printStackTrace();
+                               
                             }
 
                             cordova.getActivity().runOnUiThread(new Runnable() {
@@ -361,7 +361,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             json.put("eventName","LPMessagingSDKReconnectWithNewToken");
             json.put("token",jwt);
         } catch (JSONException e1) {
-            e1.printStackTrace();
+            
         }
         LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(jwt));
         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
@@ -381,7 +381,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                         json.put("eventName","LPMessagingSDKStartConversation");
                         json.put("type","unauthenticated");
                     } catch (JSONException e1) {
-                        e1.printStackTrace();
+                        
                     }
                     try {
                         Context context = cordova.getActivity().getApplicationContext();
@@ -421,7 +421,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     json.put("type","authenticated");
                         
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    
                 }
 
                 try {
@@ -502,7 +502,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
         try {
             json.putOpt("eventName","LPMessagingSDKSetUserProfile");
         } catch (JSONException e) {
-            e.printStackTrace();
+            
             callbackContext.error(e.toString());
         }
         try {
@@ -515,7 +515,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             try {
                 json.putOpt("error",e.toString());
             } catch (JSONException e1) {
-                e.printStackTrace();
+                
                 callbackContext.error(e1.toString());
             }
             PluginResult result = new PluginResult(PluginResult.Status.ERROR, json.toString());
@@ -540,7 +540,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKError");
                     eventJson.put("error",message);
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.ERROR, eventJson.toString());
@@ -555,7 +555,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKTokenExpired");
 
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -571,7 +571,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKConversationStarted");
                     eventJson.put("conversationID",convData.getId());
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -588,7 +588,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("conversationID",convData.getId());
                     eventJson.put("closeReason",convData.getCloseReason());
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -604,7 +604,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKConnectionStateChanged");
                     eventJson.putOpt("connectionState",isConnected);
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -621,7 +621,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKAgentIsTypingStateChanged");
                     eventJson.put("isTyping",isTyping);
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -636,7 +636,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKAgentDetails");
                     eventJson.put("agent",agentData.toString());
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -651,7 +651,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKCsatDismissed");
 
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -666,7 +666,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKConversationCSATDismissedOnSubmission");
                     eventJson.put("conversationId",conversationId);
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -681,7 +681,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKConversationMarkedAsUrgent");
 
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                  
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -696,7 +696,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKConversationMarkedAsNormal");
 
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -711,7 +711,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKOffHoursStateChanged");
                     eventJson.put("isOffHours",isOfflineHoursOn);
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                    
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
@@ -726,7 +726,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     eventJson.put("eventName","LPMessagingSDKAgentAvatarTapped");
                     eventJson.put("agent",agentData.toString());
                 } catch (JSONException e1) {
-                    e1.printStackTrace();
+                   
                 }
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
