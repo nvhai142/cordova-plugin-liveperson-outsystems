@@ -34,11 +34,34 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var LanguageAPP:String = "en-UK"
     var LoadingMsg:String = "Loading..."
 
+    var backgroundDate:NSDate?
+    @objc func appDidEnterBackground() {
+        backgroundDate = NSDate()
+    }
+    
+    @objc func appWillEnterForeground() {
+        let now = NSDate()
+        if let oldDate = backgroundDate{
+            if (oldDate.timeIntervalSinceReferenceDate + 15*60) < now.timeIntervalSinceReferenceDate
+            {
+                self.closeChat()
+                return
+            }
+        }
+        print( "")
+    }
+    
+    func addAppObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         LPMessagingSDK.instance.delegate = self
         self.configUI()
 
+        self.addAppObserver()
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
