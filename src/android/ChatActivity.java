@@ -97,6 +97,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     public static Activity fa;
     private long startTime = 15 * 60 * 1000; // 15 MINS IDLE TIME
     private final long interval = 1 * 1000;
+    private MyCountDownTimer countDownTimer;
 
     public static String getBrandID(){
         return BrandID;
