@@ -94,6 +94,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     String partyID;
 
     public static Activity fa;
+    private long startTime = 15 * 60 * 1000; // 15 MINS IDLE TIME
+    private final long interval = 1 * 1000;
 
     public static String getBrandID(){
         return BrandID;
@@ -139,8 +141,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         }
 
         initLivePerson();
+        countDownTimer = new MyCountDownTimer(startTime, interval);
     }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        countDownTimer.cancel();            
+        countDownTimer.start();
+    }
     public void showProgressDialog() {
         mDialogHelper.showProgress();
     }
@@ -670,6 +678,28 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             return getBaseContext().getResources().getConfiguration().getLocales().get(0);
         } else {
             return getBaseContext().getResources().getConfiguration().locale;
+        }
+    }
+    @Override
+    public void onUserInteraction(){
+        super.onUserInteraction();
+
+        //Reset the timer on user interaction...
+        countDownTimer.cancel();            
+        countDownTimer.start();
+    }   
+    public class MyCountDownTimer extends CountDownTimer {
+        public MyCountDownTimer(long startTime, long interval) {
+            super(startTime, interval);
+        }
+    
+        @Override
+        public void onFinish() {
+            //DO WHATEVER YOU WANT HERE
+        }
+    
+        @Override
+        public void onTick(long millisUntilFinished) {
         }
     }
 }
