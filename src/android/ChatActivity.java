@@ -97,7 +97,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     public static Activity fa;
     private long startTime = 15 * 60 * 1000; // 15 MINS IDLE TIME
     private final long interval = 1 * 1000;
-    private MyCountDownTimer countDownTimer;
+    private CountDownTimer countDownTimer;
 
     public static String getBrandID(){
         return BrandID;
@@ -143,7 +143,17 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         }
 
         initLivePerson();
-        countDownTimer = new MyCountDownTimer(startTime, interval);
+        
+        countDownTimer = new new CountDownTimer(futureInMillis, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+                // TODO: restart counter
+                this.finish();
+            }
+        };
     }
     @Override
     public void onPause() {
@@ -690,18 +700,5 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         countDownTimer.cancel();            
         countDownTimer.start();
     }   
-    public class MyCountDownTimer extends CountDownTimer {
-        public MyCountDownTimer(long startTime, long interval) {
-            super(startTime, interval);
-        }
     
-        @Override
-        public void onFinish() {
-            //DO WHATEVER YOU WANT HERE
-        }
-    
-        @Override
-        public void onTick(long millisUntilFinished) {
-        }
-    }
 }
