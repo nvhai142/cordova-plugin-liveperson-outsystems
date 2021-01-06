@@ -144,14 +144,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
         initLivePerson();
 
-        countDownTimer = new CountDownTimer(futureInMillis, 1000) {
+        countDownTimer = new CountDownTimer(startTime, 1000) {
 
             public void onTick(long millisUntilFinished) {
             }
 
             public void onFinish() {
                 // TODO: restart counter
-                this.finish();
+                finishChatScreen();
             }
         };
     }
