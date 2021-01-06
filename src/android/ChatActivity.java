@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.app.Activity;
+import android.os.CountDownTimer;
 
 import com.liveperson.infra.BadArgumentException;
 import com.liveperson.infra.CampaignInfo;
