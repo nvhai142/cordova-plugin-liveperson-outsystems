@@ -660,6 +660,20 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             }
 
             @Override
+            public void onConversationFragmentClosed() {
+                final JSONObject eventJson = new JSONObject();
+                try {
+                    eventJson.put("eventName","LPMessagingSDKConversationClosed");
+
+                } catch (JSONException e1) {
+                    
+                }
+
+                PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
+                result.setKeepCallback(true);
+                mGlobalCallbackContext.sendPluginResult(result);
+            }
+            @Override
             public void onCsatSubmitted(String conversationId) {
                 final JSONObject eventJson = new JSONObject();
                 try {

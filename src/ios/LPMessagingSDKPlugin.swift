@@ -895,9 +895,9 @@ extension String {
     
     internal func LPMessagingSDKConversationViewControllerDidDismiss() {
     
-        print("@@@ ios ... LPMessagingSDKConversationViewControllerDidDismiss")
+        print("@@@ ios ... LPMessagingSDKConversationClosed")
         var response:[String:String];
-        response = ["eventName":"LPMessagingSDKConversationViewControllerDidDismiss"];
+        response = ["eventName":"LPMessagingSDKConversationClosed"];
         let jsonString = self.convertDicToJSON(dic: response)
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
         pluginResult?.setKeepCallbackAs(true)
