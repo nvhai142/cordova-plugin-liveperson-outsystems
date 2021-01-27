@@ -199,6 +199,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         if let query = self.conversationQuery {
             let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
             if isChatActive{
+                
+            }else{
                 NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
                 NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
                 self.dismiss(animated: true, completion: nil)

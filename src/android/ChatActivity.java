@@ -155,11 +155,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                 LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
                     @Override
                     public void onSuccess(Boolean aBoolean) {
-                        finishChatScreen();
+                        if(!aBoolean){
+                            finishChatScreen();
+                        }
                     }
         
                     @Override
                     public void onError(Exception e) {
+                        finishChatScreen();
                     }
                 });
             }
