@@ -196,13 +196,14 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     
     public func closeChat(){
-        if self.conversationQuery != nil {
-         //   LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
+        if let query = self.conversationQuery {
+            let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
+            if isChatActive{
+                NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
+                NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
         }
-        NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
-        self.dismiss(animated: true, completion: nil)
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
