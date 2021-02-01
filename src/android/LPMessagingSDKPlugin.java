@@ -303,7 +303,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 LivePerson.shutDown();
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    MonitoringInitParams monitoringParams = new MonitoringInitParams(AppInstallationID);
+                    MonitoringInitParams monitoringParams = new MonitoringInitParams("ca6ecc69-d107-46ea-a035-993fa1b6acea");
                     LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, AppID, monitoringParams, new InitLivePersonCallBack() {
                         @Override
                         public void onInitSucceed() {
