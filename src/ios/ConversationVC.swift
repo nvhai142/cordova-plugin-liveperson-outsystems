@@ -39,10 +39,29 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         backgroundDate = NSDate()
     }
     
+    var kTimeoutUserInteraction: Double = 15*60
+    var idleTimer:Timer?
+    @objc func resetIdleTimer() {
+        if (idleTimer == nil) {
+            idleTimer = Timer(timeInterval: 15*60, target: self, selector: #selector(idleTimerExceeded), userInfo: nil, repeats: false)
+            RunLoop.current.add(idleTimer!, forMode: .default)
+        } else {
+            if (fabs(idleTimer!.fireDate.timeIntervalSinceNow) < (kTimeoutUserInteraction - 1.0)) {
+                idleTimer!.fireDate = Date(timeIntervalSinceNow: kTimeoutUserInteraction)
+            }
+        }
+    }
+    
+    @objc func idleTimerExceeded() {
+        idleTimer = nil
+        // làm cái bếp gì đó đây nha
+        self.closeChat()
+    }
+
     @objc func appWillEnterForeground() {
         let now = NSDate()
         if let oldDate = backgroundDate{
-            if (oldDate.timeIntervalSinceReferenceDate + 15*60) < now.timeIntervalSinceReferenceDate
+            if (oldDate.timeIntervalSinceReferenceDate + kTimeoutUserInteraction) < now.timeIntervalSinceReferenceDate
             {
                 self.closeChat()
                 return
@@ -74,6 +93,11 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
 
         alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
+
+        self.resetIdleTimer()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resetIdleTimer))
+        tapGesture.cancelsTouchesInView = false
+        self.navigationController?.view.addGestureRecognizer(tapGesture)
     }
 
     func setupLanguage(language:String){
