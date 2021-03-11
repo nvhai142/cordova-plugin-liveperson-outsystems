@@ -57,6 +57,12 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         // làm cái bếp gì đó đây nha
         self.closeChat()
     }
+    override var next: UIResponder?{
+        get {
+            self.resetIdleTimer()
+            return super.next
+        }
+    }
 
     @objc func appWillEnterForeground() {
         let now = NSDate()
@@ -237,7 +243,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-
+        idleTimer = nil
     }
 
     @IBAction func optionPressed(sender:Any) {
