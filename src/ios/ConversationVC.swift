@@ -221,6 +221,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         if self.conversationQuery != nil {
             LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
         }
+        NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -236,6 +238,9 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         //         self.dismiss(animated: true, completion: nil)
         //     }
         // }
+        if self.conversationQuery != nil {
+            LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
+        }
         NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
         NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
         self.dismiss(animated: true, completion: nil)
