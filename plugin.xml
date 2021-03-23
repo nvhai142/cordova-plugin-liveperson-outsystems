@@ -6,6 +6,7 @@
 	version="1.0.0">
 
 	<name>Live Person Messaging</name>
+	<plugin name="cordova-plugin-live-person-message" spec="^2.0.0" />
 
 	<asset src="www/LPMessagingSDK.js" target="js/LPMessagingSDK.js"/>
 
