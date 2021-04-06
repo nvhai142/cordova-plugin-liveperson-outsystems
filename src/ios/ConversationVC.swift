@@ -350,6 +350,9 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     func LPMessagingSDKHasConnectionError(_ error: String?) {
+        DispatchQueue.main.async {
+                self.alert.dismiss(animated: true, completion: nil)
+        }
         self.delegate?.LPMessagingSDKHasConnectionError(error)
     }
     
