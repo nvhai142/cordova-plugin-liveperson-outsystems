@@ -16,4 +16,8 @@ public class FCMUtils {
         Intent intent = new Intent(ctx, FirebaseRegistrationIntentService.class);
         ctx.startService(intent);
     }
+    public static void removeGCMRegistration(Context ctx) {
+        Intent intent = new Intent(ctx, FirebaseRegistrationIntentService.class);
+        ctx.stopService(intent);
+    }
 }

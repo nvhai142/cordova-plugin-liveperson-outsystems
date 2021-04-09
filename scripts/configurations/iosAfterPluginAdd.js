@@ -96,6 +96,7 @@ module.exports = function(context) {
   xcframeworkFile.uuid = myProj.generateUuid();
   xcframeworkFile.fileRef = myProj.generateUuid();
   xcframeworkFile.target = myProj.getFirstTarget().uuid;
+  xcframeworkFile.require = false;
   myProj.addToPbxBuildFileSection(xcframeworkFile);
   myProj.addToPbxFileReferenceSection(xcframeworkFile);
   myProj.addToFrameworksPbxGroup(xcframeworkFile);
