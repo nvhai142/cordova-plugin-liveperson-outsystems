@@ -92,33 +92,78 @@ module.exports = function(context) {
 
   var pbxFileCtor = Object.getPrototypeOf(fakeFile).constructor;
 
+  var addCopyFile = function(path, target, fileRef) {
+    var bundleFile = construct(pbxFileCtor, [path]);
+    bundleFile.uuid = myProj.generateUuid();
+
+    if (typeof(fileRef) === 'undefined') {
+      bundleFile.fileRef = myProj.generateUuid();
+    } else {
+      bundleFile.fileRef = fileRef;
+    }
+
+    if (typeof(target) === 'undefined' || target == null) {
+      bundleFile.target = myProj.getFirstTarget().uuid;
+    } else {
+      bundleFile.target = target;
+    }
+    
+    myProj.addToPbxBuildFileSection(bundleFile);
+    myProj.addToPbxFileReferenceSection(bundleFile);
+    myProj.addToPbxCopyfilesBuildPhase(bundleFile);
+
+    return bundleFile;
+  };
+
+  var addResourceFile = function(path, target, fileRef) {
+    var bundleFileResource = construct(pbxFileCtor, [path]);
+    bundleFileResource.uuid = myProj.generateUuid();
+
+    if (typeof(fileRef) === 'undefined') {
+      bundleFileResource.fileRef = myProj.generateUuid();
+    } else {
+      bundleFileResource.fileRef = fileRef;
+    }
+
+    if (typeof(target) === 'undefined' || target == null) {
+      bundleFileResource.target = myProj.getFirstTarget().uuid;
+    } else {
+      bundleFileResource.target = target;
+    }
+
+    myProj.addToPbxBuildFileSection(bundleFileResource);
+    myProj.addToPbxResourcesBuildPhase(bundleFileResource);
+    
+    return bundleFileResource;
+  };
+
   var xcframeworkFile = construct(pbxFileCtor, ['LPMessagingSDK/LPMessagingSDK.xcframework']);
   xcframeworkFile.uuid = myProj.generateUuid();
   xcframeworkFile.fileRef = myProj.generateUuid();
   xcframeworkFile.target = myProj.getFirstTarget().uuid;
-  xcframeworkFile.require = false;
   myProj.addToPbxBuildFileSection(xcframeworkFile);
   myProj.addToPbxFileReferenceSection(xcframeworkFile);
   myProj.addToFrameworksPbxGroup(xcframeworkFile);
   myProj.addToPbxFrameworksBuildPhase(xcframeworkFile);
+  myProj.addToFrameworkSearchPaths(xcframeworkFile);
+
+  var embedFile = construct(pbxFileCtor, ['LPMessagingSDK/LPMessagingSDK.xcframework']);
+  embedFile.uuid = myProj.generateUuid();
+  embedFile.fileRef = xcframeworkFile.fileRef;
+  embedFile.target = myProj.getFirstTarget().uuid;
+  myProj.addToPbxBuildFileSection(embedFile);
+  myProj.addToPbxEmbedFrameworksBuildPhase(embedFile);
 
   console.log('Adding LPMessagingSDKModels.bundle to Resources');
-  myProj.addBuildPhase([], 'PBXCopyFilesBuildPhase', 'Copy Files', myProj.getFirstTarget().uuid)
-  var bundleFile = construct(pbxFileCtor, ['LPMessagingSDK/LPMessagingSDKModels.bundle']);
-  bundleFile.uuid = myProj.generateUuid();
-  bundleFile.fileRef = myProj.generateUuid();
-  bundleFile.target = myProj.getFirstTarget().uuid;
-  myProj.addToPbxBuildFileSection(bundleFile);
-  myProj.addToPbxFileReferenceSection(bundleFile);
-  myProj.addToPbxCopyfilesBuildPhase(bundleFile);
+  myProj.addBuildPhase([], 'PBXCopyFilesBuildPhase', 'Copy Files', myProj.getFirstTarget().uuid);
+  var file = addCopyFile('LPMessagingSDK/LPMessagingSDKModels.bundle');
+  addResourceFile('LPMessagingSDK/LPMessagingSDKModels.bundle', myProj.getFirstTarget().uuid, file.fileRef);
 
-  var bundleFileResource = construct(pbxFileCtor, ['LPMessagingSDK/LPMessagingSDKModels.bundle']);
-  bundleFileResource.uuid = myProj.generateUuid();
-  bundleFileResource.fileRef = bundleFile.fileRef;
-  bundleFileResource.target = myProj.getFirstTarget().uuid;
-  myProj.addToPbxBuildFileSection(bundleFileResource);
-  myProj.addToPbxResourcesBuildPhase(bundleFileResource);
-
+  console.log('Adding LPMessagingSDK.xcframework to Resources');
+  var pluginsGroup = myProj.pbxGroupByName('Frameworks');
+  file = addCopyFile('LPMessagingSDK/LPMessagingSDK.xcframework');
+  addResourceFile('LPMessagingSDK/LPMessagingSDK.xcframework', myProj.getFirstTarget().uuid, file.fileRef);
+  
   var configurations = nonComments(myProj.pbxXCBuildConfigurationSection());
   for (var config in configurations) {
     var buildSettings = configurations[config].buildSettings;
@@ -142,6 +187,8 @@ module.exports = function(context) {
       console.log('Adding SWIFT_VERSION property');
       buildSettings['SWIFT_VERSION'] = "5.0";
     }
+
+    buildSettings['LD_RUNPATH_SEARCH_PATHS'] = ['"$(inherited)"', '@executable_path'];
   }
 
   fs.writeFileSync(projectPath, myProj.writeSync());
