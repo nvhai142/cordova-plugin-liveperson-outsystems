@@ -133,6 +133,8 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 break;
             case LP_REGISTER_DEVICE:
                 mCallbackContext = callbackContext;
+                
+                FCMUtils.handleGCMRegistration(ChatActivity.this);
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                 result.setKeepCallback(true);
@@ -140,6 +142,8 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 break;
             case LP_REMOVE_DEVICE:
                 mCallbackContext = callbackContext;
+
+                FCMUtils.removeGCMRegistration(ChatActivity.this);
 
                 PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                 result.setKeepCallback(true);
