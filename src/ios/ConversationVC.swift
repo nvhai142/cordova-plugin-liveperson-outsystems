@@ -8,6 +8,7 @@
 
 import UIKit
 import LPMessagingSDK
+import LPInfra
 
 import UserNotifications
 
@@ -82,7 +83,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LPMessaging.instance.delegate = self
+        LPMessagingSDK.instance.delegate = self
         self.configUI()
 
         self.addAppObserver()
@@ -218,7 +219,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     
     @IBAction func cancelPressed(sender:Any) {
         if self.conversationQuery != nil {
-            LPMessaging.instance.removeConversation(self.conversationQuery!)
+            LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
         }
         NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
         NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -238,7 +239,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         //     }
         // }
         if self.conversationQuery != nil {
-            LPMessaging.instance.removeConversation(self.conversationQuery!)
+            LPMessagingSDK.instance.removeConversation(self.conversationQuery!)
         }
         NotificationCenter.default.removeObserver(self, name:UIApplication.didEnterBackgroundNotification , object: nil)
         NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -252,12 +253,12 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
 
     @IBAction func optionPressed(sender:Any) {
         if let query = self.conversationQuery {
-            let isChatActive = LPMessaging.instance.checkActiveConversation(query)
+            let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
             
             func showResolveConfirmation(title:String, message:String){
                 let confirmAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 confirmAlert.addAction(UIAlertAction(title: YesMsg, style: .default, handler: { (alertAction) in
-                    LPMessaging.instance.resolveConversation(query)
+                    LPMessagingSDK.instance.resolveConversation(query)
                 }))
                 confirmAlert.addAction(UIAlertAction(title: CancelMsg, style: .cancel, handler: nil))
                 self.present(confirmAlert, animated: true, completion: nil)
@@ -269,7 +270,7 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
                     if isChatActive{
                         showResolveConfirmation(title: self.ClearTitleMsg, message: self.ClearConfirmMsg)
                     }else {
-                       try? LPMessaging.instance.clearHistory(query)
+                       try? LPMessagingSDK.instance.clearHistory(query)
                     }
                 }))
                 clearAlert.addAction(UIAlertAction(title: CancelMsg, style: .cancel, handler: nil))
@@ -350,9 +351,6 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     }
     
     func LPMessagingSDKHasConnectionError(_ error: String?) {
-        DispatchQueue.main.async {
-                self.alert.dismiss(animated: true, completion: nil)
-        }
         self.delegate?.LPMessagingSDKHasConnectionError(error)
     }
     

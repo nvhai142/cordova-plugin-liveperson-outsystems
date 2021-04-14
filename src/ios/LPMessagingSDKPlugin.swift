@@ -8,7 +8,9 @@
 
 import Foundation
 import LPMessagingSDK
-
+import LPInfra
+import LPAMS
+import LPMonitoring
 extension String {
     
     /// Create `Data` from hexadecimal string representation
@@ -78,7 +80,7 @@ extension String {
         let monitoringInitParams = LPMonitoringInitParams(appInstallID: appInstallID)
 
         do {
-            try LPMessaging.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
+            try LPMessagingSDK.instance.initialize(lpAccountNumber, monitoringInitParams: monitoringInitParams)
             
             // only set config if we have a valid argument
             // deprecated - should be done through direct editing of this function  for the relevant options
@@ -178,7 +180,7 @@ extension String {
 //            if(isChatActive){
 //                LPMessagingSDK.instance.resolveConversation(query)
 //            }
-//
+//            
 //        }
         
         conversationScreen?.closeChat()
@@ -216,7 +218,7 @@ extension String {
         var convertedTokenAsData = convertDeviceTokenString(token: pushToken)
         
         // call the SDK method e.g.
-        LPMessaging.instance.registerPushNotifications(token: convertedTokenAsData);
+        LPMessagingSDK.instance.registerPushNotifications(token: convertedTokenAsData);
         
         self.registerLpPusherCallbackCommandDelegate = commandDelegate
         self.registerLpPusherCallbackCommand = command
@@ -280,7 +282,7 @@ extension String {
              
             let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: nil, isViewOnly: false)
             let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authCode, redirectURI: nil)
-            LPMessaging.instance.reconnect(self.conversationQuery!, authenticationParams: authenticationParams);
+            LPMessagingSDK.instance.reconnect(self.conversationQuery!, authenticationParams: authenticationParams);
             
             response = ["eventName":"LPMessagingSDKReconnectWithNewToken","token":"\(authCode)","lpAccountNumber":"\(String(describing: lpAccountNumber))"];
             let jsonString = self.convertDicToJSON(dic: response)
@@ -318,7 +320,7 @@ extension String {
         
         self.set_lp_callbacks(command: command)
 
-        LPMessaging.instance.logout(completion: {
+        LPMessagingSDK.instance.logout(completion: {
             print("@@@ logout success!");
         }) { (error) in
             print("@@@ logout error!");
@@ -458,7 +460,7 @@ extension String {
         let user = LPUser(firstName: firstName, lastName: lastName, nickName: nickName,  uid: uid, profileImageURL: profileImageURL, phoneNumber: phoneNumber, employeeID: employeeID)
         
         do {
-            try LPMessaging.instance.setUserProfile(user, brandID: brandID)
+            try LPMessagingSDK.instance.setUserProfile(user, brandID: brandID)
             
             response = ["eventName":"LPMessagingSDKSetUserProfileSuccess"];
             let jsonString = self.convertDicToJSON(dic: response)
@@ -582,7 +584,7 @@ extension String {
         ]
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
 
-                            self.conversationQuery = LPMessaging.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
+                            self.conversationQuery = LPMessagingSDK.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
                                 conversationVC.conversationQuery = self.conversationQuery
                                 //conversationVC.alert.dismiss(animated: true, completion: nil)
@@ -619,7 +621,7 @@ extension String {
                                 }
                                                             }
                             if authenticationCode == nil {
-                                LPMessaging.instance.showConversation(self.conversationQuery!)
+                                LPMessagingSDK.instance.showConversation(self.conversationQuery!)
                             } else {
                                 //let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
 
@@ -646,7 +648,7 @@ extension String {
                                 
                                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false)
                                 let authenticationParams = LPAuthenticationParams(authenticationCode: nil, jwt: authenticationCode, redirectURI: nil)
-                                LPMessaging.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
+                                LPMessagingSDK.instance.showConversation(conversationViewParams, authenticationParams: authenticationParams)
                             }
                        // }
             }
@@ -660,7 +662,7 @@ extension String {
         
         let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes)
         let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
-        LPMessaging.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
+        LPMonitoringAPI.instance.getEngagement(identities: [identity], monitoringParams: monitoringParams, completion: { (getEngagementResponse) in
             let campaignID = getEngagementResponse.engagementDetails?.first?.campaignId
             let engagementID = getEngagementResponse.engagementDetails?.first?.engagementId
             let contextID = getEngagementResponse.engagementDetails?.first?.contextId
@@ -678,7 +680,7 @@ extension String {
     private func sendSDEwith(entryPoints: [String], engagementAttributes: [[String:Any]], pageID:String?, success:(()->())?) {
         let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes, pageId: pageID)
         let identity = LPMonitoringIdentity(consumerID: nil, issuer: nil)
-        LPMessaging.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
+        LPMonitoringAPI.instance.sendSDE(identities: [identity], monitoringParams: monitoringParams, completion: { (sendSdeResponse) in
             success?()
         }) { (error) in
             success?()
@@ -905,5 +907,4 @@ extension String {
     }
     
 }
-
 

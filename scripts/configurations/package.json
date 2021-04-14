@@ -1,6 +1,5 @@
 {
     "dependencies": {
-        "adm-zip": "0.4.11",
-        "sync-request": "6.1.0"
+        "adm-zip": "0.4.11"
     }
 }
