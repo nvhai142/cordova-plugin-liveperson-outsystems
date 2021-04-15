@@ -263,21 +263,18 @@ extension String {
     @objc(remove_device:)
     func remove_device(command:CDVInvokedUrlCommand) {
         // API passes in token via args object
-        guard let pushToken = command.arguments[1] as? String else {
-            print("Can't register pusher without device pushToken ")
-            return
-        }
+        /
 
         var convertedTokenAsData = convertDeviceTokenString(token: pushToken)
         
         // call the SDK method e.g.
-        LPMessaging.instance.registerPushNotifications(token: convertedTokenAsData);
+       // LPMessaging.instance.registerPushNotifications(token: convertedTokenAsData);
         
         self.registerLpPusherCallbackCommandDelegate = commandDelegate
         self.registerLpPusherCallbackCommand = command
         var response:[String:String];
         
-        response = ["eventName":"LPMessagingSDKRegisterLpPusher","deviceToken":"\(String(describing: pushToken))"];
+        response = ["eventName":"LPMessagingSDKRemoveDevice"];
         
         let jsonString = self.convertDicToJSON(dic: response)
         // return NO_RESULT for now and then use this delegate in all async callbacks for other events.
