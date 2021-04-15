@@ -172,15 +172,7 @@ extension String {
     
     @objc(close_conversation_screen:)
     func close_conversation_screen(command:CDVInvokedUrlCommand) {
-        // self.globalCallbackCommand = command
-//        if let query = self.conversationQuery {
-//            let isChatActive = LPMessagingSDK.instance.checkActiveConversation(query)
-//            if(isChatActive){
-//                LPMessagingSDK.instance.resolveConversation(query)
-//            }
-//
-//        }
-        
+
         conversationScreen?.closeChat()
 
         var response:[String:String];
@@ -197,16 +189,79 @@ extension String {
 
         pluginResult?.setKeepCallbackAs(true)
         self.callBackCommandDelegate?.send(pluginResult, callbackId: self.callBackCommand?.callbackId)
-        // var response:[String:String];
-        // response = ["eventName":"LPMessagingSDKCloseConversationScreen"];
-        // let jsonString = self.convertDicToJSON(dic: response)
-        // let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:jsonString)
-        // pluginResult?.setKeepCallbackAs(true)
-        // self.globalCallbackCommand?.send(pluginResult, callbackId: self.globalCallbackCommand?.callbackId)
+
     }
     
     @objc(register_pusher:)
     func register_pusher(command:CDVInvokedUrlCommand) {
+        // API passes in token via args object
+        guard let pushToken = command.arguments[1] as? String else {
+            print("Can't register pusher without device pushToken ")
+            return
+        }
+
+        var convertedTokenAsData = convertDeviceTokenString(token: pushToken)
+        
+        // call the SDK method e.g.
+        LPMessaging.instance.registerPushNotifications(token: convertedTokenAsData);
+        
+        self.registerLpPusherCallbackCommandDelegate = commandDelegate
+        self.registerLpPusherCallbackCommand = command
+        var response:[String:String];
+        
+        response = ["eventName":"LPMessagingSDKRegisterLpPusher","deviceToken":"\(String(describing: pushToken))"];
+        
+        let jsonString = self.convertDicToJSON(dic: response)
+        // return NO_RESULT for now and then use this delegate in all async callbacks for other events.
+        let pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAs: jsonString
+        )
+        
+        pluginResult?.setKeepCallbackAs(true)
+        
+        self.registerLpPusherCallbackCommandDelegate!.send(
+            pluginResult,
+            callbackId: self.registerLpPusherCallbackCommand!.callbackId
+        )
+        
+    }
+    @objc(register_device:)
+    func register_device(command:CDVInvokedUrlCommand) {
+        // API passes in token via args object
+        guard let pushToken = command.arguments[1] as? String else {
+            print("Can't register pusher without device pushToken ")
+            return
+        }
+
+        var convertedTokenAsData = convertDeviceTokenString(token: pushToken)
+        
+        // call the SDK method e.g.
+        LPMessaging.instance.registerPushNotifications(token: convertedTokenAsData);
+        
+        self.registerLpPusherCallbackCommandDelegate = commandDelegate
+        self.registerLpPusherCallbackCommand = command
+        var response:[String:String];
+        
+        response = ["eventName":"LPMessagingSDKRegisterLpPusher","deviceToken":"\(String(describing: pushToken))"];
+        
+        let jsonString = self.convertDicToJSON(dic: response)
+        // return NO_RESULT for now and then use this delegate in all async callbacks for other events.
+        let pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAs: jsonString
+        )
+        
+        pluginResult?.setKeepCallbackAs(true)
+        
+        self.registerLpPusherCallbackCommandDelegate!.send(
+            pluginResult,
+            callbackId: self.registerLpPusherCallbackCommand!.callbackId
+        )
+        
+    }
+    @objc(remove_device:)
+    func remove_device(command:CDVInvokedUrlCommand) {
         // API passes in token via args object
         guard let pushToken = command.arguments[1] as? String else {
             print("Can't register pusher without device pushToken ")

@@ -135,7 +135,13 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 mCallbackContext = callbackContext;
                 
                // FCMUtils.handleGCMRegistration(ChatActivity.this);
+               JSONObject json = new JSONObject();
+               try {
+                   json.put("eventName","LPMessagingSDKRegisterDevice");
 
+               } catch (JSONException e) {
+                   
+               }
                 PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                 result.setKeepCallback(true);
                 mCallbackContext.sendPluginResult(result);
@@ -144,7 +150,13 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                 mCallbackContext = callbackContext;
 
                // FCMUtils.removeGCMRegistration(ChatActivity.this);
+               JSONObject json = new JSONObject();
+               try {
+                   json.put("eventName","LPMessagingSDKRemoveDevice");
 
+               } catch (JSONException e) {
+                   
+               }
                 PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                 result.setKeepCallback(true);
                 mCallbackContext.sendPluginResult(result);
