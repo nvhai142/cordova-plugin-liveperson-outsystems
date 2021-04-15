@@ -142,9 +142,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                } catch (JSONException e) {
                    
                }
-                PluginResult result = new PluginResult(PluginResult.Status.OK, jsonRegister.toString());
-                result.setKeepCallback(true);
-                mCallbackContext.sendPluginResult(result);
+                PluginResult resultRegister = new PluginResult(PluginResult.Status.OK, jsonRegister.toString());
+                resultRegister.setKeepCallback(true);
+                mCallbackContext.sendPluginResult(resultRegister);
                 break;
             case LP_REMOVE_DEVICE:
                 mCallbackContext = callbackContext;
@@ -157,9 +157,9 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                } catch (JSONException e) {
                    
                }
-                PluginResult result = new PluginResult(PluginResult.Status.OK, jsonRemove.toString());
-                result.setKeepCallback(true);
-                mCallbackContext.sendPluginResult(result);
+                PluginResult resultRemove = new PluginResult(PluginResult.Status.OK, jsonRemove.toString());
+                resultRemove.setKeepCallback(true);
+                mCallbackContext.sendPluginResult(resultRemove);
                 break;
             case CLEAR_HISTORY_AND_LOGOUT:
                 mCallbackContext = callbackContext;
