@@ -149,7 +149,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case LP_REMOVE_DEVICE:
                 mCallbackContext = callbackContext;
 
-                FCMUtils.removeGCMRegistration(ChatActivity.this);
+                //FCMUtils.removeGCMRegistration(ChatActivity.this);
                 JSONObject jsonRemove = new JSONObject();
                 try {
                     jsonRemove.put("eventName","LPMessagingSDKRemoveDevice");
