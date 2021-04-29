@@ -134,7 +134,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             case LP_REGISTER_DEVICE:
                 mCallbackContext = callbackContext;
                 
-            FCMUtils.handleGCMRegistration(ChatActivity.fa.getApplicationContext());
+                FCMUtils.handleGCMRegistration(ChatActivity.fa.getApplicationContext());
                JSONObject jsonRegister = new JSONObject();
                try {
                 jsonRegister.put("eventName","LPMessagingSDKRegisterDevice");
