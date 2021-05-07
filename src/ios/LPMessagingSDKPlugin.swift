@@ -567,6 +567,7 @@ extension String {
                 "type": "ctmrinfo"
             ]
         ]
+            self.counter = 2;
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
 
                             self.conversationQuery = LPMessaging.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
@@ -642,6 +643,7 @@ extension String {
         
     }
     
+     var counter = 2;
     private func getEngagement(entryPoints: [String], engagementAttributes: [[String:Any]], success:((LPCampaignInfo?, String?)->())?) {
         //resetting pageId and campaignInfo
         
@@ -657,7 +659,17 @@ extension String {
             let pageID = getEngagementResponse.pageId
             success?(campaignInfo, pageID)
         }) { (error) in
-            success?(nil,nil)
+            if (self.counter > 0) {
+                self.counter -= 1
+                self.getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, success: success)
+            }else {
+                self.conversationScreen?.alert.dismiss(animated: true, completion: nil)
+                let alertFuck = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
+                alertFuck.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+                    self.conversationScreen?.closeChat()
+                }))
+                self.conversationScreen?.present(alertFuck, animated: true, completion: nil)
+            }
         }
     }
     
