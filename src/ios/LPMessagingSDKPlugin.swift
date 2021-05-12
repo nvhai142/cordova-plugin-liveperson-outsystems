@@ -664,11 +664,11 @@ extension String {
                 self.getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, success: success)
             }else {
                 self.conversationScreen?.alert.dismiss(animated: true, completion: nil)
-                let alertFuck = UIAlertController(title: "Chat Unassigned", message: "Chat not available for now! please try again later.", preferredStyle: .alert)
-                alertFuck.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+                let alertClosed = UIAlertController(title: "Chat Unavailable", message: "Chat not available right now! please try again later.", preferredStyle: .alert)
+                alertClosed.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
                     self.conversationScreen?.closeChat()
                 }))
-                self.conversationScreen?.present(alertFuck, animated: true, completion: nil)
+                self.conversationScreen?.present(alertClosed, animated: true, completion: nil)
             }
         }
     }
