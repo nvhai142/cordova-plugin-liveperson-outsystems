@@ -415,7 +415,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             counter -=1;
             initEngagementAttributes();
         }else{
-
+            mDialogHelper.alert("Chat Unavailable", "Chat not available right now! please try again later.", dialog -> finishChatScreen());
         }
     }
     private boolean isValidState() {
