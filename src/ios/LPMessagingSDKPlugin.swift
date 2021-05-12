@@ -629,7 +629,16 @@ extension String {
                                     Button2Value = btn2Value
                                 }
                                 
+                                // let options = [
+                                //     LPWelcomeMessageOption(value: btn1Value, displayName: Button1Msg),
+                                //     LPWelcomeMessageOption(value: btn2Value, displayName: btn2Msg)
+                                // ]
 
+                                // do {
+                                //     try welcomeMessageParam.set(options: options)
+                                // } catch {
+                                //     print(error.localizedDescription)
+                                // }   
                                 
                                 
                                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false, welcomeMessage: welcomeMessageParam)
