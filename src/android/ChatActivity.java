@@ -98,6 +98,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     private long startTime = 15 * 60 * 1000; // 15 MINS IDLE TIME
     private final long interval = 1 * 1000;
     private CountDownTimer countDownTimer;
+    private int counter = 2;
 
     public static String getBrandID(){
         return BrandID;
@@ -262,6 +263,17 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             Log.d(TAG, "initFragment. publicKey = " + campaignInfo);
 
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
+
+            // List<MessageOption> optionItems = new ArrayList<>();
+            // optionItems.add(new MessageOption(ButtonOpt1Msg, ButtonOpt1Value));
+            // optionItems.add(new MessageOption(ButtonOpt2Msg, ButtonOpt2Value));
+            // try {
+            //     lpWelcomeMessage.setMessageOptions(optionItems);
+            // } catch (Exception e) {
+            //     e.printStackTrace();
+            // }
+            // lpWelcomeMessage.setNumberOfItemsPerRow(2);
+
             
             lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
             conversationViewParams.setLpWelcomeMessage(lpWelcomeMessage);
@@ -320,6 +332,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            counter = 2;
                             initEngagementAttributes();
                         }
                     });
@@ -383,21 +396,28 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
                                 currentEngagementContextId, currentSessionId, currentVisitorId);
                         initFragment(campaign);
                     } catch (Exception  e){
-                        initFragment(null);
+                        retriesEngagement();
                     }
                 } else {
                     // Log Error
-                    initFragment(null);
+                    retriesEngagement();
                 }
             }
 
             @Override
             public void onError(MonitoringErrorType monitoringErrorType, Exception e) {
-                initFragment(null);
+                retriesEngagement();
             }
         });
     }
+    public void retriesEngagement(){
+        if (counter>0){
+            counter -=1;
+            initEngagementAttributes();
+        }else{
 
+        }
+    }
     private boolean isValidState() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             return !isFinishing() && !isDestroyed();
