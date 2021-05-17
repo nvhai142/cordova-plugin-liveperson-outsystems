@@ -735,22 +735,29 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
     }   
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
+        Log.d("", "Han_Home_Acyive: ");
         if(menu !=null) {
-
-            LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+            runOnUiThread(new Runnable() {
                 @Override
-                public void onSuccess(Boolean aBoolean) {
-                    if (aBoolean) {
-                        menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), true);
-                    } else {
-                        menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), false);
-                    }
-                }
+                public void run() {
+                    LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+                        @Override
+                        public void onSuccess(Boolean aBoolean) {
+                            Log.d("", "Han_Home_Acyive: " + aBoolean);
+                            if (aBoolean) {
+                                menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), true);
+                            } else {
+                                menu.setGroupEnabled(getResources().getIdentifier("grp_urgent", "id", getPackageName()), false);
+                            }
+                        }
 
-                @Override
-                public void onError(Exception e) {
+                        @Override
+                        public void onError(Exception e) {
+                        }
+                    });
                 }
             });
+
         }
 
         return super.onMenuOpened(featureId, menu);
