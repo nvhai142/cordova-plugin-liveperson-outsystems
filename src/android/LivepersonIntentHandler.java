@@ -57,7 +57,7 @@ public class LivepersonIntentHandler {
                 .registerReceiver(mLivePersonReceiver, LivePersonIntents.getIntentFilterForAllEvents());
     }
 
-    private void checkStatus() {
+    public void checkStatus() {
         LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
             @Override
             public void onSuccess(Boolean aBoolean) {
