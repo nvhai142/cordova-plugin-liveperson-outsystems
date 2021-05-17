@@ -733,5 +733,27 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         countDownTimer.cancel();            
         countDownTimer.start();
     }   
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if(menu !=null) {
+
+            LivePerson.checkActiveConversation(new ICallback<Boolean, Exception>() {
+                @Override
+                public void onSuccess(Boolean aBoolean) {
+                    if (aBoolean) {
+                        menu.setGroupEnabled(R.id.grp_urgent, true);
+                    } else {
+                        menu.setGroupEnabled(R.id.grp_urgent, false);
+                    }
+                }
+
+                @Override
+                public void onError(Exception e) {
+                }
+            });
+        }
+
+        return super.onMenuOpened(featureId, menu);
+    }
     
 }
