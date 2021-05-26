@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -20,6 +21,7 @@ public class MyDialogBuilder {
     private DialogInterface.OnDismissListener dismissListener;
     private boolean autoDismiss = true, cancelable = true, negativeButtonTextAllCaps = true;
     private boolean single = false;
+    private boolean buttonTemplate = false;
     String package_name;
 
     public MyDialogBuilder(Context context, String title, String message) {
@@ -80,6 +82,11 @@ public class MyDialogBuilder {
         return this;
     }
 
+    public MyDialogBuilder buttonTemplate(boolean val) {
+        this.buttonTemplate = val;
+        return this;
+    }
+
     public MyDialogBuilder setNegativeButtonTextAllCaps(boolean val) {
         this.negativeButtonTextAllCaps = val;
         return this;
@@ -98,6 +105,17 @@ public class MyDialogBuilder {
         TextView messageView =customDialog.findViewById( context.getResources().getIdentifier("message", "id", package_name));
         Button positiveBtn = customDialog.findViewById(context.getResources().getIdentifier("positive_btn", "id", package_name));
         Button negativeBtn = customDialog.findViewById(context.getResources().getIdentifier("negative_btn", "id", package_name));
+        LinearLayout linearLayout = customDialog.findViewById(context.getResources().getIdentifier("button_wrapper", "id", package_name));
+        View line = customDialog.findViewById(context.getResources().getIdentifier("line", "id", package_name));
+
+        //button_wrapper
+        if(!buttonTemplate){
+            linearLayout.setVisibility(View.VISIBLE);
+            line.setVisibility(View.VISIBLE);
+        } else {
+            linearLayout.setVisibility(View.GONE);
+            line.setVisibility(View.GONE);
+        }
         if (TextUtils.isEmpty(title)) {
             titleView.setVisibility(View.GONE);
         } else {

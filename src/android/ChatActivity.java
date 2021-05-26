@@ -78,7 +78,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
     private Menu mMenu;
     String package_name ;
-    private DialogHelper mDialogHelper;
+    public DialogHelper mDialogHelper;
 
     private final SwipeBackLayout.DragEdge DEFAULT_DRAG_EDGE = SwipeBackLayout.DragEdge.LEFT;
 
@@ -176,7 +176,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         countDownTimer.start();
     }
     public void showProgressDialog() {
-        mDialogHelper.showProgress();
+        mDialogHelper.alertWithoutOK("Please wait...", "Please wait while we connect you to our next available agent. Thanks you.");
     }
 
     public void dismissProgressDialog() { //CreateNewConciergeCase.View::
@@ -191,7 +191,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
        // setUserProfile();
     }
 
+    @Override
+    public void closeAlert() {
+        if (mDialogHelper != null){
+            Log.d(TAG, "closeAlert: ");
+            mDialogHelper.close();
+        }
 
+    }
     private void setUserProfile() {
         Bundle extras = getIntent().getExtras();
 

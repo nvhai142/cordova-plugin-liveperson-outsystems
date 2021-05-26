@@ -5,11 +5,13 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 
 public class DialogHelper {
 
     private Activity activity;
     private ProgressDialog progressDialog;
+    private Dialog dialog;
 
     public DialogHelper(Activity activity) {
         this.activity = activity;
@@ -26,6 +28,15 @@ public class DialogHelper {
                 .single(true)
                 .build();
         dialog.show();
+    }
+    public void alertWithoutOK(String title, String message) {
+        Dialog dialog = new MyDialogBuilder(activity, title, message)
+                .single(false)
+                .buttonTemplate(true)
+                .build();
+        this.dialog = dialog;
+        dialog.show();
+
     }
 
     public void action(String title, String message, String positiveText, String negativeText,
@@ -73,5 +84,10 @@ public class DialogHelper {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
+    }
+
+    public void close(){
+        this.dialog.dismiss();
+
     }
 }

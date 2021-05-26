@@ -3,7 +3,7 @@ package com.liveperson.plugin;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.liveperson.api.LivePersonIntents;
@@ -244,7 +244,11 @@ public class LivepersonIntentHandler {
     }
 
     private void onConnectionChanged(boolean isConnected) {
-        showToast("onConnectionChanged " + isConnected);
+        Log.d(TAG, "onConnectionChanged: "+ isConnected);
+        if(isConnected){
+            mChatActivityCallback.closeAlert();
+        }
+
     }
 
     private void onConversationResolved(LPConversationData convData) {
@@ -292,6 +296,8 @@ public class LivepersonIntentHandler {
         void setAgentName(String agentName);
 
         void closeOptionMenu();
+
+        void closeAlert();
     }
 
 }
