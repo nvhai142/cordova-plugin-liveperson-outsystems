@@ -94,9 +94,10 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         //loadingIndicator.color = .gray
         loadingIndicator.startAnimating();
         
-        alert.message = LoadingMsg
+        alert.message = "Please wait while we connect you to our next available agent. Thanks you."
+        alert.title = "Please wait..."
 
-        alert.view.addSubview(loadingIndicator)
+        //alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
 
         self.resetIdleTimer()
