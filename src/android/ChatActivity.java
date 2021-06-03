@@ -176,7 +176,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         countDownTimer.start();
     }
     public void showProgressDialog() {
-        mDialogHelper.alertWithoutOK("Please wait...", "Please wait while we connect you to our next available agent. Thanks you.");
+        Bundle extras = getIntent().getExtras();
+        String WaitTitle = "";
+        String WaitMsg = "";
+        if(extras != null) {
+            WaitTitle= extras.getString("EXTRA_ButtonOpt1Msg");
+            WaitMsg= extras.getString("EXTRA_ButtonOpt1Value");
+        }    
+        mDialogHelper.alertWithoutOK(WaitTitle, WaitMsg);
     }
 
     public void dismissProgressDialog() { //CreateNewConciergeCase.View::
@@ -422,7 +429,14 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             counter -=1;
             initEngagementAttributes();
         }else{
-            mDialogHelper.alert("Chat Unavailable", "Chat not available right now! please try again later.", dialog -> finishChatScreen());
+            Bundle extras = getIntent().getExtras();
+            String UnTitle = "";
+            String UnMsg = "";
+            if(extras != null) {
+                UnTitle= extras.getString("EXTRA_ButtonOpt2Msg");
+                UnMsg= extras.getString("EXTRA_ButtonOpt2Value");
+            }
+            mDialogHelper.alert(UnTitle, UnMsg, dialog -> finishChatScreen());
         }
     }
     private boolean isValidState() {
