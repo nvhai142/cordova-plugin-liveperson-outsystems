@@ -519,6 +519,12 @@ extension String {
                 if let loads = LoadingMsg{
                     conversationVCs.LoadingMsg = loads
                 }
+                if let waitTitle = ButtonOpt1Msg{
+                    conversationVCs.WaitingTitle = waitTitle
+                }
+                if let waitMsg = ButtonOpt1Value{
+                    conversationVCs.WaitingMsg = waitMsg
+                }
             }
 
             self.viewController.present(chatVC, animated: true, completion: nil)
@@ -568,7 +574,22 @@ extension String {
             ]
         ]
             self.counter = 2;
-            getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes) { (campInfo, pageID) in
+            
+            var UnssTitle = ""
+            var UnMsg = ""
+            var UnOk = ""
+
+            if let btn1Value = YesMsg {
+                UnOk = btn1Value
+            }
+            if let btn2Msg = ButtonOpt2Msg {
+                UnssTitle = btn2Msg
+            }
+            if let btn2Value = ButtonOpt2Value {
+                UnMsg = btn2Value
+            }
+            
+            getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, UnassignedTitle: UnssTitle, UnassignedOk: UnOk, UnassignedMsg: UnMsg) { (campInfo, pageID) in
 
                             self.conversationQuery = LPMessaging.instance.getConversationBrandQuery(brandID, campaignInfo: campInfo)
                             if let conversationVC = chatVC.viewControllers.first as? ConversationVC {
@@ -611,23 +632,7 @@ extension String {
                             } else {
                                 let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
 
-                                var Button1Msg = ""
-                                var Button1Value = ""
-                                var Button2Msg = ""
-                                var Button2Value = ""
-
-                                if let btn1Msg = ButtonOpt1Msg {
-                                    Button1Msg = btn1Msg
-                                }
-                                if let btn1Value = ButtonOpt1Value {
-                                    Button1Value = btn1Value
-                                }
-                                if let btn2Msg = ButtonOpt2Msg {
-                                    Button2Msg = btn2Msg
-                                }
-                                if let btn2Value = ButtonOpt2Value {
-                                    Button2Value = btn2Value
-                                }
+                                
                                 
                                 // let options = [
                                 //     LPWelcomeMessageOption(value: btn1Value, displayName: Button1Msg),
@@ -653,7 +658,7 @@ extension String {
     }
     
      var counter = 2;
-    private func getEngagement(entryPoints: [String], engagementAttributes: [[String:Any]], success:((LPCampaignInfo?, String?)->())?) {
+    private func getEngagement(entryPoints: [String], engagementAttributes: [[String:Any]], UnassignedTitle: [String], UnassignedOk: [String], UnassignedMsg: [String], success:((LPCampaignInfo?, String?)->())?) {
         //resetting pageId and campaignInfo
         
         let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes)
@@ -673,8 +678,8 @@ extension String {
                 self.getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, success: success)
             }else {
                 self.conversationScreen?.alert.dismiss(animated: true, completion: nil)
-                let alertClosed = UIAlertController(title: "Chat Unavailable", message: "Chat not available right now! please try again later.", preferredStyle: .alert)
-                alertClosed.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+                let alertClosed = UIAlertController(title: UnassignedTitle, message: UnassignedMsg, preferredStyle: .alert)
+                alertClosed.addAction(UIAlertAction(title: UnassignedOk, style: .default, handler: { (alertAction) in
                     self.conversationScreen?.closeChat()
                 }))
                 self.conversationScreen?.present(alertClosed, animated: true, completion: nil)

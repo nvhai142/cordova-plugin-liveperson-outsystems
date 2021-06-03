@@ -32,6 +32,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
     var ChatTitleHeader:String = "Visa Concierge"
     var LanguageAPP:String = "en-UK"
     var LoadingMsg:String = "Loading..."
+    var WaitingTitle:String = "Please wait..."
+    var WaitingMsg:String = "Please wait while we connect you to our next available agent. Thanks you."
 
     var backgroundDate:NSDate?
     @objc func appDidEnterBackground() {
@@ -94,8 +96,8 @@ class ConversationVC: UIViewController, LPMessagingSDKdelegate {
         //loadingIndicator.color = .gray
         loadingIndicator.startAnimating();
         
-        alert.message = "Please wait while we connect you to our next available agent. Thanks you."
-        alert.title = "Please wait..."
+        alert.message = self.WaitingMsg
+        alert.title = self.WaitingTitle
 
         //alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
