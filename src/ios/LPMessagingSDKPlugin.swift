@@ -658,7 +658,7 @@ extension String {
     }
     
      var counter = 2;
-    private func getEngagement(entryPoints: [String], engagementAttributes: [[String:Any]], UnassignedTitle: [String], UnassignedOk: [String], UnassignedMsg: [String], success:((LPCampaignInfo?, String?)->())?) {
+    private func getEngagement(entryPoints: [String], engagementAttributes: [[String:Any]], UnassignedTitle: String, UnassignedOk: String, UnassignedMsg: String, success:((LPCampaignInfo?, String?)->())?) {
         //resetting pageId and campaignInfo
         
         let monitoringParams = LPMonitoringParams(entryPoints: entryPoints, engagementAttributes: engagementAttributes)
@@ -675,7 +675,7 @@ extension String {
         }) { (error) in
             if (self.counter > 0) {
                 self.counter -= 1
-                self.getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, success: success)
+                self.getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, UnassignedTitle: UnassignedTitle, UnassignedOk: UnassignedOk, UnassignedMsg: UnassignedMsg, success: success)
             }else {
                 self.conversationScreen?.alert.dismiss(animated: true, completion: nil)
                 let alertClosed = UIAlertController(title: UnassignedTitle, message: UnassignedMsg, preferredStyle: .alert)
