@@ -180,8 +180,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
         String WaitTitle = "";
         String WaitMsg = "";
         if(extras != null) {
-            WaitTitle= extras.getString("EXTRA_ButtonOpt1Msg");
-            WaitMsg= extras.getString("EXTRA_ButtonOpt1Value");
+            WaitTitle= extras.getString("EXTRA_WaitingTitle");
+            WaitMsg= extras.getString("EXTRA_WaitingMsg");
         }    
         mDialogHelper.alertWithoutOK(WaitTitle, WaitMsg);
     }
@@ -255,19 +255,19 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             String authCode = "";
             String publicKey = "";
             String WelcomeMsg = "How can I help you today?";
-            String ButtonOpt1Msg = "";
-            String ButtonOpt1Value = "";
-            String ButtonOpt2Msg = "";
-            String ButtonOpt2Value = "";
+            String QuickOpt1Title = "";
+            String QuickOpt1Msg = "";
+            String QuickOpt2Title = "";
+            String QuickOpt2Msg = "";
 
             Bundle extras = getIntent().getExtras();
             if(extras != null) {
                 authCode= extras.getString("EXTRA_AUTHENTICATE");
                 WelcomeMsg= extras.getString("EXTRA_WelcomeMsg");
-                ButtonOpt1Msg= extras.getString("EXTRA_ButtonOpt1Msg");
-                ButtonOpt1Value= extras.getString("EXTRA_ButtonOpt1Value");
-                ButtonOpt2Msg= extras.getString("EXTRA_ButtonOpt2Msg");
-                ButtonOpt2Value= extras.getString("EXTRA_ButtonOpt2Value");
+                QuickOpt1Title= extras.getString("EXTRA_QuickOpt1Title");
+                QuickOpt1Msg= extras.getString("EXTRA_QuickOpt1Msg");
+                QuickOpt2Title= extras.getString("EXTRA_QuickOpt2Title");
+                QuickOpt2Msg= extras.getString("EXTRA_QuickOpt2Msg");
             }
             Log.d(TAG, "initFragment. authCode = " + authCode);
             LPAuthenticationParams authParams = new LPAuthenticationParams();
@@ -278,15 +278,15 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
 
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
 
-            // List<MessageOption> optionItems = new ArrayList<>();
-            // optionItems.add(new MessageOption(ButtonOpt1Msg, ButtonOpt1Value));
-            // optionItems.add(new MessageOption(ButtonOpt2Msg, ButtonOpt2Value));
-            // try {
-            //     lpWelcomeMessage.setMessageOptions(optionItems);
-            // } catch (Exception e) {
-            //     e.printStackTrace();
-            // }
-            // lpWelcomeMessage.setNumberOfItemsPerRow(2);
+            List<MessageOption> optionItems = new ArrayList<>();
+            optionItems.add(new MessageOption(QuickOpt1Title, QuickOpt1Msg));
+            optionItems.add(new MessageOption(QuickOpt2Title, QuickOpt2Msg));
+            try {
+                lpWelcomeMessage.setMessageOptions(optionItems);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            lpWelcomeMessage.setNumberOfItemsPerRow(2);
 
             
             lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
@@ -433,8 +433,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             String UnTitle = "";
             String UnMsg = "";
             if(extras != null) {
-                UnTitle= extras.getString("EXTRA_ButtonOpt2Msg");
-                UnMsg= extras.getString("EXTRA_ButtonOpt2Value");
+                UnTitle= extras.getString("EXTRA_UnassignedTitle");
+                UnMsg= extras.getString("EXTRA_UnassignedMsg");
             }
             mDialogHelper.alert(UnTitle, UnMsg, dialog -> finishChatScreen());
         }

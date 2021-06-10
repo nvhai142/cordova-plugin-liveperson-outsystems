@@ -257,14 +257,19 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     String ClearMsg = args.getString(34);
                     String MenuMsg = args.getString(35);
 
-                    String ButtonOpt1Msg = args.getString(36);
-                    String ButtonOpt1Value = args.getString(37);
-                    String ButtonOpt2Msg = args.getString(38);
-                    String ButtonOpt2Value = args.getString(39);
+                    String WaitingTitle = args.getString(36);
+                    String WaitingMsg = args.getString(37);
+                    String UnassignedTitle = args.getString(38);
+                    String UnassignedMsg = args.getString(39);
+
+                    String QuickOpt1Title = args.getString(42);
+                    String QuickOpt1Msg = args.getString(43);
+                    String QuickOpt2Title = args.getString(44);
+                    String QuickOpt2Msg = args.getString(45);
 
                     String languageApp = args.getString(40);
 
-                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg,ButtonOpt1Msg,ButtonOpt1Value,ButtonOpt2Msg,ButtonOpt2Value,languageApp);
+                    startAuthenticatedConversation(appIDs,jwt,partyID,engagement,entrypoint,AppIdentifier,WelcomeMsg,ChatTitleHeader,ClearConversationMsg,ClearConfirmMsg,ChooseMsg,RevolvedTileMsg,ResolvedConfirmMsg,ClearTitleMsg,YesMsg,CancelMsg,ClearMsg,MenuMsg,WaitingTitle,WaitingMsg,UnassignedTitle,UnassignedMsg,languageApp,QuickOpt1Title,QuickOpt1Msg,QuickOpt2Title,QuickOpt2Msg);
                 } else {
                     Log.d(TAG, "Messaging SDK: Start conversation");
                     String partyID = args.getString(2);
@@ -432,7 +437,7 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
             });
         }
 
-    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg, final String ButtonOpt1Msg, final String ButtonOpt1Value, final String ButtonOpt2Msg, final String ButtonOpt2Value, final String languageApp) {
+    private void startAuthenticatedConversation(final String appID, final String token, final String partyID, final String engagement, final String entrypoint, final String AppIdentifier, final String WelcomeMsg, final String ChatTitleHeader, final String ClearConversationMsg, final String ClearConfirmMsg, final String ChooseMsg, final String RevolvedTileMsg, final String ResolvedConfirmMsg, final String ClearTitleMsg, final String YesMsg, final String CancelMsg, final String ClearMsg, final String MenuMsg, final String WaitingTitle, final String WaitingMsg, final String UnassignedTitle, final String UnassignedMsg, final String languageApp, final String QuickOpt1Title, final String QuickOpt1Msg, final String QuickOpt2Title, final String QuickOpt2Msg) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -470,10 +475,15 @@ public class LPMessagingSDKPlugin extends CordovaPlugin {
                     intent.putExtra("EXTRA_ClearMsg", ClearMsg);
                     intent.putExtra("EXTRA_MenuMsg", MenuMsg);
 
-                    intent.putExtra("EXTRA_ButtonOpt1Msg", ButtonOpt1Msg);
-                    intent.putExtra("EXTRA_ButtonOpt1Value", ButtonOpt1Value);
-                    intent.putExtra("EXTRA_ButtonOpt2Msg", ButtonOpt2Msg);
-                    intent.putExtra("EXTRA_ButtonOpt2Value", ButtonOpt2Value);
+                    intent.putExtra("EXTRA_WaitingTitle", WaitingTitle);
+                    intent.putExtra("EXTRA_WaitingMsg", WaitingMsg);
+                    intent.putExtra("EXTRA_UnassignedTitle", UnassignedTitle);
+                    intent.putExtra("EXTRA_UnassignedMsg", UnassignedMsg);
+
+                    intent.putExtra("EXTRA_QuickOpt1Title", QuickOpt1Title);
+                    intent.putExtra("EXTRA_QuickOpt1Msg", QuickOpt1Msg);
+                    intent.putExtra("EXTRA_QuickOpt2Title", QuickOpt2Title);
+                    intent.putExtra("EXTRA_QuickOpt2Msg", QuickOpt2Msg);
                     
                     intent.putExtra("EXTRA_PROFILE", uProfile.toString());
                     cordova.getActivity().startActivity(intent);
