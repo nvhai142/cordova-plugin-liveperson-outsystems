@@ -279,10 +279,8 @@ public class ChatActivity extends AppCompatActivity implements SwipeBackLayout.S
             LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(WelcomeMsg);
 
             List<MessageOption> optionItems = new ArrayList<>();
-            // optionItems.add(new MessageOption(QuickOpt1Title, QuickOpt1Msg));
-            // optionItems.add(new MessageOption(QuickOpt2Title, QuickOpt2Msg));
-            optionItems.add(new MessageOption("bill", "bill"));
-            optionItems.add(new MessageOption("sales", "sales"));
+            optionItems.add(new MessageOption(QuickOpt1Title, QuickOpt1Msg));
+            optionItems.add(new MessageOption(QuickOpt2Title, QuickOpt2Msg));
             try {
                 lpWelcomeMessage.setMessageOptions(optionItems);
             } catch (Exception e) {
