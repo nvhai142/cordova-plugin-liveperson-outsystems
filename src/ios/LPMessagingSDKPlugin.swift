@@ -373,15 +373,20 @@ extension String {
         let MenuMsg = command.arguments[35] as? String ?? "Menu"
         let ChatTitleHeader = command.arguments[25] as? String ?? "Visa Concierge"
 
-        let ButtonOpt1Msg = command.arguments[36] as? String ?? "Card Billing / Loyalty"
-        let ButtonOpt1Value = command.arguments[37] as? String ?? "Card Billing / Loyalty"
-        let ButtonOpt2Msg = command.arguments[38] as? String ?? "Visa Concierge"
-        let ButtonOpt2Value = command.arguments[39] as? String ?? "Visa Concierge"
+        let WaitingTitle = command.arguments[36] as? String ?? "Please wait..."
+        let WaitingMsg = command.arguments[37] as? String ?? "Please wait while we connect you to our next available agent. Thanks you."
+        let UnassignedTitle = command.arguments[38] as? String ?? "Chat Unavailable"
+        let UnassignedMsg = command.arguments[39] as? String ?? "Chat not available at this time. Please try again later!"
+        
+        let ButtonOpt1Msg = command.arguments[42] as? String ?? "Card Billing / Loyalty"
+        let ButtonOpt1Value = command.arguments[43] as? String ?? "Card Billing / Loyalty"
+        let ButtonOpt2Msg = command.arguments[44] as? String ?? "Visa Concierge"
+        let ButtonOpt2Value = command.arguments[45] as? String ?? "Visa Concierge"
 
         let LanguageChat = command.arguments[40] as? String ?? "en-UK"
         let LoadingMsg = command.arguments[41] as? String ?? "Loading..."
 
-        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName,WelcomeMsg: WelcomeMsg,ClearConversationMsg: ClearConversationMsg,ClearConfirmMsg: ClearConfirmMsg,ChooseMsg: ChooseMsg,RevolvedTileMsg: RevolvedTileMsg,ResolvedConfirmMsg: ResolvedConfirmMsg,ClearTitleMsg: ClearTitleMsg,YesMsg: YesMsg,CancelMsg: CancelMsg,ClearMsg: ClearMsg,MenuMsg: MenuMsg,ChatTitleHeader: ChatTitleHeader,ButtonOpt1Msg: ButtonOpt1Msg,ButtonOpt1Value: ButtonOpt1Value,ButtonOpt2Msg: ButtonOpt2Msg,ButtonOpt2Value: ButtonOpt2Value,LanguageChat: LanguageChat,LoadingMsg: LoadingMsg)
+        self.showConversation(brandID: brandID,authenticationCode: token, partyID: partyID,country: country,region: region,language: language,zipcode: zipcode,accountName: accountName,customerID: customerID,ctype: ctype,storedNumber: storedNumber,entrypoint: entrypoint,firstName: firstName,lastName: lastName,age: age,year: year,month: month,day: day,email: email,phone: phone,gender: gender,company: company,userName: userName,WelcomeMsg: WelcomeMsg,ClearConversationMsg: ClearConversationMsg,ClearConfirmMsg: ClearConfirmMsg,ChooseMsg: ChooseMsg,RevolvedTileMsg: RevolvedTileMsg,ResolvedConfirmMsg: ResolvedConfirmMsg,ClearTitleMsg: ClearTitleMsg,YesMsg: YesMsg,CancelMsg: CancelMsg,ClearMsg: ClearMsg,MenuMsg: MenuMsg,ChatTitleHeader: ChatTitleHeader,WaitingTitle: WaitingTitle,WaitingMsg: WaitingMsg,UnassignedTitle: UnassignedTitle,UnassignedMsg: UnassignedMsg,LanguageChat: LanguageChat,LoadingMsg: LoadingMsg,ButtonOpt1Msg: ButtonOpt1Msg,ButtonOpt1Value: ButtonOpt1Value,ButtonOpt2Msg: ButtonOpt2Msg,ButtonOpt2Value: ButtonOpt2Value)
 
         
         var response:[String:String];
@@ -498,7 +503,7 @@ extension String {
             return nil
         }
     }
-    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil,WelcomeMsg: String? = nil,ClearConversationMsg: String? = nil,ClearConfirmMsg: String? = nil,ChooseMsg: String? = nil,RevolvedTileMsg: String? = nil,ResolvedConfirmMsg: String? = nil,ClearTitleMsg: String? = nil,YesMsg: String? = nil,CancelMsg: String? = nil,ClearMsg: String? = nil,MenuMsg: String? = nil,ChatTitleHeader: String? = nil,ButtonOpt1Msg: String? = nil,ButtonOpt1Value: String? = nil,ButtonOpt2Msg: String? = nil,ButtonOpt2Value: String? = nil,LanguageChat: String? = nil,LoadingMsg: String? = nil) {
+    func showConversation(brandID: String, authenticationCode:String? = nil, partyID:String? = nil, country:String? = nil,region:String? = nil,language:String? = nil,zipcode: String? = nil,accountName: String? = nil,customerID: String? = nil,ctype: String? = nil,storedNumber: String? = nil,entrypoint: String? = nil,firstName: String? = nil,lastName: String? = nil,age: String? = nil,year: String? = nil,month: String? = nil,day: String? = nil,email: String? = nil,phone: String? = nil,gender: String? = nil,company: String? = nil,userName: String? = nil,WelcomeMsg: String? = nil,ClearConversationMsg: String? = nil,ClearConfirmMsg: String? = nil,ChooseMsg: String? = nil,RevolvedTileMsg: String? = nil,ResolvedConfirmMsg: String? = nil,ClearTitleMsg: String? = nil,YesMsg: String? = nil,CancelMsg: String? = nil,ClearMsg: String? = nil,MenuMsg: String? = nil,ChatTitleHeader: String? = nil,WaitingTitle: String? = nil,WaitingMsg: String? = nil,UnassignedTitle: String? = nil,UnassignedMsg: String? = nil,LanguageChat: String? = nil,LoadingMsg: String? = nil,ButtonOpt1Msg: String? = nil,ButtonOpt1Value: String? = nil,ButtonOpt2Msg: String? = nil,ButtonOpt2Value: String? = nil) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let chatVC = storyboard.instantiateViewController(withIdentifier: "ConversationNavigationVC") as? UINavigationController {
@@ -519,10 +524,10 @@ extension String {
                 if let loads = LoadingMsg{
                     conversationVCs.LoadingMsg = loads
                 }
-                if let waitTitle = ButtonOpt1Msg{
+                if let waitTitle = WaitingTitle{
                     conversationVCs.WaitingTitle = waitTitle
                 }
-                if let waitMsg = ButtonOpt1Value{
+                if let waitMsg = WaitingMsg{
                     conversationVCs.WaitingMsg = waitMsg
                 }
             }
@@ -578,15 +583,32 @@ extension String {
             var UnssTitle = ""
             var UnMsg = ""
             var UnOk = ""
+            var QuickOpt1Msg = ""
+            var QuickOpt1Value = ""
+            var QuickOpt2Msg = ""
+            var QuickOpt2Value = ""
 
             if let btn1Value = YesMsg {
                 UnOk = btn1Value
             }
-            if let btn2Msg = ButtonOpt2Msg {
+            if let btn2Msg = UnassignedTitle {
                 UnssTitle = btn2Msg
             }
-            if let btn2Value = ButtonOpt2Value {
+            if let btn2Value = UnassignedMsg {
                 UnMsg = btn2Value
+            }
+            
+            if let quick1Title = ButtonOpt1Msg {
+                QuickOpt1Msg = quick1Title
+            }
+            if let quick1Value = ButtonOpt1Value {
+                QuickOpt1Value = quick1Value
+            }
+            if let quick2Title = ButtonOpt2Msg {
+                QuickOpt2Msg = quick2Title
+            }
+            if let quick2Value = ButtonOpt2Value {
+                QuickOpt2Value = quick2Value
             }
             
             getEngagement(entryPoints: entryPoints, engagementAttributes: engagementAttributes, UnassignedTitle: UnssTitle, UnassignedOk: UnOk, UnassignedMsg: UnMsg) { (campInfo, pageID) in
@@ -633,17 +655,16 @@ extension String {
                                 let welcomeMessageParam = LPWelcomeMessage(message: WelcomeMsg, frequency: .everyConversation)
 
                                 
-                                
-                                // let options = [
-                                //     LPWelcomeMessageOption(value: btn1Value, displayName: Button1Msg),
-                                //     LPWelcomeMessageOption(value: btn2Value, displayName: btn2Msg)
-                                // ]
+                                 let options = [
+                                     LPWelcomeMessageOption(value: QuickOpt1Msg, displayName: QuickOpt1Value),
+                                     LPWelcomeMessageOption(value: QuickOpt2Msg, displayName: QuickOpt2Value)
+                                 ]
 
-                                // do {
-                                //     try welcomeMessageParam.set(options: options)
-                                // } catch {
-                                //     print(error.localizedDescription)
-                                // }   
+                                 do {
+                                     try welcomeMessageParam.set(options: options)
+                                 } catch {
+                                     print(error.localizedDescription)
+                                 }
                                 
                                 
                                 let conversationViewParams = LPConversationViewParams(conversationQuery: self.conversationQuery!, containerViewController: chatVC.viewControllers.first, isViewOnly: false, welcomeMessage: welcomeMessageParam)
